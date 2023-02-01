@@ -1,25 +1,5 @@
 @charset "UTF-8";
-/* .wrap .sortbuttons {
-  padding: 15px 0;
-}
 
-section.hotel h3 {
-  color: #0f3c63;
-  font-weight: 600;
-  margin-top: 5px;
-}
-
-section .ocena .fa-star::before {
-  color: #feba02;
-}
-
-form .checkbox ul {
-  list-style: none;
-  padding: 9px 0 9px 14px;
-}
-form .btn-primary {
-  margin: 15px 0;
-} */
 .table1{  
 	width: 100%;
     border-top: 1px solid #FBE4C2;
@@ -48,4 +28,11 @@ form .btn-primary {
 #detail{
 	background-color: #F8B03A;
 }
+    
+
+
+.pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom: 30px;  border-color:#F8B03A;}
+.pagination li{display:inline-block; margin:0 2px 0 0; border-color:#F8B03A;  }
+.pagination li:last-child{margin-right:0;}
+.pagination a, .pagination strong{display:block; padding:8px 11px; border:1px solid; font-weight:normal;}
 
