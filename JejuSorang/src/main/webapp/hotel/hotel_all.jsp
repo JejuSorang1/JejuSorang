@@ -74,7 +74,7 @@
                         <td width="62%">
                           <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span  style="color:orange">(${hvo.star })</span></h4></a>
                           <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md btn-warning" style="float: right;">상세보기</button></a>
-				          <div class="short-text"><h6>${hvo.grade }</h6></div>
+				          <p> <img src="../img/star.png" style="width:22px; height:22px"><h6>${hvo.grade }</h6></p>
 				          <p> <img src="../img/point.png" style="width:22px; height:22px">&nbsp;${hvo.addr }</p>
 				          <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
                         </td>
