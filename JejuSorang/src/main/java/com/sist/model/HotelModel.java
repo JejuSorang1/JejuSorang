@@ -53,13 +53,13 @@ public class HotelModel {
 		
 		HotelDAO dao=new HotelDAO();
 		HotelVO vo=dao.hotel_detail(Integer.parseInt(hno));
-		
+		String addr=vo.getAddr();
 		//footer
 		CommonsModel.footerData(request);
 		
 		
 		request.setAttribute("vo", vo);
-		
+		request.setAttribute("addr", addr);
 		request.setAttribute("main_jsp", "../hotel/hotel_detail.jsp");
 		
 		return "../main/main.jsp";
