@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+div.sortbuttons  { padding: 15px 0;}
+  section.btn-primary{
+  margin: 15px 0;
+  }
+.form-control{border-color:#F8B03A;
+ }
+#rentimg{
+	border-radius: 20%;
+	width: 280px; height: 220px;
+}
+.rentlist{
+	  border: 1px solid #F6F4F4;
+	  border-radius: 30px;
+	  margin-bottom: 0px; 
+	  background-color: #FFF;
+	  margin-top: 20px;
+}
+#price{	text-align: right;}
+.rentsize{margin-top:30px;
+        }
+.short-text
+{text-align :text-bottom;}
+#searchbar{
+	margin-top:0px;
+}
+#searchbar1{
+	padding:10px;
+	box-shadow: none;
+}
+
+
+.pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom: 30px;  border-color:#F8B03A;}
+.pagination li{display:inline-block; margin:0 2px 0 0; border-color:#F8B03A;  }
+.pagination li:last-child{margin-right:0;}
+.pagination a, .pagination strong{display:block; padding:8px 11px; border:1px solid; font-weight:normal;}

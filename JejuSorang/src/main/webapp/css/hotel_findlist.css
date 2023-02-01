@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* .wrap .sortbuttons {
+  padding: 15px 0;
+}
+
+section.hotel h3 {
+  color: #0f3c63;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+section .ocena .fa-star::before {
+  color: #feba02;
+}
+
+form .checkbox ul {
+  list-style: none;
+  padding: 9px 0 9px 14px;
+}
+form .btn-primary {
+  margin: 15px 0;
+} */
+.table1{
+	width: 100%;
+    border-top: 1px solid #FBE4C2;
+    border-collapse: collapse;
+}
+.table2 {
+    width: 100%;
+    border-top: 1px solid #FBE4C2;
+    border-collapse: collapse;
+} 
+.table2 tr td {
+    border-bottom: 1px solid #FBE4C2;
+    padding: 10px;
+}
+#search{
+	background-color: #F8B03A;
+	border: 0px solid;
+}
+.price{  
+	-webkit-appearance: none; /* 기본 CSS 스타일을 적용하지 않기 위해서 */
+    width: 200px; /* 슬라이더 길이 */
+    height: 10px; /* 슬라이더 두께 */
+    border-radius: 5px; /* 슬라이더 모서리를 약간 둥글게 */
+    background: #FBE4C2; /* 슬라이더 색상 */
+    outline: none; /* 슬라이더 테두리 없이 */
+}
+#detail{
+	background-color: #F8B03A;
+}
+
