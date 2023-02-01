@@ -73,7 +73,7 @@ public String rent_all(HttpServletRequest request,HttpServletResponse response)
 	   if(endPage>totalpage)
 		   endPage=totalpage;
 	   
-	   request.setAttribute("list", list);
+	   request.setAttribute("list", list); 
 	   request.setAttribute("curpage", curpage);
 	   request.setAttribute("totalpage", totalpage);
 	   request.setAttribute("startPage", startPage);
@@ -85,11 +85,12 @@ public String rent_all(HttpServletRequest request,HttpServletResponse response)
 @RequestMapping("rent/car_detail.do")
 public String car_detail(HttpServletRequest request,HttpServletResponse response)
 {
-   String cno=request.getParameter("cno");
+   String cno=request.getParameter("car_no");
+   System.out.println(cno);
+   
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
-   
 	
 	//footer
 	CommonsModel.footerData(request);
