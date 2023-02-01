@@ -16,7 +16,7 @@
     <section class="booking_part" id="searchbar" >
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" id="col">
                     <div class="booking_content" id="searchbar1" >
                                 <div class="booking_form">
                                     <form action="#">
@@ -82,7 +82,6 @@
 
    </form>
 		</div>
-		<br>
 		<div class="col-sm-9 wrap" id="contentrents">
           <section class="col-md-12 " >
           <div class="container" > 

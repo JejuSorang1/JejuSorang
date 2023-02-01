@@ -16,7 +16,7 @@
 
 </style>
 </head>
-<body>
+<body>  
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
@@ -136,9 +136,7 @@
           </div>
         </section>
 	  </div>
-	  <div class="page">
 	  
-	  </div>
       <nav class="pagination">
         <ul>
           <c:if test="${startPage>1 }">

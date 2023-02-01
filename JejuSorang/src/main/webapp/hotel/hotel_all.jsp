@@ -7,42 +7,86 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/hotel_all.css"> 
 </head>
 <body>  
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
-		<div class="">
-		<form name="form1" method="post" action="" enctype="multipart/form-data">   
-		최근 본 목록
-		</form>
-		</div>
-	</div>
-	
+	  <form name="form1" method="post" action="" enctype="multipart/form-data">   
+	    <div class="col-md-12">  
+	      <div class="form-group">
+		    <div style="width: 10px;height: 50px"></div>
+		    <h3>최근 본 목록</h3>  
+	      </div>  
+          <div class="form-group">
+              <div class="input-group date" id="checkin">
+              </div>  
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+              <div class="input-group date" id="checkout">
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+          </div>
+        </div>
+	    <div class="col-md-12">	 
+	    </div>
+	  </form>
+	  
+	  <form name="form1" method="post" action="" enctype="multipart/form-data"> 
+	    <div class="col-md-12">
+        </div>
+        <div style="height: 10px"></div>
+	    <div class="col-md-12">
+            <div class="checkbox opinion" id="opinion">
+            </div>
+        </div>
+        <div style="height: 10px"></div>
+        <div class="col-md-12">
+        </div> 
+        
+      </form>
+    </div>
+    
     <div class="col-sm-9 wrap" id="contenthotels">
-      <section class="col-md-12 " >
-	    <div class="container"> 
-		  <div class="col-sm-10" >
-		    <c:forEach var="hvo" items="${list }" begin="0" end="4">
-			  <div style="display: inline-block;">
-			    <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width:300px;height:200px"></a>
-			  </div>
-			  <div style="display: inline-block;">
-			    <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h3>${hvo.name }<span  style="color:orange">(${hvo.star })</span></h3></a>
-				  <div class="short-text"><h6>${hvo.grade }</h6></div>
-				  <p> <img src="../img/point.png" style="width:22px; height:22px">&nbsp;${hvo.addr }</p>
-				  <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
-			  </div>
-			  <div>
-			    <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md btn-warning" style="float: right;">상세보기</button></a>
-			  </div>
-			  <br><br>
-			  <hr>
-				<br><br>
-				</c:forEach>
-				</div>
-	        </div>
-	    </section>
+      <div class="col-md-12 sortbuttons">
+      </div>
+	  <div style="height: 30px"></div>
+
+    <div class="list-group list row">
+      <section class="col-md-12">
+        <div class="container">
+          <div class="col-md-12">
+            <table class="table1">
+              <tr>
+                <td>
+                  <c:forEach var="hvo" items="${list }" begin="0" end="4">
+                    <table class="table2">
+                      <tr>
+                        <td width="38%" class="text-left" rowspan="4">
+                          <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width:300px;height:250px"></a>
+                        </td>
+                        <td width="62%">
+                          <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span  style="color:orange">(${hvo.star })</span></h4></a>
+                          <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md btn-warning" style="float: right;">상세보기</button></a>
+				          <div class="short-text"><h6>${hvo.grade }</h6></div>
+				          <p> <img src="../img/point.png" style="width:22px; height:22px">&nbsp;${hvo.addr }</p>
+				          <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </c:forEach>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
       
 	     <nav class="pagination">
 	        <ul>
@@ -58,6 +102,7 @@
 	        </ul>
       </nav>
     </div>
+  </div>
   </div>
 </div>
 </body>

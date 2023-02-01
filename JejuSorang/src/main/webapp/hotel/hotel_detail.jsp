@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> 
 <script type="text/javascript">
 
 </script>
@@ -42,8 +42,7 @@
           </div>
        </div>
       </div>
-      <div class="col-md-3" style="background-color:orange">
-      지도
+      <div class="col-md-3">
       <div class="sdb_holder">
         <%-- 지도 --%>
         <div id="map" style="width:100%;height:350px;">

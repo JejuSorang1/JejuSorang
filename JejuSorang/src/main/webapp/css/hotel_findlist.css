@@ -20,7 +20,7 @@ form .checkbox ul {
 form .btn-primary {
   margin: 15px 0;
 } */
-.table1{
+.table1{  
 	width: 100%;
     border-top: 1px solid #FBE4C2;
     border-collapse: collapse;
@@ -31,7 +31,6 @@ form .btn-primary {
     border-collapse: collapse;
 } 
 .table2 tr td {
-    border-bottom: 1px solid #FBE4C2;
     padding: 10px;
 }
 #search{
@@ -49,5 +48,4 @@ form .btn-primary {
 #detail{
 	background-color: #F8B03A;
 }
-
 

@@ -128,10 +128,9 @@ public class HotelDAO {
 	{     
 		int total=0;
 	      try
-	      {
+	      {  
 	         conn=CreateConnection.getConnection();
-	         String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_hotel_1 "
-	                 +"WHERE addr LIKE '%'||?||'%'";
+	         String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_hotel_1";
 	    
 	         ps=conn.prepareStatement(sql);
 	         ps.setString(1, ss);
