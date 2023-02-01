@@ -166,7 +166,7 @@
         <ul>
           <c:if test="${startPage>1 }">
               <li><a href="../hotel/hotel_findlist.do?page=${startPage-1 }">이전&laquo;</a></li>
-            </c:if>  
+            </c:if>    
             <c:forEach var="i" begin="${startPage }" end="${endPage }">
               <li ${i==curpage?"class==current":"" }><a href="../hotel/hotel_findlist.do?page=${i }">${i}</a></li>
             </c:forEach>
