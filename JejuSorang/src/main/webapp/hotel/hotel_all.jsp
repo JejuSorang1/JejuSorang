@@ -95,7 +95,7 @@
 	         </c:if>
 	          <c:forEach var="i" begin="${startPage }" end="${endPage }">
 	            <li ${i==curpage?"class=current":"" }><a href="../hotel/hotel_all.do?page=${i }">${i }</a></li>
-	          </c:forEach>
+	          </c:forEach>  
 	         <c:if test="${endPage<totalpage }">
 	          <li><a href="../hotel/hotel_all.do?page=${endPage+1 }">Next &raquo;</a></li>
 	         </c:if>
