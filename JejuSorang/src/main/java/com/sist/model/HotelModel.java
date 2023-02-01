@@ -61,7 +61,7 @@ public class HotelModel {
 		
 		RoomDAO adao=new RoomDAO();
 		List<RoomVO> rList=adao.room_detail(Integer.parseInt(hno));
-		request.setAttribute("rList", rList);
+		request.setAttribute("rList", rList); 
 		
 		
 		//footer

@@ -80,7 +80,7 @@
                         </td>
                       </tr>
                     </table>
-                  </c:forEach>
+                  </c:forEach> 
                 </td>
               </tr>
             </table>

@@ -162,7 +162,7 @@ public class HotelDAO {
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, hno);
 			ResultSet rs = ps.executeQuery();
-			rs.next();
+			rs.next(); 
 			vo.setHno(rs.getInt(1));
 			vo.setName(rs.getString(2));
 			vo.setAddr(rs.getString(3));

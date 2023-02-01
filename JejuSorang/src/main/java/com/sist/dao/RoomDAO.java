@@ -23,7 +23,7 @@ public class RoomDAO {
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, hno);
 			ResultSet rs = ps.executeQuery();
-			while(rs.next())
+			while(rs.next()) 
 			{
 				RoomVO vo=new RoomVO();
 				vo.setHno(rs.getInt(1));
