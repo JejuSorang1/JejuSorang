@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+>>>>>>> branch 'master' of https://github.com/JejuSorang1/JejuSorang.git
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +20,7 @@
                         <h4>고객센터</h4>
                           <p>평일 09:00 ~ 17:30 (점심시간 12:00~13:00)</p>
                     </div>
-                </div>
+                </div> 
 
                 <div class="col-sm-4 col-md-4">
                     <div class="single-footer-widget footer_icon">
