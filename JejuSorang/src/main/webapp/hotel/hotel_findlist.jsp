@@ -136,9 +136,7 @@
           </div>
         </section>
 	  </div>
-	  <div class="page">
 	  
-	  </div>
       <nav class="pagination">
         <ul>
           <c:if test="${startPage>1 }">
