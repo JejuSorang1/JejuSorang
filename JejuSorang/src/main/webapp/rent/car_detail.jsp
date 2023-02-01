@@ -28,9 +28,9 @@
     
     <div class="row">
       <div class="col-md-6">
-        <img src="https://backend.jeju-the-rentcar.com/imagefiles/16405722936928029228936107700.png" style="width:400px;height:300px">
+        <img src="${vo.car_image }" style="width:400px;height:300px">
         <p class="tip">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
-        <h4>더뉴 모닝 [휘발유]</h4></div>
+        <h4>${vo.car_name }</h4></div>
       </div>       
       <hr>
       <div class="container">
@@ -144,6 +144,6 @@ geocoder.addressSearch('제주특별자치도 제주시 도두동 오일장서�
   
 </div>
 </div>
-</div>
+
 </body>
 </html>

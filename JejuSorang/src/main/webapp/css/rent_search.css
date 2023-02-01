@@ -8,15 +8,19 @@ div.sortbuttons  { padding: 15px 0;}
  }
 #rentimg{
 	border-radius: 20%;
-	width: 280px; height: 220px;
+ text-align: center;
+	
 }
-.rentlist{
-	  border: 1px solid #D3D3D3;
+.table2{
+	  table-layout: fixed;
+	  border: 1px solid #D3D3D3 ;
 	  border-radius: 30px;
-	  margin-bottom: 0px; 
-	  background-color: #fff;
-	  margin-top: 5px;
+	  margin-bottom: 12px; 
+	  margin-top: 3px;
+	  border-collapse: separate;
+	  
 }
+
 #price{	text-align: right;}
 .rentsize{margin-top:30px;
         }
@@ -40,14 +44,7 @@ div.sortbuttons  { padding: 15px 0;}
 	height: 38px;
 	border-radius:10px;
 }
-.btn_1
-{
-	background-color:#F8B03A;
-	padding: 8px 15px;
-	border-radius:5px;
-}
-
-.pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom: 30px;  border-color:#F8B03A;}
+.pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom:10px;  border-color:#F8B03A;}
 .pagination li{display:inline-block; margin:0 2px 0 0; border-color:#F8B03A;  }
 .pagination li:last-child{margin-right:0;}
 .pagination a, .pagination strong{display:block; padding:8px 11px; border:1px solid; font-weight:normal;}

@@ -162,7 +162,7 @@ public class HotelDAO {
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, hno);
 			ResultSet rs = ps.executeQuery();
-			rs.next();
+			rs.next(); 
 			vo.setHno(rs.getInt(1));
 			vo.setName(rs.getString(2));
 			vo.setAddr(rs.getString(3));
@@ -184,41 +184,7 @@ public class HotelDAO {
 		return vo;
 	}
 	//4. 객실 상세보기
-	public List<RoomVO> room_detail(int hno)
-	{
-		List<RoomVO> list = new ArrayList<RoomVO>();
-		try
-		{
-			conn =CreateConnection.getConnection();
-			String sql ="SELECT room_no,room_name,room_price,room_image,room_person,room_bed_info,account "
-					+ "from jj_room_1 "
-					+ "where hno=?";
-			ps=conn.prepareStatement(sql);
-			ps.setInt(1, hno);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next())
-			{
-				RoomVO vo=new RoomVO();
-				vo.setRoom_no(rs.getInt(1));
-				vo.setRoom_name(rs.getString(2));
-				vo.setRoom_price(rs.getString(3));
-				vo.setRoom_image(rs.getString(4));
-				vo.setRoom_persons(rs.getString(5));
-				vo.setRoom_bed_info(rs.getString(6));
-				vo.setAccount(rs.getInt(7));
-			}
-			rs.close();
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		finally
-		{
-			CreateConnection.disConnection(conn, ps);
-			
-		}
-		
-		return list;
-	}
+	
 	
 	//호텔 인기순위
 	public List<HotelVO> hotel_rank(){

@@ -33,6 +33,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="../rent/rent_all.do">렌트카</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../notice/list.do">공지사항</a>
+                                    </li>
                                 </ul>
                             </div>
                             <c:if test="${sessionScope.id==null }">
@@ -44,7 +47,7 @@
                                &nbsp;<a href="#" class="btn_1 d-none d-lg-block" id="logoutBtn">로그아웃</a>
                              </c:if>
                              <c:if test="${sessionScope.admin=='y' }">
-                               <a href="#" class="btn_1 d-none d-lg-block">관리자페이지</a>
+                               <a href="../adminpage/admin_main.do" class="btn_1 d-none d-lg-block">관리자페이지</a>
                                &nbsp;<a href="#" class="btn_1 d-none d-lg-block" id="logoutBtn">로그아웃</a>
                              </c:if>
                             </c:if>
