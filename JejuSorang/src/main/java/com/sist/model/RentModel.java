@@ -85,18 +85,19 @@ public String rent_all(HttpServletRequest request,HttpServletResponse response)
 @RequestMapping("rent/car_detail.do")
 public String car_detail(HttpServletRequest request,HttpServletResponse response)
 {
-   String car_no=request.getParameter("car_no");
+   String cno=request.getParameter("car_no");
+   System.out.println(cno);
+   
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
-   CarVO vo=dao.car_detail(Integer.parseInt(car_no));
-   
+   CarVO vo=dao.car_detail(Integer.parseInt(cno));
 	
 	//footer
 	CommonsModel.footerData(request);
 	
    
    request.setAttribute("vo", vo);
-   request.setAttribute("car_no", car_no);
+   request.setAttribute("cno", cno);
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "../main/main.jsp";
    
