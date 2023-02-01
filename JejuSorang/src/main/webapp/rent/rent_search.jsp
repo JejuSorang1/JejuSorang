@@ -13,6 +13,36 @@
 <body>
   <div class="container">
   <div class="row">
+  <section class="booking_part" id="searchbar" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" id="col">
+                    <div class="booking_content" id="searchbar1" >
+                                <div class="booking_form">
+                                    <form action="#">
+                                        <div class="form-row">
+                                            <div class="form_colum" style="width:300px">
+                                                <select class="nc_select">
+                                                    <option selected>제주국제공항</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_colum" style="width:300px">
+                                                <input id="datepicker_3" placeholder="예약시작일">
+                                            </div>
+                                            <div class="form_colum" style="width:300px">
+                                                <input id="datepicker_4" placeholder="예약종료일">
+                                            </div>
+                                            <div class="form_btn">
+                                                <a href="../rent/rent_search.do?car_no=${cvo.car_no }" class="btn_1" >검색</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="col-sm-3">
 		<div class="">
 	<form name="form1" method="post" action="" enctype="multipart/form-data">   

@@ -11,11 +11,11 @@ div.sortbuttons  { padding: 15px 0;}
 	width: 280px; height: 220px;
 }
 .rentlist{
-	  border: 1px solid #F6F4F4;
+	  border: 1px solid #D3D3D3;
 	  border-radius: 30px;
 	  margin-bottom: 0px; 
-	  background-color: #FFF;
-	  margin-top: 20px;
+	  background-color: #fff;
+	  margin-top: 5px;
 }
 #price{	text-align: right;}
 .rentsize{margin-top:30px;
@@ -28,8 +28,9 @@ div.sortbuttons  { padding: 15px 0;}
 #searchbar1{
 	padding:5px;
 	box-shadow: none;
-	justify-content: space-between
+	
 }
+
 .booking_part .form-row .form_colum .gj-textbox-md {
 	padding: 10px;
 	border-radius:10px;
@@ -45,7 +46,7 @@ div.sortbuttons  { padding: 15px 0;}
 	padding: 8px 15px;
 	border-radius:5px;
 }
-.booking_part .form-row .form_colum .gj-datepicker-md [role=right-icon]
+
 .pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom: 30px;  border-color:#F8B03A;}
 .pagination li{display:inline-block; margin:0 2px 0 0; border-color:#F8B03A;  }
 .pagination li:last-child{margin-right:0;}
