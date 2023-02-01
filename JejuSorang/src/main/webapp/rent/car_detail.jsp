@@ -11,6 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<link rel="stylesheet" href="style.css">
 <!------ Include the above in your HEAD tag ---------->
 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -20,18 +21,48 @@
 
 </script>
 
+<style>
+  table {
+    width: 400px;
+    height: 250px;
+    border: 1px solid #444444;
+  }
+</style>
+ 
 </head>
 <body>
 
 <div class="wrapp">
   <div class="container">
-    
     <div class="row">
       <div class="col-md-6">
         <img src="${vo.car_image }" style="width:400px;height:300px">
         <p class="tip">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
-        <h4>${vo.car_name }</h4></div>
-      </div>       
+        <h4>${vo.car_name }</h4>
+      </div>
+          <table>
+      <thead>
+        <tr>
+          <th>결제정보</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>대여요금(완전자차포함)</td><td>Ipsum</td><td>Dolor</td>
+        </tr>
+        <tr>
+          <td>비회원가</td><td>Ipsum</td><td>Dolor</td>
+        </tr>
+        <tr>
+          <td>예상결제액</td><td>Ipsum</td><td>Dolor</td>
+        </tr>
+        <td align="right">
+         <button class="btn btn-danger ">가격+바로예약하기</button>
+        </td>
+      </tbody>
+    </table>
+     </div> 
+ 
       <hr align="left" style="border: solid 1px orange; width: 50%;">
       <div class="container">
        <div class="row">
@@ -45,8 +76,10 @@
         </div>
        </div>
       </div>
+      
      <hr align="left" style="border: solid 1px orange; width: 50%;">       
-     
+                    
+                     
      <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -63,8 +96,8 @@
 		          </div>
                </div>
             </div>
+  
        <div class="col-md-6">
-      <div class="sdb_holder">
         <%-- 지도 --%>
         <div id="map" style="width:200;height:200px;">
 		<script>
@@ -107,7 +140,7 @@
 		</script>
 		</div>
       </div>
-      </div>
+      
     
   </div>
 </div>
