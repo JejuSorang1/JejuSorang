@@ -8,17 +8,39 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-
-</script>
 <style>
 
 </style>
 </head>
-<body>  
+<body>
 <div class="container">
   <div class="row">
+    <section class="col-sm-12" id="searchbar" >
+      <div class="booking_content" id="searchbar1" >
+        <div class="booking_form">
+          <form action="#">
+            <div class="form-row">
+              <div class="form_colum" style="width:300px; margin-left: 5px;">
+                <select class="nc_select">
+                  <option value="jeju" style="width: 500px;height: 500px" selected>전체</option>
+                  <option value="jeju">제주시</option>
+                  <option value="seogwipo">서귀포시</option>
+                </select>
+              </div>
+              <div class="form_colum" style="width:300px;  margin-left: 5px;">
+                <input id="datepicker_3" placeholder="예약시작일">
+              </div>
+              <div class="form_colum" style="width:300px;  margin-left: 5px;">
+                <input id="datepicker_4" placeholder="예약종료일">
+              </div>
+              <div class="form_btn" style="margin-left: 5px;">
+                <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>    
+    </section>
     <div class="col-sm-3">
 	  <form name="form1" method="post" action="" enctype="multipart/form-data">   
 	    <div class="col-md-12">  
@@ -29,7 +51,7 @@
 		    <h5>목적지</h5>
 			  <select name="city" class="travel">
 			    <option value="jeju">제주시</option>  
-			    <option value="Seogwipo">서귀포시</option>  
+			    <option value="seogwipo">서귀포시</option>  
 			  </select>
 	      </div>
           <div class="form-group">
@@ -92,8 +114,8 @@
         <div style="height: 10px"></div>
         <div class="col-md-12">
           <h5>금액</h5>
-            <input type="range" min="1" max="100" value="50" class="price" id="price">
-            <p>Vlaue:<span id="value"></span></p>
+            <input type="range" min="1" max="100" value="50" class="price" name="price">
+            <p>Value:<span id="value"></span></p>
         </div> 
         
       </form>
@@ -117,14 +139,17 @@
                     <c:forEach var="hvo" items="${list }" begin="0" end="4">
                       <table class="table2">
                         <tr>
-                          <td width="38%" class="text-left" rowspan="4">
+                          <td width="38%" class="text-left" rowspan="3">
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width:300px;height:250px"></a>
                           </td>
-                          <td width="62%">
-                            <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span class="list-group-item-text ocena">(${hvo.star })</span></h4></a><a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>
+                          <td width="45%">
+                            <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span class="list-group-item-text ocena">(${hvo.star })</span></h4></a><!-- 여기 -->
                             <p><h6>${hvo.grade }</h6></p>
                             <p><img src="../img/point.png" style="width:22px; height:22px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
+                          </td>
+                          <td width="17%">
+                            <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>
                           </td>
                         </tr>
                       </table>
