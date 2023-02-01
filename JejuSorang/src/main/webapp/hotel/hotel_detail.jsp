@@ -42,8 +42,7 @@
           </div>
        </div>
       </div>
-      <div class="col-md-3" style="background-color:orange">
-      지도
+      <div class="col-md-3">
       <div class="sdb_holder">
         <%-- 지도 --%>
         <div id="map" style="width:100%;height:350px;">
