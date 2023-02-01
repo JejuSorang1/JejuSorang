@@ -52,37 +52,23 @@ public class HotelModel {
 		String hno=request.getParameter("hno");
 		
 		HotelDAO dao=new HotelDAO();
-		HotelVO vo=dao.hotel_detail(Integer.parseInt(hno));
-		String addr=vo.getAddr();
-		//footer
-		CommonsModel.footerData(request);
+		HotelVO hvo=dao.hotel_detail(Integer.parseInt(hno));
+		String addr=hvo.getAddr();
 		
-		
-		request.setAttribute("vo", vo);
+		request.setAttribute("hvo", hvo);
 		request.setAttribute("addr", addr);
 		request.setAttribute("main_jsp", "../hotel/hotel_detail.jsp");
 		
-		return "../main/main.jsp";
-	}
-	@RequestMapping("hotel/room_detail.do") //객실 상세보기
-	public String room_detail(HttpServletRequest request,HttpServletResponse response)
-	{
-		String hno=request.getParameter("hno");
+		RoomDAO adao=new RoomDAO();
+		List<RoomVO> rList=adao.room_detail(Integer.parseInt(hno));
+		request.setAttribute("rList", rList);
 		
-		HotelDAO dao=new HotelDAO();
-		List<RoomVO> list=dao.room_detail(Integer.parseInt(hno));
 		
 		//footer
 		CommonsModel.footerData(request);
-		
-		
-		request.setAttribute("list", list);
-		request.setAttribute("hno", hno);
-		
-		request.setAttribute("main_jsp", "../hotel/room_detail.jsp");
-		
 		return "../main/main.jsp";
 	}
+	
 	@RequestMapping("hotel/hotel_findlist.do") //검색 후
 	public String hotel_findlist(HttpServletRequest request, HttpServletResponse response)
 	{
