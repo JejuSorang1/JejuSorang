@@ -134,7 +134,7 @@ public class RentDAO {
 		   return total;
 	   }
 	//렌트카 상세보기
-	public CarVO car_detail(int cno)
+	public CarVO car_detail(int car_no)
 	{
 		CarVO vo=new CarVO();
 		try
@@ -144,7 +144,7 @@ public class RentDAO {
 					+ "FROM jj_car_1 "
 					+ "WHERE car_no=?";
 			ps=conn.prepareStatement(sql);
-			ps.setInt(1, cno);
+			ps.setInt(1, car_no);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
 				vo.setCar_no(rs.getInt(1));
