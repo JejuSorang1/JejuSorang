@@ -18,7 +18,7 @@
 	      <div class="form-group">
 		    <div style="width: 10px;height: 50px"></div>
 		    <h3>최근 본 목록</h3>  
-	      </div>
+	      </div>  
           <div class="form-group">
               <div class="input-group date" id="checkin">
               </div>  

@@ -128,7 +128,7 @@ public class HotelDAO {
 	{     
 		int total=0;
 	      try
-	      {
+	      {  
 	         conn=CreateConnection.getConnection();
 	         String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_hotel_1";
 	    
