@@ -230,16 +230,18 @@
                   
                     <table class="table2">
                       <tr>
-                        <td width="38%" class="text-left" rowspan="4">
+                        <td width="38%" class="text-left">
                           <img src="이미지" style="width:300px;height:250px">
                         </td>
-                        <td width="62%">
+                        <td width="50%">
                           <h4>이름</h4>
-                          <a href="#"><button type="button" class="btn btn-md btn-warning" style="float: right;">예약하기</button></a>
 				          <p> <img src="">&nbsp;인원수</p>
 				          <p> <img src="">&nbsp;침대정보</p>
 				          <p> 빈 객실 수 :&nbsp;ㅁㅁ개</p>
 				          <p> 가격원</p>
+                        </td>
+                        <td width="12%">
+                        <a href="#"><button type="button" class="btn btn-md btn-warning" style="float: right;">예약하기</button></a>
                         </td>
                       </tr>
                     </table>
