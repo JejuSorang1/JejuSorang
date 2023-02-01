@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery.com"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -28,16 +29,16 @@
     
     <div class="row">
       <div class="col-md-5">
-        <img src="${vo.hotel_image }" style="width:500px;height:300px">
+        <img src="${hvo.hotel_image }" style="width:500px;height:300px">
        </div>
       <div class="col-md-4">
         <div class="product-dtl">
           <div class="product-info">
-            <div class="product-name"><h4>${vo.name}<span style="color:orange">(${vo.star })</span></h4></div>
+            <div class="product-name"><h4>${hvo.name}<span style="color:orange">(${hvo.star })</span></h4></div>
             <div class="info">
-              <p> <img src="../img/star.png" style="width:30px; height:30px">&nbsp;&nbsp;${vo.grade }</p>
-              <p> <img src="../img/point.png" style="width:35px; height:35px">&nbsp;${vo.addr}</p>
-			  <p> <img src="../img/clock.png" style="width:33px; height:33px">&nbsp;${vo.time}</p>
+              <p> <img src="../img/star.png" style="width:30px; height:30px">&nbsp;&nbsp;${hvo.grade }</p>
+              <p> <img src="../img/point.png" style="width:35px; height:35px">&nbsp;${hvo.addr}</p>
+			  <p> <img src="../img/clock.png" style="width:33px; height:33px">&nbsp;${hvo.time}</p>
             </div>
           </div>
        </div>
@@ -102,6 +103,31 @@
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
           객실리스트
+          <div class="col-md-12">
+            <table class="table1">
+              <tr>
+                <td>
+                  
+                    <table class="table2">
+                      <tr>
+                        <td width="38%" class="text-left" rowspan="4">
+                          <img src="이미지" style="width:300px;height:250px">
+                        </td>
+                        <td width="62%">
+                          <h4>이름</h4>
+                          <a href="#"><button type="button" class="btn btn-md btn-warning" style="float: right;">예약하기</button></a>
+				          <p> <img src="">&nbsp;인원수</p>
+				          <p> <img src="">&nbsp;침대정보</p>
+				          <p> 빈 객실 수 :&nbsp;ㅁㅁ개</p>
+				          <p> 가격원</p>
+                        </td>
+                      </tr>
+                    </table>
+                   
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
           <div class="review-heading">후기</div>
