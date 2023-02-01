@@ -26,7 +26,7 @@
                   <option value="jeju" style="width: 500px;height: 500px" selected>전체</option>
                   <option value="jeju">제주시</option>
                   <option value="seogwipo">서귀포시</option>
-                </select>  
+                </select>    
               </div>
               <div class="form_colum" style="width:300px;  margin-left: 5px;">
                 <input id="datepicker_3" placeholder="예약시작일">
