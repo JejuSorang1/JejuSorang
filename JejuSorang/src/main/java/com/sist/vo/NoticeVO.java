@@ -13,9 +13,23 @@ package com.sist.vo;
 import java.util.Date;
 
 public class NoticeVO {
-  private int no,hit;
-  private String type,name,subject,content,db_day;
+  private int no,hit,type;
+  private String name,subject,content,db_day,prefix;
   private Date regdate;
+  
+  
+public int getType() {
+	return type;
+}
+public String getPrefix() {
+	return prefix;
+}
+public void setPrefix(String prefix) {
+	this.prefix = prefix;
+}
+public void setType(int type) {
+	this.type = type;
+}
 public int getNo() {
 	return no;
 }
@@ -28,12 +42,7 @@ public int getHit() {
 public void setHit(int hit) {
 	this.hit = hit;
 }
-public String getType() {
-	return type;
-}
-public void setType(String type) {
-	this.type = type;
-}
+
 public String getName() {
 	return name;
 }

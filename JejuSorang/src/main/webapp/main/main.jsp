@@ -76,7 +76,7 @@
     <!-- custom js -->
     <script src="../js/custom.js"></script>
     <script src="../js/login.js"></script>
-
+	<script src="../js/admin_main.js"></script>
 </body>
 
 </html>

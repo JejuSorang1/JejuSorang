@@ -49,10 +49,3 @@ form .btn-primary {
 	background-color: #F8B03A;
 }
 
-
-
-.pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom: 30px;  border-color:#F8B03A;}
-.pagination li{display:inline-block; margin:0 2px 0 0; border-color:#F8B03A;  }
-.pagination li:last-child{margin-right:0;}
-.pagination a, .pagination strong{display:block; padding:8px 11px; border:1px solid; font-weight:normal;}
-

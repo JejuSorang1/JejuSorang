@@ -2606,7 +2606,7 @@ ul {
 /* line 29, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_booking.scss */
 .booking_part .form-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 /* line 32, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_booking.scss */

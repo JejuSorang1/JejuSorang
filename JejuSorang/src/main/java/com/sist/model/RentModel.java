@@ -73,7 +73,7 @@ public String rent_all(HttpServletRequest request,HttpServletResponse response)
 	   if(endPage>totalpage)
 		   endPage=totalpage;
 	   
-	   request.setAttribute("list", list); 
+	   request.setAttribute("list", list);
 	   request.setAttribute("curpage", curpage);
 	   request.setAttribute("totalpage", totalpage);
 	   request.setAttribute("startPage", startPage);
