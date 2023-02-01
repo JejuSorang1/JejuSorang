@@ -26,11 +26,26 @@ div.sortbuttons  { padding: 15px 0;}
 	margin-top:0px;
 }
 #searchbar1{
-	padding:10px;
+	padding:5px;
 	box-shadow: none;
+	justify-content: space-between
 }
-
-
+.booking_part .form-row .form_colum .gj-textbox-md {
+	padding: 10px;
+	border-radius:10px;
+}
+.booking_part .form-row .form_colum .nc_select, .booking_part .form-row .form_colum .gj-datepicker
+{
+	height: 38px;
+	border-radius:10px;
+}
+.btn_1
+{
+	background-color:#F8B03A;
+	padding: 8px 15px;
+	border-radius:5px;
+}
+.booking_part .form-row .form_colum .gj-datepicker-md [role=right-icon]
 .pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom: 30px;  border-color:#F8B03A;}
 .pagination li{display:inline-block; margin:0 2px 0 0; border-color:#F8B03A;  }
 .pagination li:last-child{margin-right:0;}
