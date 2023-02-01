@@ -96,8 +96,9 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
 	
    
    request.setAttribute("vo", vo);
+   request.setAttribute("cno", cno);
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "../main/main.jsp";
    
-}
+	}
 }
