@@ -136,7 +136,7 @@
             <br>
             <table>
              <h4 style="font-size:20px;color:gray"><b>업체정보</b></h4>
-             <td class="text-left"><img src="../img/rlogo.png" style="weight:25px;height:25px">&nbsp;레인보우모빌리티
+             <td class="text-left"><img src="../img/rlogo.png" style="weight:25px;height:25px">&nbsp;${rvo.rname }
               &nbsp;<span><img src="../img/star.png" style="width:10px; height:10px">&nbsp;${rvo.star }</span> 
              </td>
             </table>
@@ -157,7 +157,7 @@
       var geocoder = new kakao.maps.services.Geocoder();
       
       // 주소로 좌표를 검색합니다
-      geocoder.addressSearch('제주특별자치도 제주시 도두동 오일장서길 68', function(result, status) {
+      geocoder.addressSearch('${rvo.rcaddr}', function(result, status) {
       
           // 정상적으로 검색이 완료됐으면 
            if (status === kakao.maps.services.Status.OK) {
@@ -172,7 +172,7 @@
       
               // 인포윈도우로 장소에 대한 설명을 표시합니다
               var infowindow = new kakao.maps.InfoWindow({
-                  content: '<div style="width:150px;text-align:center;padding:6px 0;">레인보우모빌리티</div>'
+                  content: '<div style="width:150px;text-align:center;padding:6px 0;">${rvo.rname}</div>'
               });
               infowindow.open(map, marker);
       
@@ -186,12 +186,12 @@
             <table>
             <br>
              <tr style="font-size:20px;color:gray"><b>주소</b></tr>
-             <td>제주특별자치도 제주시 도두동 오일장서길 68</td>
+             <td>${rvo.rcaddr }</td>
              </table>
              <table>
              <br>
              <tr style="font-size:15px;color:gray"><b>전화</b></tr>
-             <td>064-747-9726</td>
+             <td>${rvo.rctel }</td>
              </table>
              <br>
              <table>

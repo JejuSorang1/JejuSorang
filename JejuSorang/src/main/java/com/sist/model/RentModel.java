@@ -86,20 +86,26 @@ public String rent_all(HttpServletRequest request,HttpServletResponse response)
 public String car_detail(HttpServletRequest request,HttpServletResponse response)
 {
    String cno=request.getParameter("car_no");
-   System.out.println(cno);
+   String rcno=request.getParameter("rcno");
+   //System.out.println(cno);
    
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
-	
-	//footer
-	CommonsModel.footerData(request);
-	
-   
    request.setAttribute("vo", vo);
    request.setAttribute("cno", cno);
+	/*
+	 * RoomDAO adao=new RoomDAO(); 
+	 * List<RoomVO> rList=adao.room_detail(Integer.parseInt(hno)); request.setAttribute("rList",
+	 * rList);
+	 */
+	//footer
+    RcomDAO adao=new RcomDAO();
+    RcomVO rcList=adao.RentrcomData(Integer.parseInt(rcno));
+    request.setAttribute("rcList", rcList);
+	CommonsModel.footerData(request);
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "../main/main.jsp";
-   
 	}
-}
+ 
+ }
