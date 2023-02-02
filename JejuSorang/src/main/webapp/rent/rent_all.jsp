@@ -46,50 +46,7 @@
         </div>
     </section>
        <div class="col-sm-3">
-	  <form name="form1" method="post" action="" enctype="multipart/form-data">   
-	    <div class="col-md-12">  
-	      <div class="form-group">
-		  <div style="width: 10px;height: 50px"></div>
-		  <h3>검색결과</h3><hr>
-		  <div style="height: 5px"></div>
-		    <h5>목적지</h5>
-			  <select name="city" class="travel">
-			    <option value="jeju">제주시</option>  
-			    <option value="Seogwipo">서귀포시</option>  
-			  </select>
-	      </div>
-          <div class="form-group">
-		    <h5>체크인 날짜</h5>
-              <div class="input-group date" id="checkin">
-                <input type="date" class="form-control" name="startdate" id="startdate">
-                  <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>  
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-		    <h5>체크아웃 날짜</h5>
-              <div class="input-group date" id="checkout">
-                <input type="date" class="form-control" name="enddate" id="enddate">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <h5>인원</h5>
-            <input type="number" min="1" max="8" value="1">
-          </div>
-        </div>
-	    <div class="col-md-12">	 
-		  <input type="submit" name="submit" value="검색" class="btn btn-primary mb-2" id=search><hr>
-	    </div>
-	  </form>
-	  
+       <div class="table">
 	  <form name="form1" method="post" action="" enctype="multipart/form-data"> 
 	    <div class="col-md-12">
           <h5>호텔 종류</h5>
@@ -124,6 +81,7 @@
         
       </form>
     </div>`
+    </div>
           <div class="row" >
           <section class="col-md-12" >
           <div class="container" > 
