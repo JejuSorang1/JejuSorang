@@ -9,17 +9,18 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
 <style>
-
+   
 </style>
 </head>
 <body>
 <div class="container">
   <div class="row">
-    <section class="col-sm-12" id="searchbar" >
+    <div class="row-lg-12">
+    <section class="booking_part" id="searchbar" >
       <div class="booking_content" id="searchbar1" >
         <div class="booking_form">
           <form action="#">
-            <div class="form-row">
+            <div class="form-row" style="height: 10px">
               <div class="form_colum" style="width:300px; margin-left: 5px;">
                 <select class="nc_select">
                   <option value="jeju" style="width: 500px;height: 500px" selected>전체</option>
@@ -41,6 +42,9 @@
         </div>
       </div>    
     </section>
+    </div>
+    
+    
     <div class="col-sm-3">
 	  <form name="form1" method="post" action="" enctype="multipart/form-data">   
 	    <div class="col-md-12">  
@@ -123,7 +127,7 @@
     
     <div class="col-sm-9 wrap" id="contenthotels">
       <div class="col-md-12 sortbuttons">
-        <button type="button" class="btn btn-sm" style="float: right;" id="newBtn">최신순</button>
+        <button type="button" class="btn btn-sm" style="float: right;" id="newBtn">추천순</button>
         <button type="button" class="btn btn-sm" style="float: right;" id="lowBtn">가격(낮은순)</button>
         <button type="button" class="btn btn-sm" style="float: right;" id="highBtn">가격(높은순)</button>
 	  </div>
@@ -144,8 +148,8 @@
                           </td>
                           <td width="45%">
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span class="list-group-item-text ocena">(${hvo.star })</span></h4></a><!-- 여기 -->
-                            <p><h6>${hvo.grade }</h6></p>
-                            <p><img src="../img/point.png" style="width:22px; height:22px">&nbsp;${hvo.addr }</p>
+                            <p><h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
+                            <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
                           </td>
                           <td width="17%">
