@@ -1,8 +1,8 @@
-#searchbar{
-	margin-top:0px;
+.floatingCont.floatingRentcar .boxWhite {
+    padding: 16px 0;
 }
-#searchbar1{
-	padding:5px;
-	box-shadow: none;
-	
+.boxWhite {
+    padding: 32px 24px;
+    border-radius: 16px;
+    background: #fff;
 }
