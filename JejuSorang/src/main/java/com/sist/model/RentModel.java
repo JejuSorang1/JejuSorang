@@ -22,8 +22,7 @@ public String rent_search(HttpServletRequest request,HttpServletResponse respons
 		   request.setCharacterEncoding("UTF-8");
 	   }catch(Exception ex){}
 	   String ss=request.getParameter("ss");
-	   if(ss==null)
-		   ss="";
+	   
 	   String page=request.getParameter("page");
 	   if(page==null)
 		   page="1";
@@ -57,6 +56,9 @@ public String rent_search(HttpServletRequest request,HttpServletResponse respons
 @RequestMapping("rent/rent_all.do")
 public String rent_all(HttpServletRequest request,HttpServletResponse response)
 {
+
+	 
+	   
 	  String page=request.getParameter("page");
 	   if(page==null)
 	   page="1";

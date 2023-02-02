@@ -18,8 +18,8 @@ public class RentDAO {
 		try {
 			conn=CreateConnection.getConnection();
 			String sql="SELECT car_no,car_name,car_image,car_price,car_option1,num "
-				     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,rownum as num "
-				     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1 "
+				     +"FROM (SELECT car_no,car_name,car_image,rownum as num "
+				     +"FROM (SELECT car_no,car_name,car_image "
 				     +"FROM jj_car_1)) "
 				     +"WHERE num BETWEEN ? AND ?";
 			ps=conn.prepareStatement(sql);
@@ -79,15 +79,17 @@ public class RentDAO {
 			   String sql="SELECT car_no,car_name,car_image,car_price,car_option1,account,num "
 					     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,account,rownum as num "
 					     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,account "
-					     +"FROM jj_car_1)) "
+					     +"FROM jj_car_1 "
+					     +"WHERE car_name LIKE '%'||?||'%')) "
 					     +"WHERE num BETWEEN ? AND ?";
 			   
 			   ps=conn.prepareStatement(sql);
 			   int rowSize=20;
 			   int start=(rowSize*page)-(rowSize-1);
 			   int end=rowSize*page;
-			   ps.setInt(1, start);
-			   ps.setInt(2, end);
+			   ps.setString(1, ss);
+			   ps.setInt(2, start);
+			   ps.setInt(3, end);
 			   ResultSet rs=ps.executeQuery();
 			   while(rs.next())
 			   {

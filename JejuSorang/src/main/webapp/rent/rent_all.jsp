@@ -52,7 +52,7 @@
 	    <br>
           <h5>자동차 모델</h5>
             <div style="display: inline-block;">
-            <input type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 80%;"><input type=submit value="검색">
+            <input type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 80%;" ><input type=submit value="검색">
             </div>
         </div>
         <div style="height: 10px"></div>
