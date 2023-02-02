@@ -123,7 +123,7 @@
               <c:forEach var="hvo" items="${hlist }">
                 <div class="col-lg-4 col-sm-6">
                     <div class="single_ihotel_list">
-                        <img src="${hvo.hotel_image }" alt="">
+                         <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" alt=""></a>
                         <div class="hotel_text_iner">
                             <h3> <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"> ${hvo.name }</a></h3>
                             <div class="place_review">
