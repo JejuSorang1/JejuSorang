@@ -28,7 +28,7 @@ public class NoticeDAO {
 				vo.setNo(rs.getInt(1));
 				vo.setName(rs.getString(2));
 				vo.setSubject(rs.getString(3));
-				vo.setDb_day(rs.getString(4));
+				vo.setDbday(rs.getString(4));
 				list.add(vo);
 			}
 		}catch(Exception e) {
@@ -62,7 +62,7 @@ public class NoticeDAO {
 				vo.setType(rs.getInt(2));
 				vo.setName(rs.getString(3));
 				vo.setSubject(rs.getString(4));
-				vo.setDb_day(rs.getString(5));
+				vo.setDbday(rs.getString(5));
 				vo.setHit(rs.getInt(6));
 				list.add(vo);
 			}

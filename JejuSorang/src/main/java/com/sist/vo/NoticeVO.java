@@ -14,10 +14,16 @@ import java.util.Date;
 
 public class NoticeVO {
   private int no,hit,type;
-  private String name,subject,content,db_day,prefix;
+  private String name,subject,content,dbday,prefix;
   private Date regdate;
   
   
+public String getDbday() {
+	return dbday;
+}
+public void setDbday(String dbday) {
+	this.dbday = dbday;
+}
 public int getType() {
 	return type;
 }
@@ -61,12 +67,7 @@ public String getContent() {
 public void setContent(String content) {
 	this.content = content;
 }
-public String getDb_day() {
-	return db_day;
-}
-public void setDb_day(String db_day) {
-	this.db_day = db_day;
-}
+
 public Date getRegdate() {
 	return regdate;
 }

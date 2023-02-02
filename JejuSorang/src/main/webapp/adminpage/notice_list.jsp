@@ -37,12 +37,12 @@
           <td width=10% class="text-center">${vo.prefix }</td><%-- vo.getNo() = {} getXxx() --%>
           <td width=45%>
           <a href="../notice/detail.do?no=${vo.no }">${vo.subject }</a>&nbsp;
-          <c:if test="${vo.db_day==today }">
+          <c:if test="${vo.dbday==today }">
             <sup><img src="../freeboard/image/new.gif"></sup>
           </c:if>
           </td>
           <td width=15% class="text-center">${vo.name }</td>
-          <td width=20% class="text-center">${vo.db_day }</td>
+          <td width=20% class="text-center">${vo.dbday }</td>
           <td width=10% class="text-center">${vo.hit }</td>
         </tr>
       </c:forEach>

@@ -30,7 +30,7 @@
                   <h4>공지사항</h4>
       			   <ul class="nospace linklist">
        			    <c:forEach var="vo" items="${nList }" varStatus="s">
-         			 <li><a href="#">${s.index+1 }.${vo.subject }(${vo.db_day })</a></li>
+         			 <li><a href="#">${s.index+1 }.${vo.subject }(${vo.dbday })</a></li>
        				</c:forEach>
       			   </ul>
                  </div>
