@@ -100,9 +100,10 @@
           <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">후기</a>
         </li>
       </ul>
+      <br>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-          객실리스트
+         
           <c:forEach var="rvo" items="${rList }">
           <div class="col-md-12">
             <table class="table1">
@@ -114,24 +115,27 @@
                         <td width="38%" class="text-left">
                           <img src="${rvo.room_image }" style="width:300px;height:250px">
                         </td>
-                        <td width="50%">
+                        <td width="3%">
+                        </td>
+                        <td width="47%" >
                           <h4>${rvo.room_name }</h4>
-				          <p> <img src="">&nbsp;${rvo.room_persons }</p>
-				          <p> <img src="">&nbsp;${rvo.room_bed_info }</p>
-				          <p> 빈 객실 수 :&nbsp;ㅁㅁ개</p>
-				          <p> ${rvo.room_price }</p>
+				          <p> <img src="../img/persons.png" style="width:20px;height:20px">&nbsp;${rvo.room_persons }</p>
+				          <p> <img src="../img/bed.png" style="width:20px;height:20px">&nbsp;${rvo.room_bed_info }</p>
+				          <p> <span style="color:orange">${rvo.account }</span>개의 객실이 남아있습니다. 얼른 예약하세요!</p>
+				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
                         </td>
                         <td width="12%">
                         <a href="#"><button type="button" class="btn btn-md btn-warning" style="float: right;">예약하기</button></a>
                         </td>
                       </tr>
                     </table>
-                   
+                  
                 </td>
-              </tr>
-            </table>
+              </tr> 
+            </table><hr>
           </div>
           </c:forEach>
+         
         </div>
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
           <div class="review-heading">후기</div>
