@@ -2364,12 +2364,12 @@ ul {
 /**************** banner part css start ****************/
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
 .banner_part {
-  height: 880px;
+  height: 400px;
   position: relative;
-  overflow: hidden;
-  background-image: url(../img/banner_bg.png);
+  overflow: visible;
+  background-image: url(../img/banner2_bg.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   background-position: center;
   z-index: 1;
   font-family: 'Gugi', cursive;
@@ -2564,7 +2564,7 @@ ul {
 /*********** booking css start *************/
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_booking.scss */
 .booking_part {
-  margin-top: -80px;
+  margin-top: 20px;
   z-index: 9;
   position: relative;
 }
@@ -3913,7 +3913,7 @@ ul {
 
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_footer.scss */
 .footer-area {
-  background-color: #162b45;
+  background-color: #F8B03A;
   padding: 50px 0px 0px;
   position: relative;
 }
