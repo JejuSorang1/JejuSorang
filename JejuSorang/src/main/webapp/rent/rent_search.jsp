@@ -55,9 +55,9 @@
             <input type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 80%;"><input type=submit value="검색">
             </div>
         </div>
+        <hr>
         <div style="height: 10px"></div>
 	    <div class="col-md-12">
-	    <hr>
           <h5>차량 등급</h5>
             <div class="checkbox opinion" id="opinion">
               <ul id="stars">
@@ -68,17 +68,6 @@
                 <li><input type="checkbox" value="stars4" >&nbsp;수입</li>
                 <li><input type="checkbox" value="stars4" >&nbsp;고급</li>
                 <li><input type="checkbox" value="stars4" >&nbsp;승합</li>
-              </ul>
-            </div>
-            <hr>
-             <h5>연료 등급</h5>
-            <div class="checkbox opinion" id="opinion">
-              <ul id="stars">
-               <li><input type="checkbox" value="stars1" >&nbsp;경유</li>
-                <li><input type="checkbox" value="stars2" >&nbsp;휘발유</li>
-                <li><input type="checkbox" value="stars3" >&nbsp;LPG</li>
-                <li><input type="checkbox" value="stars4" >&nbsp;전기</li>
-                <li><input type="checkbox" value="stars4" >&nbsp;하이브리드</li>
               </ul>
             </div>
         </div>
@@ -123,13 +112,13 @@
      <nav class="pagination">
         <ul>
         <c:if test="${startPage>1}">
-          <li><a href="../rent/rent_all.do?page=${startPage-1 }">&laquo; 이전</a></li>
+          <li><a href="../rent/rent_search.do?page=${startPage-1 }">&laquo; 이전</a></li>
           </c:if>
           <c:forEach var="i" begin="${startPage }" end="${endPage }">
-            <li ${i==curpage?"class=current":"" }><a href="../rent/rent_all.do?page=${i }">${i }</a></li>
+            <li ${i==curpage?"class=current":"" }><a href="../rent/rent_search.do?page=${i }">${i }</a></li>
           </c:forEach>
           <c:if test="${endPage<totalpage }">
-          <li><a href="../rent/rent_all.do?page=${endPage+1 }">다음 &raquo;</a></li>
+          <li><a href="../rent/rent_search.do?page=${endPage+1 }">다음 &raquo;</a></li>
           </c:if>
         </ul>
       </nav>
