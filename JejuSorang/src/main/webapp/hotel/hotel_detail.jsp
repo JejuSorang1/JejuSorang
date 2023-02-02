@@ -103,7 +103,7 @@
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
           객실리스트
-          <c:forEach var="rvo" items="${rlist }">
+          <c:forEach var="rvo" items="${rList }">
           <div class="col-md-12">
             <table class="table1">
               <tr>
