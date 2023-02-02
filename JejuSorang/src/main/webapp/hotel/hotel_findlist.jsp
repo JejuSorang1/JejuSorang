@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
 <style>
-
+  
 </style>
 </head>
 <body>

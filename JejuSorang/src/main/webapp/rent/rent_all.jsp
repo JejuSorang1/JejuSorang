@@ -9,7 +9,9 @@
 <link rel="stylesheet" href="../css/style.css"> 
 <link rel="stylesheet" href="../css/rent_search.css"> 
 <style type="text/css">
-
+.booking_form .from-row .form_colum .nc_select{
+	color: orange;
+}
 </style>
 </head>
 <body>
