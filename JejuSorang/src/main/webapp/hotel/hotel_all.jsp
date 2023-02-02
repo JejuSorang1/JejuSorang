@@ -71,12 +71,14 @@
                         <td width="38%" class="text-left" rowspan="4">
                           <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width:300px;height:250px"></a>
                         </td>
-                        <td width="62%">
+                        <td width="45%">
                           <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span  style="color:orange">(${hvo.star })</span></h4></a>
-                          <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md btn-warning" style="float: right;">상세보기</button></a>
 				          <p> <img src="../img/star.png" style="width:22px; height:22px"><h6>${hvo.grade }</h6></p>
 				          <p> <img src="../img/point.png" style="width:22px; height:22px">&nbsp;${hvo.addr }</p>
 				          <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
+                        </td>
+                        <td width="17%">
+                          <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md btn-warning" style="float: right;">상세보기</button></a>
                         </td>
                       </tr>
                     </table>
