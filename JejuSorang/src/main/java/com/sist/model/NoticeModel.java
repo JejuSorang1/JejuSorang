@@ -12,7 +12,7 @@ import com.sist.vo.NoticeVO;
 
 @Controller
 public class NoticeModel {
-	private String[] prefix= {"","일반공지","이벤트공지","맛집공지","여행공지","상품공지"};
+	private String[] prefix= {"","일반공지","숙박공지","렌트카공지"};
 	@RequestMapping("notice/list.do")
 	public String notice_list(HttpServletRequest request,HttpServletResponse response) {
 		//사용자 보내준 데이터 받기

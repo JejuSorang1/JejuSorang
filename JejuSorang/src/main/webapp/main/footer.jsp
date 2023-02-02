@@ -42,7 +42,7 @@
                 <div class="col-lg-12">
                     <div class="copyright_part_text text-center">
                         <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-&copy;<script>document.write(new Date().getFullYear());</script> Jeju-Sorang | Project by <a href="https://github.com/JejuSorang" target="_blank">Jeju-Sorang</a>
+&copy;<script>document.write(new Date().getFullYear());</script> Jeju-Sorang | Project by <a href="https://github.com/JejuSorang1" target="_blank">Jeju-Sorang</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>

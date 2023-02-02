@@ -18,10 +18,8 @@
         <td width=80%>
           <select name="type" class="input-sm">
             <option value="1">일반공지</option>
-            <option value="2">이벤트공지</option>
-            <option value="3">맛집공지</option>
-            <option value="4">여행공지</option>
-            <option value="5">상품공지</option>
+            <option value="2">숙박공지</option>
+            <option value="3">렌트카공지</option>
           </select>
         </td>
       </tr>

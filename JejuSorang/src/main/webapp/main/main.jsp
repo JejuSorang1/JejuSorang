@@ -12,6 +12,7 @@
     <link rel="icon" href="../img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <!-- animate CSS -->
     <link rel="stylesheet" href="../css/animate.css">
     <!-- owl carousel CSS -->
@@ -54,6 +55,7 @@
 
     <!-- jquery plugins here-->
     <script src="../js/jquery-1.12.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>	  
     <!-- popper js -->
     <script src="../js/popper.min.js"></script>
     <!-- bootstrap js -->
@@ -76,7 +78,7 @@
     <!-- custom js -->
     <script src="../js/custom.js"></script>
     <script src="../js/login.js"></script>
-	<script src="../js/admin_main.js"></script>
+	
 </body>
 
 </html>
