@@ -20,16 +20,22 @@
             <div class="row">
                 <div class="col-lg-12 ser" >
                     <div class="booking_content" id="searchbar1" >
-                                <div class="booking_form" style="margin-top: 5px;">
+                                <div class="booking_form">
                                     <form action="#">
-                                        <div class="form-row" >
-                                            <div class="form_colum" style="width:300px; margin-left: 5px; margin-top: 6px;">
-                                                <select class="nc_select"  >
-                                                    <option ><img src="../img/point.png" style="width:22px; height:22px">&nbsp;제주국제공항</option>
+                                        <div class="form-row">
+                                            <div class="form_colum" style="width:300px; margin-left: 5px; height: 5px; margin-top: 5px;">
+                                                <select class="nc_select" >
+                                                    <option selected>제주국제공항</option>
                                                 </select>
                                             </div>
-                                            <div class="form_colum" style="width:600px;  margin-left: 5px;">
-                                                <input id="datepicker_3" placeholder="선택 날짜 들어올 예정">
+                                            <div class="form_colum" style="width:300px;  margin-left: 5px;">
+                                                <input id="datepicker_3" placeholder="예약시작일">
+                                            </div>
+                                            <div class="form_colum" style="width:300px;  margin-left: 5px;">
+                                                <input id="datepicker_4" placeholder="예약종료일">
+                                            </div>
+                                            <div class="form_btn" style="margin-left: 5px;">
+                                              <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2" style="margin-top: 5px">
                                             </div>
                                         </div>
                                     </form>
