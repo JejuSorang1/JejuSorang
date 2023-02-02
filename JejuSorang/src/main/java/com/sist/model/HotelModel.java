@@ -57,12 +57,11 @@ public class HotelModel {
 		
 		request.setAttribute("hvo", hvo);
 		request.setAttribute("addr", addr);
-		request.setAttribute("main_jsp", "../hotel/hotel_detail.jsp");
 		
 		RoomDAO adao=new RoomDAO();
 		List<RoomVO> rList=adao.room_detail(Integer.parseInt(hno));
 		request.setAttribute("rList", rList); 
-		
+		request.setAttribute("main_jsp", "../hotel/hotel_detail.jsp");
 		
 		//footer
 		CommonsModel.footerData(request);

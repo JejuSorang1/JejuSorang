@@ -34,6 +34,7 @@ public class RoomDAO {
 				vo.setRoom_persons(rs.getString(6));
 				vo.setRoom_bed_info(rs.getString(7));
 				vo.setAccount(rs.getInt(8));
+				list.add(vo);
 			}
 			rs.close();
 		}catch (Exception e) {
