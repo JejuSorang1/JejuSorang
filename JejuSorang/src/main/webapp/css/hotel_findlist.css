@@ -29,7 +29,11 @@
 	background-color: #F8B03A;  
 }  
     
+.booking_part {
 
+    z-index: 9;
+    position: relative;
+}
 
 .pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom: 30px;  border-color:#F8B03A;}
 .pagination li{display:inline-block; margin:0 2px 0 0; border-color:#F8B03A;  }
