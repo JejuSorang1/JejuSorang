@@ -18,9 +18,9 @@ public class HotelDAO {
       try
       {
          conn=CreateConnection.getConnection();
-         String sql="SELECT hno,name,hotel_image,addr,grade,star,time,num "
-               +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,rownum as num "
-               +"FROM (SELECT /*+INDEX_ASC(jj_hotel_1 hotel_hno_pk_1)*/ hno,name,hotel_image,addr,grade,star,time "
+         String sql="SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count,num "
+               +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count,rownum as num "
+               +"FROM (SELECT /*+INDEX_ASC(jj_hotel_1 hotel_hno_pk_1)*/ hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count "
                +"FROM jj_hotel_1)) "
                +"WHERE num BETWEEN ? AND ?";
          ps=conn.prepareStatement(sql);
