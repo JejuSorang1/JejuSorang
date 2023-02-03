@@ -26,7 +26,7 @@ public String rent_all(HttpServletRequest request,HttpServletResponse response)
 	   }catch(Exception ex){}
 	   String ss=request.getParameter("ss");
 	   if(ss==null)
-		   ss="모델명을 검색해보세요";
+		   ss="";
 	  String page=request.getParameter("page");
 	   if(page==null)
 	   page="1";
@@ -63,7 +63,7 @@ public String rent_search(HttpServletRequest request,HttpServletResponse respons
 	   }catch(Exception ex){}
 	   String ss=request.getParameter("ss");
 	   if(ss==null)
-		   ss="모델명을 검색해보세요";
+		   ss="";
 	   String page=request.getParameter("page");
 	   if(page==null)
 		   page="1";
@@ -99,20 +99,18 @@ public String rent_search(HttpServletRequest request,HttpServletResponse respons
 public String car_detail(HttpServletRequest request,HttpServletResponse response)
 {
    String cno=request.getParameter("car_no");
-   System.out.println(cno);
    
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
-	
-	//footer
-	CommonsModel.footerData(request);
-	
    
+   //footer
+   CommonsModel.footerData(request);
+
    request.setAttribute("vo", vo);
-   request.setAttribute("cno", cno);
+   
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "../main/main.jsp";
    
-	}
+   }
 }
