@@ -132,39 +132,48 @@ public class RentDAO {
 		   return total;
 	   }
 	//렌트카 상세보기
-	public CarVO car_detail(int car_no)
-	{
-		CarVO vo=new CarVO();
-		try
-		{
-			conn=CreateConnection.getConnection();
-			String sql="SELECT car_no,rcno,account,car_name,car_image,car_price,car_option1,car_option2 "
-					+ "FROM jj_car_1 "
-					+ "WHERE car_no=?";
-			ps=conn.prepareStatement(sql);
-			ps.setInt(1, car_no);
-			ResultSet rs=ps.executeQuery();
-			rs.next();
-				vo.setCar_no(rs.getInt(1));
-				vo.setRcno(rs.getInt(2));
-				vo.setAccount(rs.getInt(3));
-				vo.setCar_name(rs.getString(4));
-				vo.setCar_image(rs.getString(5));
-				vo.setCar_price(rs.getString(6));
-				vo.setCar_option1(rs.getString(7));
-				vo.setCar_option2(rs.getString(8));
-			rs.close();
-			
-		}catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		finally
-		{
-			CreateConnection.disConnection(conn, ps);
-		}
-		return vo;
-	}
+	 public CarVO car_detail(int car_no)
+     {
+        CarVO vo=new CarVO();
+        try
+        {
+           conn=CreateConnection.getConnection();
+           String sql="SELECT car_no,rcno,account,car_name,car_image,car_price,car_option1,car_option2,"
+                     +"(SELECT DISTINCT rname FROM jj_rcom_1 WHERE rcno=jj_car_1.rcno),"
+                     +"(SELECT DISTINCT rctel FROM jj_rcom_1 WHERE rcno=jj_car_1.rcno),"
+                     +"(SELECT DISTINCT rcaddr FROM jj_rcom_1 WHERE rcno=jj_car_1.rcno),"
+                     +"(SELECT DISTINCT star FROM jj_rcom_1 WHERE rcno=jj_car_1.rcno) "
+                     + "FROM jj_car_1 "
+                    + "WHERE car_no=?";
+           ps=conn.prepareStatement(sql);
+           ps.setInt(1, car_no);
+           ResultSet rs=ps.executeQuery();
+           rs.next();
+              vo.setCar_no(rs.getInt(1));
+              vo.setRcno(rs.getInt(2));
+              vo.setAccount(rs.getInt(3));
+              vo.setCar_name(rs.getString(4));
+              vo.setCar_image(rs.getString(5));
+              vo.setCar_price(rs.getString(6));
+              vo.setCar_option1(rs.getString(7));
+              vo.setCar_option2(rs.getString(8));
+              vo.setRname(rs.getString(9));
+              vo.setRctel(rs.getString(10));
+              vo.setRcaddr(rs.getString(11));
+              vo.setStar(rs.getDouble(12));
+           rs.close();
+           
+        }catch(Exception ex)
+        {
+           ex.printStackTrace();
+        }
+        finally
+        {
+           CreateConnection.disConnection(conn, ps);
+        }
+        return vo;
+     }
+
 	//업체 상세보기
 	
 	
@@ -197,4 +206,5 @@ public class RentDAO {
 		}
 		return list;
 	}
+
 }

@@ -4,6 +4,7 @@ public class RcomVO {
  private int rcno,all_cate_no;
  private double star;
  private String rname,rctel,rcaddr;
+ 
 public int getRcno() {
 	return rcno;
 }

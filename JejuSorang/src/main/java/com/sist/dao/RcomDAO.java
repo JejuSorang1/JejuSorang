@@ -5,6 +5,7 @@ import com.sist.vo.*;
 public class RcomDAO {
 	private Connection conn;
 	private PreparedStatement ps;
+	// 업체 상세보기
 	public RcomVO RentrcomData(int rcno)
 	{
 	     RcomVO vo = new RcomVO();
@@ -23,7 +24,6 @@ public class RcomDAO {
 				vo.setRctel(rs.getString(4));
 				vo.setRcaddr(rs.getString(5));
 				vo.setStar(rs.getDouble(6));
-			
 			rs.close();
 					
 		} catch (Exception e) {

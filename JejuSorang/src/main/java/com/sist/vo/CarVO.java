@@ -2,7 +2,34 @@ package com.sist.vo;
 
 public class CarVO {
 	private int car_no,rcno,account;
-	private String car_name,car_image,car_price,car_option1,car_option2;
+	private String car_name,car_image,car_price,car_option1,car_option2,rname,rctel,rcaddr;
+	private double star;
+	
+	
+	public String getRname() {
+		return rname;
+	}
+	public void setRname(String rname) {
+		this.rname = rname;
+	}
+	public String getRctel() {
+		return rctel;
+	}
+	public void setRctel(String rctel) {
+		this.rctel = rctel;
+	}
+	public String getRcaddr() {
+		return rcaddr;
+	}
+	public void setRcaddr(String rcaddr) {
+		this.rcaddr = rcaddr;
+	}
+	public double getStar() {
+		return star;
+	}
+	public void setStar(double star) {
+		this.star = star;
+	}
 	public int getCar_no() {
 		return car_no;
 	}
