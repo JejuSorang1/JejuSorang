@@ -99,7 +99,6 @@ public String rent_search(HttpServletRequest request,HttpServletResponse respons
 public String car_detail(HttpServletRequest request,HttpServletResponse response)
 {
    String cno=request.getParameter("car_no");
-   System.out.println(cno);
    
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
@@ -107,10 +106,9 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
 	
 	//footer
 	CommonsModel.footerData(request);
-	
-   
+
    request.setAttribute("vo", vo);
-   request.setAttribute("cno", cno);
+   
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "../main/main.jsp";
    
