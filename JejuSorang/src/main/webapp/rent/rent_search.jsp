@@ -110,13 +110,13 @@
      <nav class="pagination">
         <ul>
         <c:if test="${startPage>1}">
-          <li><a href="../rent/rent_search.do?page=${startPage-1 }">&laquo; 이전</a></li>
+          <li><a href="../rent/rent_search.do?ss=${ss }&page=${startPage-1 }">&laquo; 이전</a></li>
           </c:if>
           <c:forEach var="i" begin="${startPage }" end="${endPage }">
             <li ${i==curpage?"class=current":"" }><a href="../rent/rent_search.do?ss=${ss }&page=${i }">${i }</a></li>
           </c:forEach>
           <c:if test="${endPage<totalpage }">
-          <li><a href="../rent/rent_search.do?page=${endPage+1 }">다음 &raquo;</a></li>
+          <li><a href="../rent/rent_search.do?ss=${ss }&page=${endPage+1 }">다음 &raquo;</a></li>
           </c:if>
         </ul>
       </nav>
