@@ -9,13 +9,15 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
 <style>
-   
+.booking_part{
+	width: 
+}
 </style>
 </head>
 <body>
 <div class="container">
   <div class="row">
-    <div class="row-lg-12">
+    
     <section class="booking_part" id="searchbar" >
       <div class="booking_content" id="searchbar1" >
         <div class="booking_form">
@@ -42,7 +44,7 @@
         </div>
       </div>    
     </section>
-    </div>
+    
     
     
     <div class="col-sm-3">
@@ -86,9 +88,9 @@
           </div>
         </div>
 	    <div class="col-md-12">	 
-		  <input type="submit" name="submit" value="검색" class="btn btn-primary mb-2" id=search><hr>
 	    </div>
 	  </form>
+	  <hr>
 	  
 	  <form name="form1" method="post" action="" enctype="multipart/form-data"> 
 	    <div class="col-md-12">
