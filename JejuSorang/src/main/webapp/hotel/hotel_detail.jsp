@@ -91,6 +91,7 @@
      <hr>
      
     <div class="row">
+   
     <div class="product-info-tabs">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -107,8 +108,8 @@
           <c:forEach var="rvo" items="${rList }">
           <div class="col-md-12">
             <table class="table1">
-              <tr>
-                <td>
+              <tr >
+                <td colspan="4" rowspan="3">
                   
                     <table class="table2">
                       <tr>
@@ -117,25 +118,27 @@
                         </td>
                         <td width="3%">
                         </td>
-                        <td width="47%" >
+                        <td width="42%" >
                           <h4>${rvo.room_name }</h4>
 				          <p> <img src="../img/persons.png" style="width:20px;height:20px">&nbsp;${rvo.room_persons }</p>
 				          <p> <img src="../img/bed.png" style="width:20px;height:20px">&nbsp;${rvo.room_bed_info }</p>
 				          <p> <span style="color:orange">${rvo.account }</span>개의 객실이 남아있습니다. 얼른 예약하세요!</p>
 				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
                         </td>
-                        <td width="12%">
+                        <td width="17%">
                         <a href="#"><button type="button" class="btn btn-md btn-warning" style="float: right;">예약하기</button></a>
                         </td>
                       </tr>
                     </table>
-                  
+               
                 </td>
               </tr> 
-            </table><hr>
+            </table>
+            
+            <hr>
           </div>
           </c:forEach>
-         
+         </div>
         </div>
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
           <div class="review-heading">후기</div>
@@ -143,8 +146,8 @@
         </div>
       </div>
      </div>
+     </div>
 	</div>
-</div>
-</div>
+
 </body>
 </html>
