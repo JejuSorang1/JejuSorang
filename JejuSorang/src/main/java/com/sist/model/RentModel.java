@@ -103,14 +103,14 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
-	
-	//footer
-	CommonsModel.footerData(request);
+   
+   //footer
+   CommonsModel.footerData(request);
 
    request.setAttribute("vo", vo);
    
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "../main/main.jsp";
    
-	}
+   }
 }

@@ -8,24 +8,26 @@ public class RentDAO {
    private Connection conn;
    private PreparedStatement ps;
    
-   
+
    //전체 리스트
-   public List<CarVO> CarListData(int page)
+   public List<CarVO> CarListData(int page,String ss)
    {
       List<CarVO> list=new ArrayList<CarVO>();
       try {
          conn=CreateConnection.getConnection();
-         String sql="SELECT car_no,car_name,car_image,car_price,car_option1,num "
-                 +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,rownum as num "
-                 +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1 "
-                 +"FROM jj_car_1)) "
+         String sql="SELECT car_no,car_name,car_image,car_price,car_option1,car_type,num "
+                 +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type,rownum as num "
+                 +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type "
+                 +"FROM jj_car_1 "
+                 +"WHERE car_name LIKE '%'||?||'%')) "
                  +"WHERE num BETWEEN ? AND ?";
          ps=conn.prepareStatement(sql);
             int rowSize=20;
             int start=(rowSize*page)-(rowSize-1);
             int end=rowSize*page;
-            ps.setInt(1, start);
-            ps.setInt(2, end);
+            ps.setString(1, ss);
+            ps.setInt(2, start);
+            ps.setInt(3, end);
             ResultSet rs=ps.executeQuery();
             while(rs.next())
             {
@@ -35,6 +37,7 @@ public class RentDAO {
                vo.setCar_image(rs.getString(3));
                vo.setCar_price(rs.getString(4));
                vo.setCar_option1(rs.getString(5));
+               vo.setCar_type(rs.getString(6));
                list.add(vo);
             }
             rs.close();
@@ -74,18 +77,20 @@ public class RentDAO {
          try
          {
             conn=CreateConnection.getConnection();
-            String sql="SELECT car_no,car_name,car_image,car_price,car_option1,account,num "
-                    +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,account,rownum as num "
-                    +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,account "
-                    +"FROM jj_car_1)) "
+            String sql="SELECT car_no,car_name,car_image,car_price,car_option1,car_type,num "
+                    +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type,rownum as num "
+                    +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type "
+                    +"FROM jj_car_1 "
+                    +"WHERE car_name LIKE '%'||?||'%')) "
                     +"WHERE num BETWEEN ? AND ?";
             
             ps=conn.prepareStatement(sql);
             int rowSize=20;
             int start=(rowSize*page)-(rowSize-1);
             int end=rowSize*page;
-            ps.setInt(1, start);
-            ps.setInt(2, end);
+            ps.setString(1, ss);
+            ps.setInt(2, start);
+            ps.setInt(3, end);
             ResultSet rs=ps.executeQuery();
             while(rs.next())
             {
@@ -95,7 +100,7 @@ public class RentDAO {
                vo.setCar_image(rs.getString(3));
                vo.setCar_price(rs.getString(4));
                vo.setCar_option1(rs.getString(5));
-               vo.setAccount(rs.getInt(6));
+               vo.setCar_type(rs.getString(6));
                list.add(vo);
             }
             rs.close();
@@ -109,14 +114,16 @@ public class RentDAO {
          }
          return list;
       }
-    public int RentSearchTotalPage()
+    public int RentSearchTotalPage(String ss)
       {
          int total=0;
          try
          {
             conn=CreateConnection.getConnection();
-            String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_car_1";
+            String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_car_1 "
+                   +"WHERE car_name LIKE '%'||?||'%'";
             ps=conn.prepareStatement(sql);
+            ps.setString(1, ss);
             ResultSet rs=ps.executeQuery();
             rs.next();
             total=rs.getInt(1);
@@ -131,6 +138,7 @@ public class RentDAO {
          }
          return total;
       }
+
    //렌트카 상세보기
     public CarVO car_detail(int car_no)
      {
