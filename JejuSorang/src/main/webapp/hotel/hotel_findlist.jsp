@@ -8,11 +8,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
-<style>
-.booking_part{
-	width:   
-}
-</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 <div class="container">
@@ -129,7 +128,7 @@
     
     <div class="col-sm-9 wrap" id="contenthotels">
       <div class="col-md-12 sortbuttons">
-        <button type="button" class="btn btn-sm" style="float: right;" id="newBtn">추천순</button>
+        <button type="button" class="btn btn-sm" style="float: right;" id="starBtn">평점순</button>
         <button type="button" class="btn btn-sm" style="float: right;" id="lowBtn">가격(낮은순)</button>
         <button type="button" class="btn btn-sm" style="float: right;" id="highBtn">가격(높은순)</button>
 	  </div>
@@ -153,6 +152,7 @@
                             <p><h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
                             <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
+                            <p>${vo.like }좋아요&nbsp;&nbsp;${vo.jjim }찜하기</p>
                           </td>
                           <td width="17%">
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>

@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -38,6 +38,8 @@
               <p> <img src="../img/star.png" style="width:30px; height:30px">&nbsp;&nbsp;${hvo.grade }</p>
               <p> <img src="../img/point.png" style="width:35px; height:35px">&nbsp;${hvo.addr}</p>
 			  <p> <img src="../img/clock.png" style="width:33px; height:33px">&nbsp;${hvo.time}</p>
+			  <p><a href="#" class="btn btn-xs btn-success" style="float: center">좋아요</a><%-- ${hvo.like_count } --%><p>
+			  <p><a href="#" class="btn btn-xs btn-success" style="float: center">찜하기</a><%-- ${hvo.jjim_count } --%></p>
             </div>
           </div>
        </div>
@@ -139,10 +141,11 @@
           </div>
           </c:forEach>
          </div>
-        </div>
+        
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
           <div class="review-heading">후기</div>
           <p class="mb-20">There are no reviews yet.</p>
+        </div>
         </div>
       </div>
      </div>
