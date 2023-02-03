@@ -89,7 +89,7 @@
                                                 <input id="datepicker_4" placeholder="예약종료일">
                                             </div>
                                             <div class="form_btn">
-                                                <a href="../rent/rent_search.do?car_no=${cvo.car_no }" class="btn_1">검색</a>
+                                                <a href="../rent/rent_search.do" class="btn_1">검색</a>
                                             </div>
                                         </div>
                                     </form>

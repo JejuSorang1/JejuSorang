@@ -150,8 +150,8 @@
                           </td>
                           <td width="45%">
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span class="list-group-item-text ocena">(${hvo.star })</span></h4></a><!-- 여기 -->
-                            <p><h6>${hvo.grade }</h6></p>
-                            <p><img src="../img/point.png" style="width:22px; height:22px">&nbsp;${hvo.addr }</p>
+                            <p><h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
+                            <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
                           </td>
                           <td width="17%">
