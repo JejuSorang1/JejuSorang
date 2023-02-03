@@ -26,7 +26,7 @@ public String rent_all(HttpServletRequest request,HttpServletResponse response)
 	   }catch(Exception ex){}
 	   String ss=request.getParameter("ss");
 	   if(ss==null)
-		   ss="모델명을 검색해보세요";
+		   ss="";
 	  String page=request.getParameter("page");
 	   if(page==null)
 	   page="1";
@@ -63,7 +63,7 @@ public String rent_search(HttpServletRequest request,HttpServletResponse respons
 	   }catch(Exception ex){}
 	   String ss=request.getParameter("ss");
 	   if(ss==null)
-		   ss="모델명을 검색해보세요";
+		   ss="";
 	   String page=request.getParameter("page");
 	   if(page==null)
 		   page="1";

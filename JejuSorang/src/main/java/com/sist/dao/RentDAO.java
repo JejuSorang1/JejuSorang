@@ -19,7 +19,7 @@ public class RentDAO {
 			conn=CreateConnection.getConnection();
 			String sql="SELECT car_no,car_name,car_image,car_price,car_option1,num "
 				     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,rownum as num "
-				     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1 "
+				     +"FROM (SELECT /*+INDEX_ASC(jj_car_1 car_no_pk_1)*/car_no,car_name,car_image,car_price,car_option1 "
 				     +"FROM jj_car_1)) "
 				     +"WHERE num BETWEEN ? AND ?";
 			ps=conn.prepareStatement(sql);
@@ -37,6 +37,7 @@ public class RentDAO {
 				   vo.setCar_name(rs.getString(2));
 				   vo.setCar_image(rs.getString(3));
 				   vo.setCar_price(rs.getString(4));
+				   vo.setCar_option1(rs.getString(5));
 				   list.add(vo);
 			   }
 			   rs.close();
@@ -76,9 +77,9 @@ public class RentDAO {
 		   try
 		   {
 			   conn=CreateConnection.getConnection();
-			   String sql="SELECT car_no,car_name,car_image,car_price,car_option1,num "
-					     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,rownum as num "
-					     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1 "
+			   String sql="SELECT car_no,car_name,car_image,car_price,car_option1,car_type,num "
+					     +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type,rownum as num "
+					     +"FROM (SELECT /*+INDEX_ASC(jj_car_1 car_no_pk_1)*/car_no,car_name,car_image,car_price,car_option1,car_type "
 					     +"FROM jj_car_1 "
 					     +"WHERE car_name LIKE '%'||?||'%')) "
 					     +"WHERE num BETWEEN ? AND ?";
@@ -99,6 +100,7 @@ public class RentDAO {
 				   vo.setCar_image(rs.getString(3));
 				   vo.setCar_price(rs.getString(4));
 				   vo.setCar_option1(rs.getString(5));
+				   vo.setCar_type(rs.getString(6));
 				   list.add(vo);
 			   }
 			   rs.close();
