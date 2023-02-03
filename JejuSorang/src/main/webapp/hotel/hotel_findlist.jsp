@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
 <style>
 .booking_part{
-	width: 
+	width:   
 }
 </style>
 </head>
