@@ -3,13 +3,6 @@ package com.sist.vo;
 public class CarVO {
 	private int car_no,rcno,account;
 	private String car_name,car_image,car_price,car_option1,car_option2,car_type;
-	
-	public String getCar_type() {
-		return car_type;
-	}
-	public void setCar_type(String car_type) {
-		this.car_type = car_type;
-	}
 	public int getCar_no() {
 		return car_no;
 	}
@@ -57,6 +50,12 @@ public class CarVO {
 	}
 	public void setCar_option2(String car_option2) {
 		this.car_option2 = car_option2;
+	}
+	public String getCar_type() {
+		return car_type;
+	}
+	public void setCar_type(String car_type) {
+		this.car_type = car_type;
 	}
 	
 }

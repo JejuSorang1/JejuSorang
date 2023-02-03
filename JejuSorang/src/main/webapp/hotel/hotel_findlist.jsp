@@ -46,20 +46,20 @@
     
     
     <div class="col-sm-3">
-	  <form name="form1" method="post" action="" enctype="multipart/form-data">   
-	    <div class="col-md-12">  
-	      <div class="form-group">
-		  <div style="width: 10px;height: 50px"></div>
-		  <h3>검색결과</h3><hr>
-		  <div style="height: 5px"></div>
-		    <h5>목적지</h5>
-			  <select name="city" class="travel">
-			    <option value="jeju">제주시</option>  
-			    <option value="seogwipo">서귀포시</option>  
-			  </select>
-	      </div>
+     <form name="form1" method="post" action="" enctype="multipart/form-data">   
+       <div class="col-md-12">  
+         <div class="form-group">
+        <div style="width: 10px;height: 50px"></div>
+        <h3>검색결과</h3><hr>
+        <div style="height: 5px"></div>
+          <h5>목적지</h5>
+           <select name="city" class="travel">
+             <option value="jeju">제주시</option>  
+             <option value="seogwipo">서귀포시</option>  
+           </select>
+         </div>
           <div class="form-group">
-		    <h5>체크인 날짜</h5>
+          <h5>체크인 날짜</h5>
               <div class="input-group date" id="checkin">
                 <input type="date" class="form-control" name="startdate" id="startdate">
                   <span class="input-group-addon">
@@ -70,7 +70,7 @@
         </div>
         <div class="col-md-12">
           <div class="form-group">
-		    <h5>체크아웃 날짜</h5>
+          <h5>체크아웃 날짜</h5>
               <div class="input-group date" id="checkout">
                 <input type="date" class="form-control" name="enddate" id="enddate">
                   <span class="input-group-addon">
@@ -85,13 +85,13 @@
             <input type="number" min="1" max="8" value="1">
           </div>
         </div>
-	    <div class="col-md-12">	 
-		  <input type="submit" name="submit" value="검색" class="btn btn-primary mb-2" id=search><hr>
-	    </div>
-	  </form>
-	  
-	  <form name="form1" method="post" action="" enctype="multipart/form-data"> 
-	    <div class="col-md-12">
+       <div class="col-md-12">    
+        <input type="submit" name="submit" value="검색" class="btn btn-primary mb-2" id=search><hr>
+       </div>
+     </form>
+     
+     <form name="form1" method="post" action="" enctype="multipart/form-data"> 
+       <div class="col-md-12">
           <h5>호텔 종류</h5>
             <div class="checkbox opinion" id="opinion">
               <ul id="type">
@@ -102,7 +102,7 @@
             </div>
         </div>
         <div style="height: 10px"></div>
-	    <div class="col-md-12">
+       <div class="col-md-12">
           <h5>호텔 성급</h5>
             <div class="checkbox opinion" id="opinion">
               <ul id="stars">
@@ -130,9 +130,9 @@
         <button type="button" class="btn btn-sm" style="float: right;" id="newBtn">추천순</button>
         <button type="button" class="btn btn-sm" style="float: right;" id="lowBtn">가격(낮은순)</button>
         <button type="button" class="btn btn-sm" style="float: right;" id="highBtn">가격(높은순)</button>
-	  </div>
-	  <div style="height: 30px"></div>
-	  <h3>&nbsp;&nbsp;&nbsp;&nbsp;검색 결과 <fmt:formatNumber value="${count }" type="number"/>개</h3>
+     </div>
+     <div style="height: 30px"></div>
+     <h3>&nbsp;&nbsp;&nbsp;&nbsp;검색 결과 <fmt:formatNumber value="${count }" type="number"/>개</h3>
       <div class="list-group list row">
         <section class="col-md-12">
           <div class="container">
@@ -164,8 +164,8 @@
             </div>
           </div>
         </section>
-	  </div>
-	  
+     </div>
+     
       <nav class="pagination">
         <ul>
           <c:if test="${startPage>1 }">
@@ -181,6 +181,6 @@
         </nav>
       </div>
     </div>
-  </div>			
+  </div>         
 </body>
 </html>
