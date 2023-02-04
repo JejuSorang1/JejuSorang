@@ -74,8 +74,8 @@ public class LikeDAO {
 			CreateConnection.disConnection(conn, ps);
 		}
 		return count;
-	}
-	
+	} 
+	 
 	public int foodLikeCount(int fno)
 	{
 		int count=0;

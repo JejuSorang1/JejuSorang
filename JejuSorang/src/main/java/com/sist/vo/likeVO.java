@@ -1,5 +1,5 @@
 package com.sist.vo;
-/*
+/* 
  * 	LNO NOT NULL NUMBER      
 	NO          NUMBER      
 	ID          VARCHAR2(20) 

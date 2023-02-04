@@ -1,5 +1,5 @@
 package com.sist.vo;
-/*
+/* 
  * 	ALL_CATE_NO          NUMBER      
 	JNO        NOT NULL NUMBER      
 	NO                  NUMBER      
