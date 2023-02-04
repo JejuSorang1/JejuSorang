@@ -21,10 +21,23 @@ public class HotelModel {
       int curpage=Integer.parseInt(page);
       
       HotelDAO dao=new HotelDAO();
-      
+
       List<HotelVO> list=dao.HotelListData(curpage);
+      HotelVO vo=dao.hotel_detail(Integer.parseInt(page));
+      String address=vo.getAddr();
+      //제주 서귀포시 성산읍 섭지코지로 107
+      String addr1=address.substring(3,5);//제주시
+      addr1=addr1.trim();
+      String addr2=address.substring(3,6);//서귀포시
+      addr2=addr2.trim();
+      
+      request.setAttribute("vo", vo);
+      request.setAttribute("addr1", addr1);
+      request.setAttribute("addr2", addr2);
       int count=dao.HotelRowCount();
       int totalpage=(int)(Math.ceil(count/20.0));
+      
+      
       
       final int BLOCK=10;
       int startPage=((curpage-1)/BLOCK*BLOCK)+1;
@@ -39,7 +52,7 @@ public class HotelModel {
       request.setAttribute("endPage", endPage);
       request.setAttribute("list", list);
       request.setAttribute("count", count);
-      
+
       //footer
       CommonsModel.footerData(request);
       
@@ -63,7 +76,6 @@ public class HotelModel {
       request.setAttribute("rList", rList); 
       request.setAttribute("main_jsp", "../hotel/hotel_detail.jsp");
       
-      
       //footer
       CommonsModel.footerData(request);
       return "../main/main.jsp";
@@ -72,11 +84,6 @@ public class HotelModel {
    @RequestMapping("hotel/hotel_findlist.do") //검색 후
    public String hotel_findlist(HttpServletRequest request, HttpServletResponse response)
    {
-	   try
-	   {
-		   // 한글 변환 
-		   request.setCharacterEncoding("UTF-8");
-	   }catch(Exception ex){}
       String ss=request.getParameter("ss");
       if(ss==null)
          ss="제주";
@@ -110,7 +117,6 @@ public class HotelModel {
       request.setAttribute("startPage", startPage);
       request.setAttribute("endPage", endPage);
       request.setAttribute("list", list);
-      request.setAttribute("ss", ss);
       request.setAttribute("count", count);
       
       request.setAttribute("main_jsp", "../hotel/hotel_findlist.jsp");
