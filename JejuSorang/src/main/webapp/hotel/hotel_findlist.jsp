@@ -1,3 +1,5 @@
+<%@page import="com.sist.vo.RoomVO"%>
+<%@page import="com.sist.dao.RoomDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
@@ -8,16 +10,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
-<<<<<<< HEAD
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 
 </script>
-=======
+
 <style>
    
 </style>
->>>>>>> branch 'master' of https://github.com/JejuSorang1/JejuSorang.git
+
 </head>
 <body>
 <div class="container">
@@ -157,8 +159,8 @@
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span class="list-group-item-text ocena">(${hvo.star })</span></h4></a><!-- 여기 -->
                             <p><h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
                             <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
-                            <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
-                            <p>${vo.like }좋아요&nbsp;&nbsp;${vo.jjim }찜하기</p>
+                            <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>                            
+                            <p><%-- ${hvo.like } --%>좋아요&nbsp;&nbsp;<%-- ${hvo.jjim } --%>찜하기</p>
                           </td>
                           <td width="17%">
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>
