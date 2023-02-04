@@ -1,6 +1,6 @@
 
  $(function() {
-	$(".btn").click(function() {
+	$(".login_logic_btn").click(function() {
 		$(".form-signin").toggleClass("form-signin-left");
     $(".form-signup").toggleClass("form-signup-left");
     $(".frame").toggleClass("frame-long");
@@ -63,7 +63,8 @@ $(function(){
 	})
 })
 $(function(){
-	$('#checkBtn').click(function(){
+	$('#checkBtn').click(function( event ){
+		
 		Shadowbox.open({
 			content:'../member/idcheck.do',
 			player:'iframe',
@@ -71,6 +72,7 @@ $(function(){
 			height:180,
 			title:'아이디 중복체크'
 		})
+	
 	})
 	$('#postBtn').click(function(){
 		Shadowbox.open({

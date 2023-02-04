@@ -17,9 +17,9 @@
  <div class="container_login">
   <div class="frame">
     <div class="nav">
-      <ul class="links">
-        <li class="signin-active"><a class="btn">로그인</a></li>
-        <li class="signup-inactive"><a class="btn">회원가입 </a></li>
+      <ul class="links">s
+        <li class="signin-active"><a class="btn login_logic_btn">로그인</a></li>
+        <li class="signup-inactive"><a class="btn login_logic_btn">회원가입 </a></li>
       </ul>
     </div>
     <div ng-app ng-init="checked = false">
@@ -36,9 +36,11 @@
 		</form>
         
 		<form class="form-signup" action="../member/join_ok.do" method="post" name="join_frm" id="join_frm">
-          <label for="id">아이디&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <input type=button id="checkBtn" value="아이디중복체크" class="btn btn-sm btn-primary"/>
-          </label>
+          <span class="d-flex justify-content-between">
+          	<label for="id">아이디</label>
+          	<input type=button id="checkBtn" value="아이디중복체크" class="btn btn-sm btn-primary"/>
+          </span>
+          
           <input class="form-styling" type="text" name="id" id="join_id" placeholder="" readonly/>
           
           <label for="pwd">비밀번호</label>
@@ -47,9 +49,10 @@
           <label for="confirmPassword">비밀번호 확인</label>
           <input class="form-styling" type="password" name="confirmPwd" id="confirmPwd" placeholder="" required/>
           
-          <label for="email">이메일&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
-            <input type=button id="eBtn" class="btn btn-sm btn-primary" value="이메일확인"/>
-          </label>
+         	<span class="d-flex justify-content-between">
+          <label for="email">이메일</label>
+          <input type=button id="eBtn" class="btn btn-sm btn-primary" value="이메일확인"/>
+          </span>
           <input class="form-styling" type="text" name="email" id="email" placeholder="" required/>
           <span style="color:white; font-size:14px " id="ePrint" class="text-center"></span>
           
