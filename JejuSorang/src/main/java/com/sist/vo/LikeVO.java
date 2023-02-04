@@ -4,7 +4,7 @@ package com.sist.vo;
 	NO          NUMBER      
 	ID          VARCHAR2(20) 
  */
-public class likeVO {
+public class LikeVO {
 	private int lno,no;
 	private String id;
 

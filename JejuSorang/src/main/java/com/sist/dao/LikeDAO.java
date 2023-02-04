@@ -6,7 +6,7 @@ public class LikeDAO {
 	private Connection conn;
 	private PreparedStatement ps; 
 
-	public void likeInsert(likeVO vo)
+	public void likeInsert(LikeVO vo)
 	{
 		try
 		{
@@ -76,7 +76,7 @@ public class LikeDAO {
 		return count;
 	} 
 	 
-	public int foodLikeCount(int fno)
+	public int hotelLikeCount(int hno)
 	{
 		int count=0;
 		try
@@ -85,7 +85,7 @@ public class LikeDAO {
 			String sql="SELECT COUNT(*) FROM jj_like_1 "
 					+ "WHERE no=?";
 			ps=conn.prepareStatement(sql);
-			ps.setInt(1, fno);
+			ps.setInt(1, hno);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
 			count=rs.getInt(1);
