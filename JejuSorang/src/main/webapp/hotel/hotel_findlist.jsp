@@ -31,7 +31,7 @@ $(document).ready(function() {
     var newPosition = scrollTop + floatPosition + "px";
 
     $("#filter").stop().animate({ "top" : newPosition }, 500);
-
+ 
   }).scroll();
 });
 </script>
