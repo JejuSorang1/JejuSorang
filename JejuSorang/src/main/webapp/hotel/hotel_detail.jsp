@@ -38,8 +38,8 @@
               <p> <img src="../img/star.png" style="width:30px; height:30px">&nbsp;&nbsp;${hvo.grade }</p>
               <p> <img src="../img/point.png" style="width:35px; height:35px">&nbsp;${hvo.addr}</p>
 			  <p> <img src="../img/clock.png" style="width:33px; height:33px">&nbsp;${hvo.time}</p>
-			  <p><a href="#" class="btn btn-xs btn-success" style="float: center">좋아요</a><%-- ${hvo.like_count } --%><p>
-			  <p><a href="#" class="btn btn-xs btn-success" style="float: center">찜하기</a><%-- ${hvo.jjim_count } --%></p>
+			  <p><a href="#" class="btn btn-xs" style="float: center;background-color: #F8B03A">좋아요</a><span style="float: right"><img src="../img/like.png" style="width: 22px;height: 22px;">좋아요${hvo.like_count }</span></p>
+			  <p><a href="#" class="btn btn-xs" style="float: center;background-color: #F8B03A">찜하기</a><span style="float: right"><img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${hvo.jjim_count }</span></p>
             </div>
           </div>
        </div>
@@ -128,7 +128,7 @@
 				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
                         </td>
                         <td width="17%">
-                        <a href="#"><button type="button" class="btn btn-md btn-warning" style="float: right;">예약하기</button></a>
+                        <a href="#"><button type="button" class="btn btn-md" style="float: right;background-color: #F8B03A">예약하기</button></a>
                         </td>
                       </tr>
                     </table>
