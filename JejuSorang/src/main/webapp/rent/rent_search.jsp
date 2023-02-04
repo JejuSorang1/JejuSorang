@@ -8,9 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/style.css"> 
 <link rel="stylesheet" href="../css/rent_search.css"> 
-<style type="text/css">
 
-</style>
 </head>
 <body>
   <div class="container">
@@ -52,7 +50,7 @@
 	    <br>
           <h5>자동차 모델</h5>
             <div style="display: inline-block;">
-            <input type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 80%;"><input type=submit value="검색">
+            <input type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 75%;"> <input type=submit value="검색" style="border: 0; border-radius: 15%; background-color: #F8B03A; padding: 2%; color: white;">
             </div>
         </div>
         <hr>
@@ -95,7 +93,7 @@
                             <a href="../rent/car_detail.do?car_no=${cvo.car_no }"><img src="${cvo.car_image }" style="width:300px;" id="rentimg"></a>
                           </td>
                           <td width="62%">
-                            <p> <h3>${cvo.car_name }</h3></p> <h3 id="price" ><span ><strong>${cvo.car_price }</strong></span>원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <p> <h3>${cvo.car_name }</h3></p> <h3 id="price" style="color: #F8B03A;" ><span ><strong>${cvo.car_price }</strong></span>원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
                            <p class="short-text">업체:레인보우모빌리티</p>
                             <p>${cvo.car_option1}</p>
                             <a href="../rent/car_detail.do?car_no=${cvo.car_no  }"><button type="button" class="btn btn-md btn-warning text-white" style="float: right; margin-right: 5px;">예약하기</button></a>
@@ -112,13 +110,13 @@
      <nav class="pagination">
         <ul>
         <c:if test="${startPage>1}">
-          <li><a href="../rent/rent_search.do?page=${startPage-1 }">&laquo; 이전</a></li>
+          <li><a href="../rent/rent_search.do?ss=${ss }&page=${startPage-1 }">&laquo; 이전</a></li>
           </c:if>
           <c:forEach var="i" begin="${startPage }" end="${endPage }">
-            <li ${i==curpage?"class=current":"" }><a href="../rent/rent_search.do?page=${i }">${i }</a></li>
+            <li ${i==curpage?"class=current":"" }><a href="../rent/rent_search.do?ss=${ss }&page=${i }">${i }</a></li>
           </c:forEach>
           <c:if test="${endPage<totalpage }">
-          <li><a href="../rent/rent_search.do?page=${endPage+1 }">다음 &raquo;</a></li>
+          <li><a href="../rent/rent_search.do?ss=${ss }&page=${endPage+1 }">다음 &raquo;</a></li>
           </c:if>
         </ul>
       </nav>
