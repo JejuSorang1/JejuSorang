@@ -9,15 +9,48 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css"> 
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+//화면 크기가 변경 되었 때
+$(window).resize(function( event ) { 
+  $(this).trigger('scroll'); 
+});
+// 페이지 읽힌 다음 위치 설정
+$(document).ready(function() {
 
+  // 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+  var floatPosition = parseInt($("#filter").css('top'));
+  var divBoxHeight  = parseInt($('#filter').outerHeight(true));
+
+  $(window).scroll(function() {
+    // 현재 스크롤 위치를 가져온다.
+    var scrollTop = $(window).scrollTop();
+    var newPosition = scrollTop + floatPosition + "px";
+
+    $("#filter").stop().animate({ "top" : newPosition }, 500);
+
+  }).scroll();
+});
 </script>
 
 <style>
-   
+#filter{
+	position: relative;
+    width: 300px;
+    height: 300px;
+    left: 2px;
+    top: 10px;
+    background-color: white;
+}
+#datepicker_3,#datepicker_4{
+	border-color: orange;
+}
+.booking_part .form-row .form_colum .nc_select{
+	border-color: orange;
+}
 </style>
 
 </head>
@@ -26,24 +59,24 @@
   <div class="row">
     <div class="row-lg-12">
     <section class="booking_part" id="searchbar" >
-      <div class="booking_content" id="searchbar1" >
+      <div class="booking_content" id="searchbar1" style="background:transparent;">
         <div class="booking_form">
-          <form action="#">
-            <div class="form-row" style="height: 10px">
-              <div class="form_colum" style="width:300px; margin-left: 5px;">
+          <form method =post action="../hotel/hotel_findlist.do" class="inline" >
+            <div class="form-row" style="height: 5px">
+              <div class="form_colum" style="width:300px; margin-left: 100px;margin-Top: -2%">
                 <select class="nc_select">
                   <option value="jeju" style="width: 500px;height: 500px" selected>전체</option>
                   <option value="jeju">제주시</option>
                   <option value="seogwipo">서귀포시</option>
-                </select>    
+                </select>      
               </div>
-              <div class="form_colum" style="width:300px;  margin-left: 5px;">
+              <div class="form_colum" style="width:300px;  margin-left: 5px; margin-Top: -2%">
                 <input id="datepicker_3" placeholder="예약시작일">
               </div>
-              <div class="form_colum" style="width:300px;  margin-left: 5px;">
+              <div class="form_colum" style="width:300px;  margin-left: 5px; margin-Top: -2%">
                 <input id="datepicker_4" placeholder="예약종료일">
               </div>
-              <div class="form_btn" style="margin-left: 5px;">
+              <div class="form_btn" style="margin-left: 5px; margin-Top: -1%">
                 <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2">
               </div>
             </div>
@@ -54,18 +87,15 @@
     </div>
     
     
-    <div class="col-sm-3">
+    <div class="col-sm-3" id="filter">
      <form name="form1" method="post" action="" enctype="multipart/form-data">   
-       <div class="col-md-12">  
+       <div class="col-md-12" >  
          <div class="form-group">
         <div style="width: 10px;height: 50px"></div>
         <h3>검색결과</h3><hr>
+        <h5>목적지</h5>
         <div style="height: 5px"></div>
-          <h5>목적지</h5>
-           <select name="city" class="travel">
-             <option value="jeju">제주시</option>  
-             <option value="seogwipo">서귀포시</option>  
-           </select>
+          <input type="text" value="">
          </div>
           <div class="form-group">
           <h5>체크인 날짜</h5>
@@ -99,7 +129,7 @@
        </div>
      </form>
      
-     <form name="form1" method="post" action="" enctype="multipart/form-data"> 
+     <!-- <form name="form1" method="post" action="" enctype="multipart/form-data"> 
        <div class="col-md-12">
           <h5>호텔 종류</h5>
             <div class="checkbox opinion" id="opinion">
@@ -131,10 +161,10 @@
             <p>Value:<span id="value"></span></p>
         </div> 
         
-      </form>
+      </form> -->
     </div>
     
-    <div class="col-sm-9 wrap" id="contenthotels">
+    <div class="col-sm-9 wrap1" id="contenthotels">
       <div class="col-md-12 sortbuttons">
         <button type="button" class="btn btn-sm" style="float: right;" id="starBtn">평점순</button>
         <button type="button" class="btn btn-sm" style="float: right;" id="lowBtn">가격(낮은순)</button>
@@ -156,11 +186,12 @@
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width:300px;height:250px"></a>
                           </td>
                           <td width="45%"> 
-                            <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span class="list-group-item-text ocena">(${hvo.star })</span></h4></a><!-- 여기 -->
+                            <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span style="color:orange">(${hvo.star })</span></h4></a><!-- 여기 -->
                             <p><h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
                             <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>                            
-                            <p><%-- ${hvo.like } --%>좋아요&nbsp;&nbsp;<%-- ${hvo.jjim } --%>찜하기</p>
+                            <p> 가격 ${vo.minprice.room_price }
+                            <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${hvo.like_count }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${hvo.jjim_count }</p>
                           </td>
                           <td width="17%">
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>

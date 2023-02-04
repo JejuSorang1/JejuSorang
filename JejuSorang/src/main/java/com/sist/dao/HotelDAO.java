@@ -44,6 +44,7 @@ public class HotelDAO {
             list.add(vo);
          }
          rs.close();
+         
       }catch(Exception ex)
       {
          ex.printStackTrace();
@@ -83,9 +84,9 @@ public class HotelDAO {
          try
          {
             conn=CreateConnection.getConnection();
-            String sql="SELECT hno,name,hotel_image,addr,grade,star,time,num "
-                    +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,rownum as num "
-                    +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time "
+            String sql="SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count,num "
+                    +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count,rownum as num "
+                    +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count "
                     +"FROM jj_hotel_1 "
                     +"WHERE addr LIKE '%'||?||'%')) "
                     +"WHERE num BETWEEN ? AND ?";
@@ -99,6 +100,7 @@ public class HotelDAO {
             ps.setInt(2, start);
             ps.setInt(3, end);
             ResultSet rs=ps.executeQuery();
+            
             while(rs.next())
             {
                HotelVO vo=new HotelVO();
@@ -109,7 +111,8 @@ public class HotelDAO {
                vo.setGrade(rs.getString(5));
                vo.setStar(rs.getDouble(6));
                vo.setTime(rs.getString(7));
-               
+               vo.setLike_count(rs.getInt(8));
+               vo.setJjim_count(rs.getInt(9));
                list.add(vo);
             }
             rs.close();
@@ -214,5 +217,44 @@ public class HotelDAO {
          CreateConnection.disConnection(conn, ps);
       }
       return list;
+   }
+   public List<HotelVO> hotel_lowprice()
+   {
+	   List<HotelVO> list=new ArrayList<HotelVO>();
+	   try
+	   {
+		   conn=CreateConnection.getConnection();
+		   String sql="SELECT JJ_HOTEL_1.name , minprice.room_price "
+		   		+ "FROM JJ_HOTEL_1,"
+		   		+ "(SELECT HNO , MIN(TO_NUMBER(REPLACE(ROOM_PRICE,',',''))) room_price "
+		   		+ "FROM JJ_ROOM_1 "
+		   		+ "GROUP BY HNO "
+		   		+ "ORDER BY HNO) minprice "
+		   		+ "where JJ_HOTEL_1.hno = minprice.hno "
+		   		+ "ORDER BY ROOM_PRICE ASC";
+		   ps=conn.prepareStatement(sql);
+	       ResultSet rs=ps.executeQuery();
+	       while(rs.next())
+           {
+              HotelVO vo=new HotelVO();
+              vo.setHno(rs.getInt(1));
+              vo.setName(rs.getString(2));
+              vo.setHotel_image(rs.getString(3));
+              vo.setAddr(rs.getString(4));
+              vo.setGrade(rs.getString(5));
+              vo.setStar(rs.getDouble(6));
+              vo.setTime(rs.getString(7));
+              vo.setAccount(rs.getInt(8));
+              list.add(vo);
+           }
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   CreateConnection.disConnection(conn, ps);
+	   }
+	   return list;
    }
 }

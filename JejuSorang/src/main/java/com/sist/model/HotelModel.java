@@ -71,6 +71,11 @@ public class HotelModel {
    @RequestMapping("hotel/hotel_findlist.do") //검색 후
    public String hotel_findlist(HttpServletRequest request, HttpServletResponse response)
    {
+	   try
+	   {
+		   // 한글 변환 
+		   request.setCharacterEncoding("UTF-8");
+	   }catch(Exception ex){}
       String ss=request.getParameter("ss");
       if(ss==null)
          ss="제주";
@@ -104,6 +109,7 @@ public class HotelModel {
       request.setAttribute("startPage", startPage);
       request.setAttribute("endPage", endPage);
       request.setAttribute("list", list);
+      request.setAttribute("ss", ss);
       request.setAttribute("count", count);
       
       request.setAttribute("main_jsp", "../hotel/hotel_findlist.jsp");
