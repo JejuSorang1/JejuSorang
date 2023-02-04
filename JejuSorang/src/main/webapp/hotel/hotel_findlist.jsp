@@ -45,14 +45,13 @@ $(document).ready(function() {
     top: 10px;
     background-color: white;
 }
-#datepicker_3,#datepicker_4{
+#datepicker_3,#datepicker_4,#inwon{
 	border-color: orange;
 }
 .booking_part .form-row .form_colum .nc_select{
 	border-color: orange;
 }
 </style>
-
 </head>
 <body>
 <div class="container">
@@ -61,20 +60,23 @@ $(document).ready(function() {
     <section class="booking_part" id="searchbar" >
       <div class="booking_content" id="searchbar1" style="background:transparent;">
         <div class="booking_form">
-          <form method =post action="../hotel/hotel_findlist.do" class="inline" >
+          <form method =post action="../hotel/hotel_findlist.do" class="ser">
             <div class="form-row" style="height: 5px">
-              <div class="form_colum" style="width:300px; margin-left: 100px;margin-Top: -2%">
+              <div class="form_colum" style="width:200px; margin-left: 5px;margin-Top: -2%">
                 <select class="nc_select">
-                  <option value="jeju" style="width: 500px;height: 500px" selected>전체</option>
+                  <option value="jeju" style="width: 200px;height: 200px" selected>전체</option>
                   <option value="jeju">제주시</option>
                   <option value="seogwipo">서귀포시</option>
                 </select>      
               </div>
-              <div class="form_colum" style="width:300px;  margin-left: 5px; margin-Top: -2%">
+              <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
                 <input id="datepicker_3" placeholder="예약시작일">
               </div>
-              <div class="form_colum" style="width:300px;  margin-left: 5px; margin-Top: -2%">
+              <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
                 <input id="datepicker_4" placeholder="예약종료일">
+              </div>
+              <div class="form_colum" style="width:200px; margin-left: 5px; margin-Top: -2%">
+                <input type="number"  min="1" max="8" style="width: 180px;height: 50px" id="inwon" placeholder="인원">
               </div>
               <div class="form_btn" style="margin-left: 5px; margin-Top: -1%">
                 <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2">

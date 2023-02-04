@@ -28,7 +28,18 @@
 #detail{
 	background-color: #F8B03A;  
 }  
+.booking_part {
+    z-index: 9;
+    position: relative;
+}
 
+.booking_part .form-row .form_colum .nc_select, .booking_part .form-row .form_colum .gj-datepicker{
+	 width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+	
+}
 
 
 .pagination{display:block; width:100%; text-align:center; clear:both; margin-bottom: 30px;  border-color:#F8B03A;}
