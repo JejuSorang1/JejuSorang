@@ -136,8 +136,8 @@
             <br>
             <table>
              <h4 style="font-size:20px;color:gray"><b>업체정보</b></h4>
-             <td class="text-left"><img src="../img/rlogo.png" style="weight:25px;height:25px">&nbsp;${rvo.rname }
-              &nbsp;<span><img src="../img/star.png" style="width:10px; height:10px">&nbsp;${rvo.star }</span> 
+             <td class="text-left"><img src="../img/rlogo.png" style="weight:25px;height:25px">&nbsp;${vo.rname }
+              &nbsp;<span><img src="../img/star.png" style="width:10px; height:10px">&nbsp;${vo.star }</span> 
              </td>
             </table>
             <table>
@@ -157,7 +157,7 @@
       var geocoder = new kakao.maps.services.Geocoder();
       
       // 주소로 좌표를 검색합니다
-      geocoder.addressSearch('${rvo.rcaddr}', function(result, status) {
+      geocoder.addressSearch('${vo.rcaddr}', function(result, status) {
       
           // 정상적으로 검색이 완료됐으면 
            if (status === kakao.maps.services.Status.OK) {
@@ -172,7 +172,7 @@
       
               // 인포윈도우로 장소에 대한 설명을 표시합니다
               var infowindow = new kakao.maps.InfoWindow({
-                  content: '<div style="width:150px;text-align:center;padding:6px 0;">${rvo.rname}</div>'
+                  content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.rname}</div>'
               });
               infowindow.open(map, marker);
       
@@ -186,28 +186,70 @@
             <table>
             <br>
              <tr style="font-size:20px;color:gray"><b>주소</b></tr>
-             <td>${rvo.rcaddr }</td>
+             <td>${vo.rcaddr }</td>
              </table>
              <table>
              <br>
              <tr style="font-size:15px;color:gray"><b>전화</b></tr>
-             <td>${rvo.rctel }</td>
+             <td>${vo.rctel }</td>
              </table>
              <br>
              <table>
              <tr style="font-size:15px;color:gray"><b>영업시간</b></tr>
              <td>연중무휴 08:00~20:00</td>
             </table>
+            <br>
           </div>
         </div>
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
           <div class="review-heading">후기</div>
-          <p class="mb-20">There are no reviews yet.</p>
+          	<form method="get" action="car_review.do">
+			  <table class="table">
+			  <tr>
+			  		<th width=30% class="text-right">차량번호</th>
+			  		<input type=text name=car_no size=15 class="car_no">
+			  </tr>
+			  <tr>
+			      <th width=30% class="text-right">ID</th>
+			      <td width=80%>
+			        <input type=text name=id size=15 class="id">
+			      </td>
+			    </tr>
+			    <tr>
+			      <th width=30% class="text-right">후기내용</th>
+			      <td width=80%>
+			        <textarea rows="10" cols="60" name="content"></textarea>
+			      </td>
+			    </tr>
+			    <tr>
+			      <td colspan="2" class="text-center">
+			        <input type=submit value="글쓰기" class="btn btn-sm btn-danger">
+			        <input type=button value="취소" class="btn btn-sm btn-danger" onclick="javascript:history.back()">
+			      </td>
+			    </tr>
+			  </table>
+  			</form>
+  			<table>
+            <br>
+             <tr style="font-size:20px;color:gray"><b>아이디</b></tr>
+             <td>${rv.id }</td>
+             </table>
+             <table>
+             <br>
+             <tr style="font-size:15px;color:gray"><b>차번호</b></tr>
+             <td>${rv.rent_review_no }</td>
+             </table>
+             <br>
+             <table>
+             <tr style="font-size:15px;color:gray"><b>후기</b></tr>
+             <td>${rv.msg }</td>
+            </table>
         </div>
+        
       </div>
      </div>
 	</div>
-  
+ 
 
       
     

@@ -91,14 +91,33 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
+   RentReviewVO rv = dao.car_review(Integer.parseInt(cno));
    
    //footer
    CommonsModel.footerData(request);
-
-   request.setAttribute("vo", vo);
    
+   request.setAttribute("rv", rv);
+   request.setAttribute("vo", vo);
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "../main/main.jsp";
    
    }
+	
+@RequestMapping("rent/car_review.do")
+public String car_review(HttpServletRequest request,HttpServletResponse response)
+{
+   String id=request.getParameter("id");
+   String content=request.getParameter("content");
+   String cno=request.getParameter("car_no");
+   
+   System.out.println(cno);
+   
+   RentDAO dao=new RentDAO();
+   dao.review_insert(id,content, Integer.parseInt(cno));
+   
+   request.setAttribute("main_jsp","../rent/car_detail.jsp");
+   return "redirect:car_detail.do?car_no="+cno;
+   
+   }
+
  }

@@ -174,6 +174,70 @@ public class RentDAO {
         return vo;
      }
 
+	 public RentReviewVO car_review(int car_no)
+     {
+        RentReviewVO rv=new RentReviewVO();
+        
+        try
+        {
+           conn=CreateConnection.getConnection();
+           String sql="SELECT id,rcno,rent_review_no,msg "
+                     + "FROM jj_rent_review_1 "
+                    + "WHERE rent_review_no=?";
+           ps=conn.prepareStatement(sql);
+           ps.setInt(1, car_no);
+           ResultSet rs=ps.executeQuery();
+           rs.next();
+              rv.setId(rs.getString(1));
+              rv.setRcno(rs.getInt(2));
+              rv.setRent_review_no(rs.getInt(3));
+              rv.setMsg(rs.getString(4));
+
+           rs.close();
+           
+        }catch(Exception ex)
+        {
+           ex.printStackTrace();
+        }
+        finally
+        {
+           CreateConnection.disConnection(conn, ps);
+        }
+        return rv;
+     }
+	 
+	//렌트카 리뷰 insert
+		 public RentReviewVO review_insert(String ID, String content, int car_no)
+	     {
+			 try
+			  {
+				 
+				  conn=CreateConnection.getConnection();
+				  String sql="INSERT INTO jj_rent_review_1(id,rcno,rent_review_no,msg) "
+						    +"VALUES(?,1,?,?)";
+				  // SQL문장 전송
+				  ps=conn.prepareStatement(sql);
+				  // 실행전에 ?에 값을 채운다 
+				  ps.setString(1, ID);
+				  ps.setInt(2, car_no);
+				  ps.setString(3, content);
+				  
+				  // 실행 명령 ==> COOMIT ===> executeUpdate() => commit을 포함하고 있다 
+				  ps.executeUpdate();
+			  }catch(Exception ex)
+			  {
+				  ex.printStackTrace();
+			  }
+			  finally
+			  {
+				  CreateConnection.disConnection(conn, ps);
+			  }
+			return null;
+			 
+	     }
+	 
+	 
+	 
 	//업체 상세보기
 	
 	
