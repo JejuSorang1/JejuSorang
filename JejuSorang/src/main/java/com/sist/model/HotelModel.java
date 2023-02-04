@@ -63,6 +63,7 @@ public class HotelModel {
       request.setAttribute("rList", rList); 
       request.setAttribute("main_jsp", "../hotel/hotel_detail.jsp");
       
+      
       //footer
       CommonsModel.footerData(request);
       return "../main/main.jsp";

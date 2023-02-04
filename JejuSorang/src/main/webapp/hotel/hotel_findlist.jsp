@@ -9,7 +9,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/style.css"> 
 <link rel="stylesheet" href="../css/hotel_findlist.css"> 
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -47,10 +46,13 @@ $(document).ready(function() {
 }
 #datepicker_3,#datepicker_4,#inwon{
 	border-color: orange;
+	border-radius: 10px;
 }
 .booking_part .form-row .form_colum .nc_select{
 	border-color: orange;
+	border-radius: 10px;
 }
+
 </style>
 </head>
 <body>
@@ -61,7 +63,7 @@ $(document).ready(function() {
       <div class="booking_content" id="searchbar1" style="background:transparent;">
         <div class="booking_form">
           <form method =post action="../hotel/hotel_findlist.do" class="ser">
-            <div class="form-row" style="height: 5px">
+            <div class="form-row" style="height: 5px;">
               <div class="form_colum" style="width:200px; margin-left: 5px;margin-Top: -2%">
                 <select class="nc_select">
                   <option value="jeju" style="width: 200px;height: 200px" selected>전체</option>

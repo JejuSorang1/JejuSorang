@@ -11,17 +11,17 @@ import com.sist.vo.JjimVO;
 public class JjimDAO {
 	private Connection conn;
 	private PreparedStatement ps;
+	
 	public void jjimInsert(JjimVO vo)
 	{
 		try
 		{
 			conn=CreateConnection.getConnection();
 			String sql="INSERT INTO jj_jjim_1 VALUES("
-					+"(SELECT NVL(MAX(jno)+1,1) FROM jj_jjim_1),?,?,?)";
+					+"(SELECT NVL(MAX(jno)+1,1) FROM jj_jjim_1),?,?)";
 			ps=conn.prepareStatement(sql);
-			ps.setInt(1, vo.getAll_cate_no());
-			ps.setInt(2, vo.getJno());
-			ps.setString(3, vo.getId());
+			ps.setInt(1, vo.getNo());
+			ps.setString(2, vo.getId());
 			ps.executeUpdate();
 		}catch(Exception ex)
 		{
@@ -33,7 +33,7 @@ public class JjimDAO {
 		}
 	}
 	// jjim확인
-	public int jjimCount(int all_cate_no,int jno,String id)
+	public int jjimCount(int all_cate_no,int no,String id)
 	{
 		int count=0;
 		try
@@ -43,7 +43,7 @@ public class JjimDAO {
 					+"WHERE all_cate_no=? AND no=? AND id=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, all_cate_no);
-			ps.setInt(2, jno);
+			ps.setInt(2, no);
 			ps.setString(3, id);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
