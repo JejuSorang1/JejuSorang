@@ -1,7 +1,7 @@
 <%@page import="com.sist.vo.RoomVO"%>
 <%@page import="com.sist.dao.RoomDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
@@ -33,6 +33,19 @@ $(document).ready(function() {
  
   }).scroll();
 });
+
+$(function(){
+	$(document).ready(function(){
+		$('select[name=area]').change(function(){
+			if($(this).val()=="1"){
+				$('#area').val("전체");
+			}else {
+					$('#area').val($(this).val());
+					$('#area').attr("readonly",true)
+				}
+		})
+	})
+})
 </script>
 
 <style>
