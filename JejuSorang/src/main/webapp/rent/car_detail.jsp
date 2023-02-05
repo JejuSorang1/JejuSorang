@@ -36,13 +36,12 @@
    width: 300px;
    height: 100%; 
 }
-.mybutton{
+#mybutton{
    width:300px;
    height: 50px;
-   background-color: blue;
+   background-color: #0000FF;
    color:white;
 }
-
 </style>
 
 </head>
@@ -71,7 +70,7 @@
        <h4 style="font-size:17px;color:gray">시간이 경과될 경우 좌석이 매진되거나 요금이 변동될 수 있습니다.</h4>
        <br>
        <div>
-        <a href="#"><button type="button" class="mybutton">예약하기</button></a>
+        <a href="#"><button type="button" class="button" id="mybutton">예약하기</button></a>
        </div>
        </div>
       </div>
