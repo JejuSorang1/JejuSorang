@@ -119,23 +119,6 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    }
 
 	
-@RequestMapping("rent/car_review.do")
-public String car_review(HttpServletRequest request,HttpServletResponse response)
-{
-   String id=request.getParameter("id");
-   String content=request.getParameter("content");
-   String cno=request.getParameter("car_no");
-   
-   System.out.println(cno);
-   
-   RentDAO dao=new RentDAO();
-   dao.review_insert(id,content, Integer.parseInt(cno));
-   
-   request.setAttribute("main_jsp","../rent/car_detail.jsp");
-   return "redirect:car_detail.do?car_no="+cno;
-   
-}
  }
-
 
 

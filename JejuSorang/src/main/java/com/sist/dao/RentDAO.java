@@ -206,39 +206,7 @@ public class RentDAO {
         }
         return rv;
      }
-	 
-	//렌트카 리뷰 insert
-		 public RentReviewVO review_insert(String ID, String content, int car_no)
-	     {
-			 try
-			  {
-				 
-				  conn=CreateConnection.getConnection();
-				  String sql="INSERT INTO jj_rent_review_1(id,rcno,rent_review_no,msg) "
-						    +"VALUES(?,1,?,?)";
-				  // SQL문장 전송
-				  ps=conn.prepareStatement(sql);
-				  // 실행전에 ?에 값을 채운다 
-				  ps.setString(1, ID);
-				  ps.setInt(2, car_no);
-				  ps.setString(3, content);
-				  
-				  // 실행 명령 ==> COOMIT ===> executeUpdate() => commit을 포함하고 있다 
-				  ps.executeUpdate();
-			  }catch(Exception ex)
-			  {
-				  ex.printStackTrace();
-			  }
-			  finally
-			  {
-				  CreateConnection.disConnection(conn, ps);
-			  }
-			return null;
-			 
-	     }
-	 
-	 
-	 
+	 	 
 	//업체 상세보기
 	
 	
@@ -273,3 +241,4 @@ public class RentDAO {
 	}
 
 }
+
