@@ -59,7 +59,7 @@ $(function(){
     <div class="col-sm-3">
       <div style="width: 10px;height: 50px"></div>
 	 <h3>최근 본 목록</h3> 
-    </div>
+    </div>  
     <div class="col-sm-9">
 	<div class="wrapper row3">
 	  <main class="container clear">
