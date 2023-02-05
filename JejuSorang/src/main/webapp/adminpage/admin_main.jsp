@@ -5,31 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/admin_main.css">
 </head>
 <body>
 <div style="height: 30px"></div>
-
-<div class="container" id="main">
-  <div class="row-fluid" style="
-    margin-bottom: 10px;">
-    <p class="span12">
-      <a href="#menu" class="side-menu-link btn btn-mini" title="Click for sub-menu">
-        <i class="icon-th"></i>
-      </a>
-    </p>
+<div class="wrapper row3">
+  <main class="container clear"> 
+    <!-- main body --> 
+    
+    <div class="inline"> 
+    
+      <h3 class="text-center">${sessionScope.name } 님의 관리자페이지</h3>
+      <div style="height: 15px"></div>
+      <%-- 메뉴 --%>
+      <jsp:include page="../adminpage/admin_menu.jsp"></jsp:include>
+    </div>
+    <div> 
+      <jsp:include page="${admin_jsp }"></jsp:include>
+    </div>
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
   </div>
-  
-  <div id="wrap" class="row-fluid wrap">
-    <section class="well span9">
-      <ul class="nav">
-      
-        <jsp:include page="../adminpage/admin_menu.jsp"></jsp:include>
-        <jsp:include page="${admin_jsp }"></jsp:include>
-      </ul>
-    </section>
-   </div>
- </div>
-
 </body>
 </html>

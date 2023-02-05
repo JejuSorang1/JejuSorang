@@ -28,6 +28,7 @@
    width:400px;
    height: 400px;
    border: 1px solid gray; 
+<<<<<<< HEAD
    position: relative;		
    top: 50px;
    left: 250px;
@@ -42,6 +43,23 @@
    background-color: #0000FF;
    color:white;
 }
+=======
+   position: relative;      
+   top: 50px;
+   left: 250px;
+}
+.inner-box{
+   width: 300px;
+   height: 100%; 
+}
+.mybutton{
+   width:300px;
+   height: 50px;
+   background-color: blue;
+   color:white;
+}
+
+>>>>>>> refs/remotes/origin/master
 </style>
 
 </head>
@@ -53,10 +71,17 @@
       <div class="detailpage">
        <div class="detailRentCar">
         <figure>
+<<<<<<< HEAD
 		 <img src="${vo.car_image }" width="450" height="450">
 		  <p class="tip" style="font-size: 15px">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
            <h4 style="font-size:20px;color:gray"><b>${vo.car_name }</b></h4>
 		</figure>
+=======
+       <img src="${vo.car_image }" width="450" height="450">
+        <p class="tip" style="font-size: 15px">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
+           <h4 style="font-size:20px;color:gray"><b>${vo.car_name }</b></h4>
+      </figure>
+>>>>>>> refs/remotes/origin/master
        </div>
       </div>
       <div class="box">
@@ -70,7 +95,11 @@
        <h4 style="font-size:17px;color:gray">시간이 경과될 경우 좌석이 매진되거나 요금이 변동될 수 있습니다.</h4>
        <br>
        <div>
+<<<<<<< HEAD
         <a href="#"><button type="button" class="button" id="mybutton">예약하기</button></a>
+=======
+        <a href="#"><button type="button" class="mybutton">예약하기</button></a>
+>>>>>>> refs/remotes/origin/master
        </div>
        </div>
       </div>
@@ -117,9 +146,15 @@
             </table> 
             <br>
             <table>
+<<<<<<< HEAD
 	         <h4 style="font-size:15px;color:gray"><b>차량옵션</b></h4>
 	          <tr>
 	           <td class="text-left"><img src="../img/checkbox.png" style="weight:25px;height:25px">&nbsp;${vo.car_option2 }</td>
+=======
+            <h4 style="font-size:15px;color:gray"><b>차량옵션</b></h4>
+             <tr>
+              <td class="text-left"><img src="../img/checkbox.png" style="weight:25px;height:25px">&nbsp;${vo.car_option2 }</td>
+>>>>>>> refs/remotes/origin/master
               </tr>
             </table>
             <br>
@@ -202,6 +237,7 @@
         </div>
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
           <div class="review-heading">후기</div>
+<<<<<<< HEAD
           	<form method="get" action="car_review.do">
 			  <table class="table">
 			  <tr>
@@ -245,10 +281,19 @@
             </table>
         </div>
         
+=======
+          <p class="mb-20">There are no reviews yet.</p>
+        </div>
+>>>>>>> refs/remotes/origin/master
       </div>
      </div>
+<<<<<<< HEAD
 	</div>
  
+=======
+   </div>
+  
+>>>>>>> refs/remotes/origin/master
 
       
     

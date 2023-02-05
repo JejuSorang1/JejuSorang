@@ -18,9 +18,9 @@ public class HotelDAO {
       try
       {
          conn=CreateConnection.getConnection();
-         String sql="SELECT hno,name,hotel_image,addr,grade,star,time,num "
-               +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,rownum as num "
-               +"FROM (SELECT /*+INDEX_ASC(jj_hotel_1 hotel_hno_pk_1)*/ hno,name,hotel_image,addr,grade,star,time "
+         String sql="SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count,num "
+               +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count,rownum as num "
+               +"FROM (SELECT /*+INDEX_ASC(jj_hotel_1 hotel_hno_pk_1)*/ hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count "
                +"FROM jj_hotel_1)) "
                +"WHERE num BETWEEN ? AND ?";
          ps=conn.prepareStatement(sql);
@@ -37,10 +37,11 @@ public class HotelDAO {
             vo.setName(rs.getString(2));
             vo.setHotel_image(rs.getString(3));
             vo.setAddr(rs.getString(4));
-               vo.setGrade(rs.getString(5));
-               vo.setStar(rs.getDouble(6));
-               vo.setTime(rs.getString(7));
-               
+            vo.setGrade(rs.getString(5));
+            vo.setStar(rs.getDouble(6));
+            vo.setTime(rs.getString(7));
+            vo.setLike_count(rs.getInt(8));
+            vo.setJjim_count(rs.getInt(9));
             list.add(vo);
          }
          rs.close();
@@ -83,9 +84,9 @@ public class HotelDAO {
          try
          {
             conn=CreateConnection.getConnection();
-            String sql="SELECT hno,name,hotel_image,addr,grade,star,time,num "
-                    +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,rownum as num "
-                    +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time "
+            String sql="SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count,num "
+                    +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count,rownum as num "
+                    +"FROM (SELECT hno,name,hotel_image,addr,grade,star,time,like_count,jjim_count "
                     +"FROM jj_hotel_1 "
                     +"WHERE addr LIKE '%'||?||'%')) "
                     +"WHERE num BETWEEN ? AND ?";
@@ -109,7 +110,8 @@ public class HotelDAO {
                vo.setGrade(rs.getString(5));
                vo.setStar(rs.getDouble(6));
                vo.setTime(rs.getString(7));
-               
+               vo.setLike_count(rs.getInt(8));
+               vo.setJjim_count(rs.getInt(9));
                list.add(vo);
             }
             rs.close();
@@ -155,7 +157,7 @@ public class HotelDAO {
       try
       {
          conn =CreateConnection.getConnection();
-         String sql ="SELECT hno,name,addr,time,hotel_image,grade,star "
+         String sql ="SELECT hno,name,addr,time,hotel_image,grade,star,like_count,jjim_count "
                + "FROM jj_hotel_1 "
                + "WHERE hno=?";
          
@@ -170,7 +172,8 @@ public class HotelDAO {
          vo.setHotel_image(rs.getString(5));
          vo.setGrade(rs.getString(6));
          vo.setStar(rs.getDouble(7));
-         
+         vo.setLike_count(rs.getInt(8));
+         vo.setJjim_count(rs.getInt(9));
          rs.close();
       }catch (Exception e) {
          e.printStackTrace();

@@ -13,7 +13,7 @@ import com.sist.vo.NoticeVO;
 @Controller
 public class AdminModel {
 
-	private String[] prefix= {"","일반공지","이벤트공지","맛집공지","여행공지","상품공지"};
+	private String[] prefix= {"","일반공지","숙박공지","렌트카공지"};
 	@RequestMapping("adminpage/admin_main.do")
 	public String admin_main(HttpServletRequest request,HttpServletResponse response) {
 		

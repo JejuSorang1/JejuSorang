@@ -89,7 +89,7 @@
                                                 <input id="datepicker_4" placeholder="예약종료일">
                                             </div>
                                             <div class="form_btn">
-                                                <a href="../rent/rent_search.do?car_no=${cvo.car_no }" class="btn_1">검색</a>
+                                                <a href="../rent/rent_search.do" class="btn_1">검색</a>
                                             </div>
                                         </div>
                                     </form>
@@ -152,7 +152,7 @@
               <c:forEach var="cvo" items="${clist }">
                 <div class="col-lg-4 col-sm-6">
                     <div class="single_ihotel_list">
-                        <img src="${cvo.car_image }" alt="">
+                        <img src="${cvo.car_image }" alt="" style="height: 280px">
                         <div class="hotel_text_iner">
                             <h3> <a href="../rent/car_detail.do?car_no=${cvo.car_no }"> ${cvo.car_name }</a></h3>
                             <h5><span>${cvo.car_price }</span>원</h5>
