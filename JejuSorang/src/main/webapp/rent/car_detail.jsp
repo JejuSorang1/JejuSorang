@@ -14,7 +14,8 @@
 <link rel="stylesheet" href="style.css">
 <!------ Include the above in your HEAD tag ---------->
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> 
 <script type="text/javascript">
@@ -39,8 +40,7 @@
    background-color: #0000FF;
    color:white;
 }
-<<<<<<< HEAD
-=======
+
    position: relative;      
    top: 50px;
    left: 250px;
@@ -56,9 +56,6 @@
    color:white;
 }
 
-=======
->>>>>>> refs/remotes/origin/master
-
 </style>
 
 </head>
@@ -69,29 +66,19 @@
     <div class="row">   
       <div class="detailpage">
        <div class="detailRentCar">
-<<<<<<< HEAD
+
+
         <figure>
 
-=======
-        <figure>
->>>>>>> refs/remotes/origin/master
 		 <img src="${vo.car_image }" width="450" height="450">
 		  <p class="tip" style="font-size: 15px">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
            <h4 style="font-size:20px;color:gray"><b>${vo.car_name }</b></h4>
-<<<<<<< HEAD
+
 		</figure>
 
-       <img src="${vo.car_image }" width="450" height="450">
-        <p class="tip" style="font-size: 15px">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
-           <h4 style="font-size:20px;color:gray"><b>${vo.car_name }</b></h4>
-      
-
-=======
            <br>
            	<p><span><img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${rvo.jjim_count }</span>&nbsp;&nbsp;<a href="../jjim/jjim_insert.do?rcno=${rvo.rcno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">찜하기</a></p>
            
-		</figure>
->>>>>>> refs/remotes/origin/master
        </div>
       </div>
       <div class="box">
@@ -104,17 +91,11 @@
        <br>
        <h4 style="font-size:17px;color:gray">시간이 경과될 경우 좌석이 매진되거나 요금이 변동될 수 있습니다.</h4>
        <br>
-<<<<<<< HEAD
-       <div>
 
-        <a href="#"><button type="button" class="button" id="mybutton">예약하기</button></a>
 
-        <a href="#"><button type="button" class="mybutton">예약하기</button></a>
-
-=======
        <div>
         <a href="#"><button type="button" class="button" id="mybutton">예약하기</button></a>
->>>>>>> refs/remotes/origin/master
+
        </div>
        </div>
       </div>
@@ -160,24 +141,23 @@
              </tr>
             </table> 
             <br>
-<<<<<<< HEAD
+
             <table>
 
-=======
+
             <table>
->>>>>>> refs/remotes/origin/master
+
 	         <h4 style="font-size:15px;color:gray"><b>차량옵션</b></h4>
 	          <tr>
-<<<<<<< HEAD
+
 	           <td class="text-left"><img src="../img/checkbox.png" style="weight:25px;height:25px">&nbsp;${vo.car_option2 }</td>
 
             <h4 style="font-size:15px;color:gray"><b>차량옵션</b></h4>
              <tr>
               <td class="text-left"><img src="../img/checkbox.png" style="weight:25px;height:25px">&nbsp;${vo.car_option2 }</td>
 
-=======
 	           <td class="text-left"><img src="../img/checkbox.png" style="weight:25px;height:25px">&nbsp;${vo.car_option2 }</td>
->>>>>>> refs/remotes/origin/master
+
               </tr>
             </table>
             <br>
@@ -259,7 +239,7 @@
           </div>
         </div>
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-<<<<<<< HEAD
+
           <div class="review-heading">후기</div>
 
           	<form method="get" action="car_review.do">
@@ -320,7 +300,7 @@
 
       
     
-=======
+
           <div class="review-heading">후기</div>
           	    <div style="height: 20px"></div>
       <div class="content three_quarter first"> 
@@ -393,7 +373,7 @@
       </table>
       </div>     
         </div>        
->>>>>>> refs/remotes/origin/master
+
   </div>
 
 
