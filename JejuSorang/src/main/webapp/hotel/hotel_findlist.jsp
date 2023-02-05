@@ -1,7 +1,7 @@
 <%@page import="com.sist.vo.RoomVO"%>
 <%@page import="com.sist.dao.RoomDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
@@ -33,6 +33,19 @@ $(document).ready(function() {
  
   }).scroll();
 });
+
+$(function(){
+	$(document).ready(function(){
+		$('select[name=area]').change(function(){
+			if($(this).val()=="1"){
+				$('#area').val("전체");
+			}else {
+					$('#area').val($(this).val());
+					$('#area').attr("readonly",true)
+				}
+		})
+	})
+})
 </script>
 
 <style>
@@ -52,14 +65,14 @@ $(document).ready(function() {
 	border-color: orange;
 	border-radius: 10px;
 }
-
+  
 </style>
 </head>
 <body>
 <div class="container">
   <div class="row">
     <div class="row-lg-12">
-    <section class="booking_part" id="searchbar" >
+    <section class="booking_part" id="searchbar">
       <div class="booking_content" id="searchbar1" style="background:transparent;">
         <div class="booking_form">
           <form method =post action="../hotel/hotel_findlist.do" class="ser">
@@ -194,7 +207,7 @@ $(document).ready(function() {
                             <p><h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
                             <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>                            
-                            <p> 가격 ${vo.minprice.room_price }
+                            <p> 가격 
                             <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${hvo.like_count }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${hvo.jjim_count }</p>
                           </td>
                           <td width="17%">

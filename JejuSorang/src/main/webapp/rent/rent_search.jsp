@@ -8,7 +8,62 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/style.css"> 
 <link rel="stylesheet" href="../css/rent_search.css"> 
-
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	//초기화
+ 	var chk_arr=[];
+ 	var pageType = 'text';
+ 	$('.ssBtn').show();
+ 	$('.cbxBtn').hide();
+ 	
+	$('#opinion').on('click', function(event){
+		$("input:checkbox[name='carchk']:checked").each(function(){
+			var chk=$(this).val();
+			chk_arr.push(chk);
+		})
+		
+		$('#cbxList').val(chk_arr);
+		document.getElementById("formId2").submit();
+	})
+	
+	//등급 체크박스 변경 시
+	$('#rtnCbxList').on('change', function(event){
+		if($('#rtnCbxList').val() == ""){
+			$('.cbxBtn').hide();
+			$('.ssBtn').show();
+		}else{
+			$('.cbxBtn').show();
+			$('.ssBtn').hide();
+		}
+		pageType = 'cbx';
+		var chkList = $('#rtnCbxList').val().split(',');
+		for(var i=0; i< chkList.length; i++){
+			if(chkList[i] == "경차"){
+				$('#chk1').prop("checked", true);
+			}
+			if(chkList[i] == "준중형"){
+				$('#chk2').prop("checked", true);
+			}
+			if(chkList[i] == "중형"){
+				$('#chk3').prop("checked", true);
+			}
+			if(chkList[i] == "RV"){
+				$('#chk4').prop("checked", true);
+			}
+			if(chkList[i] == "수입"){
+				$('#chk5').prop("checked", true);
+			}
+			if(chkList[i] == "고급"){
+				$('#chk6').prop("checked", true);
+			}
+		}
+	})
+	$('#rtnCbxList').val($('#rtnCbxList').val()).trigger('change');
+	
+	
+}); 
+</script>
 </head>
 <body>
   <div class="container">
@@ -45,27 +100,32 @@
     </section>
        <div class="col-sm-3 ">
        <div class="table" style="width: 80%">
-	  <form name="form1" method="post" action="../rent/rent_search.do"> 
+	  <form id = "formId1" name="form1" method="post" action="../rent/rent_search.do"> 
 	    <div class="col-md-12">
 	    <br>
           <h5>자동차 모델</h5>
             <div style="display: inline-block;">
-            <input type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 75%;"> <input type=submit value="검색" style="border: 0; border-radius: 15%; background-color: #F8B03A; padding: 2%; color: white;">
+            <input id = "searchText" type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 75%;"> <input type=submit value="검색" style="border: 0; border-radius: 15%; background-color: #F8B03A; padding: 2%; color: white;">
             </div>
         </div>
+     </form>
+     <form id ="formId2" name="form2" method="post" action="../rent/rent_search.do"> 
         <hr>
         <div style="height: 10px"></div>
 	    <div class="col-md-12">
           <h5>차량 등급</h5>
             <div class="checkbox opinion" id="opinion">
-              <ul id="stars">
-                <li><input type="checkbox" value="stars1" >&nbsp;경차</li>
-                <li><input type="checkbox" value="stars2" >&nbsp;준중형</li>
-                <li><input type="checkbox" value="stars3" >&nbsp;중형</li>
-                <li><input type="checkbox" value="stars4" >&nbsp;RV</li>
-                <li><input type="checkbox" value="stars4" >&nbsp;수입</li>
-                <li><input type="checkbox" value="stars4" >&nbsp;고급</li>
-                <li><input type="checkbox" value="stars4" >&nbsp;승합</li>
+            <input type="hidden" name="type" value="cbx">
+            <input type="hidden" id = "cbxList" name="cbxList" value="">
+            <input type="hidden" id = "rtnCbxList" name="rtnCbxList" value="${rtnCbxList }">
+              <ul id="models">
+                <li><input type="checkbox" name="carchk" value="경차" id ='chk1'  >&nbsp;경차</li>
+                <li><input type="checkbox" name="carchk" value="준중형" id ='chk2'>&nbsp;준중형</li>
+                <li><input type="checkbox" name="carchk" value="중형" id ='chk3'>&nbsp;중형</li>
+                <li><input type="checkbox" name="carchk" value="RV" id ='chk4'>&nbsp;RV</li>
+                <li><input type="checkbox" name="carchk" value="수입" id ='chk5'>&nbsp;수입</li>
+                <li><input type="checkbox" name="carchk" value="고급" id ='chk6'>&nbsp;고급</li>
+                <li><input type="checkbox" name="carchk" value="승합" id ='chk7'>&nbsp;승합</li>
               </ul>
             </div>
         </div>
@@ -74,11 +134,10 @@
         <hr>
           <h5>금액</h5>
             <input type="range" min="1" max="100" value="50" class="price" id="price">
-            <p>Vlaue:<span id="value"></span></p>
+            <p>Value:<span id="value"></span></p>
         </div> 
-        
       </form>
-    </div>`
+    </div>
     </div>
           <section class="col-md-8" >
           <div class="container" > 
@@ -93,7 +152,7 @@
                             <a href="../rent/car_detail.do?car_no=${cvo.car_no }"><img src="${cvo.car_image }" style="width:300px;" id="rentimg"></a>
                           </td>
                           <td width="62%">
-                            <p> <h3>${cvo.car_name }</h3></p> <h3 id="price" style="color: #F8B03A;" ><span ><strong>${cvo.car_price }</strong></span>원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <h3>${cvo.car_name }</h3><h3 id="price" style="color: #F8B03A;" ><span ><strong>${cvo.car_price }</strong></span>원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
                            <p class="short-text">업체:레인보우모빌리티</p>
                             <p>${cvo.car_option1}</p>
                             <a href="../rent/car_detail.do?car_no=${cvo.car_no  }"><button type="button" class="btn btn-md btn-warning text-white" style="float: right; margin-right: 5px;">예약하기</button></a>
@@ -110,13 +169,16 @@
      <nav class="pagination">
         <ul>
         <c:if test="${startPage>1}">
-          <li><a href="../rent/rent_search.do?ss=${ss }&page=${startPage-1 }">&laquo; 이전</a></li>
+          <li class = "ssBtn"><a href="../rent/rent_search.do?ss=${ss }&page=${startPage-1 }">&laquo; 이전</a></li>
+          <li class = "cbxBtn"><a href="../rent/rent_search.do?type=cbx&&cbxList=${rtnCbxList}&page=${startPage-1 }">&laquo; 이전</a></li>
           </c:if>
           <c:forEach var="i" begin="${startPage }" end="${endPage }">
-            <li ${i==curpage?"class=current":"" }><a href="../rent/rent_search.do?ss=${ss }&page=${i }">${i }</a></li>
+            <li class = "ssBtn" ${i==curpage?"class=current":"" }><a  href="../rent/rent_search.do?ss=${ss }&page=${i }">${i }</a></li>
+            <li class = "cbxBtn" style="display : none" ${i==curpage?"class=current":"" }><a  href="../rent/rent_search.do?type=cbx&&cbxList=${rtnCbxList}&page=${i }">${i }</a></li>
           </c:forEach>
           <c:if test="${endPage<totalpage }">
-          <li><a href="../rent/rent_search.do?ss=${ss }&page=${endPage+1 }">다음 &raquo;</a></li>
+          <li class = "ssBtn"><a  href="../rent/rent_search.do?ss=${ss }&page=${endPage+1 }">다음 &raquo;</a></li>
+          <li class = "cbxBtn"><a  href="../rent/rent_search.do?type=cbx&&cbxList=${rtnCbxList}&page=${endPage+1 }">다음 &raquo;</a></li>
           </c:if>
         </ul>
       </nav>

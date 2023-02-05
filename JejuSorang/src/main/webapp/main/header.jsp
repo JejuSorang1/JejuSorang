@@ -31,7 +31,10 @@
                                         <a class="nav-link" href="../hotel/hotel_all.do">호텔</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../rent/rent_all.do">렌트카</a>
+                                        <a class="nav-link" href="../rent/rent_search.do">렌트카</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../location/location_main.do">관광지</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../notice/list.do">공지사항</a>

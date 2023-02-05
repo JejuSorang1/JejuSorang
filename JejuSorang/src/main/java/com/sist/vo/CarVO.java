@@ -3,9 +3,14 @@ package com.sist.vo;
 public class CarVO {
 
 	private int car_no,rcno,account;
-	private String car_name,car_image,car_price,car_option1,car_option2,rname,rctel,rcaddr;
+	private String car_name,car_image,car_price,car_type,car_option1,car_option2,rname,rctel,rcaddr;
+	public String getCar_type() {
+		return car_type;
+	}
+	public void setCar_type(String car_type) {
+		this.car_type = car_type;
+	}
 	private double star;
-	
 	
 	public String getRname() {
 		return rname;
@@ -80,5 +85,4 @@ public class CarVO {
 		this.car_option2 = car_option2;
 	}
 	
-
 }

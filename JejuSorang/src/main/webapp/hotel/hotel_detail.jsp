@@ -13,12 +13,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!------ Include the above in your HEAD tag ---------->
-
+  
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> 
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+
 </script>
 </head>
 <body>
@@ -38,10 +40,29 @@
               <p> <img src="../img/star.png" style="width:30px; height:30px">&nbsp;&nbsp;${hvo.grade }</p>
               <p> <img src="../img/point.png" style="width:35px; height:35px">&nbsp;${hvo.addr}</p>
 			  <p> <img src="../img/clock.png" style="width:33px; height:33px">&nbsp;${hvo.time}</p>
-			  <p><a href="../like/like_insert.do?hno=${hvo.hno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">좋아요</a><span style="float: right"><img src="../img/like.png" style="width: 22px;height: 22px;">좋아요${hvo.like_count }</span></p>
-			  <p><a href="../jjim/jjim_insert.do?hno=${hvo.hno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">찜하기</a><span style="float: right"><img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${hvo.jjim_count }</span></p>
+			  <c:if test="${sessionScope.id!=null }">
+			  <c:if test="${like_count==0 }">
+			  <p><a href="../like/like_insert.do?hno=${hvo.hno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">좋아요</a><span style="float: right"><img src="../img/like.png" style="width: 22px;height: 22px;">좋아요${like_total }</span></p>
+			  </c:if>
+			  <c:if test="${like_count!=0 }">
+              <span class="btn btn-xs btn-default">좋아요(${like_total })</span>
+			  </c:if>
+			  
+			  
+			  <c:if test="${jjim_count==0 }">
+			    <p><a href="../jjim/jjim_insert.do?hno=${hvo.hno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">찜하기</a><span style="float: right"><img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기${jjim_total }</span></p>
+			  </c:if>
+			  <c:if test="${jjim_count!=0 }">
+                <span class="btn btn-xs btn-default">찜하기(${jjim_total })</span>
+              </c:if>
+			  </c:if>
+			  
+			  
+			  
+			  
+			  <p> <a href="javascript:history.back()"><img src="../img/back.png" width="25px";height="25px" style="float: right;" title="뒤로가기"></a></p>
             </div>
-          </div>
+          </div>  
        </div>
       </div>
       <div class="col-md-3">
