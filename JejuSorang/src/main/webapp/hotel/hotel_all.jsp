@@ -24,7 +24,7 @@ $(function(){
 			success:function(response)
 			{
 				let res=resonse.trim();
-				
+				$('#jeju').html(response);
 			}
 		})
 	})
@@ -38,6 +38,7 @@ $(function(){
 			success:function(response)
 			{
 				let res=resonse.trim();
+				$('#seo').html(response);
 			}
 		})
 	})
