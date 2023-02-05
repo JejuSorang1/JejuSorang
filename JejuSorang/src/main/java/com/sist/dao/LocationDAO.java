@@ -1,0 +1,112 @@
+package com.sist.dao;
+
+import java.util.*;
+import java.sql.*;
+import com.sist.vo.*;
+/*
+ * 	LNO       NOT NULL NUMBER        
+	SIGUN     NOT NULL VARCHAR2(30)  
+	DONG      NOT NULL VARCHAR2(30)  
+	LI        NOT NULL VARCHAR2(30)  
+	TITLE     NOT NULL VARCHAR2(100) 
+	TYPE      NOT NULL VARCHAR2(30)  
+	ADDR_DORO          VARCHAR2(500) 
+	ADDR_JI   NOT NULL VARCHAR2(500) 
+	INFO      NOT NULL CLOB          
+	CLOSE              VARCHAR2(70)  
+	TIME               VARCHAR2(200) 
+	PRICE              CLOB          
+	PURPOSE            VARCHAR2(100) 
+	FACIL              VARCHAR2(300) 
+	MANAGER            VARCHAR2(100) 
+	TEL                VARCHAR2(50)  
+	JL_JJIM            NUMBER        
+	JL_LIKE            NUMBER
+ */
+public class LocationDAO {
+	private Connection conn;
+	private PreparedStatement ps;
+	
+	public ArrayList<LocationVO> LocationFindData(int page,String ss)
+	   {
+		   ArrayList<LocationVO> list=new ArrayList<LocationVO>();
+		   try
+		   {
+			   conn=CreateConnection.getConnection();
+			   String sql="SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,ji_like,num "
+					     +"FROM (SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,ji_like,rownum as num "
+					     +"FROM (SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,ji_like "
+					     +"FROM jj_location_1 "
+					     +"WHERE address LIKE '%'||?||'%')) "
+					     +"WHERE num BETWEEN ? AND ?";
+			   // 인라인뷰 => Top-N만 가능 
+			   // 인기순위 5개 
+			   ps=conn.prepareStatement(sql);
+			   int rowSize=20;
+			   int start=(rowSize*page)-(rowSize-1);
+			   int end=rowSize*page;
+			   ps.setString(1, ss);
+			   ps.setInt(2, start);
+			   ps.setInt(3, end);
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   LocationVO vo=new LocationVO();
+				   vo.setLno(rs.getInt(1));
+				   vo.setSigun(rs.getString(2));
+				   vo.setDong(rs.getString(3));
+				   vo.setLi(rs.getString(4));
+				   vo.setTitle(rs.getString(5));
+				   vo.setType(rs.getString(6));
+				   vo.setAddr_doro(rs.getString(7));
+				   vo.setAddr_ji(rs.getString(8));
+				   vo.setInfo(rs.getString(9));
+				   vo.setClose(rs.getString(10));
+				   vo.setTime(rs.getString(11));
+				   vo.setPrice(rs.getString(12));
+				   vo.setPurpose(rs.getString(13));
+				   vo.setFacil(rs.getString(14));
+				   vo.setManager(rs.getString(15));
+				   vo.setTel(rs.getString(16));
+				   vo.setJl_jjim(rs.getInt(17));
+				   vo.setJl_like(rs.getInt(18));
+				   
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   CreateConnection.disConnection(conn, ps);
+		   }
+		   return list;
+	   }
+	   public int LocationTotalPage(String ss)
+	   {
+		   int total=0;
+		   try
+		   {
+			   conn=CreateConnection.getConnection();
+			   String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_location_1 "
+					     +"WHERE address LIKE '%'||?||'%'";
+			   // WHERE REGEXP_LIKE(address,?);
+			   ps=conn.prepareStatement(sql);
+			   ps.setString(1, ss);
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   total=rs.getInt(1);
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   CreateConnection.disConnection(conn, ps);
+		   }
+		   return total;
+	   }
+}
