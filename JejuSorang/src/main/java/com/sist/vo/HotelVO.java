@@ -4,7 +4,7 @@ public class HotelVO {
 	private int hno,all_cate_no,h_crawl_no,account,like_count,jjim_count;
 	private double star;
 	private String grade,name,addr,intro,time,hotel_image;
-	
+
 	public int getLike_count() {
 		return like_count;
 	}
