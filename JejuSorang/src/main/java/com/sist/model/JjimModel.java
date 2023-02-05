@@ -23,6 +23,7 @@ public class JjimModel {
 		//데이터베이스연동
 		JjimDAO dao=new JjimDAO();
 		dao.jjimInsert(vo);
-		return "redirect:../hotel/hotel_detail.do?hno="+hno;
+		return "redirect:../hotel/hotel_detail.do?hno="+hno;  
 	}
+	
 }
