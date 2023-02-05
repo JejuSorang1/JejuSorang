@@ -42,7 +42,7 @@
 			  <p><a href="../jjim/jjim_insert.do?hno=${hvo.hno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">찜하기</a><span style="float: right"><img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${hvo.jjim_count }</span></p>
 			  <p> <a href="../hotel/hotel_all.do" class="btn btn-xs" style="float: center;background-color: #F8B03A">목록</a></p>
             </div>
-          </div>
+          </div>  
        </div>
       </div>
       <div class="col-md-3">
