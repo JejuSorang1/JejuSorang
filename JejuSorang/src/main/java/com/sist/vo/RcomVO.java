@@ -1,7 +1,7 @@
 package com.sist.vo;
 
 public class RcomVO {
- private int rcno,all_cate_no;
+ private int rcno,all_cate_no,jjim_count;
  private double star;
  private String rname,rctel,rcaddr;
  

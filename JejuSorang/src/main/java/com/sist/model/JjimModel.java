@@ -25,4 +25,5 @@ public class JjimModel {
 		dao.jjimInsert(vo);
 		return "redirect:../hotel/hotel_detail.do?hno="+hno;
 	}
+	
 }

@@ -7,7 +7,7 @@ package com.sist.vo;
  */
 public class JjimVO {
 	private int all_cate_no,jno,no;
-	private String id,hotel_image,name,addr;
+	private String id,hotel_image,name,addr,rname,rctel,rcaddr;
 	public int getAll_cate_no() {
 		return all_cate_no;
 	}

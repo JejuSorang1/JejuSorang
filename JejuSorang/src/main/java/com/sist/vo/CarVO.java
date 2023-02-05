@@ -6,7 +6,6 @@ public class CarVO {
 	private String car_name,car_image,car_price,car_option1,car_option2,rname,rctel,rcaddr;
 	private double star;
 	
-	
 	public String getRname() {
 		return rname;
 	}
