@@ -42,12 +42,6 @@
         </td>
       </tr>
       <tr>
-        <th width=15% class="text-right">비밀번호</th>
-        <td width=80%>
-          <input type=password name=pwd size=15 class="input-sm">
-        </td>
-      </tr>
-      <tr>
         <td colspan=2 class="text-center">
           <input type=submit value="글쓰기" class="btn btn-sm btn-danger">
           <input type=button value="취소" class="btn btn-sm btn-danger" onclick="javascript:history.back()">

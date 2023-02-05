@@ -1,3 +1,4 @@
+$.datepicker.setDefaults($.datepicker.regional["ko"]);
 (function ($) {
   "use strict";
 
@@ -71,6 +72,7 @@
     nc_select.niceSelect();
   }
 
+  
   $('#datepicker_1').datepicker();
   $('#datepicker_2').datepicker();  
   $('#datepicker_3').datepicker();

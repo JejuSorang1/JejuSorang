@@ -19,7 +19,7 @@
       <%-- 메뉴 --%>
       <jsp:include page="../adminpage/admin_menu.jsp"></jsp:include>
     </div>
-    <div> 
+    <div class="tab_content"> 
       <jsp:include page="${admin_jsp }"></jsp:include>
     </div>
     <!-- / main body -->

@@ -60,11 +60,16 @@
     color:black
 }
 /* 실제 내용이 담긴 div 요소 스타일 지정 */
-#css_tabs .tab1_content, #css_tabs .tab2_content, #css_tabs .tab3_content, #css_tabs .tab4_content, #css_tabs .tab5_content {
+#css_tabs .tab_content{
     padding:2em;
     border:1px solid #ddd;
     width:100%;
     height:100%
+}
+
+a {
+  text-decoration: none;
+  color:black;
 }
 </style>
 </head>
@@ -75,21 +80,14 @@
     <input id="tab3" type="radio" name="tab" />
     <input id="tab4" type="radio" name="tab" />
     <input id="tab5" type="radio" name="tab" />
-    <label for="tab1">공지사항 관리</label>
+    <label for="tab1"><a href="../adminpage/notice_list.do">공지사항 관리</a></label>
     <label for="tab2">묻고 답하기 관리</label>
     <label for="tab3">회원 관리</label>
     <label for="tab4">호텔예약 관리</label>
-    <label for="tab4">렌트카예약 관리</label>
-    <div class="tab1_content">Tab1 내용
-        <br />마음은 무덤 웃으며, 수염을 환자의 누그러졌다. 벌써 설렁탕을 국물이 채이는 이 제시한다. 앉았으면 일찍이 관련이 얼굴을 사람은 먼곳을 자기 낸가. 쏟아져 뭔지가 기생 있는 않았다.</div>
-    <div class="tab2_content">Tab2 내용
-        <br />근 인력거꾼의 그 라디오로 한다느니보다 바이며, 왜 2위는 충실하였다. 말라서 듯이 높게 또 가지고 것이다. 궂은 같은 끝나가고 소리가 김첨지는 쳐보았건만, 액수에 후려갈겼다. 그 속에서 하고 과한데.</div>
-    <div class="tab3_content">Tab3 내용
-        <br />사십 듯이 만들 황급하였다. 말조차 벌던 방학을 있었다. 그러자, 날리고 젠장맞을 없었다. 보배를 수 조금 남은 없네, 있다. 그는 은전이 원 수 띄었다. 아씨, 하고 천하를 그들의 모든 병자에 뿐이다.</div>
-    <div class="tab4_content">Tab4 내용
-        <br />사십 듯이 만들 황급하였다. 말조차 벌던 방학을 있었다. 그러자, 날리고 젠장맞을 없었다. 보배를 수 조금 남은 없네, 있다. 그는 은전이 원 수 띄었다. 아씨, 하고 천하를 그들의 모든 병자에 뿐이다.</div>
-    <div class="tab5_content">Tab5 내용
-        <br />사십 듯이 만들 황급하였다. 말조차 벌던 방학을 있었다. 그러자, 날리고 젠장맞을 없었다. 보배를 수 조금 남은 없네, 있다. 그는 은전이 원 수 띄었다. 아씨, 하고 천하를 그들의 모든 병자에 뿐이다.</div>
+    <label for="tab5">렌트카예약 관리</label>
+    <hr>
+    <div style="height: 50px"></div>
+    
 </div>
 </body>
 </html>

@@ -11,26 +11,26 @@
    <footer class="footer-area">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-sm-4 col-md-4">
+                <div class="col-3 text-center">
                     <div class="single-footer-widget">
-                        <h4>고객센터</h4>
-                          <p>평일 09:00 ~ 17:30 (점심시간 12:00~13:00)</p>
+                        <h4 class="text-center">고객센터</h4>
+                          <p>평일 09:00 ~ 17:30 <br>(점심시간 12:00~13:00)</p>
                     </div>
                 </div> 
 
-                <div class="col-sm-4 col-md-4">
+                <div class="col-3 text-center">
                     <div class="single-footer-widget footer_icon">
-                        <h4>주소</h4>
+                        <h4 class="text-center">주소</h4>
                         <p>SIST - 쌍용 - 3강의실</p>
                     </div>
                 </div>
                 
-                <div class="col-sm-4 col-md-4">
-                 <div class="single-footer-widget footer_icon">
-                  <h4>공지사항</h4>
-      			   <ul class="nospace linklist">
+                <div class="col-6 text-center">
+                 <div class="single-footer-widget">
+                  	<h4>공지사항</h4>
+      			   	<ul class="nospace linklist" style="white-space: nowrap">
        			    <c:forEach var="vo" items="${nList }" varStatus="s">
-         			 <li><a href="#">${s.index+1 }.${vo.subject }(${vo.dbday })</a></li>
+         			 <li><a href="../notice/detail.do?no=${vo.no }">${s.index+1 }.&nbsp;${vo.subject }&nbsp;(${vo.dbday })</a></li>
        				</c:forEach>
       			   </ul>
                  </div>
