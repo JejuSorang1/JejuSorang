@@ -13,14 +13,14 @@ import com.sist.vo.*;
 @Controller
 public class LocationModel {
 	@RequestMapping("location/location_main.do")
-	public String reserve_main(HttpServletRequest request,HttpServletResponse response)
+	public String location_main(HttpServletRequest request,HttpServletResponse response)
 	{
-		  request.setAttribute("main_jsp", "../reserve/reserve_main.jsp");
+		  request.setAttribute("main_jsp", "../location/location_main.jsp");
 		  CommonsModel.footerData(request);
 		  return "../main/main.jsp";
 	}
 	@RequestMapping("location/location_list.do")
-	  public String reserve_food_list(HttpServletRequest request,HttpServletResponse response)
+	  public String location_list(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  try
 		  {

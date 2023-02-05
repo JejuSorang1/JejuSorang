@@ -33,11 +33,11 @@ public class LocationDAO {
 		   try
 		   {
 			   conn=CreateConnection.getConnection();
-			   String sql="SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,ji_like,num "
-					     +"FROM (SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,ji_like,rownum as num "
-					     +"FROM (SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,ji_like "
+			   String sql="SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like,num "
+					     +"FROM (SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like,rownum as num "
+					     +"FROM (SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like "
 					     +"FROM jj_location_1 "
-					     +"WHERE address LIKE '%'||?||'%')) "
+					     +"WHERE type LIKE '%'||?||'%')) "
 					     +"WHERE num BETWEEN ? AND ?";
 			   // 인라인뷰 => Top-N만 가능 
 			   // 인기순위 5개 
@@ -91,7 +91,7 @@ public class LocationDAO {
 		   {
 			   conn=CreateConnection.getConnection();
 			   String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_location_1 "
-					     +"WHERE address LIKE '%'||?||'%'";
+					     +"WHERE type LIKE '%'||?||'%'";
 			   // WHERE REGEXP_LIKE(address,?);
 			   ps=conn.prepareStatement(sql);
 			   ps.setString(1, ss);
