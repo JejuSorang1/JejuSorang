@@ -5,6 +5,12 @@ public class RcomVO {
  private double star;
  private String rname,rctel,rcaddr;
  
+public int getJjim_count() {
+	return jjim_count;
+}
+public void setJjim_count(int jjim_count) {
+	this.jjim_count = jjim_count;
+}
 public int getRcno() {
 	return rcno;
 }

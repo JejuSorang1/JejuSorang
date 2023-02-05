@@ -58,6 +58,7 @@
 		  <p class="tip" style="font-size: 15px">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
            <h4 style="font-size:20px;color:gray"><b>${vo.car_name }</b></h4>
            <br>
+           	<p><span><img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${rvo.jjim_count }</span>&nbsp;&nbsp;<a href="../jjim/jjim_insert.do?rcno=${rvo.rcno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">찜하기</a></p>
            
 		</figure>
        </div>
