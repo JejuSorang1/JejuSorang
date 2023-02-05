@@ -1,5 +1,5 @@
 package com.sist.vo;
-
+  
 public class HotelVO {
 	private int hno,all_cate_no,h_crawl_no,account,like_count,jjim_count;
 	private double star;

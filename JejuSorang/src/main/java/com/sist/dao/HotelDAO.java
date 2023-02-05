@@ -43,7 +43,7 @@ public class HotelDAO {
             vo.setLike_count(rs.getInt(8));
             vo.setJjim_count(rs.getInt(9));
             list.add(vo);
-         }
+         }  
          rs.close();
       }catch(Exception ex)
       {

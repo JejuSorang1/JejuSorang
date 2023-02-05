@@ -5,7 +5,7 @@ import com.sist.vo.*;
 public class LikeDAO {
 	private Connection conn;
 	private PreparedStatement ps; 
-
+  
 	public void likeInsert(LikeVO vo)
 	{
 		try

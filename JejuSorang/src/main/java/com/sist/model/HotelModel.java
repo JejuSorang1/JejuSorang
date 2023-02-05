@@ -82,7 +82,7 @@ public class HotelModel {
       String id=(String)session.getAttribute("id");
       JjimDAO jdao=new JjimDAO();
       int jcount=jdao.jjimCount(/*all_cate_no,*/Integer.parseInt(hno),id);
-      request.setAttribute("jjim_count", jcount);
+      request.setAttribute("jjim_count", jcount);  
       
       LikeDAO ldao=new LikeDAO();
       int mc=ldao.myLikeCount(Integer.parseInt(hno), id);

@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
+  
 import com.sist.vo.JjimVO;
 
 public class JjimDAO {
