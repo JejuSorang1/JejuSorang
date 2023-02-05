@@ -2,6 +2,7 @@ package com.sist.model;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.util.*;
 
@@ -28,22 +29,20 @@ public class HotelModel {
       //제주 서귀포시 성산읍 섭지코지로 107
       String addr1=address.substring(3,5);
       String addr2=address.substring(3,6);
-      
+      request.setAttribute("vo", vo);
+      request.setAttribute("addr1", addr1);
+      request.setAttribute("addr2", addr2);
      
       int count=dao.HotelRowCount();
       int totalpage=(int)(Math.ceil(count/20.0));
-      
-      
-      
+
       final int BLOCK=10;
       int startPage=((curpage-1)/BLOCK*BLOCK)+1;
       int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
       
       if(endPage>totalpage)
          endPage=totalpage;
-      request.setAttribute("vo", vo);
-      request.setAttribute("addr1", addr1);
-      request.setAttribute("addr2", addr2);
+      
       request.setAttribute("curpage", curpage);
       request.setAttribute("totalpage", totalpage);
       request.setAttribute("startPage", startPage);
@@ -51,6 +50,10 @@ public class HotelModel {
       request.setAttribute("list", list);
       request.setAttribute("count", count);
 
+      HttpSession session=request.getSession();
+      String id=(String)session.getAttribute("id");
+      JjimDAO jdao=new JjimDAO();
+     
       //footer
       CommonsModel.footerData(request);
       
