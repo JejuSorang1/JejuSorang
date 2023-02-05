@@ -28,8 +28,8 @@ $(function(){
 		let fd=$(this).text();
 		$.ajax({
 			type:'POST',
-			url:'../hotel/hotel_all.do',
-			data:{"ss":제주시},
+			url:'../hotel/hotel_detail.do',
+			data:{"ss":'제주시'},
 			success:function(response)
 			{
 				$('#tabs-1').html(response); // JSON (스프링)
@@ -40,8 +40,8 @@ $(function(){
 		let fd=$(this).text();
 		$.ajax({
 			type:'POST',
-			url:'../hotel/hotel_all.do',
-			data:{"ss":서귀포시},
+			url:'../hotel/hotel_detail.do',
+			data:{"ss":'서귀포시'},
 			success:function(response)
 			{
 				$('#tabs-2').html(response); // JSON (스프링)
@@ -58,8 +58,21 @@ $(function(){
     <div class="row">
     <div class="col-sm-3">
       <div style="width: 10px;height: 50px"></div>
-	 <h3>최근 본 목록</h3> 
+
+	 <h3 class="sectiontitle">최근 본 목록</h3> 
+	 <div class="inline">
+	  <table class="table">
+       <c:forEach var="hvo" items="${cList }" varStatus="s">
+        <c:if test="${s.index<9 }">
+         <a href="../hotel/hotel_detail.do?hno=${s.hno }"><img src="${s.poster }" style="width: 100px;height: 100px"></a>
+        </c:if>
+       </c:forEach>
+       </table>
+      </div>
+    </div>
+
     </div>  
+
     <div class="col-sm-9">
 	<div class="wrapper row3">
 	  <main class="container clear">
