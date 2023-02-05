@@ -26,24 +26,26 @@
     </table>
     <table class="table">
       <tr>
-        <th width=10% class="text-center">구분</th>
-        <th width=45% class="text-center">제목</th>
-        <th width=15% class="text-center">이름</th>
-        <th width=20% class="text-center">작성일</th>
-        <th width=10% class="text-center">조회수</th>
-      </tr>
+           <th width="10%" class="text-center">구분</th>
+           <th width="40%" class="text-center">제목</th>
+           <th width="10%" class="text-center">이름</th>
+           <th width="20%" class="text-center">작성일</th>
+           <th width="10%" class="text-center">조회수</th>
+           <th width="15%" class="text-center"></th>
+         </tr>
       <c:forEach var="vo" items="${list }"><%-- request.setAttribute("list",list) => request.getAttribute("list") ${list} --%>
         <tr>
           <td width=10% class="text-center">${vo.prefix }</td><%-- vo.getNo() = {} getXxx() --%>
-          <td width=45%>
+          <td width=40%>
           <a href="../notice/detail.do?no=${vo.no }">${vo.subject }</a>&nbsp;
-          <c:if test="${vo.dbday==today }">
-            <sup><img src="../freeboard/image/new.gif"></sup>
-          </c:if>
           </td>
-          <td width=15% class="text-center">${vo.name }</td>
-          <td width=20% class="text-center">${vo.dbday }</td>
+          <td width=10% class="text-center">${vo.name }</td>
+          <td width=15% class="text-center">${vo.dbday }</td>
           <td width=10% class="text-center">${vo.hit }</td>
+          <td width="15%" class="text-center">
+           <a href="../adminpage/notice_update.do?no=${vo.no }" class="btn btn-xs btn-success">수정</a>
+           <a href="../adminpage/notice_delete.do?no=${vo.no }" class="btn btn-xs btn-info">삭제</a>
+          </td>
         </tr>
       </c:forEach>
     </table>

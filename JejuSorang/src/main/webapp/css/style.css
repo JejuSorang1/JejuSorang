@@ -3970,7 +3970,7 @@ ul {
 
 /* line 38, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_footer.scss */
 .footer-area .single-footer-widget ul {
-  columns: 2;
+  columns: auto;
 }
 
 /* line 40, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_footer.scss */

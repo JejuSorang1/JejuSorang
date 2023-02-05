@@ -46,12 +46,12 @@
                             </c:if>
                             <c:if test="${sessionScope.id!=null }">
                              <c:if test="${sessionScope.admin=='n' }">
-                               <a href="#" class="btn_1 d-none d-lg-block">내 정보</a>
-                               &nbsp;<a href="#" class="btn_1 d-none d-lg-block" id="logoutBtn">로그아웃</a>
+                               <a href="../mypage/mypage_main.do" class="btn_1 d-none d-lg-block">내 정보</a>
+                               &nbsp;<a href="../member/logout.do" class="btn_1 d-none d-lg-block" id="logoutBtn">로그아웃</a>
                              </c:if>
                              <c:if test="${sessionScope.admin=='y' }">
                                <a href="../adminpage/admin_main.do" class="btn_1 d-none d-lg-block">관리자페이지</a>
-                               &nbsp;<a href="#" class="btn_1 d-none d-lg-block" id="logoutBtn">로그아웃</a>
+                               &nbsp;<a href="../member/logout.do" class="btn_1 d-none d-lg-block" id="logoutBtn">로그아웃</a>
                              </c:if>
                             </c:if>
                         </nav>

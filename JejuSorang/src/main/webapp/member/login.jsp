@@ -17,7 +17,7 @@
  <div class="container_login">
   <div class="frame">
     <div class="nav">
-      <ul class="links">s
+      <ul class="links">
         <li class="signin-active"><a class="btn login_logic_btn">로그인</a></li>
         <li class="signup-inactive"><a class="btn login_logic_btn">회원가입 </a></li>
       </ul>
@@ -27,7 +27,7 @@
           <label for="id">아이디</label>
           <input class="form-styling" type="text" name="log_id" id="log_id" placeholder=""/>
           <label for="password">비밀번호</label>
-          <input class="form-styling" type="text" name="log_pwd" id="log_pwd" placeholder=""/>
+          <input class="form-styling" type="password" name="log_pwd" id="log_pwd" placeholder=""/>
           <input type="checkbox" id="checkbox"/>
           <label for="checkbox" ><span class="ui"></span>아이디 기억하기</label>
           <div class="btn-animate">

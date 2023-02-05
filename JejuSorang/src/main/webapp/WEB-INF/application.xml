@@ -9,4 +9,5 @@
 	<bean class="com.sist.model.JjimModel"/>
 	<bean class="com.sist.model.LikeModel"/>
 	<bean class="com.sist.model.LocationModel"/>
+	<bean class="com.sist.model.MyPageModel"/>
 </beans>

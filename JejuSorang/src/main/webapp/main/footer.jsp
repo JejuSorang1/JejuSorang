@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <footer class="footer-area">
+   <footer class="footer-area clear">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-3 text-center">
@@ -18,17 +18,17 @@
                     </div>
                 </div> 
 
-                <div class="col-3 text-center">
+                <div class="col-2 text-center">
                     <div class="single-footer-widget footer_icon">
                         <h4 class="text-center">주소</h4>
                         <p>SIST - 쌍용 - 3강의실</p>
                     </div>
                 </div>
                 
-                <div class="col-6 text-center">
+                <div class="col-7 text-center">
                  <div class="single-footer-widget">
                   	<h4>공지사항</h4>
-      			   	<ul class="nospace linklist" style="white-space: nowrap">
+      			   	<ul class="nospace linklist">
        			    <c:forEach var="vo" items="${nList }" varStatus="s">
          			 <li><a href="../notice/detail.do?no=${vo.no }">${s.index+1 }.&nbsp;${vo.subject }&nbsp;(${vo.dbday })</a></li>
        				</c:forEach>
