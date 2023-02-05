@@ -128,9 +128,9 @@ $(document).ready(function() {
             <input type="number" min="1" max="8" value="1">
           </div>
         </div>
-       <div class="col-md-12">    
+       <!-- <div class="col-md-12">    
         <input type="submit" name="submit" value="검색" class="btn btn-primary mb-2" id=search><hr>
-       </div>
+       </div> -->
      </form>
      
      <!-- <form name="form1" method="post" action="" enctype="multipart/form-data"> 
