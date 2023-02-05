@@ -35,7 +35,7 @@ public String rent_all(HttpServletRequest request,HttpServletResponse response)
 	   int curpage=Integer.parseInt(page);
 	// DAO에서 해당 페이지의 데이터 읽기 
 	   RentDAO dao=new RentDAO();
-	   List<CarVO> list=dao.CarListData(curpage,ss);
+	   List<CarVO> list=dao.CarListData(curpage);
 	   int totalpage=dao.RentAllTotalPage();
 	   
 	   final int BLOCK=5;
@@ -73,7 +73,7 @@ public String rent_search(HttpServletRequest request,HttpServletResponse respons
 	// DAO에서 해당 페이지의 데이터 읽기 
 	   RentDAO dao=new RentDAO();
 	   ArrayList<CarVO> list=dao.RentSearchData(curpage, ss);
-	   int totalpage=dao.RentSearchTotalPage(ss);
+	   int totalpage=dao.RentSearchTotalPage();
 	   
 	   final int BLOCK=5;
 	   int startPage=((curpage-1)/BLOCK*BLOCK)+1;
@@ -104,29 +104,20 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
-<<<<<<< HEAD
-   RentReviewVO rv = dao.car_review(Integer.parseInt(cno));
-=======
->>>>>>> refs/remotes/origin/master
-   
-   //footer
-   CommonsModel.footerData(request);
-<<<<<<< HEAD
-   
-   request.setAttribute("rv", rv);
-=======
 
->>>>>>> refs/remotes/origin/master
+   RentReviewVO rv = dao.car_review(Integer.parseInt(cno));
+
+   //footer
+
+   request.setAttribute("rv", rv);
+
    request.setAttribute("vo", vo);
-<<<<<<< HEAD
-=======
-   
->>>>>>> refs/remotes/origin/master
+
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "../main/main.jsp";
    
    }
-<<<<<<< HEAD
+
 	
 @RequestMapping("rent/car_review.do")
 public String car_review(HttpServletRequest request,HttpServletResponse response)
@@ -143,9 +134,8 @@ public String car_review(HttpServletRequest request,HttpServletResponse response
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
    return "redirect:car_detail.do?car_no="+cno;
    
-   }
-
- }
-=======
 }
->>>>>>> refs/remotes/origin/master
+ }
+
+
+
