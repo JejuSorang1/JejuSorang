@@ -22,6 +22,7 @@
 </script>
 
 <style type="text/css">
+
 .box{
    margin:40px;
    padding: 40px;
@@ -31,11 +32,7 @@
    position: relative;		
    top: 50px;
    left: 250px;
-}
-.inner-box{
-   width: 300px;
-   height: 100%; 
-}
+} 
 #mybutton{
    width:300px;
    height: 50px;
