@@ -78,11 +78,11 @@ public class RentDAO {
          {
             conn=CreateConnection.getConnection();
             String sql="SELECT car_no,car_name,car_image,car_price,car_option1,car_type,num "
-                    +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type,rownum as num "
-                    +"FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type "
-                    +"FROM jj_car_1 "
-                    +"WHERE car_name LIKE '%'||?||'%')) "
-                    +"WHERE num BETWEEN ? AND ?";
+                    +    "FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type,rownum as num "
+                    +	  	     "FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type "
+                    +                    "FROM jj_car_1 "
+                    +                   "WHERE car_name LIKE '%'||?||'%')) "
+                    +           "WHERE num BETWEEN ? AND ?";
             
             ps=conn.prepareStatement(sql);
             int rowSize=20;
@@ -138,7 +138,86 @@ public class RentDAO {
          }
          return total;
       }
-
+   //등급검색
+    public ArrayList<CarVO> CarTypeSearchData(int page,String typeVal)
+    {
+       ArrayList<CarVO> list=new ArrayList<CarVO>();
+       try
+       {  
+    	   
+    	  String strTest = "java, test,";
+    	  System.out.println(strTest.substring(0, strTest.length() - 1));
+          String[] typeList = typeVal.split(",");
+          conn=CreateConnection.getConnection();
+          String sql="SELECT car_no,car_name,car_image,car_price,car_option1,car_type,num "
+                  +    "FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type,rownum as num "
+                  +	  	     "FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type "
+                  +                    "FROM jj_car_1 "
+                  +                   "WHERE car_type in(";
+          
+          for(var i=0; i<typeList.length; i++) {
+        	  sql += "'" + typeList[i] + "'" + ",";
+          };
+          
+          sql = sql.substring(0, sql.length() - 1);
+          sql += ")))";
+          sql += "WHERE num BETWEEN ? AND ?"; 
+          
+          ps=conn.prepareStatement(sql);
+          int rowSize=20;
+          int start=(rowSize*page)-(rowSize-1);
+          int end=rowSize*page;
+          ps.setInt(1, start);
+          ps.setInt(2, end);
+          ResultSet rs=ps.executeQuery();
+          while(rs.next())
+          {
+             CarVO vo=new CarVO();
+             vo.setCar_no(rs.getInt(1));
+             vo.setCar_name(rs.getString(2));
+             vo.setCar_image(rs.getString(3));
+             vo.setCar_price(rs.getString(4));
+             vo.setCar_option1(rs.getString(5));
+             vo.setCar_type(rs.getString(6));
+             list.add(vo);
+          }
+          rs.close();
+       }catch(Exception ex)
+       {
+          ex.printStackTrace();
+       }
+       finally
+       {
+          CreateConnection.disConnection(conn, ps);
+       }
+       return list;
+    }
+   //등급 페이지
+    public int CarTypeTotalPage(String typeVal)
+    {
+       int total=0;
+       try
+       {
+          conn=CreateConnection.getConnection();
+          String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_car_1 "
+                 +"WHERE car_type in (";
+          //test
+          sql += "'경차', 'RV')";
+          ps=conn.prepareStatement(sql);
+          ResultSet rs=ps.executeQuery();
+          rs.next();
+          total=rs.getInt(1);
+          rs.close();
+       }catch(Exception ex)
+       {
+          ex.printStackTrace();
+       }
+       finally
+       {
+          CreateConnection.disConnection(conn, ps);
+       }
+       return total;
+    }
    //렌트카 상세보기
     public CarVO car_detail(int car_no)
      {
