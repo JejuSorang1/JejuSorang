@@ -145,8 +145,17 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    String id=(String)session.getAttribute("id");
    JjimDAO jdao=new JjimDAO();
    int jcount=jdao.jjimCount(/*all_cate_no,*/Integer.parseInt(cno),id);
-   request.setAttribute("jjim_count", jcount);  
+   int jt=jdao.rentJjimCount(Integer.parseInt(cno));
+
+   request.setAttribute("jjim_count", jcount);
+   request.setAttribute("jjim_total", jt);
    
+   // 화면 출력 
+   request.setAttribute("main_jsp", "../rent/car_detail.jsp");
+   AllReviewDAO adao=new AllReviewDAO();
+   List<AllReviewVO> rList=adao.allReviewListData(Integer.parseInt(cno), 2);
+   request.setAttribute("rList", rList);
+   request.setAttribute("count", rList.size());
    
    return "../main/main.jsp";
    
@@ -154,4 +163,3 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
 
 	
  }
-
