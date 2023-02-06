@@ -262,37 +262,7 @@ public class RentDAO {
         return vo;
      }
 
-	 public RentReviewVO car_review(int car_no)
-     {
-        RentReviewVO rv=new RentReviewVO();
-        
-        try
-        {
-           conn=CreateConnection.getConnection();
-           String sql="SELECT id,rcno,rent_review_no,msg "
-                     + "FROM jj_rent_review_1 "
-                    + "WHERE rent_review_no=?";
-           ps=conn.prepareStatement(sql);
-           ps.setInt(1, car_no);
-           ResultSet rs=ps.executeQuery();
-           rs.next();
-              rv.setId(rs.getString(1));
-              rv.setRcno(rs.getInt(2));
-              rv.setRent_review_no(rs.getInt(3));
-              rv.setMsg(rs.getString(4));
-
-           rs.close();
-           
-        }catch(Exception ex)
-        {
-           ex.printStackTrace();
-        }
-        finally
-        {
-           CreateConnection.disConnection(conn, ps);
-        }
-        return rv;
-     }
+	
 	 	 
 	//업체 상세보기
 	

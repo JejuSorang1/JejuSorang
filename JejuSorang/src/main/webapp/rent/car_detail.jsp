@@ -292,17 +292,9 @@
      </div>
 
 	</div>
- 
-
    </div>
-  
-
-
-      
-    
-
-          <div class="review-heading">후기</div>
-          	    <div style="height: 20px"></div>
+    <div class="review-heading">후기</div>
+     <div style="height: 20px"></div>
       <div class="content three_quarter first"> 
         <h2 class="sectiontitle">댓글</h2>
         <c:if test="${count==0 }">

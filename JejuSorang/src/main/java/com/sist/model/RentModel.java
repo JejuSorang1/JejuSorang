@@ -127,13 +127,8 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
-
-   RentReviewVO rv = dao.car_review(Integer.parseInt(cno));
-
+   
    //footer
-
-   request.setAttribute("rv", rv);
-
    request.setAttribute("vo", vo);
 
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
