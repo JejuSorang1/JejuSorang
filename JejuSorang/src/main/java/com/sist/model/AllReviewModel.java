@@ -20,7 +20,7 @@ public class AllReviewModel {
 	 REGDATE       NOT NULL DATE         
 	 STAR                   NUMBER  
 */
-   String[] url={"","../hetel/hotel_detail.do?hno=","../rent/car_detail.do?rcno="};
+   String[] url={"","../hetel/hotel_detail.do?hno=","../rent/car_detail.do?cno="};
    @RequestMapping("all_review/all_review_insert.do")
    public String all_review_insert(HttpServletRequest request,HttpServletResponse response)
    {

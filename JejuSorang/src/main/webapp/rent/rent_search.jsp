@@ -108,7 +108,7 @@ $(function(){
             <input id = "searchText" type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 75%;"> <input type=submit value="검색" style="border: 0; border-radius: 15%; background-color: #F8B03A; padding: 2%; color: white;">
             </div>
         </div>
-     </form>
+     </form> 
      <form id ="formId2" name="form2" method="post" action="../rent/rent_search.do"> 
         <hr>
         <div style="height: 10px"></div>

@@ -22,7 +22,7 @@ public class HotelModel {
       int curpage=Integer.parseInt(page);
       
       HotelDAO dao=new HotelDAO();
-
+  
       List<HotelVO> list=dao.HotelListData(curpage);
       HotelVO vo=dao.hotel_detail(Integer.parseInt(page));
       String address=vo.getAddr();
@@ -32,7 +32,7 @@ public class HotelModel {
       request.setAttribute("vo", vo);
       request.setAttribute("addr1", addr1);
       request.setAttribute("addr2", addr2);
-     
+      
       int count=dao.HotelRowCount();
       int totalpage=(int)(Math.ceil(count/20.0));
 
