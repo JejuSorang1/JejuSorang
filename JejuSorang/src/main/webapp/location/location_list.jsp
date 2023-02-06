@@ -46,7 +46,7 @@ $(function(){
        <input type=button id="detailBtn" value="상세보기" class="btn btn-sm btn-warning">
      </td>
      <td width="10%">
-     	찜
+     	찜,,,할까말까,,,
      </td>
    </tr>
    </c:forEach>
