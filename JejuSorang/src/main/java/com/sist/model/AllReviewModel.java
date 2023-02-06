@@ -36,7 +36,7 @@ public class AllReviewModel {
 		   AllReviewDAO dao=new AllReviewDAO();
 		   AllReviewVO vo=new AllReviewVO();
 		   vo.setCate_no(Integer.parseInt(cate_no));
-		   vo.setAll_review_no(Integer.parseInt(detail_no));
+		   vo.setDetail_no(Integer.parseInt(detail_no));
 		   vo.setMsg(msg);
 		   vo.setId(id);
 		   dao.allReviewInsert(vo);
@@ -52,7 +52,7 @@ public class AllReviewModel {
 	   // DAO연결
 	   AllReviewDAO dao=new AllReviewDAO();
 	   dao.allReviewDelete(Integer.parseInt(all_review_no));
-	   return "redirect:"+url[Integer.parseInt(cate_no)]+all_review_no;
+	   return "redirect:"+url[Integer.parseInt(cate_no)]+detail_no;
    }
    
    @RequestMapping("all_review/all_review_update.do")
@@ -78,6 +78,6 @@ public class AllReviewModel {
 	   // 데이터베이스 연결 
 	   AllReviewDAO dao=new AllReviewDAO();
 	   dao.allReviewUpdate(Integer.parseInt(all_review_no), msg); 
-	   return "redirect:"+url[Integer.parseInt(cate_no)]+all_review_no;
+	   return "redirect:"+url[Integer.parseInt(cate_no)]+detail_no;
    }
 }

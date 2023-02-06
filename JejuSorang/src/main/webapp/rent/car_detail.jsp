@@ -241,11 +241,11 @@ $(function(){
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
          <div style="height: 20px"></div>
       <div class="content three_quarter first"> 
-        <h2 class="sectiontitle">댓글</h2>
+        <h2 class="sectiontitle" style="font-size:20px;color:gray">리뷰</h2>
         <c:if test="${count==0 }">
                  <table class="table">
                    <tr>
-                     <td class="text-center">댓글이 없습니다</td>
+                     <td class="text-center">리뷰가 없습니다</td>
                    </tr>
                  </table>
                </c:if>
@@ -261,7 +261,7 @@ $(function(){
                           <c:if test="${sessionScope.id!=null }">
                             <c:if test="${sessionScope.id==rvo.id }">
                               <span class="btn btn-xs btn-danger ups" data-no="${rvo.all_review_no }">수정</span>
-                              <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${vo.car_no}&cate_no=2" class="btn btn-xs btn-primary">삭제</a>
+                              <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${vo.car_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
                             </c:if>
                           </c:if>
                         </td>
@@ -277,7 +277,7 @@ $(function(){
 					         <input type=hidden name="all_review_no" value="${rvo.all_review_no }">
 					         <input type=hidden name="cate_no" value="2">
 					         <textarea rows="3" cols="90" name="msg" style="float: left">${rvo.msg}</textarea>&nbsp;
-					         <input type=submit value="수정" class="btn btn-sm btn-danger" style="height: 65px">
+					         <input type=submit value="수정" class="btn btn-sm btn-warning" style="height: 65px">
 					        </form>
 			             </td>
 			            </tr>
@@ -301,7 +301,7 @@ $(function(){
                   3. goods
                 --%>
                <textarea rows="3" cols="90" name="msg" style="float: left"></textarea>&nbsp;
-               <input type=submit value="댓글쓰기" class="btn btn-sm btn-danger" style="height: 65px">
+               <input type=submit value="작성" class="btn btn-sm btn-warning" style="height: 65px">
              </form>
             </td>
            </tr>
