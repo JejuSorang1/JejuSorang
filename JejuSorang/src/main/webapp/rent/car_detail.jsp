@@ -64,9 +64,9 @@ $(function(){
               <br>
               <c:if test="${sessionScope.id!=null }">
 				  <c:if test="${jjim_count==0 }">
-				   <form method="post" action="../jjim/rent_jjim_insert.do?rcno=${vo.rcno }">    
+				   <form method="post" action="../jjim/rent_jjim_insert.do?car_no=${vo.car_no }">    
 				    <p>
-				     <input type=hidden name="cate_no" id="cate_no" value="${vo.all_cate_no }">
+				     <input type=hidden name="cate_no" id="cate_no" value="${vo.rcno }">
 				     <input type="submit" value="찜하기" class="btn btn-xs" style="float: center;background-color: #F8B03A">
 				      <span style="float: right"><img src="../img/jjim.png" style="width: 22px;height: 22px">
 				      찜하기${jjim_total }
