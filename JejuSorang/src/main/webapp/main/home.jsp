@@ -38,10 +38,10 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
                                 <div class="booking_form">
-                                    <form action="#">
+                                    <form action="hotelfindlist.jsp" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select">
+                                                <select class="nc_select" name="area">
                                                     <option selected>목적지 </option>
                                                     <option value="1">제주시</option>
                                                     <option value="2">서귀포시</option>
