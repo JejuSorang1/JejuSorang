@@ -49,10 +49,10 @@
           <label for="confirmPassword">비밀번호 확인</label>
           <input class="form-styling" type="password" name="confirmPwd" id="confirmPwd" placeholder="" required/>
           
-         	<span class="d-flex justify-content-between">
-          <label for="email">이메일</label>
-          <input type=button id="eBtn" class="btn btn-sm btn-primary" value="이메일확인"/>
-          </span>
+          <span class="d-flex justify-content-between">
+            <label for="email">이메일</label>
+            <input type=button id="eBtn" class="btn btn-sm btn-primary" value="이메일확인"/>
+           </span>
           <input class="form-styling" type="text" name="email" id="email" placeholder="" required/>
           <span style="color:white; font-size:14px " id="ePrint" class="text-center"></span>
           
@@ -63,9 +63,8 @@
           <input class="form-styling" type="date" name="birthday" id="birthday" placeholder=""/>
           
           <span class="d-flex justify-content-between">
-          <label for="post">우편번호
+           <label for="post">우편번호</label>
             <input type=button id="postBtn" value="우편번호찾기" class="btn btn-sm btn-primary"/>
-          </label>
           </span>
           <input class="form-styling" type="text" name="post" id="post" placeholder="" readonly/>
           
@@ -76,9 +75,8 @@
           <input class="form-styling" type="text" name="address2" id="address2" placeholder=""/>
           
           <span class="d-flex justify-content-between">
-          <label for="phone">전화번호
+           <label for="phone">전화번호</label>
             <input type=button id="tBtn" class="btn btn-sm btn-primary" value="전화번호 확인"/>
-          </label>
           </span>
           <input class="form-styling" type="text" name="phone" placeholder="010-0000-0000" id="phone" required/>
           <span style="color:white" id="tPrint"></span>
