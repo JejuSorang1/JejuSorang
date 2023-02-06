@@ -99,5 +99,5 @@ public class LikeDAO {
 			CreateConnection.disConnection(conn, ps);
 		}
 		return count;
-	}
+	} 
 }

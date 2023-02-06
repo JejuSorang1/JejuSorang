@@ -47,7 +47,7 @@
 			    <p><span class="btn btn-xs btn-default" style="float: left"><img src="../img/like.png" style="width: 22px;height: 22px">좋아요${like_total }</span></p>
               <%-- <span class="btn btn-xs btn-default">좋아요(${like_total })</span> --%>
 			  </c:if>
-			  
+			   
 			  
 			  <c:if test="${jjim_count==0 }">
 			   <form method="post" action="../jjim/jjim_insert.do?hno=${hvo.hno }">    

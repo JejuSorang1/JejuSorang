@@ -212,6 +212,6 @@ public class HotelDAO {
       }finally {
          CreateConnection.disConnection(conn, ps);
       }
-      return list;
+      return list; 
    }
 }

@@ -123,7 +123,7 @@ public class HotelModel {
       if(endPage>totalpage)
          endPage=totalpage;
       
-      
+       
       
       
       

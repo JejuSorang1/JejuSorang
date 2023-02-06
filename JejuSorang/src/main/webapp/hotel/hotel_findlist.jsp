@@ -210,7 +210,7 @@ $(function(){
                             <p> 가격 
                             <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${like_total }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${jjim_total }</p>
                           </td>
-                          <td width="17%">
+                          <td width="17%"> 
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>
                           </td>
                         </tr>

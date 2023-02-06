@@ -4,7 +4,7 @@ public class HotelVO {
 	private int hno,all_cate_no,h_crawl_no,account;
 	private double star;
 	private String grade,name,addr,intro,time,hotel_image;
-
+ 
 	public int getHno() {
 		return hno;
 	}

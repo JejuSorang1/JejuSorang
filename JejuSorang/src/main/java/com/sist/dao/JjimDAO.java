@@ -99,7 +99,7 @@ public class JjimDAO {
 			CreateConnection.disConnection(conn, ps);
 		}
 		return list;
-	}
+	} 
 	
 	public int hotelJjimCount(int hno)
 	{
