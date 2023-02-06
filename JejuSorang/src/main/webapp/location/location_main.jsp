@@ -10,7 +10,7 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$.ajax({
+	/*$.ajax({
 		type:'POST',
 		url:'../location/location_list.do',
 		data:{"ss":'관람'},
@@ -18,7 +18,7 @@ $(function(){
 		{
 			$('#location_list').html(response); // JSON (스프링)
 		}
-	})
+	})*/
 	
 	$('.locations').click(function(){
 		let fd=$(this).text();
