@@ -62,9 +62,11 @@
           <label for="birthday">생년월일</label>
           <input class="form-styling" type="date" name="birthday" id="birthday" placeholder=""/>
           
-          <label for="post">우편번호&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          <span class="d-flex justify-content-between">
+          <label for="post">우편번호
             <input type=button id="postBtn" value="우편번호찾기" class="btn btn-sm btn-primary"/>
           </label>
+          </span>
           <input class="form-styling" type="text" name="post" id="post" placeholder="" readonly/>
           
           <label for="address1">주소</label>
@@ -73,9 +75,11 @@
           <label for="address2">상세주소</label>
           <input class="form-styling" type="text" name="address2" id="address2" placeholder=""/>
           
-          <label for="phone">전화번호&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          <span class="d-flex justify-content-between">
+          <label for="phone">전화번호
             <input type=button id="tBtn" class="btn btn-sm btn-primary" value="전화번호 확인"/>
           </label>
+          </span>
           <input class="form-styling" type="text" name="phone" placeholder="010-0000-0000" id="phone" required/>
           <span style="color:white" id="tPrint"></span>
 
