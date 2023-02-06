@@ -10,7 +10,12 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	/*$.ajax({
+	$('.locations').hover(function(){
+		$(this).css("cursor","pointer")
+	},function(){
+		$(this).css('cursor',"none")
+	})
+	$.ajax({
 		type:'POST',
 		url:'../location/location_list.do',
 		data:{"ss":'관람'},
@@ -18,10 +23,10 @@ $(function(){
 		{
 			$('#location_list').html(response); // JSON (스프링)
 		}
-	})*/
+	})
 	
 	$('.locations').click(function(){
-		let fd=$(this).text();
+		let ss=$(this).text();
 		$.ajax({
 			type:'POST',
 			url:'../location/location_list.do',
@@ -33,56 +38,37 @@ $(function(){
 		})
 	})
 })
+
 </script>
 </head>
 <body>
 	<div class="wrapper row3">
 	  <main class="container clear"> 
-	    <!-- main body --> 
-	    <!-- ################################################################################################ -->
 	    <div class="content"> 
-	      <!-- ################################################################################################ -->
-	      <div>
 	        <table class="table">
-           <caption><h3>맛집 정보</h3></caption>
            <tr>
             <td>
-             <span class="btn btn-xs btn-danger locations">관람</span>
-             <span class="btn btn-xs btn-info locations">자연</span>
-             <span class="btn btn-xs btn-primary locations">체험</span>
-             <span class="btn btn-xs btn-success locations">스포츠</span>
-             <span class="btn btn-xs btn-warning locations">명소</span>
+            <table class="table" id="type">
+            <tr>
+              <th class="text-center locations"><img src="../img/exhibition.png" style="width:60px;height:60px"><br><br>관람</th>
+              <th class="text-center locations"><img src="../img/nature.png" style="width:60px;height:60px"><br><br>자연</th>
+              <th class="text-center locations"><img src="../img/activity.png" style="width:60px;height:60px"><br><br>체험</th>
+              <th class="text-center locations"><img src="../img/sports.png" style="width:60px;height:60px"><br><br>스포츠</th>
+              <th class="text-center locations"><img src="../img/location.png" style="width:60px;height:60px"><br><br>명소</th>
+            </tr>
+            </table>
             </td>
            </tr>
            <tr>
              <td>
-              <div id="location_list">
-                
+              <div id="location_list" style="height: 800px;overflow-y:scroll">
               </div>
              </td>
            </tr>
          </table>
-	      </div>
-	      <!-- ################################################################################################ --> 
-	      <!-- ################################################################################################ -->
-	      <nav class="pagination">
-		     <ul>
-		     <c:if test="${startPage>1 }">
-		       <li><a href="../location/location_list.do?page=${startPage-1 }">&laquo; Previous</a></li>
-		      </c:if>
-		      <c:forEach var="i" begin="${startPage }" end="${endPage }">
-		         <li ${i==curpage?"class=current":"" }><a href="../location/location_list.do?page=${i }">${i }</a></li>
-		       </c:forEach>  
-		      <c:if test="${endPage<totalpage }">
-		       <li><a href="../location/location_list.do?page=${endPage+1 }">Next &raquo;</a></li>
-		      </c:if>
-		     </ul>
-	      </nav>
-	      <!-- ################################################################################################ --> 
+
 	    </div>
-	    <!-- ################################################################################################ --> 
-	    <!-- / main body -->
-	    <div class="clear"></div>
+	    <div style="width: 10px;height: 50px"></div>
 	  </main>
 	</div>
 </body>

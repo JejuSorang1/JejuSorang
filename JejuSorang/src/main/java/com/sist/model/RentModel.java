@@ -135,10 +135,19 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
    
+   
    //footer
    request.setAttribute("vo", vo);
-
    request.setAttribute("main_jsp","../rent/car_detail.jsp");
+   
+   HttpSession session=request.getSession();
+   //int all_cate_no=(int) session.getAttribute("all_cate_no");
+   String id=(String)session.getAttribute("id");
+   JjimDAO jdao=new JjimDAO();
+   int jcount=jdao.jjimCount(/*all_cate_no,*/Integer.parseInt(cno),id);
+   request.setAttribute("jjim_count", jcount);  
+   
+   
    return "../main/main.jsp";
    
    }

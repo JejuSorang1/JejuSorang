@@ -43,8 +43,16 @@ public class LocationModel {
 		  request.setAttribute("totalpage", totalpage);
 		  request.setAttribute("ss", ss);
 		  
-		  request.setAttribute("main_jsp", "../location/location_list.jsp");
-		  CommonsModel.footerData(request);
-		  return "../main/main.jsp";
+		  return "../location/location_list.jsp";
 	  }
+	@RequestMapping("location/location_detail.do")
+	public String location_detail(HttpServletRequest request,HttpServletResponse response)
+	{
+		String lno=request.getParameter("lno");
+		LocationDAO dao=new LocationDAO();
+		LocationVO vo=dao.location_detail(Integer.parseInt(lno));
+		request.setAttribute("lno", lno);
+		request.setAttribute("main_jsp", "../location/location_detail.jsp");
+		return "../location/location_detail.jsp";
+	}
 }
