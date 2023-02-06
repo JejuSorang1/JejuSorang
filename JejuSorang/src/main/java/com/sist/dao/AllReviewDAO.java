@@ -49,7 +49,7 @@ public class AllReviewDAO {
 		 */
 	 
 	 // 2. 댓글 목록
-	  public List<AllReviewVO> allReplyListData(int detail_no,int cate_no) {
+	  public List<AllReviewVO> allReviewListData(int detail_no,int cate_no) {
 	  
 	    /*1. rno => 댓글 고유번호 
 	      2. no => 맛집,명소,상품에 대한 번호 
@@ -131,6 +131,29 @@ public class AllReviewDAO {
 	   {
 	     CreateConnection.disConnection(conn, ps);
 	   } 
+	  }
+
+	// 수정 
+	  public void allReviewUpdate(int all_review_no,String msg)
+	  {
+		  try
+		  {
+			  conn=CreateConnection.getConnection();
+			  String sql="UPDATE jj_all_review_1 SET "
+					    +"msg=? "
+					    +"WHERE all_review_no=?";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, msg);
+			  ps.setInt(2, all_review_no);
+			  ps.executeUpdate();
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  CreateConnection.disConnection(conn, ps);
+		  }
 	  }
 	 
 }
