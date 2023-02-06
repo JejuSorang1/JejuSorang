@@ -157,7 +157,7 @@ public class HotelDAO {
       try
       {
          conn =CreateConnection.getConnection();
-         String sql ="SELECT hno,name,addr,time,hotel_image,grade,star,like_count,jjim_count "
+         String sql ="SELECT hno,name,addr,time,hotel_image,grade,star,like_count,jjim_count,all_cate_no "
                + "FROM jj_hotel_1 "
                + "WHERE hno=?";
          
@@ -174,6 +174,7 @@ public class HotelDAO {
          vo.setStar(rs.getDouble(7));
          vo.setLike_count(rs.getInt(8));
          vo.setJjim_count(rs.getInt(9));
+         vo.setAll_cate_no(rs.getInt(10));
          rs.close();
       }catch (Exception e) {
          e.printStackTrace();

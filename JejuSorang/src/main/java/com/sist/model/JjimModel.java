@@ -15,6 +15,7 @@ public class JjimModel {
 	public String jjim_insert(HttpServletRequest request,HttpServletResponse response)
 	{
 		String hno=request.getParameter("hno");
+		String cate_no=request.getParameter("cate_no");
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("id");
 		JjimVO vo=new JjimVO();
@@ -22,7 +23,7 @@ public class JjimModel {
 		vo.setId(id);
 		//데이터베이스연동
 		JjimDAO dao=new JjimDAO();
-		dao.jjimInsert(vo);
+		dao.jjimInsert(vo,Integer.parseInt(cate_no));
 		return "redirect:../hotel/hotel_detail.do?hno="+hno;  
 	}
 	

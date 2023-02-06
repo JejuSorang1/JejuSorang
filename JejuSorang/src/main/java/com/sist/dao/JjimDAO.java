@@ -12,17 +12,17 @@ public class JjimDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 	
-	public void jjimInsert(JjimVO vo)
+	public void jjimInsert(JjimVO vo,int cate_no)
 	{
 		try
 		{
 			conn=CreateConnection.getConnection();
 			String sql="INSERT INTO jj_jjim_1 VALUES("
-					+"1,jj_jjim_jno_seq_1.nextval,?,?)";
+					+"?,jj_jjim_jno_seq_1.nextval,?,?)";
 			ps=conn.prepareStatement(sql);
-			
-			ps.setInt(1, vo.getNo());
-			ps.setString(2, vo.getId());
+			ps.setInt(1, cate_no);
+			ps.setInt(2, vo.getNo());
+			ps.setString(3, vo.getId());
 			ps.executeUpdate();
 		}catch(Exception ex)
 		{
