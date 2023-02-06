@@ -20,28 +20,28 @@ public class AllReviewModel {
 	 REGDATE       NOT NULL DATE         
 	 STAR                   NUMBER  
 */
-   String[] url={"","../hetel/hotel_detail.do?hno=","../rent/car_detail.do?cno="};
-   @RequestMapping("all_review/all_review_insert.do")
-   public String all_review_insert(HttpServletRequest request,HttpServletResponse response)
-   {
-	   try
+	String[] url={"","../hetel/hotel_detail.do?hno=","../rent/car_detail.do?car_no="};
+	   @RequestMapping("all_review/all_review_insert.do")
+	   public String all_review_insert(HttpServletRequest request,HttpServletResponse response)
 	   {
-		   request.setCharacterEncoding("UTF-8");
-	   }catch(Exception ex) {}
-	   String all_review_no=request.getParameter("all_review_no");
-	   String cate_no=request.getParameter("cate_no");
-	   String msg=request.getParameter("msg");
-	   HttpSession session=request.getSession();
-	   String id=(String)session.getAttribute("id");
-	   AllReviewDAO dao=new AllReviewDAO();
-	   AllReviewVO vo=new AllReviewVO();
-	   vo.setCate_no(Integer.parseInt(cate_no));
-	   vo.setAll_review_no(Integer.parseInt(all_review_no));
-	   vo.setMsg(msg);
-	   vo.setId(id);
-	   dao.allReviewInsert(vo);
-	   return "redirect:"+url[Integer.parseInt(cate_no)]+all_review_no;
-   }
+		   try
+		   {
+			   request.setCharacterEncoding("UTF-8");
+		   }catch(Exception ex) {}
+		   String detail_no=request.getParameter("detail_no");
+		   String cate_no=request.getParameter("cate_no");
+		   String msg=request.getParameter("msg");
+		   HttpSession session=request.getSession();
+		   String id=(String)session.getAttribute("id");
+		   AllReviewDAO dao=new AllReviewDAO();
+		   AllReviewVO vo=new AllReviewVO();
+		   vo.setCate_no(Integer.parseInt(cate_no));
+		   vo.setAll_review_no(Integer.parseInt(detail_no));
+		   vo.setMsg(msg);
+		   vo.setId(id);
+		   dao.allReviewInsert(vo);
+		   return "redirect:"+url[Integer.parseInt(cate_no)]+detail_no;
+	   }
    
    @RequestMapping("all_review/all_review_delete.do")
    public String all_reply_delete(HttpServletRequest request,HttpServletResponse response)

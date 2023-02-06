@@ -14,7 +14,7 @@ $(function(){
 	//초기화
  	var chk_arr=[];
  	var pageType = 'text';
- 	$('.ssBtn').show();
+ 	$('.searchBtn').show();
  	$('.cbxBtn').hide();
  	
 	$('#opinion').on('click', function(event){
@@ -31,34 +31,31 @@ $(function(){
 	$('#rtnCbxList').on('change', function(event){
 		if($('#rtnCbxList').val() == ""){
 			$('.cbxBtn').hide();
-			$('.ssBtn').show();
+			$('.searchBtn').show();
 		}else{
 			$('.cbxBtn').show();
-			$('.ssBtn').hide();
+			$('.searchBtn').hide();
 		}
 		pageType = 'cbx';
 		var chkList = $('#rtnCbxList').val().split(',');
-		for(var i=0; i< chkList.length; i++){
+ 		for(var i=0; i< chkList.length; i++){
 			if(chkList[i] == "경차"){
 				$('#chk1').prop("checked", true);
-			}
-			if(chkList[i] == "준중형"){
+			}else if(chkList[i] == "준중형"){
 				$('#chk2').prop("checked", true);
-			}
-			if(chkList[i] == "중형"){
+			}else if(chkList[i] == "중형"){
 				$('#chk3').prop("checked", true);
-			}
-			if(chkList[i] == "RV"){
+			}else if(chkList[i] == "RV"){
 				$('#chk4').prop("checked", true);
-			}
-			if(chkList[i] == "수입"){
+			}else if(chkList[i] == "수입"){
 				$('#chk5').prop("checked", true);
-			}
-			if(chkList[i] == "고급"){
+			}else if(chkList[i] == "고급"){
 				$('#chk6').prop("checked", true);
 			}
-		}
+		} 
 	})
+	
+	//hidden은 change이벤트가 이루어지지 않으므로, trigger를 줘서 강제 이벤트
 	$('#rtnCbxList').val($('#rtnCbxList').val()).trigger('change');
 	
 	
@@ -105,7 +102,8 @@ $(function(){
 	    <br>
           <h5>자동차 모델</h5>
             <div style="display: inline-block;">
-            <input id = "searchText" type="text" name="ss" size=25 class="input-sm" value="${ss }" style="width: 75%;"> <input type=submit value="검색" style="border: 0; border-radius: 15%; background-color: #F8B03A; padding: 2%; color: white;">
+            <input id = "searchText" type="text" name="search" size=25 class="input-sm" value="${search }" style="width: 75%;"> 
+            <input type=submit value="검색" style="border: 0; border-radius: 15%; background-color: #F8B03A; padding: 2%; color: white;">
             </div>
         </div>
      </form> 
@@ -169,15 +167,15 @@ $(function(){
      <nav class="pagination">
         <ul>
         <c:if test="${startPage>1}">
-          <li class = "ssBtn"><a href="../rent/rent_search.do?ss=${ss }&page=${startPage-1 }">&laquo; 이전</a></li>
+          <li class = "searchBtn"><a href="../rent/rent_search.do?search=${search }&page=${startPage-1 }">&laquo; 이전</a></li>
           <li class = "cbxBtn"><a href="../rent/rent_search.do?type=cbx&&cbxList=${rtnCbxList}&page=${startPage-1 }">&laquo; 이전</a></li>
           </c:if>
           <c:forEach var="i" begin="${startPage }" end="${endPage }">
-            <li class = "ssBtn" ${i==curpage?"class=current":"" }><a  href="../rent/rent_search.do?ss=${ss }&page=${i }">${i }</a></li>
+            <li class = "searchBtn" ${i==curpage?"class=current":"" }><a  href="../rent/rent_search.do?search=${search }&page=${i }">${i }</a></li>
             <li class = "cbxBtn" style="display : none" ${i==curpage?"class=current":"" }><a  href="../rent/rent_search.do?type=cbx&&cbxList=${rtnCbxList}&page=${i }">${i }</a></li>
           </c:forEach>
           <c:if test="${endPage<totalpage }">
-          <li class = "ssBtn"><a  href="../rent/rent_search.do?ss=${ss }&page=${endPage+1 }">다음 &raquo;</a></li>
+          <li class = "searchBtn"><a  href="../rent/rent_search.do?search=${search }&page=${endPage+1 }">다음 &raquo;</a></li>
           <li class = "cbxBtn"><a  href="../rent/rent_search.do?type=cbx&&cbxList=${rtnCbxList}&page=${endPage+1 }">다음 &raquo;</a></li>
           </c:if>
         </ul>

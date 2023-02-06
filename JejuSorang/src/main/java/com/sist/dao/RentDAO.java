@@ -146,23 +146,22 @@ public class RentDAO {
 	       try
 	       {  
 	    	   
-	    	  String strTest = "java, test,";
-	    	  System.out.println(strTest.substring(0, strTest.length() - 1));
 	          String[] typeList = typeVal.split(",");
 	          conn=CreateConnection.getConnection();
 	          String sql="SELECT car_no,car_name,car_image,car_price,car_option1,car_type,num "
 	                  +    "FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type,rownum as num "
 	                  +	  	     "FROM (SELECT car_no,car_name,car_image,car_price,car_option1,car_type "
 	                  +                    "FROM jj_car_1 "
-	                  +                   "WHERE car_type in(";
-	          
+	                  +                   "WHERE ";
+	          //체크박스 리스트
 	          for(var i=0; i<typeList.length; i++) {
-	        	  sql += "'" + typeList[i] + "'" + ",";
+	        	  sql += "car_type LIKE '" + typeList[i] + "%'" + " OR ";
 	          };
 	          
-	          sql = sql.substring(0, sql.length() - 1);
-	          sql += ")))";
-	          sql += "WHERE num BETWEEN ? AND ?"; 
+	          sql = sql.substring(0, sql.length() - 4);
+	          sql += "))";
+	          sql += "WHERE num BETWEEN ? AND ?";
+	          
 	          
 	          ps=conn.prepareStatement(sql);
 	          int rowSize=20;
@@ -199,11 +198,18 @@ public class RentDAO {
 	       int total=0;
 	       try
 	       {
+	    	  String[] typeList = typeVal.split(",");
 	          conn=CreateConnection.getConnection();
 	          String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_car_1 "
-	                 +"WHERE car_type in (";
-	          //test
-	          sql += "'경차', 'RV')";
+	                 +"WHERE ";
+	          
+	          //체크박스 리스트 
+	          for(var i=0; i<typeList.length; i++) {
+	        	  sql += "car_type LIKE '" + typeList[i] + "%'" + " OR ";
+	          };
+	          
+	          sql = sql.substring(0, sql.length() - 4);
+	          
 	          ps=conn.prepareStatement(sql);
 	          ResultSet rs=ps.executeQuery();
 	          rs.next();

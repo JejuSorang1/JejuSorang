@@ -55,64 +55,71 @@ public class RentModel {
 	@RequestMapping("rent/rent_search.do")
 	public String rent_search(HttpServletRequest request,HttpServletResponse response)
 	{
-		  try
-		   {
-			   // 한글 변환 
-			   request.setCharacterEncoding("UTF-8");
-		   }catch(Exception ex){}
-		  	 String type = "";
-		  	 if(request.getParameterMap().containsKey("type")) {
-		  		 type = request.getParameter("type");
-		  	 }
-		  	 
-		  	 String ss = "";
-		  	 if(type.equals("cbx")) {
-		  		 ss=request.getParameter("cbxList");
-		  	 }else {
-		  		 ss=request.getParameter("ss");
-		  	 }
-		   	   
-			   if(ss==null)
-				   ss="";
-			   String page=request.getParameter("page");
-			   if(page==null)
-				   page="1";
-			// 현재페이지 지정 
-			   int curpage=Integer.parseInt(page);
-			// DAO에서 해당 페이지의 데이터 읽기 
-			   //변수 선언
-			   RentDAO dao=new RentDAO();
-			   int totalpage = 0;
-			   ArrayList<CarVO> list = null;
-			   
-			   if(type.equals("cbx")) {
-				   list=dao.CarTypeSearchData(curpage, ss);
-				   totalpage=dao.CarTypeTotalPage(ss);
-			   }else{
-				   list=dao.RentSearchData(curpage, ss);
-				   totalpage=dao.RentSearchTotalPage(ss);
-			   }
-			   
-			   final int BLOCK=5;
-			   int startPage=((curpage-1)/BLOCK*BLOCK)+1;
-			   int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
-			   if(endPage>totalpage)
-				   endPage=totalpage;
-			   
-				
-				//footer
-				CommonsModel.footerData(request);
-		  	   if(type.equals("cbx")) {
-		  		 request.setAttribute("rtnCbxList", ss);
-		  	   }else {
-		  		 request.setAttribute("ss",ss);
-		  	   }
-			   request.setAttribute("list", list);
-			   request.setAttribute("curpage", curpage);
-			   request.setAttribute("totalpage", totalpage);
-			   request.setAttribute("startPage", startPage);
-			   request.setAttribute("endPage", endPage);
-			   request.setAttribute("main_jsp", "../rent/rent_search.jsp");
+	    try
+	     {
+		   // 한글 변환 
+		   request.setCharacterEncoding("UTF-8");
+	     }catch(Exception ex){
+		   
+	     }
+	    
+	     //초기화
+	  	 String type = "";
+	  	 
+	  	 //검색어 버튼 때 type이 없는 경우, 체크박스로 type이 있는 경우  // true/false boolean
+	  	 if(request.getParameterMap().containsKey("type")) {
+	  		 type = request.getParameter("type");
+	  	 }
+	  	 
+	  	 //초기화
+	  	 String searchText = "";
+	  	 if(type.equals("cbx")) {
+	  		searchText=request.getParameter("cbxList");
+	  	 }else {
+	  		searchText=request.getParameter("search");
+	  	 }
+	   	   
+		   if(searchText==null)
+			   searchText="";
+		   String page=request.getParameter("page");
+		   if(page==null)
+			   page="1";
+		// 현재페이지 지정 
+		   int curpage=Integer.parseInt(page);
+		// DAO에서 해당 페이지의 데이터 읽기 
+		   //변수 선언
+		   RentDAO dao=new RentDAO();
+		   int totalpage = 0;
+		   ArrayList<CarVO> list = null;
+		   
+		   if(type.equals("cbx")) {
+			   list=dao.CarTypeSearchData(curpage, searchText);
+			   totalpage=dao.CarTypeTotalPage(searchText);
+		   }else{
+			   list=dao.RentSearchData(curpage, searchText);
+			   totalpage=dao.RentSearchTotalPage(searchText);
+		   }
+		   
+		   final int BLOCK=5;
+		   int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+		   int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+		   if(endPage>totalpage)
+			   endPage=totalpage;
+		   
+			
+			//footer
+			CommonsModel.footerData(request);
+	  	   if(type.equals("cbx")) {
+	  		 request.setAttribute("rtnCbxList", searchText);
+	  	   }else {
+	  		 request.setAttribute("search",searchText);
+	  	   }
+		   request.setAttribute("list", list);
+		   request.setAttribute("curpage", curpage);
+		   request.setAttribute("totalpage", totalpage);
+		   request.setAttribute("startPage", startPage);
+		   request.setAttribute("endPage", endPage);
+		   request.setAttribute("main_jsp", "../rent/rent_search.jsp");
 			   
 			   
 			return "../main/main.jsp";
@@ -140,6 +147,12 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    int jcount=jdao.jjimCount(/*all_cate_no,*/Integer.parseInt(cno),id);
    request.setAttribute("jjim_count", jcount);  
    
+   // 화면 출력 
+   request.setAttribute("main_jsp", "../rent/car_detail.jsp");
+   AllReviewDAO adao=new AllReviewDAO();
+   List<AllReviewVO> rList=adao.allReviewListData(Integer.parseInt(cno), 2);
+   request.setAttribute("rList", rList);
+   request.setAttribute("count", rList.size());
    
    return "../main/main.jsp";
    
@@ -147,4 +160,3 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
 
 	
  }
-
