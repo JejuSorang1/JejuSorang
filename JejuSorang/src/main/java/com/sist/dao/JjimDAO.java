@@ -18,11 +18,11 @@ public class JjimDAO {
 		{
 			conn=CreateConnection.getConnection();
 			String sql="INSERT INTO jj_jjim_1 VALUES("
-					+"(SELECT NVL(MAX(jno)+1,1) FROM jj_jjim_1),?,?,?)";
+					+"1,jj_jjim_jno_seq_1.nextval,?,?)";
 			ps=conn.prepareStatement(sql);
-			ps.setInt(1, vo.getAll_cate_no());
-			ps.setInt(2, vo.getNo());
-			ps.setString(3, vo.getId());
+			
+			ps.setInt(1, vo.getNo());
+			ps.setString(2, vo.getId());
 			ps.executeUpdate();
 		}catch(Exception ex)
 		{

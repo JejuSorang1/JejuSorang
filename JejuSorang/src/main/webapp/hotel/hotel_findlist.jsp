@@ -105,7 +105,7 @@ $(function(){
     
     
     <div class="col-sm-3" id="filter">
-     <form name="form1" method="post" action="" enctype="multipart/form-data">   
+     <form name="form1" method="get" action="../hotel/hotel_findlist.do" enctype="multipart/form-data">   
        <div class="col-md-12" >  
          <div class="form-group">
         <div style="width: 10px;height: 50px"></div>

@@ -32,7 +32,7 @@ public class HotelModel {
       request.setAttribute("vo", vo);
       request.setAttribute("addr1", addr1);
       request.setAttribute("addr2", addr2);
-     
+      
       int count=dao.HotelRowCount();
       int totalpage=(int)(Math.ceil(count/20.0));
 
