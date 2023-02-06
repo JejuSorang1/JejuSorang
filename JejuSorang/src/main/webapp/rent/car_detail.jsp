@@ -241,58 +241,9 @@
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
 
           <div class="review-heading">후기</div>
-
-          	<form method="get" action="car_review.do">
-			  <table class="table">
-			  <tr>
-			  		<th width=30% class="text-right">차량번호</th>
-			  		<input type=text name=car_no size=15 class="car_no">
-			  </tr>
-			  <tr>
-			      <th width=30% class="text-right">ID</th>
-			      <td width=80%>
-			        <input type=text name=id size=15 class="id">
-			      </td>
-			    </tr>
-			    <tr>
-			      <th width=30% class="text-right">후기내용</th>
-			      <td width=80%>
-			        <textarea rows="10" cols="60" name="content"></textarea>
-			      </td>
-			    </tr>
-			    <tr>
-			      <td colspan="2" class="text-center">
-			        <input type=submit value="글쓰기" class="btn btn-sm btn-danger">
-			        <input type=button value="취소" class="btn btn-sm btn-danger" onclick="javascript:history.back()">
-			      </td>
-			    </tr>
-			  </table>
-  			</form>
-  			<table>
-            <br>
-             <tr style="font-size:20px;color:gray"><b>아이디</b></tr>
-             <td>${rv.id }</td>
-             </table>
-             <table>
-             <br>
-             <tr style="font-size:15px;color:gray"><b>차번호</b></tr>
-             <td>${rv.rent_review_no }</td>
-             </table>
-             <br>
-             <table>
-             <tr style="font-size:15px;color:gray"><b>후기</b></tr>
-             <td>${rv.msg }</td>
-            </table>
+	
         </div>
 
-          <p class="mb-20">There are no reviews yet.</p>
-        </div>
-
-      </div>
-     </div>
-
-	</div>
-   </div>
     <div class="review-heading">후기</div>
      <div style="height: 20px"></div>
       <div class="content three_quarter first"> 
