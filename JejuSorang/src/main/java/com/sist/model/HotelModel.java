@@ -22,7 +22,7 @@ public class HotelModel {
       int curpage=Integer.parseInt(page);
       
       HotelDAO dao=new HotelDAO();
-
+  
       List<HotelVO> list=dao.HotelListData(curpage);
       HotelVO vo=dao.hotel_detail(Integer.parseInt(page));
       String address=vo.getAddr();

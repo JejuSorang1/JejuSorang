@@ -102,7 +102,7 @@ public class JjimDAO {
 	}
 	// 렌트카 jjim 목록 출력
 	public List<JjimVO> rent_jjimListData(String id)
-	{
+	{  
 		//rname,rctel,rcaddr
 		List<JjimVO> list=new ArrayList<JjimVO>();
 		try
