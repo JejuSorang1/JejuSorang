@@ -208,7 +208,7 @@ $(function(){
                             <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>                            
                             <p> 가격 
-                            <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${hvo.like_count }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${hvo.jjim_count }</p>
+                            <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${like_total }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${jjim_total }</p>
                           </td>
                           <td width="17%">
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>

@@ -20,7 +20,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-
 </script>
 </head>
 <body>
@@ -45,7 +44,8 @@
 			  <p><a href="../like/like_insert.do?hno=${hvo.hno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">좋아요</a><span style="float: right"><img src="../img/like.png" style="width: 22px;height: 22px;">좋아요${like_total }</span></p>
 			  </c:if>
 			  <c:if test="${like_count!=0 }">
-              <span class="btn btn-xs btn-default">좋아요(${like_total })</span>
+			    <p><span class="btn btn-xs btn-default" style="float: left"><img src="../img/like.png" style="width: 22px;height: 22px">좋아요${like_total }</span></p>
+              <%-- <span class="btn btn-xs btn-default">좋아요(${like_total })</span> --%>
 			  </c:if>
 			  
 			  
@@ -61,7 +61,10 @@
 			   </form>
 			  </c:if>
 			  <c:if test="${jjim_count!=0 }">
-                <span class="btn btn-xs btn-default">찜하기(${jjim_total })</span>
+			     <p><span class="btn btn-xs btn-default" style="float: left"><img src="../img/jjim.png" style="width: 22px;height: 22px">
+			      찜하기${jjim_total }
+			      </span></p>
+                <%--  <span class="btn btn-xs btn-default">찜하기(${jjim_total })</span> --%>
               </c:if>
 			  </c:if>
 			  
