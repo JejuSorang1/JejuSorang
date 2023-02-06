@@ -7,22 +7,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link href="shadowbox/shadowbox.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 Shadowbox.init({
 	players:['iframe']	
 })
 $(function(){
-   $('#detailBtn').click(function(){
-      Shadowbox.open({
-         content:'../location/location_detail.do',
-         player:'iframe',
-         width:420,
-         height:600,
-         title:'관광지 상세정보'
-      })
-   })
+	$('#detailBtn').click(function(){
+	      Shadowbox.open({
+	         content:'../location/location_detail.do',
+	         player:'iframe',
+	         width:420,
+	         height:600,
+	         title:'관광지 상세정보'
+	      })
+	   })
+})
 </script>
 </head>
 <body>
@@ -43,7 +43,7 @@ $(function(){
        ${vo.addr_ji }</p>
      </td>
      <td width="20%" class="text-center">
-       <input type=button id="detailBtn" value="상세보기" class="btn btn-sm btn-warning">
+       <span id="detailBtn" class="btn btn-sm btn-warning">상세보기</span>
      </td>
      <td width="10%">
      	찜,,,할까말까,,,
