@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> 
 <script type="text/javascript">
 
+
 </script>
 
 <style type="text/css">
@@ -40,21 +41,11 @@
    background-color: #0000FF;
    color:white;
 }
-
-   position: relative;      
-   top: 50px;
-   left: 250px;
-}
 .inner-box{
    width: 300px;
    height: 100%; 
 }
-.mybutton{
-   width:300px;
-   height: 50px;
-   background-color: blue;
-   color:white;
-}
+
 
 </style>
 
@@ -64,23 +55,14 @@
 <div class="wrapp">
   <div class="container">
     <div class="row">   
-      <div class="detailpage">
-       <div class="detailRentCar">
-
-
-        <figure>
-
+       <figure>
 		 <img src="${vo.car_image }" width="450" height="450">
 		  <p class="tip" style="font-size: 15px">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
            <h4 style="font-size:20px;color:gray"><b>${vo.car_name }</b></h4>
-
+              <br>
+            <p><span><img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${rvo.jjim_count }</span>&nbsp;&nbsp;<a href="../jjim/jjim_insert.do?rcno=${rvo.rcno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">찜하기</a></p>     
 		</figure>
-
-           <br>
-           	<p><span><img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${rvo.jjim_count }</span>&nbsp;&nbsp;<a href="../jjim/jjim_insert.do?rcno=${rvo.rcno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">찜하기</a></p>
            
-       </div>
-      </div>
       <div class="box">
        <div class="inner-box">
        <h4 style="font-size:23px;color:gray"><b>결제정보</b></h4>
@@ -88,29 +70,27 @@
        <h4 style="font-size:19px;color:gray">최종결제금액&nbsp;<h4 style="font-size:23px;color:blue"><b>${vo.car_price }원</b><h4></h4>
        <hr style="border: width:100px;">
        <h4 style="font-size:18px;color:black"><img src="../img/attention_icon.png" style="width:20px;height:20px">&nbsp;<b>바로 결제해야 예약 확정</b></h4>
-       <br>
+                 <br>
        <h4 style="font-size:17px;color:gray">시간이 경과될 경우 좌석이 매진되거나 요금이 변동될 수 있습니다.</h4>
-       <br>
-
-
-       <div>
-        <a href="#"><button type="button" class="button" id="mybutton">예약하기</button></a>
-
-       </div>
-       </div>
+                 <br>
+      <div>
+       <a href="../rent/rent_reserve.do?car_no=${vo.car_no  }"><button type="button" class="button" id="mybutton">예약하기</button></a>
       </div>
-    </div>
-
+      </div>
+      </div>
+     </div>
       <hr align="left" style="border: solid 1px gray; width: 50%;">
       <div class="container">
        <div class="row">
         <div class="col-md-3">
         <div class="text-left">
-         <div class="text-center">대여시간</div>
+         <div class="text-center">대여일시</div>
+         <div class="text-center">${rrvo.start_date }</div>
         </div>
        </div>
        <div class="text-left">
-         <div class="text-center">반납시간</div>
+         <div class="text-center">반납일시</div>
+         <div class="text-center">${rrvo.end_date }</div> 
         </div>
        </div>
       </div>
@@ -143,22 +123,9 @@
             <br>
 
             <table>
-
-
-            <table>
-
 	         <h4 style="font-size:15px;color:gray"><b>차량옵션</b></h4>
 	          <tr>
-
 	           <td class="text-left"><img src="../img/checkbox.png" style="weight:25px;height:25px">&nbsp;${vo.car_option2 }</td>
-
-            <h4 style="font-size:15px;color:gray"><b>차량옵션</b></h4>
-             <tr>
-              <td class="text-left"><img src="../img/checkbox.png" style="weight:25px;height:25px">&nbsp;${vo.car_option2 }</td>
-
-	           <td class="text-left"><img src="../img/checkbox.png" style="weight:25px;height:25px">&nbsp;${vo.car_option2 }</td>
-
-              </tr>
             </table>
             <br>
             <table>
@@ -168,7 +135,7 @@
              </tr>
              <tr> 
               <td class="text-left"><img src="../img/checkicon.png" style="weight:15px;height:15px">외국인 대여, 낚시용품 지참, 애견동물 동반 가능 여부와 주행거리 제한 규정은 업체별로 상이하므로 업체별 대여규정을 확인해주세요. 대여조건이 맞지 않을 경우 렌트카 이용이 불가합니다.</td> 
-             </tr>
+             </tr> 
             </table>
             <br>
             <table>
@@ -239,19 +206,13 @@
           </div>
         </div>
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-
-          <div class="review-heading">후기</div>
-	
-        </div>
-
-    <div class="review-heading">후기</div>
      <div style="height: 20px"></div>
       <div class="content three_quarter first"> 
-        <h2 class="sectiontitle">댓글</h2>
+        <h2 class="sectiontitle">후기</h2>
         <c:if test="${count==0 }">
                  <table class="table">
                    <tr>
-                     <td class="text-center">댓글이 없습니다</td>
+                     <td class="text-center">후기가 없습니다</td>
                    </tr>
                  </table>
                </c:if>
@@ -266,8 +227,8 @@
                         <td class="text-right" width=15%>
                           <c:if test="${sessionScope.id!=null }">
                             <c:if test="${sessionScope.id==rvo.id }">
-                              <span class="btn btn-xs btn-danger ups" data-no="${rvo.rno }">수정</span>
-                              <a href="../all_reply/all_reply_delete.do?rno=${rvo.rno }&no=${vo.no}&cate_no=1" class="btn btn-xs btn-primary">삭제</a>
+                              <span class="btn btn-xs btn-danger ups" data-no="${rvo.rcno }">수정</span>
+                              <a href="../all_review/all_review_delete.do?rno=${rvo.rno }&no=${vo.no}&cate_no=1" class="btn btn-xs btn-primary">삭제</a>
                             </c:if>
                           </c:if>
                         </td>
@@ -278,7 +239,7 @@
                        </tr>
                        <tr id="u${rvo.rno }" class="rupdate" style="display:none">
 			             <td colspan="2">
-			               <form method="post" action="../all_reply/all_reply_update.do">
+			               <form method="post" action="../all_review/all_review_update.do">
 					         <input type=hidden name="no" value="${vo.no }">
 					         <input type=hidden name="rno" value="${rvo.rno }">
 					         <input type=hidden name="cate_no" value="1">
@@ -298,7 +259,7 @@
           <table class="table">
            <tr>
             <td>
-             <form method="post" action="../all_reply/all_reply_insert.do">
+             <form method="post" action="../all_review/all_review_insert.do">
                <input type="hidden" name="no" value="${vo.no }">
                <input type="hidden" name="cate_no" value="1">
                <%--
@@ -315,10 +276,6 @@
         </c:if>
       </table>
       </div>     
-        </div>        
-
-  </div>
-
-
+     </div>      
 </body>
 </html>
