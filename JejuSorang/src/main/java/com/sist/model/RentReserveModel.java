@@ -24,18 +24,6 @@ public class RentReserveModel {
 		  request.setAttribute("vo", vo);
 		  //데이터 베이스 연결
 		
-//		  HttpSession session=request.getSession();
-//		  String name=(String)session.getAttribute("name");
-//		  String birthday=(String)session.getAttribute("birthday");
-//		  String phone=(String)session.getAttribute("phone");
-//		  String email=(String)session.getAttribute("email");
-//		  System.out.println( phone);
-//		  request.setAttribute("name", name);
-//		  request.setAttribute("birthday", birthday);
-//		  request.setAttribute("phone", phone);
-//		  request.setAttribute("email", email);
-		  
-		  
 		  
 		  request.setAttribute("main_jsp", "../reserve/rent_reserve.jsp");
 		  CommonsModel.footerData(request);
