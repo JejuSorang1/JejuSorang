@@ -128,12 +128,7 @@ $(function(){
             </div>
         </div>
         <div style="height: 10px"></div>
-        <div class="col-md-12">
-        <hr>
-          <h5>금액</h5>
-            <input type="range" min="1" max="100" value="50" class="price" id="price">
-            <p>Value:<span id="value"></span></p>
-        </div> 
+        
       </form>
     </div>
     </div>
