@@ -259,7 +259,7 @@ $(function(){
                         <td class="text-left" width=85%>${rvo.id }&nbsp;(${rvo.dbday })</td>
                         <td class="text-right" width=15%>
                           <c:if test="${sessionScope.id!=null }">
-                            <c:if test="${sessionScope.id==arvo.id }">
+                            <c:if test="${sessionScope.id==rvo.id }">
                               <span class="btn btn-xs btn-danger ups" data-no="${rvo.all_review_no }">수정</span>
                               <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${rvo.cate_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
                             </c:if>
