@@ -12,7 +12,7 @@
     <h4 style="text-center">호텔 예약 정보</h4>
     <div class="col-lg-12">
       <table class="table">
-        
+         
       </table>
     </div>
   </div>

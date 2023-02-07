@@ -217,7 +217,7 @@ $(function(){
                           <td width="17%"> 
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>
                           </td>
-                        </tr>
+                        </tr> 
                       </table>
                     </c:forEach>
                   </td>

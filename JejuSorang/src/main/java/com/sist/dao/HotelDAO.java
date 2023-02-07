@@ -52,7 +52,7 @@ public class HotelDAO {
       return list;
    }
    public int HotelRowCount()
-   {
+   { 
       int count=0;
       try
       {

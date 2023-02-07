@@ -10,7 +10,7 @@ HPRICE  NOT NULL NUMBER
 HPYCHECK          CHAR(1)     
 ID               VARCHAR2(20) 
 HNO              NUMBER 
- */
+ */ 
 public class HotelReserveVO {
 	private int hrno,hprice,hno;
 	private String hreno,id,hpycheck;

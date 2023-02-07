@@ -150,7 +150,7 @@
                         <td width="38%" class="text-left">
                           <img src="${rvo.room_image }" style="width:300px;height:250px">
                         </td>
-                        <td width="3%">
+                        <td width="3%"> 
                         </td>
                         <td width="42%" >
                           <h4>${rvo.room_name }</h4>

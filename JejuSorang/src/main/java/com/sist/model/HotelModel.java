@@ -125,7 +125,7 @@ public class HotelModel {
     	  for(RoomVO rvo:rList)
     	  {
     		  String s=rvo.getRoom_price();
-    		  String t=s.replace("원", "");
+    		  String t=s.replace("원", ""); 
     		  String k=t.replace(",", "");
     		  int i=Integer.parseInt(k.trim());
     		  System.out.println(i);
