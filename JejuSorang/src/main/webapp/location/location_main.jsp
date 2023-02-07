@@ -49,7 +49,7 @@ $(function(){
            <tr>
             <td>
             <table class="table" id="type">
-            <tr>
+            <tr id="type">
               <th class="text-center locations"><img src="../img/exhibition.png" style="width:60px;height:60px"><br><br>관람</th>
               <th class="text-center locations"><img src="../img/nature.png" style="width:60px;height:60px"><br><br>자연</th>
               <th class="text-center locations"><img src="../img/activity.png" style="width:60px;height:60px"><br><br>체험</th>
@@ -66,7 +66,6 @@ $(function(){
              </td>
            </tr>
          </table>
-
 	    </div>
 	    <div style="width: 10px;height: 50px"></div>
 	  </main>
