@@ -69,8 +69,8 @@ public class JjimDAO {
 			conn=CreateConnection.getConnection();
 			String sql = "select /*+ INDEX_DESC(jj_jjim_1 jj_jno_pk_1)*/all_cate_no,jno, no, " // 서브쿼리
                     +"(select distinct name from jj_hotel_1 where hno = jj_jjim_1.no), "
-                    +"(select distinct hotel_image from project_food where hno = jj_jjim_1.no), "
-                    +"(select distinct addr from project_food where hno = jj_jjim_1.no) "
+                    +"(select distinct hotel_image from jj_hotel_1 where hno = jj_jjim_1.no), "
+                    +"(select distinct addr from jj_hotel_1s where hno = jj_jjim_1.no) "
                     +"from jj_jjim_1 "
                     +"where id=?";
 		         ps=conn.prepareStatement(sql);
@@ -135,6 +135,30 @@ public class JjimDAO {
 					+ "WHERE no=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, car_no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			count=rs.getInt(1);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+		return count;
+	}
+	public int locJjimCount(int lno)
+	{
+		int count=0;
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql="SELECT COUNT(*) FROM jj_jjim_1 "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, lno);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
 			count=rs.getInt(1);
