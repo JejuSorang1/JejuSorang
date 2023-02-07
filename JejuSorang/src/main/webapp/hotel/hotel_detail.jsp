@@ -175,9 +175,77 @@
          </div>
         
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-          <div class="review-heading">후기</div>
-          <p class="mb-20">There are no reviews yet.</p>
-        </div>
+         <div style="height: 20px"></div>
+      <div class="content three_quarter first"> 
+        <h2 class="sectiontitle" style="font-size:20px;color:gray">리뷰</h2>
+        <c:if test="${count==0 }">
+                 <table class="table">
+                   <tr>
+                     <td class="text-center">리뷰가 없습니다</td>
+                   </tr>
+                 </table>
+               </c:if>
+               <c:if test="${count>0 }">
+                 <table class="table">
+                   <tr>
+                     <td>
+                     <c:forEach var="rvo" items="${rList }">
+                      <table class="table">
+                       <tr>
+                        <td class="text-left" width=85%>${rvo.id }&nbsp;(${rvo.dbday })</td>
+                        <td class="text-right" width=15%>
+                          <c:if test="${sessionScope.id!=null }">
+                            <c:if test="${sessionScope.id==rvo.id }">
+                              <span class="btn btn-xs btn-danger ups" data-no="${rvo.all_review_no }">수정</span>
+                              <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${rvo.cate_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
+                            </c:if>
+                          </c:if>
+                        </td>
+                          
+                       </tr>
+                       <tr>
+                        <td colspan="2"><pre style="white-space:pre-wrap;background-color:white;border:none">${rvo.msg }</pre></td>
+                       </tr>
+                       <tr id="u${rvo.all_review_no }" class="rupdate" style="display:none">
+			             <td colspan="2">
+			               <form method="post" action="../all_review/all_review_update.do">
+					         <input type=hidden name="car_no" id="car_no" value="${vo.car_no }">
+					         <input type=hidden name="all_review_no" value="${rvo.all_review_no }">
+					         <input type=hidden name="cate_no" value="2">
+					         <textarea rows="3" cols="90" name="msg" style="float: left">${rvo.msg}</textarea>&nbsp;
+					         <input type=submit value="수정" class="btn btn-sm btn-warning" style="height: 65px">
+					        </form>
+			             </td>
+			            </tr>
+                      </table>
+                    </c:forEach>
+                     </td>
+                   </tr>
+                 </table>
+               </c:if>  
+        <table class="table">       
+        <c:if test="${sessionScope.id!=null }">
+          <table class="table">
+           <tr>
+            <td>
+             <form method="post" action="../all_review/all_review_insert.do">
+               <input type="hidden" name="car_no" value="${vo.car_no }">
+               <input type="hidden" name="cate_no" value="2">
+               <%--
+                  1. seoul_locateion
+                  2. food
+                  3. goods
+                --%>
+               <textarea rows="3" cols="90" name="msg" style="float: left"></textarea>&nbsp;
+               <input type=submit value="작성" class="btn btn-sm btn-warning" style="height: 65px">
+             </form>
+            </td>
+           </tr>
+          </table>
+        </c:if>
+      </table>
+      </div>
+     </div>
         </div>
       </div>
      </div>

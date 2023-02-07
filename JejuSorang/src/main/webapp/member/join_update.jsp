@@ -143,17 +143,8 @@ $(function(){
 </script>
 </head>
 <body>
-<div class="wrapper row3">
-  <div id="breadcrumb" class="clear"> 
-    <!-- ################################################################################################ -->
-    <ul>
-      <li>회원 수정</li>
-    </ul>
-    <!-- ################################################################################################ --> 
-   </div>
-  </div>
-  <div class="wrapper row3 row">
-   <main class="container clear">
+
+
    <h2 class="sectiontitle">회원 수정</h2>
    <form method="post" action="../member/join_update_ok.do" name="join_frm" id="join_frm">
     <table class="table">
@@ -218,12 +209,6 @@ $(function(){
        </td>
       </tr>
       <tr>
-       <th class="text-right" width=15%>소개</th>
-       <td width=85%>
-         <textarea rows="10" cols="100" id="content" name="content">${vo.content }</textarea>
-       </td>
-      </tr>
-      <tr>
         <td colspan="2" class="text-center">
          <input type=button class="btn btn-sm btn-primary" value="회원수정"
            id="joinBtn"
@@ -235,7 +220,6 @@ $(function(){
       </tr>
     </table>
     </form>
-   </main>
-  </div>
+
 </body>
 </html>
