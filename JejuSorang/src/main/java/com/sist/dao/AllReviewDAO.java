@@ -21,7 +21,7 @@ public class AllReviewDAO {
 	  public void allReviewInsert(AllReviewVO vo) { //jar_all_review_no_seq
 	  try {
 	        conn=CreateConnection.getConnection(); 
-	        String sql="INSERT INTO jj_all_review_1 VALUES(jar_all_review_no_seq.nextval,?,?,?,?,?,SYSDATE)";
+	        String sql="INSERT INTO jj_all_review_1 VALUES(jar_all_review_no_seq.nextval,?,?,?,?,SYSDATE,?)";
 	        ps=conn.prepareStatement(sql); 
 	        ps.setString(1, vo.getId()); 
 	        ps.setInt(2,vo.getCate_no());
@@ -51,14 +51,11 @@ public class AllReviewDAO {
 	 // 2. 댓글 목록
 	  public List<AllReviewVO> allReviewListData(int detail_no,int cate_no) {
 	  
-	    /*1. rno => 댓글 고유번호 
-	      2. no => 맛집,명소,상품에 대한 번호 
-	      3. cate_no => 구분자 (맛집,명소,상품)*/
-	  
+
 	  List<AllReviewVO> list=new ArrayList<AllReviewVO>(); 
 	  try {
 	        conn=CreateConnection.getConnection(); 
-	        String sql="SELECT all_review_no,id,cate_no,detail_no,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS',star) "
+	        String sql="SELECT all_review_no,id,cate_no,detail_no,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
 	                  +"FROM jj_all_review_1 " 
 	                  +"WHERE detail_no=? AND cate_no=? " 
 	                  +"ORDER BY all_review_no DESC";
@@ -76,7 +73,6 @@ public class AllReviewDAO {
 	          vo.setDetail_no(rs.getInt(4));
 	          vo.setMsg(rs.getString(5));
 	          vo.setDbday(rs.getString(6));
-	          vo.setStar(rs.getInt(7));
 	          list.add(vo); 
 	        } 
 	        rs.close();

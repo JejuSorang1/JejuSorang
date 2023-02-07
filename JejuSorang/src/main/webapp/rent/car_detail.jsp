@@ -23,7 +23,7 @@ let u=0;
 $(function(){
 	$('.ups').click(function(){
 		$('.rupdate').hide();
-		let rno=$(this).attr("data-no");
+		let all_review_no=$(this).attr("data-no");
 		if(u==0)
 		{
 			$(this).text("취소");
@@ -256,27 +256,27 @@ $(function(){
                      <c:forEach var="rvo" items="${rList }">
                       <table class="table">
                        <tr>
-                        <td class="text-left" width=85%>◑&nbsp;(${arvo.dbday })</td>
+                        <td class="text-left" width=85%>${rvo.id }&nbsp;(${rvo.dbday })</td>
                         <td class="text-right" width=15%>
                           <c:if test="${sessionScope.id!=null }">
-                            <c:if test="${sessionScope.id==arvo.id }">
-                              <span class="btn btn-xs btn-danger ups" data-no="${arvo.all_review_no }">수정</span>
-                              <a href="../all_review/all_review_delete.do?all_review_no=${arvo.all_review_no }&no=${arvo.cate_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
+                            <c:if test="${sessionScope.id==rvo.id }">
+                              <span class="btn btn-xs btn-success ups" data-no="${rvo.all_review_no }">수정</span>
+                              <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${rvo.cate_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
                             </c:if>
                           </c:if>
                         </td>
                           
                        </tr>
                        <tr>
-                        <td colspan="2"><pre style="white-space:pre-wrap;background-color:white;border:none">${arvo.msg }</pre></td>
+                        <td colspan="2"><pre style="white-space:pre-wrap;background-color:white;border:none">${rvo.msg }</pre></td>
                        </tr>
-                       <tr id="u${arvo.all_review_no }" class="rupdate" style="display:none">
+                       <tr id="u${rvo.all_review_no }" class="rupdate" style="display:none">
 			             <td colspan="2">
 			               <form method="post" action="../all_review/all_review_update.do">
-					         <input type=hidden name="car_no" id="car_no" value="${vo.car_no }">
-					         <input type=hidden name="all_review_no" value="${arvo.all_review_no }">
+			               	 <input type=hidden name="car_no" id="car_no" value="${vo.car_no }">
+					         <input type=hidden name="all_review_no" value="${rvo.all_review_no }">
 					         <input type=hidden name="cate_no" value="2">
-					         <textarea rows="3" cols="90" name="msg" style="float: left">${arvo.msg}</textarea>&nbsp;
+					         <textarea rows="3" cols="90" name="msg" style="float: left">${rvo.msg}</textarea>&nbsp;
 					         <input type=submit value="수정" class="btn btn-sm btn-warning" style="height: 65px">
 					        </form>
 			             </td>
