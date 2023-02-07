@@ -1,5 +1,6 @@
 package com.sist.model;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -156,4 +157,123 @@ public class MemberModel {
 		session.invalidate();//모든 정보 해제
 		return "redirect:../main/main.do";
 	}
+	
+	/*@RequestMapping("member/idfind.do")
+	   public String member_idfind(HttpServletRequest request,HttpServletResponse response)
+	   {
+	      request.setAttribute("main_jsp", "../member/idfind.jsp");
+	      return "../main/main.jsp";
+	   }
+	   @RequestMapping("member/idfind_ok.do")
+	   public void member_idfind_ok(HttpServletRequest request,HttpServletResponse response)
+	   {
+	      String tel=request.getParameter("tel");
+	      MemberDAO dao=new MemberDAO();
+	      String res=dao.memberIdfind(tel);
+	      try
+	      {
+	         PrintWriter out=response.getWriter();
+	         out.println(res);
+	      }catch(Exception ex) {}
+	   }
+	   @RequestMapping("member/idfind2_ok.do")
+	   public void member_idfind2_ok(HttpServletRequest request,HttpServletResponse response)
+	   {
+	      String email=request.getParameter("email");
+	      MemberDAO dao=new MemberDAO();
+	      String res=dao.memberIdfind2(email);
+	      try
+	      {
+	         PrintWriter out=response.getWriter();
+	         out.println(res);
+	      }catch(Exception ex) {}
+	   }*/
+	   
+	   
+	   // => 회원수정, 회원탈퇴 시 주의점: session 변경해서 다시 저장, session을 해제시켜야 함 
+	   @RequestMapping("member/join_update.do")
+	   public String member_join_update(HttpServletRequest request,HttpServletResponse response)
+	   {
+	      HttpSession session=request.getSession();
+	      String id=(String)session.getAttribute("id");
+	      MemberDAO dao=new MemberDAO();
+	      //db연동
+	      MemberVO vo=dao.memberJoinUpdateData(id);
+	      
+	      request.setAttribute("vo", vo);
+	      
+	      return "../member/join_update.jsp";
+	   }
+	   @RequestMapping("member/join_update_ok.do")
+	   public void member_join_update_ok(HttpServletRequest request,HttpServletResponse response)
+	   {
+	      // ajax이용
+	      try
+	      {
+	         request.setCharacterEncoding("UTF-8");
+	      }catch(Exception ex) {}
+	      String id=request.getParameter("id");
+	      String pwd=request.getParameter("pwd");
+	      String name=request.getParameter("name");
+	      String birthday=request.getParameter("birthday");
+	      String post=request.getParameter("post");
+	      String address1=request.getParameter("address1");
+	      String address2=request.getParameter("address2");
+	      String email=request.getParameter("email");
+	      String phone=request.getParameter("phone");
+	      
+	      MemberVO vo=new MemberVO();
+	      vo.setId(id);
+	      vo.setPwd(pwd);
+	      vo.setName(name);
+	      vo.setBirthday(birthday);
+	      vo.setPost(post);
+	      vo.setAddress1(address1);
+	      vo.setAddress2(address2);
+	      vo.setEmail(email);
+	      vo.setPhone(phone);
+	      
+	      MemberDAO dao=new MemberDAO();
+	      boolean bCheck=dao.memberJoinUpdate(vo);
+	      try
+	      {
+	         PrintWriter out=response.getWriter(); //브라우저에 값을 보내겠다
+	         if(bCheck==true)
+	         {
+	            out.println("yes");
+	            HttpSession session=request.getSession();
+	            session.setAttribute("name", vo.getName());
+	         }
+	         else
+	         {
+	            out.println("no");
+	         }
+	      }catch(Exception ex) {}
+	   }
+	   
+	   @RequestMapping("member/join_delete.do")
+	   public String member_delete(HttpServletRequest request,HttpServletResponse response) {
+		   request.setAttribute("mypage_jsp", "../member/join_delete.jsp");
+		   request.setAttribute("main_jsp", "../mypage/mypage_main");
+		   CommonsModel.footerData(request);
+		   return "../main/main.jsp";
+	   }
+	   
+	   @RequestMapping("member/join_delete_ok.do")
+	   public void member_delete_ok(HttpServletRequest request,HttpServletResponse response) {
+		   HttpSession session=request.getSession();
+		   String id=(String)session.getAttribute("id");
+		   String pwd=request.getParameter("pwd");
+		   MemberDAO dao=new MemberDAO();
+		   boolean bCheck=dao.memberJoinDelete(id, pwd);
+		   try {
+			   PrintWriter out=response.getWriter();
+			   if(bCheck==true) {
+				   out.println("yes");
+				   session.invalidate();
+			   }else {
+				   out.println("no");
+			   }
+		   }catch(Exception e) {e.printStackTrace();}
+	   }
 }
