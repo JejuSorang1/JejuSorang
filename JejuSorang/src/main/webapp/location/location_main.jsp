@@ -56,7 +56,7 @@ $(function(){
 	        <table class="table">
            <tr>
             <td>
-            <table class="table" id="type">
+            <table class="table" id="type" style="background-color:#ffdd7c">
             <tr id="type">
               <th class="text-center locations"><img src="../img/exhibition.png" style="width:60px;height:60px"><br><br>관람</th>
               <th class="text-center locations"><img src="../img/nature.png" style="width:60px;height:60px"><br><br>자연</th>
