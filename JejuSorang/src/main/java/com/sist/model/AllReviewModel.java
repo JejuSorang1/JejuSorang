@@ -28,8 +28,9 @@ public class AllReviewModel {
 		   {
 			   request.setCharacterEncoding("UTF-8");
 		   }catch(Exception ex) {}
-		   String detail_no=request.getParameter("car_no");
+		   String detail_no=request.getParameter("detail_no");
 		   String cate_no=request.getParameter("cate_no");
+
 		   String msg=request.getParameter("msg");
 		   HttpSession session=request.getSession();
 		   String id=(String)session.getAttribute("id");
@@ -41,6 +42,14 @@ public class AllReviewModel {
 		   vo.setMsg(msg);
 		   vo.setId(id);
 		   dao.allReviewInsert(vo);
+		   /*request.setAttribute("detail_no", detail_no);
+		   request.setAttribute("cate_no", cate_no);
+		   HotelVO hvo=new HotelVO();
+		   CarVO cvo=new CarVO();
+		   if(cate_no=="1")
+			   request.setAttribute("detail_no", hvo.getHno());
+		   else if(cate_no=="2")
+			   request.setAttribute("detail_no", cvo.getCar_no());*/
 		   //System.out.println(cate_no);
 		   //System.out.println(detail_no);
 		   

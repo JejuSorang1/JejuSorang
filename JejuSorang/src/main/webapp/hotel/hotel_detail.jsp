@@ -20,6 +20,25 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+let u=0;
+$(function(){
+	$('.ups').click(function(){
+		$('.rupdate').hide();
+		let rno=$(this).attr("data-no");
+		if(u==0)
+		{
+			$(this).text("취소");
+			$('#u'+all_review_no).show();
+			u=1;
+		}
+		else
+		{
+			$(this).text("수정");
+			$('#u'+all_review_no).hide();
+			u=0;
+		}
+	})
+})
 </script>
 </head>
 <body>
@@ -144,7 +163,6 @@
             <table class="table1">
               <tr >
                 <td colspan="4" rowspan="3">
-                  
                     <table class="table2">
                       <tr>
                         <td width="38%" class="text-left">
@@ -164,25 +182,36 @@
                         </td>
                       </tr>
                     </table>
-               
                 </td>
               </tr> 
             </table>
-            
             <hr>
           </div>
           </c:forEach>
          </div>
-        
-        <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-          <div class="review-heading">후기</div>
-          <p class="mb-20">There are no reviews yet.</p>
+        <div class="tab-pane fade active show" id="review" role="tabpanel" aria-labelledby="review-tab">
+          <table class="table">       
+        <c:if test="${sessionScope.id!=null }">
+          <table class="table">
+           <tr>
+            <td>
+             <form method="post" action="../all_review/all_review_insert.do">
+               <input type="hidden" name="hno" value="${vo.hno }">
+               <input type="hidden" name="cate_no" value="1">
+               <textarea rows="3" cols="90" name="msg" style="float: left"></textarea>&nbsp;
+               <input type=submit value="작성" class="btn btn-sm btn-warning" style="height: 65px">
+             </form>
+            </td>
+           </tr>
+          </table>
+        </c:if>
+      </table>
+        </div>
         </div>
         </div>
       </div>
      </div>
      </div>
-	</div>
 
 </body>
 </html>
