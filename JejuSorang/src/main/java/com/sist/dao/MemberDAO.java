@@ -174,7 +174,7 @@ public class MemberDAO {
 				if(count==0) {
 					vo.setMsg("NOID");
 				}else {
-					sql="SELECT id,pwd,name,admin FROM jj_member_1 "
+					sql="SELECT id,pwd,name,admin,birthday,email,phone FROM jj_member_1 "
 							+ "WHERE id=?";
 					ps=conn.prepareStatement(sql);
 					ps.setString(1, id);
@@ -184,6 +184,9 @@ public class MemberDAO {
 					String db_pwd=rs.getString(2);
 					String db_name=rs.getString(3);
 					String db_admin=rs.getString(4);
+					String db_birthday=rs.getString(5);
+					String db_email=rs.getString(6);
+					String db_phone=rs.getString(7);
 					rs.close();
 					
 					if(db_pwd.equals(pwd)) {
@@ -191,6 +194,9 @@ public class MemberDAO {
 						vo.setId(db_id);
 						vo.setName(db_name);
 						vo.setAdmin(db_admin);
+						vo.setBirthday(db_birthday);
+						vo.setEmail(db_email);
+						vo.setPhone(db_phone);
 					}else {
 						vo.setMsg("NOPWD");
 					}
