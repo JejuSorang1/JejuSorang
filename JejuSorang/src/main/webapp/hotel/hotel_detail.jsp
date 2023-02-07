@@ -189,7 +189,6 @@ $(function(){
           </div>
           </c:forEach>
          </div>
-<<<<<<< HEAD
         
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
          <div style="height: 20px"></div>
@@ -206,30 +205,30 @@ $(function(){
                  <table class="table">
                    <tr>
                      <td>
-                     <c:forEach var="rvo" items="${rList }">
+                     <c:forEach var="revo" items="${reList }">
                       <table class="table">
                        <tr>
-                        <td class="text-left" width=85%>${rvo.id }&nbsp;(${rvo.dbday })</td>
+                        <td class="text-left" width=85%>${revo.id }&nbsp;(${revo.dbday })</td>
                         <td class="text-right" width=15%>
                           <c:if test="${sessionScope.id!=null }">
-                            <c:if test="${sessionScope.id==rvo.id }">
-                              <span class="btn btn-xs btn-danger ups" data-no="${rvo.all_review_no }">수정</span>
-                              <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${rvo.cate_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
+                            <c:if test="${sessionScope.id==revo.id }">
+                              <span class="btn btn-xs btn-danger ups" data-no="${revo.all_review_no }">수정</span>
+                              <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a>
                             </c:if>
                           </c:if>
                         </td>
                           
                        </tr>
                        <tr>
-                        <td colspan="2"><pre style="white-space:pre-wrap;background-color:white;border:none">${rvo.msg }</pre></td>
+                        <td colspan="2"><pre style="white-space:pre-wrap;background-color:white;border:none">${revo.msg }</pre></td>
                        </tr>
-                       <tr id="u${rvo.all_review_no }" class="rupdate" style="display:none">
+                       <tr id="u${revo.all_review_no }" class="rupdate" style="display:none">
 			             <td colspan="2">
 			               <form method="post" action="../all_review/all_review_update.do">
-					         <input type=hidden name="car_no" id="car_no" value="${vo.car_no }">
-					         <input type=hidden name="all_review_no" value="${rvo.all_review_no }">
-					         <input type=hidden name="cate_no" value="2">
-					         <textarea rows="3" cols="90" name="msg" style="float: left">${rvo.msg}</textarea>&nbsp;
+					         <input type=hidden name="detail_no" id="detail_no" value="${hvo.hno }">
+					         <input type=hidden name="all_review_no" value="${revo.all_review_no }">
+					         <input type=hidden name="cate_no" value="1">
+					         <textarea rows="3" cols="90" name="msg" style="float: left">${revo.msg}</textarea>&nbsp;
 					         <input type=submit value="수정" class="btn btn-sm btn-warning" style="height: 65px">
 					        </form>
 			             </td>
@@ -246,8 +245,8 @@ $(function(){
            <tr>
             <td>
              <form method="post" action="../all_review/all_review_insert.do">
-               <input type="hidden" name="car_no" value="${vo.car_no }">
-               <input type="hidden" name="cate_no" value="2">
+               <input type="hidden" name="detail_no" value="${hvo.hno }">
+               <input type="hidden" name="cate_no" value="1">
                <%--
                   1. seoul_locateion
                   2. food
@@ -263,30 +262,10 @@ $(function(){
       </table>
       </div>
      </div>
-=======
-        <div class="tab-pane fade active show" id="review" role="tabpanel" aria-labelledby="review-tab">
-          <table class="table">       
-        <c:if test="${sessionScope.id!=null }">
-          <table class="table">
-           <tr>
-            <td>
-             <form method="post" action="../all_review/all_review_insert.do">
-               <input type="hidden" name="hno" value="${vo.hno }">
-               <input type="hidden" name="cate_no" value="1">
-               <textarea rows="3" cols="90" name="msg" style="float: left"></textarea>&nbsp;
-               <input type=submit value="작성" class="btn btn-sm btn-warning" style="height: 65px">
-             </form>
-            </td>
-           </tr>
-          </table>
-        </c:if>
-      </table>
         </div>
         </div>
->>>>>>> refs/remotes/origin/master
         </div>
       </div>
-     </div>
      </div>
 
 </body>

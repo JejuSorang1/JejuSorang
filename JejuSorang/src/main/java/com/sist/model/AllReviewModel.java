@@ -20,7 +20,7 @@ public class AllReviewModel {
 	 REGDATE       NOT NULL DATE         
 	 STAR                   NUMBER  
 */
-	String[] url={"","../hetel/hotel_detail.do?hno=","../rent/car_detail.do?car_no="};
+	String[] url={"","../hotel/hotel_detail.do?hno=","../rent/car_detail.do?car_no="};
 	   @RequestMapping("all_review/all_review_insert.do")
 	   public String all_review_insert(HttpServletRequest request,HttpServletResponse response)
 	   {
@@ -30,7 +30,7 @@ public class AllReviewModel {
 		   }catch(Exception ex) {}
 		   String detail_no=request.getParameter("detail_no");
 		   String cate_no=request.getParameter("cate_no");
-
+		   
 		   String msg=request.getParameter("msg");
 		   HttpSession session=request.getSession();
 		   String id=(String)session.getAttribute("id");
