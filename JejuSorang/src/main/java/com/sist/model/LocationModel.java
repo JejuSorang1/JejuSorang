@@ -27,7 +27,7 @@ public class LocationModel {
 			  request.setCharacterEncoding("UTF-8");
 		  }catch(Exception ex) {}
 		  String ss=request.getParameter("ss");
-		  if(ss==null)
+		  if(ss==null) 
 			   ss="관람";
 		  String page=request.getParameter("page");
 		   if(page==null)

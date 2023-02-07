@@ -19,7 +19,7 @@ $(function(){
 	$.ajax({
 		type:'POST',
 		url:'../location/location_list.do',
-		success:function(response)
+		success:function(response) 
 		{
 			$('#location_list').html(response); // JSON (스프링)
 		}

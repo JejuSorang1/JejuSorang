@@ -14,7 +14,7 @@
 }
 .row{
    width: 350px;
-   margin: 0px auto;
+   margin: 0px auto; 
 }
 </style>
 </head>
