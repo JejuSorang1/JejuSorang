@@ -20,7 +20,23 @@ $(function(){
 	})
 })
 </script>
-
+<style type="text/css">
+.btn-group-justified
+{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+}
+.dropdown-toggle::after{
+display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+</style>
 </head>
 <body>
 <div style="height: 30px"></div>
@@ -33,9 +49,9 @@ $(function(){
       <div style="height: 15px"></div>
       <%-- 메뉴 --%>
       <div class="row" style="display: flex; justify-content: center;">
-      <div class="btn-group btn-group-justified">
+      <div class="btn-group ">
 		  <div class="btn-group">
-		    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+		    <button type="button" class="btn btn-default " data-toggle="dropdown" >
 		    개인정보 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
 		      <li><input type=button value="회원정보 수정" id="member_update"></li>
@@ -43,7 +59,7 @@ $(function(){
 		    </ul>
 		  </div>
 		  <div class="btn-group">
-		    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		    <button type="button" class="btn btn-default" data-toggle="dropdown">
 		    내 후기 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
 		      <li><span>호텔</span></li>
@@ -51,7 +67,7 @@ $(function(){
 		    </ul>
 		  </div>
 		  <div class="btn-group">
-		    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		    <button type="button" class="btn btn-default " data-toggle="dropdown">
 		    예약 관리 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
 		      <li><span>호텔</span></li>
@@ -59,7 +75,7 @@ $(function(){
 		    </ul>
 		  </div>
 		  <div class="btn-group">
-		    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		    <button type="button" class="btn btn-default " data-toggle="dropdown">
 		    찜 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
 		      <li><span>호텔</span></li>
