@@ -55,6 +55,7 @@ public class LocationModel {
 		
 		
 		request.setAttribute("lno", lno);
+		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../location/location_detail.jsp");
 		return "../location/location_detail.jsp";
 	}
