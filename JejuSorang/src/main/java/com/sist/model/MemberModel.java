@@ -146,6 +146,9 @@ public class MemberModel {
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("name", vo.getName());
 			session.setAttribute("admin", vo.getAdmin());
+			session.setAttribute("birthday", vo.getBirthday());
+			session.setAttribute("email", vo.getEmail());
+			session.setAttribute("phone", vo.getPhone());
 		}
 		request.setAttribute("result", vo.getMsg());
 		return "../member/login_check.jsp";

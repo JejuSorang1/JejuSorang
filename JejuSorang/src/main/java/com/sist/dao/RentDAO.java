@@ -270,7 +270,7 @@ public class RentDAO {
 
 	
 	 	 
-	//업체 상세보기
+	
 	
 	
 	//렌트카 순위

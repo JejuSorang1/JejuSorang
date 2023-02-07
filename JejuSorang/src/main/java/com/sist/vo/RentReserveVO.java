@@ -5,7 +5,7 @@ import java.sql.Date;
 public class RentReserveVO {
 private int rrno,rprice;
 private String id, rreno;
-private Date start_date,end_date;
+private Date start_rent,end_rent;
 private char rpycheck;
 public int getRrno() {
 	return rrno;
@@ -31,17 +31,17 @@ public String getRreno() {
 public void setRreno(String rreno) {
 	this.rreno = rreno;
 }
-public Date getStart_date() {
-	return start_date;
+public Date getStart_rent() {
+	return start_rent;
 }
-public void setStart_date(Date start_date) {
-	this.start_date = start_date;
+public void setStart_rent(Date start_rent) {
+	this.start_rent = start_rent;
 }
-public Date getEnd_date() {
-	return end_date;
+public Date getEnd_rent() {
+	return end_rent;
 }
-public void setEnd_date(Date end_date) {
-	this.end_date = end_date;
+public void setEnd_rent(Date end_rent) {
+	this.end_rent = end_rent;
 }
 public char getRpycheck() {
 	return rpycheck;
@@ -49,6 +49,5 @@ public char getRpycheck() {
 public void setRpycheck(char rpycheck) {
 	this.rpycheck = rpycheck;
 }
-
 
 }

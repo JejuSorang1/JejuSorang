@@ -35,13 +35,13 @@
 			      <br>
 			     <ul>
 			      <li>운전자 정보 </li>
-			      <li><%-- ${ } --%></li>
+			      <li>${sessionScope.name }</li>
 			      <li>생년월일 </li>
-			      <li><%-- ${ } --%></li>
+			      <li>${sessionScope.birthday }</li>
 			      <li>휴대폰번호 </li>
-			      <li><%-- ${ } --%></li>
+			      <li>${sessionScope.phone }</li>
 			      <li>이메일 주소 </li>
-			      <li><%-- ${ } --%></li>
+			      <li>${sessionScope.email }</li>
 			    </ul>
 			    <br>
 			    <img src="../img/license.png" style="margin-bottom: 5px;">
@@ -50,10 +50,10 @@
 			    <img src="../img/insurance.png" style="margin-top: 5px; margin-bottom:5px; border: solid 1px gray;">
 			     보험은 현장에서 작성하는 계약서를 기준으로 적용됩니다. 반드시 계약서를 확인해주시기 바랍니다.
           </div>
-     <div class="col-md-4 reserve2">
+    <div class="col-md-4 reserve2">
          <h5><b>결제정보</b></h5>
          <hr >
-         <p>대여요금</p>
+         <p>대여요금</p> ${vo.car_price }
          <hr>
          <p>총 결제금액<p>
           <hr>

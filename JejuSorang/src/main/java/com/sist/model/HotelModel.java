@@ -75,7 +75,7 @@ public class HotelModel {
       RoomDAO adao=new RoomDAO();
       List<RoomVO> rList=adao.room_detail(Integer.parseInt(hno));
       request.setAttribute("rList", rList); 
-      request.setAttribute("main_jsp", "../hotel/hotel_detail.jsp");
+      
       
       HttpSession session=request.getSession();
       //int all_cate_no=(int) session.getAttribute("all_cate_no");
@@ -92,6 +92,11 @@ public class HotelModel {
       request.setAttribute("like_count", mc);
       request.setAttribute("like_total", tc);
       
+      request.setAttribute("main_jsp", "../hotel/hotel_detail.jsp");
+      AllReviewDAO redao=new AllReviewDAO();
+      List<AllReviewVO> reList=redao.allReviewListData(Integer.parseInt(hno), 1);
+      request.setAttribute("reList", reList);
+      request.setAttribute("count", reList.size());
       //footer
       CommonsModel.footerData(request);
       return "../main/main.jsp";
