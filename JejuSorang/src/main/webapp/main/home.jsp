@@ -6,6 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 <!-- banner start -->
@@ -41,7 +45,7 @@
                                     <form action="hotelfindlist.jsp" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select" name="area">
+                                                <select class="nc_select" id="ss" >
                                                     <option selected>목적지 </option>
                                                     <option value="1">제주시</option>
                                                     <option value="2">서귀포시</option>
@@ -54,7 +58,7 @@
                                                 <input id="datepicker_2" placeholder="체크아웃">
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select">
+                                                <select class="nc_select" id="sarm">
                                                     <option selected>인원 </option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>

@@ -26,6 +26,7 @@ public class MainModel {
 		HotelDAO hdao=new HotelDAO();
 		List<HotelVO> hlist=hdao.hotel_rank();
 		RentDAO rdao=new RentDAO();
+		
 		List<CarVO> clist=rdao.car_rank();
 		
 		

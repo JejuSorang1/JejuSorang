@@ -1,10 +1,29 @@
 package com.sist.vo;
   
 public class HotelVO {
-	private int hno,all_cate_no,h_crawl_no,account;
+	private int hno,all_cate_no,h_crawl_no,account,jjim_total,like_total;
 	private double star;
-	private String grade,name,addr,intro,time,hotel_image;
+	private String grade,name,addr,intro,time,hotel_image,min;
  
+	
+	public String getMin() {
+		return min;
+	}
+	public void setMin(String min) {
+		this.min = min;
+	}
+	public int getJjim_total() {
+		return jjim_total;
+	}
+	public void setJjim_total(int jjim_total) {
+		this.jjim_total = jjim_total;
+	}
+	public int getLike_total() {
+		return like_total;
+	}
+	public void setLike_total(int like_total) {
+		this.like_total = like_total;
+	}
 	public int getHno() {
 		return hno;
 	}
