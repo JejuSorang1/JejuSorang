@@ -202,4 +202,178 @@ public class MemberDAO {
 			}
 			return vo;
 		}
+		//회원수정
+		/*
+		 * ID       NOT NULL VARCHAR2(20)  
+			PWD      NOT NULL VARCHAR2(20)  
+			NAME     NOT NULL VARCHAR2(34)  
+			EMAIL             VARCHAR2(100) 
+			BIRTHDAY NOT NULL VARCHAR2(20)  
+			POST     NOT NULL VARCHAR2(20)  
+			ADDRESS1 NOT NULL VARCHAR2(200) 
+			ADDRESS2 NOT NULL VARCHAR2(200) 
+			PHONE             VARCHAR2(20)  
+			ADMIN    NOT NULL CHAR(1)      
+		 */
+		public MemberVO memberJoinUpdateData(String id) {
+			MemberVO vo=new MemberVO();
+			try {
+				conn=CreateConnection.getConnection();
+				String sql="SELECT id,name,email,birthday,post,address1,address2,phone "
+						+ "FROM jj_member_1 "
+						+ "WHERE id=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, id);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				vo.setId(rs.getString(1));
+				vo.setName(rs.getString(2));
+				vo.setEmail(rs.getString(3));
+				vo.setBirthday(rs.getString(4));
+				vo.setPost(rs.getString(5));
+				vo.setAddress1(rs.getString(6));
+				vo.setAddress2(rs.getString(7));
+				vo.setPhone(rs.getString(8));
+				rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				CreateConnection.disConnection(conn, ps);
+			}
+			return vo;
+		}
+		//회원수정
+		public boolean memberJoinUpdate(MemberVO vo) {
+			boolean bCheck=false;
+			try {
+				conn=CreateConnection.getConnection();
+				String sql="SELECT pwd FROM jj_member_1 "
+						+ "WHERE id=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getId());
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				String db_pwd=rs.getString(1);
+				rs.close();
+				
+				if(db_pwd.equals(vo.getPwd())) {
+					bCheck=true;
+					sql="UPDATE jj_member_1 SET "
+							+ "name=?,email=?,phone=?,"
+							+ "post=?,address1=?,address2=? "
+							+ "WHERE id=?";
+					ps=conn.prepareStatement(sql);
+					ps.setString(1, vo.getName());
+					ps.setString(2, vo.getEmail());
+					ps.setString(3, vo.getPhone());
+					ps.setString(4, vo.getPost());
+					ps.setString(5, vo.getAddress1());
+					ps.setString(6, vo.getAddress2());
+					ps.setString(7, vo.getId());
+					ps.executeUpdate();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				CreateConnection.disConnection(conn, ps);
+			}
+			return bCheck;
+		}
+		//4. ID찾기
+		public String memberIdfind(String tel) {
+			String result="";
+			try {
+				conn=CreateConnection.getConnection();
+				String sql="SELECT COUNT(*) FROM jj_member_1 "
+						+ "WHERE phone=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, tel);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				int count=rs.getInt(1);
+				rs.close();
+				
+				if(count==0) {
+					result="NO";
+				}else {
+					sql="SELECT RPAD(SUBSTR(id,1,1),LENGTH(id),'*') FROM jj_member_1 "
+							+ "WHERE phone=?";
+					ps=conn.prepareStatement(sql);
+					ps.setString(1, tel);
+					rs=ps.executeQuery();
+					rs.next();
+					result=rs.getString(1);
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				CreateConnection.disConnection(conn, ps);
+			}
+			return result;
+		}
+		
+		
+		public String memberIdfind2(String email) {
+			String result="";
+			try {
+				conn=CreateConnection.getConnection();
+				String sql="SELECT COUNT(*) FROM jj_member_1 "
+						+ "WHERE email=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, email);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				int count=rs.getInt(1);
+				rs.close();
+				
+				if(count==0) {
+					result="NO";
+				}else {
+					sql="SELECT RPAD(SUBSTR(id,1,1),LENGTH(id),'*') FROM jj_member_1 "
+							+ "WHERE email=?";
+					ps=conn.prepareStatement(sql);
+					ps.setString(1, email);
+					rs=ps.executeQuery();
+					rs.next();
+					result=rs.getString(1);
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				CreateConnection.disConnection(conn, ps);
+			}
+			return result;
+		}
+		//5. 비밀번호 찾기
+		//6. 회원탈퇴 
+		public boolean memberJoinDelete(String id,String pwd) {
+			boolean bCheck=false;
+			try {
+				conn=CreateConnection.getConnection();
+				String sql="SELECT pwd FROM jj_member_1 "
+						+ "WHERE id=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, id);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				String db_pwd=rs.getString(1);
+				rs.close();
+				
+				if(db_pwd.equals(pwd)) {
+					bCheck=true;
+					sql="DELETE FROM jj_member_1 "
+							+ "WHERE id=?";
+					ps=conn.prepareStatement(sql);
+					ps.setString(1, id);
+					ps.executeUpdate();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				CreateConnection.disConnection(conn, ps);
+			}
+			return bCheck;
+		}
 }

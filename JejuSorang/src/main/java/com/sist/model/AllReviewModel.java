@@ -28,18 +28,22 @@ public class AllReviewModel {
 		   {
 			   request.setCharacterEncoding("UTF-8");
 		   }catch(Exception ex) {}
-		   String detail_no=request.getParameter("detail_no");
+		   String detail_no=request.getParameter("car_no");
 		   String cate_no=request.getParameter("cate_no");
 		   String msg=request.getParameter("msg");
 		   HttpSession session=request.getSession();
 		   String id=(String)session.getAttribute("id");
 		   AllReviewDAO dao=new AllReviewDAO();
 		   AllReviewVO vo=new AllReviewVO();
+		   System.out.println(detail_no);
 		   vo.setCate_no(Integer.parseInt(cate_no));
 		   vo.setDetail_no(Integer.parseInt(detail_no));
 		   vo.setMsg(msg);
 		   vo.setId(id);
 		   dao.allReviewInsert(vo);
+		   //System.out.println(cate_no);
+		   //System.out.println(detail_no);
+		   
 		   return "redirect:"+url[Integer.parseInt(cate_no)]+detail_no;
 	   }
    
