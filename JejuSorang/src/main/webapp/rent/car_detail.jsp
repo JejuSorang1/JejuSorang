@@ -260,7 +260,11 @@ $(function(){
                         <td class="text-right" width=15%>
                           <c:if test="${sessionScope.id!=null }">
                             <c:if test="${sessionScope.id==rvo.id }">
+<<<<<<< HEAD
                               <span class="btn btn-xs btn-success ups" data-no="${rvo.all_review_no }">수정</span>
+=======
+                              <span class="btn btn-xs btn-danger ups" data-no="${rvo.all_review_no }">수정</span>
+>>>>>>> refs/remotes/origin/master
                               <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${rvo.cate_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
                             </c:if>
                           </c:if>
@@ -273,7 +277,11 @@ $(function(){
                        <tr id="u${rvo.all_review_no }" class="rupdate" style="display:none">
 			             <td colspan="2">
 			               <form method="post" action="../all_review/all_review_update.do">
+<<<<<<< HEAD
 			               	 <input type=hidden name="car_no" id="car_no" value="${vo.car_no }">
+=======
+					         <input type=hidden name="car_no" id="car_no" value="${vo.car_no }">
+>>>>>>> refs/remotes/origin/master
 					         <input type=hidden name="all_review_no" value="${rvo.all_review_no }">
 					         <input type=hidden name="cate_no" value="2">
 					         <textarea rows="3" cols="90" name="msg" style="float: left">${rvo.msg}</textarea>&nbsp;

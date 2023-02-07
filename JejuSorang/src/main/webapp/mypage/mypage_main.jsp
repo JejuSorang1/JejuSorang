@@ -30,7 +30,8 @@ $(function(){
       <h3 class="text-center">${sessionScope.name } 님의 마이페이지</h3>
       <div style="height: 15px"></div>
       <%-- 메뉴 --%>
-      <div class="btn-group btn-group-justified col-sm-12">
+      <div class="row">
+      <div class="btn-group btn-group-justified">
 		  <div class="btn-group">
 		    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 		    개인정보 <span class="caret"></span></button>
@@ -65,11 +66,11 @@ $(function(){
 		  </div>
 		  <button type="button" class="btn btn-default">좋아요</button>
 	  </div>
-      
+      </div>
     <div class="content"> 
       
     </div>
-    </div>
+
     <!-- / main body -->
     <div class="clear"></div>
   </main>
