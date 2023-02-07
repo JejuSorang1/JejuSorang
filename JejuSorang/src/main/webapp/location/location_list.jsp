@@ -7,15 +7,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../shadow/css/shadowbox.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
 <script type="text/javascript">
 Shadowbox.init({
 	players:['iframe']	
 })
 $(function(){
-	$('#detailBtn').click(function(){
+	$('.detailBtn').click(function(){
+		 console.log($(this).attr("data-lno"));
 	      Shadowbox.open({
-	         content:'../location/location_detail.do',
+	         content:'../location/location_detail.do?lno='+$(this).attr("data-lno"),
 	         player:'iframe',
 	         width:420,
 	         height:600,
@@ -43,7 +46,7 @@ $(function(){
        ${vo.addr_ji }</p>
      </td>
      <td width="20%" class="text-center">
-       <span id="detailBtn" class="btn btn-sm btn-warning">상세보기</span>
+       <span class="btn btn-sm btn-warning detailBtn" data-lno="${vo.lno }">상세보기</span>
      </td>
      <td width="10%">
      	찜,,,할까말까,,,
