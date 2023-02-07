@@ -7,25 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="../shadow/css/shadowbox.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
 <script type="text/javascript">
-Shadowbox.init({
-	players:['iframe']	
-})
 $(function(){
 	$('.detailBtn').click(function(){
 		 console.log($(this).attr("data-lno"));
 	      Shadowbox.open({
 	         content:'../location/location_detail.do?lno='+$(this).attr("data-lno"),
 	         player:'iframe',
-	         width:420,
+	         width:500,
 	         height:600,
 	         title:'관광지 상세정보'
 	      })
 	   })
-})
+});
 </script>
 </head>
 <body>

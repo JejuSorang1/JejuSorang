@@ -6,28 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <link rel="stylesheet" href="../shadow/css/shadowbox.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
 
+<script type="text/javascript">
+Shadowbox.init({
+	players:['iframe']	
+})
 $(function(){
+	$.ajax({
+		type:'POST',
+		url:'../location/location_list.do',
+		success:function(response)
+		{
+			$('#location_list').html(response); // JSON (스프링)
+		}
+	})
 	$('.locations').hover(function(){
 		$(this).css("cursor","pointer")
 	},function(){
 		$(this).css('cursor',"none")
 	})
 	
-	$.ajax({
-		type:'POST',
-		url:'../location/location_list.do',
-		data:{"ss":'관람'},
-		success:function(response)
-		{
-			$('#location_list').html(response); // JSON (스프링)
-		}
-	})
+	
 
 	$('.locations').click(function(){
 		let ss=$(this).text();
@@ -41,7 +44,8 @@ $(function(){
 			}
 		})
 	})
-})
+	
+}) 
 
 </script>
 </head>

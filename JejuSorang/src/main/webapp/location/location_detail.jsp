@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-	<div class="container"style="overflow-y:scroll">
+	<div class="container">
 	  <div class="row">
 	  <div id="map" style="width:100%;height:300px;"></div>
 		<script>
