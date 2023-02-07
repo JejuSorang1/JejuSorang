@@ -28,8 +28,9 @@ public class AllReviewModel {
 		   {
 			   request.setCharacterEncoding("UTF-8");
 		   }catch(Exception ex) {}
-		   String detail_no=request.getParameter("car_no");
+		   String detail_no=request.getParameter("detail_no");
 		   String cate_no=request.getParameter("cate_no");
+
 		   String msg=request.getParameter("msg");
 		   HttpSession session=request.getSession();
 		   String id=(String)session.getAttribute("id");
@@ -41,6 +42,14 @@ public class AllReviewModel {
 		   vo.setMsg(msg);
 		   vo.setId(id);
 		   dao.allReviewInsert(vo);
+		   /*request.setAttribute("detail_no", detail_no);
+		   request.setAttribute("cate_no", cate_no);
+		   HotelVO hvo=new HotelVO();
+		   CarVO cvo=new CarVO();
+		   if(cate_no=="1")
+			   request.setAttribute("detail_no", hvo.getHno());
+		   else if(cate_no=="2")
+			   request.setAttribute("detail_no", cvo.getCar_no());*/
 		   //System.out.println(cate_no);
 		   //System.out.println(detail_no);
 		   
@@ -50,13 +59,13 @@ public class AllReviewModel {
    @RequestMapping("all_review/all_review_delete.do")
    public String all_reply_delete(HttpServletRequest request,HttpServletResponse response)
    {
-	   String detail_no=request.getParameter("detail_no");
+	   //String detail_no=request.getParameter("detail_no");
 	   String all_review_no=request.getParameter("all_review_no");
 	   String cate_no=request.getParameter("cate_no");
 	   // DAO연결
 	   AllReviewDAO dao=new AllReviewDAO();
 	   dao.allReviewDelete(Integer.parseInt(all_review_no));
-	   return "redirect:"+url[Integer.parseInt(cate_no)]+detail_no;
+	   return "redirect:"+url[Integer.parseInt(cate_no)]+all_review_no;
    }
    
    @RequestMapping("all_review/all_review_update.do")
@@ -75,7 +84,7 @@ public class AllReviewModel {
 	   {
 		   request.setCharacterEncoding("UTF-8"); 
 	   }catch(Exception ex) {}
-	   String detail_no=request.getParameter("detail_no");
+	   String detail_no=request.getParameter("car_no");
 	   String all_review_no=request.getParameter("all_review_no");
 	   String cate_no=request.getParameter("cate_no");
 	   String msg=request.getParameter("msg");
