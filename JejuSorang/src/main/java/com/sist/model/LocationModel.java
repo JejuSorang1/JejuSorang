@@ -50,7 +50,10 @@ public class LocationModel {
 	{
 		String lno=request.getParameter("lno");
 		LocationDAO dao=new LocationDAO();
+		System.out.println(lno);
 		LocationVO vo=dao.location_detail(Integer.parseInt(lno));
+		
+		
 		request.setAttribute("lno", lno);
 		request.setAttribute("main_jsp", "../location/location_detail.jsp");
 		return "../location/location_detail.jsp";

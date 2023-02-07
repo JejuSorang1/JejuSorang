@@ -81,8 +81,10 @@ public class HotelModel {
       //int all_cate_no=(int) session.getAttribute("all_cate_no");
       String id=(String)session.getAttribute("id");
       JjimDAO jdao=new JjimDAO();
-      int jcount=jdao.jjimCount(/*all_cate_no,*/Integer.parseInt(hno),id);
-      request.setAttribute("jjim_count", jcount);  
+      int jc=jdao.jjimCount(Integer.parseInt(hno),id);
+      int jt=jdao.hotelJjimCount(Integer.parseInt(hno));
+      request.setAttribute("jjim_count", jc);  
+      request.setAttribute("jjim_total", jt);
       
       LikeDAO ldao=new LikeDAO();
       int mc=ldao.myLikeCount(Integer.parseInt(hno), id);
@@ -121,9 +123,8 @@ public class HotelModel {
       if(endPage>totalpage)
          endPage=totalpage;
       
+       
       
-      //footer
-      CommonsModel.footerData(request);
       
       
       request.setAttribute("curpage", curpage);
@@ -133,7 +134,12 @@ public class HotelModel {
       request.setAttribute("list", list);
       request.setAttribute("count", count);
       
+      
+      
       request.setAttribute("main_jsp", "../hotel/hotel_findlist.jsp");
+      
+      //footer
+      CommonsModel.footerData(request);
       return "../main/main.jsp";
    }
 }

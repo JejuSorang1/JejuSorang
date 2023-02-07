@@ -99,6 +99,55 @@ public class JjimDAO {
 			CreateConnection.disConnection(conn, ps);
 		}
 		return list;
+	} 
+	
+	public int hotelJjimCount(int hno)
+	{
+		int count=0;
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql="SELECT COUNT(*) FROM jj_jjim_1 "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, hno);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			count=rs.getInt(1);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+		return count;
+	}
+	public int rentJjimCount(int car_no)
+	{
+		int count=0;
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql="SELECT COUNT(*) FROM jj_jjim_1 "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, car_no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			count=rs.getInt(1);
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+		return count;
 	}
 	// 렌트카 jjim 목록 출력
 	public List<JjimVO> rent_jjimListData(String id)
