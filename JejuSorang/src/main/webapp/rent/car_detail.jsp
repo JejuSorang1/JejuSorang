@@ -256,8 +256,8 @@ $(function(){
                      <c:forEach var="rvo" items="${rList }">
                       <table class="table">
                        <tr>
-                        <td class="text-left" width=85%>${rvo.id }&nbsp;(${rvo.dbday })</td>
-                        <td class="text-right" width=15%>
+                        <td class="text-left" width=70%>${rvo.id }&nbsp;(${rvo.dbday })</td>
+                        <td class="text-right" width=30%>
                           <c:if test="${sessionScope.id!=null }">
                             <c:if test="${sessionScope.id==rvo.id }">
 
