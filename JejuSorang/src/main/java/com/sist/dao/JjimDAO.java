@@ -101,7 +101,7 @@ public class JjimDAO {
 		return list;
 	} 
 	
-	public int hotelJjimCount(int hno)
+	public int hotelJjimCount(int hno) //호텔
 	{
 		int count=0;
 		try
@@ -149,7 +149,7 @@ public class JjimDAO {
 		}
 		return count;
 	}
-	public int locJjimCount(int lno)
+	public int locJjimCount(int lno) //관광지
 	{
 		int count=0;
 		try
@@ -212,7 +212,7 @@ public class JjimDAO {
 		}
 		return list;
 	}
-	public List<JjimVO> loc_jjimListData(String id)
+	public List<JjimVO> loc_jjimListData(String id) //관광지
 	{  
 		List<JjimVO> list=new ArrayList<JjimVO>();
 		try

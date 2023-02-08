@@ -1,5 +1,4 @@
 package com.sist.dao;
-
 import java.util.*;
 import java.sql.*;
 import com.sist.vo.*;
@@ -27,22 +26,27 @@ public class LocationDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 	
-	public ArrayList<LocationVO> LocationFindData(int lno,String ss)
+	public ArrayList<LocationVO> LocationFindData(int page,String ss)
 	   {
 		   ArrayList<LocationVO> list=new ArrayList<LocationVO>();
 		   try
 		   {
 			   conn=CreateConnection.getConnection();
-			   String sql="SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like "
+			   String sql="SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like,num "
+					     +"FROM (SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like,rownum as num "
 					     +"FROM (SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like "
 					     +"FROM jj_location_1 "
 					     +"WHERE type LIKE '%'||?||'%')) "
-					     +"WHERE lno=?";
+					     +"WHERE num BETWEEN ? AND ?";
 			   // 인라인뷰 => Top-N만 가능 
 			   // 인기순위 5개 
 			   ps=conn.prepareStatement(sql);
+			   int rowSize=20;
+			   int start=(rowSize*page)-(rowSize-1);
+			   int end=rowSize*page;
 			   ps.setString(1, ss);
-			   ps.setInt(2, lno);
+			   ps.setInt(2, start);
+			   ps.setInt(3, end);
 			   ResultSet rs=ps.executeQuery();
 			   while(rs.next())
 			   {
@@ -79,7 +83,31 @@ public class LocationDAO {
 		   }
 		   return list;
 	   }
-
+	   public int LocationTotalPage(String ss)
+	   {
+		   int total=0;
+		   try
+		   {
+			   conn=CreateConnection.getConnection();
+			   String sql="SELECT CEIL(COUNT(*)/20.0) FROM jj_location_1 "
+					     +"WHERE type LIKE '%'||?||'%'";
+			   // WHERE REGEXP_LIKE(address,?);
+			   ps=conn.prepareStatement(sql);
+			   ps.setString(1, ss);
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   total=rs.getInt(1);
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   CreateConnection.disConnection(conn, ps);
+		   }
+		   return total;
+	   }
 	   public LocationVO location_detail(int lno)
 	   {
 		   LocationVO vo=new LocationVO();
@@ -88,7 +116,7 @@ public class LocationDAO {
 			   conn=CreateConnection.getConnection();
 			   String sql="SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like "
 					   +"FROM jj_location_1 "
-					   +"WHERE lno=?"; 
+					   +"WHERE lno=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, lno);
 			   ResultSet rs=ps.executeQuery();
