@@ -56,20 +56,20 @@ $(function() {
                                     <form action="../hotel/hotel_findlist.do" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select" name="area">
+                                                <select class="nc_select" name="area" autocomplete='off'>
                                                     <option selected>목적지 </option>
                                                     <option >제주시</option>
                                                     <option >서귀포시</option>
                                                 </select>
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_1" placeholder="체크인" name="checkin">
+                                                <input id="datepicker_1" placeholder="체크인" name="checkin" autocomplete='off'>
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_2" placeholder="체크아웃" name="checkout">
+                                                <input id="datepicker_2" placeholder="체크아웃" name="checkout" autocomplete='off'>
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select" name="inwon">
+                                                <select class="nc_select" name="inwon" autocomplete='off'>
                                                     <option selected>인원 </option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
