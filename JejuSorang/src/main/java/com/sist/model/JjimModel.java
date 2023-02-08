@@ -48,4 +48,26 @@ public class JjimModel {
 		
 		return "redirect:../rent/car_detail.do?car_no="+car_no;
 	}
+	@RequestMapping("jjim/loc_jjim_insert.do")
+	public String loc_jjim_insert(HttpServletRequest request,HttpServletResponse response)
+	{
+		String lno=request.getParameter("lno");
+		
+		String cate_no=request.getParameter("cate_no");
+		
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		JjimVO vo=new JjimVO();
+		vo.setNo(Integer.parseInt(lno));
+		vo.setId(id);
+		
+		JjimDAO dao=new JjimDAO();
+		int cate_num = 3; //관광지 구분자
+		
+		//dao.jjimInsert(vo, Integer.parseInt(cate_no));
+		dao.jjimInsert(vo, cate_num);
+		
+		return "redirect:../location/location_detail.do?lno="+lno;
+	}
 }

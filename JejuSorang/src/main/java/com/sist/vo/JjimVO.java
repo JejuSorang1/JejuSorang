@@ -7,8 +7,26 @@ package com.sist.vo;
  */
 public class JjimVO {
 	private int all_cate_no,jno,no;
-	private String id,hotel_image,name,addr,rname,rctel,rcaddr;
+	private String id,hotel_image,name,addr,rname,rctel,rcaddr,title,type,addr_ji;
 	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getAddr_ji() {
+		return addr_ji;
+	}
+	public void setAddr_ji(String addr_ji) {
+		this.addr_ji = addr_ji;
+	}
 	public String getRname() {
 		return rname;
 	}

@@ -1,8 +1,15 @@
 package com.sist.vo;
 
 public class LocationVO {
-	private int lno,jl_jjim,jl_like;
+	private int lno,jl_jjim,jl_like,all_cate_no;
 	private String sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel;
+	
+	public int getAll_cate_no() {
+		return all_cate_no;
+	}
+	public void setAll_cate_no(int all_cate_no) {
+		this.all_cate_no = all_cate_no;
+	}
 	public int getLno() {
 		return lno;
 	}
