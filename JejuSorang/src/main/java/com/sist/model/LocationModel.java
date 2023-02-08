@@ -16,7 +16,7 @@ public class LocationModel {
 	public String location_main(HttpServletRequest request,HttpServletResponse response)
 	{
 		  request.setAttribute("main_jsp", "../location/location_main.jsp");
-		  CommonsModel.footerData(request);
+		 // CommonsModel.footerData(request);
 		  return "../main/main.jsp";
 	}
 	@RequestMapping("location/location_list.do")
@@ -27,7 +27,7 @@ public class LocationModel {
 			  request.setCharacterEncoding("UTF-8");
 		  }catch(Exception ex) {}
 		  String ss=request.getParameter("ss");
-		  if(ss==null)
+		  if(ss==null) 
 			   ss="관람";
 		  String page=request.getParameter("page");
 		   if(page==null)
@@ -42,7 +42,7 @@ public class LocationModel {
 		  request.setAttribute("curpage", curpage);
 		  request.setAttribute("totalpage", totalpage);
 		  request.setAttribute("ss", ss);
-		  request.setAttribute("main_jsp", "../location/location_list.jsp");
+		  //request.setAttribute("main_jsp", "../location/location_list.jsp");
 		  return "../location/location_list.jsp";
 	  }
 	@RequestMapping("location/location_detail.do")
@@ -57,7 +57,7 @@ public class LocationModel {
 		request.setAttribute("lno", lno);
 		request.setAttribute("vo", vo);
 		request.setAttribute("type", type);
-		//request.setAttribute("main_jsp", "../location/location_detail.jsp");
+		request.setAttribute("main_jsp", "../location/location_detail.jsp");
 		return "../location/location_detail.jsp";
 	}
 }

@@ -1,7 +1,5 @@
 package com.sist.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.*;
 
 
@@ -54,7 +52,7 @@ public class HotelDAO {
       return list;
    }
    public int HotelRowCount()
-   {
+   { 
       int count=0;
       try
       {
@@ -214,4 +212,5 @@ public class HotelDAO {
       }
       return list; 
    }
+   
 }

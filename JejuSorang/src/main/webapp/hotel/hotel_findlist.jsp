@@ -46,6 +46,8 @@ $(function(){
 		})
 	})
 })
+
+
 </script>
 
 <style>
@@ -75,7 +77,7 @@ $(function(){
     <section class="booking_part" id="searchbar">
       <div class="booking_content" id="searchbar1" style="background:transparent;">
         <div class="booking_form">
-          <form method =post action="../hotel/hotel_findlist.do" class="ser">
+          <form method =post action="../hotel/hotel_findlist.do" class="hotelser">
             <div class="form-row" style="height: 5px;">
               <div class="form_colum" style="width:200px; margin-left: 5px;margin-Top: -2%">
                 <select class="nc_select">
@@ -112,33 +114,35 @@ $(function(){
         <h3>검색결과</h3><hr>
         <h5>목적지</h5>
         <div style="height: 5px"></div>
-          <input type="text" value="">
+          <input type="text" readonly="${ss }">
          </div>
           <div class="form-group">
           <h5>체크인 날짜</h5>
-              <div class="input-group date" id="checkin">
+            <input type="text" readonly>
+              <!-- <div class="input-group date" id="checkin">
                 <input type="date" class="form-control" name="startdate" id="startdate">
                   <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
                   </span>
-              </div>  
+              </div> -->  
           </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <h5>체크아웃 날짜</h5>
-              <div class="input-group date" id="checkout">
+            <input type="text" readonly>
+              <!-- <div class="input-group date" id="checkout">
                 <input type="date" class="form-control" name="enddate" id="enddate">
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                   </span>
-              </div>
+              </div> -->
           </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
             <h5>인원</h5>
-            <input type="number" min="1" max="8" value="1">
+            <input type="text" readonly>
           </div>
         </div>
        <!-- <div class="col-md-12">    
@@ -207,13 +211,13 @@ $(function(){
                             <p><h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
                             <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>                            
-                            <p> 가격 
-                            <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${like_total }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${jjim_total }</p>
+                            <p> 가격 ${hvo.min }원</p>
+                            <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${hvo.like_total }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${hvo.jjim_total }</p>
                           </td>
                           <td width="17%"> 
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>
                           </td>
-                        </tr>
+                        </tr> 
                       </table>
                     </c:forEach>
                   </td>
