@@ -24,7 +24,7 @@ $(function(){
 $(function () {
 	
 	let num = 0;
-	$("#jjimBtn").click(function () {
+	$(".jjimBtn").click(function () {
 		if(num == 0) {
 			$(this).attr("src", "../img/like.png");
 			num = 1;
@@ -58,7 +58,7 @@ $(function () {
      </td>
      <td width="10%">
      <c:if test="${sessionScope.id!=null }">
-       <img src="../img/jjim.png" style="width: 20px;height: 20px" id="jjimBtn">
+       <img src="../img/jjim.png" style="width: 20px;height: 20px" class="jjimBtn">
 	 </c:if>		  
      	
      </td>
