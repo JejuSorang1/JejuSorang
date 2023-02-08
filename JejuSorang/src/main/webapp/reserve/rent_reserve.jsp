@@ -7,7 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/style.css"> 
-<link rel="stylesheet" href="../css/rent_reserve.css"> 
+<link rel="stylesheet" href="../css/rent_reserve.css">
+<style type="text/css">
+li{
+font-size: 15px;
+
+}
+</style>
 </head>
 <body>
 <div class="wrapp">
@@ -17,13 +23,13 @@
  <div class="container">
   <div class="row">
     <div class="col-md-7 reserve">
-	           <h3><b>차이름</b></h3>
+	           <h3><b>${vo.car_name }</b></h3>
 	             <p class="short-text">업체:레인보우모빌리티</p>
 	           <hr style="border: solid 1px gray; " >
 	           <div class="row">
 			        <div class="col-md-6" >
 			        <div class="text-left">
-			         <div class="text-center">대여일시</div>
+			         <div class="text-center" style="font-size: 15px;">대여일시</div>
 			        </div>
 			       <div class="text-left">
 			         <div class="text-center">반납일시</div>
@@ -31,17 +37,13 @@
 			       </div> 
 			       </div>
 			       <hr style="border: solid 1px gray; " >
-			      <p>차량정보:</p> 
+			      <p>차량정보 : ${vo.car_option1 }</p> 
 			      <br>
-			     <ul>
-			      <li>운전자 정보 </li>
-			      <li><%-- ${ } --%></li>
-			      <li>생년월일 </li>
-			      <li><%-- ${ } --%></li>
-			      <li>휴대폰번호 </li>
-			      <li><%-- ${ } --%></li>
-			      <li>이메일 주소 </li>
-			      <li><%-- ${ } --%></li>
+			     <ul style="t">
+			      <li>운전자 정보 : ${sessionScope.name }  </li>
+			      <li>생년월일 : ${sessionScope.birthday }</li>
+			      <li>휴대폰번호 : ${sessionScope.phone }</li>
+			      <li>이메일 주소 : ${sessionScope.email } </li>
 			    </ul>
 			    <br>
 			    <img src="../img/license.png" style="margin-bottom: 5px;">
@@ -50,10 +52,11 @@
 			    <img src="../img/insurance.png" style="margin-top: 5px; margin-bottom:5px; border: solid 1px gray;">
 			     보험은 현장에서 작성하는 계약서를 기준으로 적용됩니다. 반드시 계약서를 확인해주시기 바랍니다.
           </div>
-     <div class="col-md-4 reserve2">
+    <div class="col-md-4 reserve2">
          <h5><b>결제정보</b></h5>
          <hr >
-         <p>대여요금</p>
+         <p>대여요금</p> 
+         <h4 style="color: #F8B03A;"><b>${vo.car_price }</b></h4>
          <hr>
          <p>총 결제금액<p>
           <hr>

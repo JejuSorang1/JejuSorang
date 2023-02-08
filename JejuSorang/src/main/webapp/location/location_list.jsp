@@ -9,20 +9,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-Shadowbox.init({
-	players:['iframe']	
-})
-$(function(){
-	$('#detailBtn').click(function(){
+$(function(){ 
+	$('.detailBtn').click(function(){
+		 console.log($(this).attr("data-lno"));
 	      Shadowbox.open({
-	         content:'../location/location_detail.do',
+	         content:'../location/location_detail.do?lno='+$(this).attr("data-lno"),
 	         player:'iframe',
-	         width:420,
+	         width:500,
 	         height:600,
 	         title:'관광지 상세정보'
 	      })
 	   })
-})
+});
 </script>
 </head>
 <body>
@@ -43,7 +41,7 @@ $(function(){
        ${vo.addr_ji }</p>
      </td>
      <td width="20%" class="text-center">
-       <span id="detailBtn" class="btn btn-sm btn-warning">상세보기</span>
+       <span class="btn btn-sm btn-warning detailBtn" data-lno="${vo.lno }">상세보기</span>
      </td>
      <td width="10%">
      	찜,,,할까말까,,,

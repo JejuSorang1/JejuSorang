@@ -6,11 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
- 
-</script>
-</head>
+
 <body>
 <!-- banner start -->
 <section class="banner_part">
@@ -45,7 +41,7 @@
                                     <form action="hotelfindlist.jsp" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select" id="ss" >
+                                                <select class="nc_select" name="area">
                                                     <option selected>목적지 </option>
                                                     <option value="1">제주시</option>
                                                     <option value="2">서귀포시</option>
@@ -58,7 +54,7 @@
                                                 <input id="datepicker_2" placeholder="체크아웃">
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select" id="sarm">
+                                                <select class="nc_select">
                                                     <option selected>인원 </option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -88,8 +84,6 @@
                                             </div>
                                             <div class="form_colum" style="width:300px">
                                                 <input id="datepicker_3" placeholder="예약시작일">
-                                            </div>
-                                            <div class="form_colum" style="width:300px">
                                                 <input id="datepicker_4" placeholder="예약종료일">
                                             </div>
                                             <div class="form_btn">

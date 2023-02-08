@@ -7,22 +7,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9965c727d3306713c47391be682e4be9&libraries=services"></script>
 <style type="text/css">
 .container{
    margin-top: 30px;
 }
 .row{
    width: 350px;
-   margin: 0px auto;
+   margin: 0px auto; 
 }
 </style>
 </head>
 <body>
-	<div class="container"style="overflow-y:scroll">
+	<div class="container">
 	  <div class="row">
-	    <table class="table">
-	    <c:forEach var="vo" items="${list }">
-	    <div id="map" style="width:300px;height:200px;">
+	  <div id="map" style="width:100%;height:300px;"></div>
 		<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {
@@ -61,12 +60,14 @@
 		    } 
 		});    
 		</script>
-		</div>
+	    <table class="table">
+	    
+	    
 		   <tr>
-		     <td><h6><b>이름</b></h6><br>${vo.title }</td>
+		     <td><h4 style="color:orange"><b>이름</b></h4><br>${vo.title }</td>
 		   </tr>
 		   <tr>
-		     <td><h6><b>주소</b></h6><br>
+		     <td><h4 style="color:orange"><b>주소</b></h4><br>
 			     <c:if test="${vo.addr_doro!=null }">
 			       <p>${vo.addr_doro }</p>
 			      </c:if>
@@ -74,30 +75,43 @@
 		     </td>
 		   </tr>
 		   <tr>
-		     <td><h6><b>정보</b></h6><br>${vo.info }</td>
+		     <td><h4 style="color:orange"><b>정보</b></h4><br>${vo.info }</td>
 		   </tr>
+		    <c:if test="${vo.close!=null }">
 		   <tr>
-		     <td><h6><b>휴무일</b></h6><br>${vo.close }</td>
+		     <td><h4 style="color:orange"><b>휴무일</b></h4><br>${vo.close }</td>
 		   </tr>
+		   </c:if>
+		   <c:if test="${vo.time!=null }">
 		   <tr>
-		     <td><h6><b>운영시간</b></h6><br>${vo.time }</td>
+		     <td><h4 style="color:orange"><b>운영시간</b></h4><br>${vo.time }</td>
 		   </tr>
+		   </c:if>
+		   <c:if test="${vo.price!=null }">
 		   <tr>
-		     <td><h6><b>가격</b></h6><br>${vo.price }</td>
+		     <td><h4 style="color:orange"><b>가격</b></h4><br>${vo.price }</td>
 		   </tr>
+		   </c:if>
+		   <c:if test="${vo.purpose!=null }">
 		   <tr>
-		     <td><h6><b>주요 목적</b></h6><br>${vo.purpose }</td>
+		     <td><h4 style="color:orange"><b>주요 목적</b></h4><br>${vo.purpose }</td>
 		   </tr>
+		   </c:if>
+		   <c:if test="${vo.facil!=null }">
 		   <tr>
-		     <td><h6><b>편의 시설</b></h6><br>${vo.facil }</td>
+		     <td><h4 style="color:orange"><b>편의 시설</b></h4><br>${vo.facil }</td>
 		   </tr>
+		   </c:if>
+		   <c:if test="${vo.manager!=null }">
 		   <tr>
-		     <td><h6><b>관리기관</b></h6><br>${vo.manager }</td>
+		     <td><h4 style="color:orange"><b>관리기관</b></h4><br>${vo.manager }</td>
 		   </tr>
+		   </c:if>
+		   <c:if test="${vo.tel!=null }">
 		   <tr>
-		     <td><h6><b>관리기관 전화번호</b></h6><br>${vo.tel }</td>
+		     <td><h4 style="color:orange"><b>관리기관 전화번호</b></h4><br>${vo.tel }</td>
 		   </tr>
-		   </c:forEach>
+		   </c:if>
 	    </table>
 	  </div>
 	</div>

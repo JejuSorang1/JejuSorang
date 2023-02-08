@@ -16,7 +16,7 @@ public class LocationModel {
 	public String location_main(HttpServletRequest request,HttpServletResponse response)
 	{
 		  request.setAttribute("main_jsp", "../location/location_main.jsp");
-		  CommonsModel.footerData(request);
+		 // CommonsModel.footerData(request);
 		  return "../main/main.jsp";
 	}
 	@RequestMapping("location/location_list.do")
@@ -27,35 +27,36 @@ public class LocationModel {
 			  request.setCharacterEncoding("UTF-8");
 		  }catch(Exception ex) {}
 		  String ss=request.getParameter("ss");
-		  if(ss==null)
+		  if(ss==null) 
 			   ss="관람";
 		  String page=request.getParameter("page");
 		   if(page==null)
 			   page="1";
 		  int curpage=Integer.parseInt(page);
 		  
+		  
 		  LocationDAO dao=new LocationDAO();
 		  List<LocationVO> list=dao.LocationFindData(curpage, ss);
 		  int totalpage=dao.LocationTotalPage(ss);
-		   
 		  request.setAttribute("list", list);
 		  request.setAttribute("curpage", curpage);
 		  request.setAttribute("totalpage", totalpage);
 		  request.setAttribute("ss", ss);
-		  
+		  //request.setAttribute("main_jsp", "../location/location_list.jsp");
 		  return "../location/location_list.jsp";
 	  }
 	@RequestMapping("location/location_detail.do")
 	public String location_detail(HttpServletRequest request,HttpServletResponse response)
 	{
 		String lno=request.getParameter("lno");
+		System.out.println("lno="+lno);
 		LocationDAO dao=new LocationDAO();
-		System.out.println(lno);
 		LocationVO vo=dao.location_detail(Integer.parseInt(lno));
-		
+		String type=vo.getType();
 		
 		request.setAttribute("lno", lno);
 		request.setAttribute("vo", vo);
+		request.setAttribute("type", type);
 		request.setAttribute("main_jsp", "../location/location_detail.jsp");
 		return "../location/location_detail.jsp";
 	}
