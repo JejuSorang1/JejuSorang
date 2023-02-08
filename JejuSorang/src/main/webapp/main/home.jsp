@@ -175,4 +175,4 @@ $(function() {
     </section>
     <!-- Rent end -->
 </body>
-</html>
+</html> 
