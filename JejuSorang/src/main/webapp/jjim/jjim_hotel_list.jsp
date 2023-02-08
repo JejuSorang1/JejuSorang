@@ -17,14 +17,14 @@
        <tr>
         <th>숙소번호</th>
         <th>숙소명</th>
-        <th>주소</th>
+        <th>숙소이미지</th>
         <th class="text-center"></th>
        </tr>
        <c:forEach var="vo" items="${list }">
          <tr>
-	        <td class="text-center">${vo.hno }</td>
-	        <td><a href="../hotel/hotel.detail.do?hno=${vo.hno}">${vo.name }</a></td>
-	        <td>${vo.addr}</td>
+	        <td class="text-center">${vo.no }</td>
+	        <td><img src="${vo.hotel_image }" style="width:100px;height: 100px"></td>
+	        <td><a href="../hotel/hotel.detail.do?hno=${vo.no}">${vo.name }</a></td>
 	        <td class="text-center">
 	         <a href="../mypage/jjim_delete.do?no=${vo.jno }" class="btn btn-xs btn-warning">취소</a>
 	        </td>
