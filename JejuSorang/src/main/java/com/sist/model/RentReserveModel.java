@@ -23,11 +23,13 @@ public class RentReserveModel {
 		  
 		  request.setAttribute("vo", vo);
 		  //데이터 베이스 연결
-		
+		  
 		  
 		  request.setAttribute("main_jsp", "../reserve/rent_reserve.jsp");
 		  CommonsModel.footerData(request);
 		  return "../main/main.jsp";
 	  }
+	
+	
 }
 	
