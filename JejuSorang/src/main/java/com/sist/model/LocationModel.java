@@ -1,15 +1,11 @@
 package com.sist.model;
-
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.*;
 import com.sist.vo.*;
-
 @Controller
 public class LocationModel {
 	@RequestMapping("location/location_main.do")
@@ -27,6 +23,7 @@ public class LocationModel {
 			  request.setCharacterEncoding("UTF-8");
 		  }catch(Exception ex) {}
 		  String ss=request.getParameter("ss");
+		  if(ss==null)
 		  if(ss==null) 
 			   ss="관람";
 		  String page=request.getParameter("page");

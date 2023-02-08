@@ -21,6 +21,19 @@ $(function(){
 	      })
 	   })
 });
+$(function () {
+	
+	let num = 0;
+	$(".jjimBtn").click(function () {
+		if(num == 0) {
+			$(this).attr("src", "../img/heart_before.png");
+			num = 1;
+		}else {
+			$(this).attr("src", "../img/heart_after.png");
+			num = 0;
+		}
+	});
+});
 </script>
 </head>
 <body>
@@ -44,11 +57,13 @@ $(function(){
        <span class="btn btn-sm btn-warning detailBtn" data-lno="${vo.lno }">상세보기</span>
      </td>
      <td width="10%">
-     	찜,,,할까말까,,,
+     <c:if test="${sessionScope.id!=null }">
+       <img src="../img/heart_after.png" style="width: 40px;height: 40px" class="jjimBtn">
+	 </c:if>		  
+     	
      </td>
    </tr>
    </c:forEach>
-
   </table>
 </body>
 </html>

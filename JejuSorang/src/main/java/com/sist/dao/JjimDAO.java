@@ -61,7 +61,7 @@ public class JjimDAO {
 		return count;
 	}
 	
-	public List<JjimVO> jjimListData(String id)
+	public List<JjimVO> jjimHotelListData(String id)
 	{
 		List<JjimVO> list=new ArrayList<JjimVO>();
 		try
@@ -69,8 +69,7 @@ public class JjimDAO {
 			conn=CreateConnection.getConnection();
 			String sql = "select /*+ INDEX_DESC(jj_jjim_1 jj_jno_pk_1)*/all_cate_no,jno, no, " // 서브쿼리
                     +"(select distinct name from jj_hotel_1 where hno = jj_jjim_1.no), "
-                    +"(select distinct hotel_image from jj_hotel_1 where hno = jj_jjim_1.no), "
-                    +"(select distinct addr from jj_hotel_1s where hno = jj_jjim_1.no) "
+                    +"(select distinct hotel_image from jj_hotel_1 where hno = jj_jjim_1.no) "
                     +"from jj_jjim_1 "
                     +"where id=?";
 		         ps=conn.prepareStatement(sql);
@@ -82,11 +81,7 @@ public class JjimDAO {
 		            vo.setJno(rs.getInt(2));
 		            vo.setNo(rs.getInt(3));
 		            vo.setName(rs.getString(4));
-		            String hotel_image=rs.getString(5);
-		            hotel_image=hotel_image.substring(0,hotel_image.indexOf("^"));
-		            hotel_image=hotel_image.replace("#", "&");
-		            vo.setHotel_image(hotel_image);
-		            vo.setAddr(rs.getString(6));
+		            vo.setHotel_image(rs.getString(5));
 		            list.add(vo);
 
 			}
@@ -101,7 +96,7 @@ public class JjimDAO {
 		return list;
 	} 
 	
-	public int hotelJjimCount(int hno)
+	public int hotelJjimCount(int hno) //호텔
 	{
 		int count=0;
 		try
@@ -149,7 +144,7 @@ public class JjimDAO {
 		}
 		return count;
 	}
-	public int locJjimCount(int lno)
+	public int locJjimCount(int lno) //관광지
 	{
 		int count=0;
 		try
@@ -174,17 +169,16 @@ public class JjimDAO {
 		return count;
 	}
 	// 렌트카 jjim 목록 출력
-	public List<JjimVO> rent_jjimListData(String id)
+	public List<JjimVO> jjimRentListData(String id)
 	{  
-		//rname,rctel,rcaddr
+		
 		List<JjimVO> list=new ArrayList<JjimVO>();
 		try
 		{
 			conn=CreateConnection.getConnection();
-			String sql = "select /*+ INDEX_DESC(jj_jjim_1 jj_jno_pk)*/all_cate_no,jno, no, " // 서브쿼리
-                    +"(select distinct rname from jj_rcom_1 where rcno = jj_jjim_1.no), "
-                    +"(select distinct rctel from jj_rcom_1 where rcno = jj_jjim_1.no), "
-                    +"(select distinct rcaddr from jj_rcom_1 where rcno = jj_jjim_1.no) "
+			String sql = "select /*+ INDEX_DESC(jj_jjim_1 jj_jno_pk_1)*/all_cate_no,jno, no, " // 서브쿼리
+                    +"(select distinct car_name from jj_car_1 where car_no = jj_jjim_1.no), "
+                    +"(select distinct car_image from jj_car_1 where car_no = jj_jjim_1.no) "
                     +"from jj_jjim_1 " 
                     +"where id=?";
 		         ps=conn.prepareStatement(sql);
@@ -195,10 +189,8 @@ public class JjimDAO {
 		            vo.setAll_cate_no(rs.getInt(1));
 		            vo.setJno(rs.getInt(2));
 		            vo.setNo(rs.getInt(3));
-		            vo.setName(rs.getString(4));
-		            vo.setRname(rs.getString(5));
-		            vo.setRctel(rs.getString(6));
-		            vo.setRcaddr(rs.getString(7));
+		            vo.setCar_name(rs.getString(4));
+		            vo.setCar_image(rs.getString(5));
 		            list.add(vo);
 
 			}
@@ -212,6 +204,7 @@ public class JjimDAO {
 		}
 		return list;
 	}
+	
 	// jjim 취소 
 	 public void jjimDelete(int jno)
 	  {
