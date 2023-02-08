@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -28,21 +29,25 @@ public class LocationModel {
 		  }catch(Exception ex) {}
 		  String ss=request.getParameter("ss");
 		  if(ss==null) 
-			   ss="관람";
-		  String page=request.getParameter("page");
-		   if(page==null)
-			   page="1";
-		  int curpage=Integer.parseInt(page);
-		  
+			   ss="관람";		  
 		  
 		  LocationDAO dao=new LocationDAO();
-		  List<LocationVO> list=dao.LocationFindData(curpage, ss);
-		  int totalpage=dao.LocationTotalPage(ss);
+		  String lno=request.getParameter("lno");
+		  List<LocationVO> list=dao.LocationFindData(Integer.parseInt(lno), ss);
+		  LocationVO lvo=dao.location_detail(Integer.parseInt(lno));
+		  HttpSession session=request.getSession();
+	      //int all_cate_no=(int) session.getAttribute("all_cate_no");
+	      String id=(String)session.getAttribute("id");
+	      JjimDAO jdao=new JjimDAO();
+	      int jc=jdao.jjimCount(Integer.parseInt(lno),id);
+	      int jt=jdao.hotelJjimCount(Integer.parseInt(lno));
+	      request.setAttribute("jjim_count", jc);  
+	      request.setAttribute("jjim_total", jt);
+	      request.setAttribute("lvo", lvo);
 		  request.setAttribute("list", list);
-		  request.setAttribute("curpage", curpage);
-		  request.setAttribute("totalpage", totalpage);
+		  request.setAttribute("lno", lno);
 		  request.setAttribute("ss", ss);
-		  //request.setAttribute("main_jsp", "../location/location_list.jsp");
+		  request.setAttribute("main_jsp", "../location/location_list.jsp");
 		  return "../location/location_list.jsp";
 	  }
 	@RequestMapping("location/location_detail.do")
