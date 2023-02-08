@@ -92,7 +92,7 @@ $(document).ready(function() {
                   <option style="width: 200px;height: 200px" selected>전체</option>
                   <option ${area=='제주시'?'selected':"" }>제주시</option>
                   <option ${area=='서귀포시'?'selected':""}>서귀포시</option>
-                </select>       
+                </select>        
               </div>
               <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
                 <input id="datepicker_3" placeholder="예약시작일" name="checkin" value="${checkin }">
