@@ -45,7 +45,17 @@ $(function(){
 				}
 		})
 	})
-})
+});
+
+$(document).ready(function() {
+        $('#dept').change(deptChange);
+    })
+ 
+    function deptChange() { // 학과
+        var deptcode = $('#dept option:selected').val();
+        $('input#dept_code').val(deptcode);
+    };
+ 
 </script>
 
 <style>
@@ -75,23 +85,23 @@ $(function(){
     <section class="booking_part" id="searchbar">
       <div class="booking_content" id="searchbar1" style="background:transparent;">
         <div class="booking_form">
-          <form method =post action="../hotel/hotel_findlist.do" class="ser">
+          <form method =post action="../hotel/hotel_findlist.do" class="hotelser">
             <div class="form-row" style="height: 5px;">
               <div class="form_colum" style="width:200px; margin-left: 5px;margin-Top: -2%">
-                <select class="nc_select">
-                  <option value="jeju" style="width: 200px;height: 200px" selected>전체</option>
-                  <option value="jeju">제주시</option>
-                  <option value="seogwipo">서귀포시</option>
-                </select>      
+                <select class="nc_select" name="area"  >
+                  <option style="width: 200px;height: 200px" selected>전체</option>
+                  <option ${area=='제주시'?'selected':"" }>제주시</option>
+                  <option ${area=='서귀포시'?'selected':""}>서귀포시</option>
+                </select>        
               </div>
               <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
-                <input id="datepicker_3" placeholder="예약시작일">
+                <input id="datepicker_3" placeholder="예약시작일" name="checkin" value="${checkin }">
               </div>
               <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
-                <input id="datepicker_4" placeholder="예약종료일">
+                <input id="datepicker_4" placeholder="예약종료일" name="checkout" value="${checkout }">
               </div>
               <div class="form_colum" style="width:200px; margin-left: 5px; margin-Top: -2%">
-                <input type="number"  min="1" max="8" style="width: 180px;height: 50px" id="inwon" placeholder="인원">
+                <input type="number"  min="1" max="8" style="width: 180px;height: 50px" name="inwon" value="${inwon }" placeholder="인원">
               </div>
               <div class="form_btn" style="margin-left: 5px; margin-Top: -1%">
                 <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2">
@@ -112,73 +122,29 @@ $(function(){
         <h3>검색결과</h3><hr>
         <h5>목적지</h5>
         <div style="height: 5px"></div>
-          <input type="text" value="">
+          <input type="text" readonly value="${area }">
          </div>
           <div class="form-group">
           <h5>체크인 날짜</h5>
-              <div class="input-group date" id="checkin">
-                <input type="date" class="form-control" name="startdate" id="startdate">
-                  <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>  
+            <input type="text" value="${checkin }" readonly>  
           </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <h5>체크아웃 날짜</h5>
-              <div class="input-group date" id="checkout">
-                <input type="date" class="form-control" name="enddate" id="enddate">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
-          </div>
+            <input type="text" value="${checkout }" readonly>
+              
+          </div> 
         </div>
         <div class="col-md-12">
           <div class="form-group">
             <h5>인원</h5>
-            <input type="number" min="1" max="8" value="1">
+            <input type="text" readonly value="${inwon }">
           </div>
         </div>
-       <!-- <div class="col-md-12">    
-        <input type="submit" name="submit" value="검색" class="btn btn-primary mb-2" id=search><hr>
-       </div> -->
+       
      </form>
      
-     <!-- <form name="form1" method="post" action="" enctype="multipart/form-data"> 
-       <div class="col-md-12">
-          <h5>호텔 종류</h5>
-            <div class="checkbox opinion" id="opinion">
-              <ul id="type">
-                <li><input type="checkbox" value="stars1" name="stars1" id="stars1">&nbsp;전체</li>
-                <li><input type="checkbox" value="stars2" id="stars2" name="stars2">&nbsp;비즈니스 호텔</li>
-                <li><input type="checkbox" value="stars2" id="stars2" name="stars2">&nbsp;가성비 호텔</li>
-              </ul>
-            </div>
-        </div>
-        <div style="height: 10px"></div>
-       <div class="col-md-12">
-          <h5>호텔 성급</h5>
-            <div class="checkbox opinion" id="opinion">
-              <ul id="stars">
-                <li><input type="checkbox" value="stars1" name="stars1" id="stars1">&nbsp;1성급</li>
-                <li><input type="checkbox" value="stars2" id="stars2" name="stars2">&nbsp;2성급</li>
-                <li><input type="checkbox" value="stars3" id="stars3" name="stars3">&nbsp;3성급</li>
-                <li><input type="checkbox" value="stars4" id="stars4" name="stars4">&nbsp;4성급</li>
-                <li><input type="checkbox" value="stars4" id="stars4" name="stars5">&nbsp;5성급</li>
-                <li><input type="checkbox" value="stars4" id="stars4" name="stars0">&nbsp;해당 사항 없음</li>
-              </ul>
-            </div>
-        </div>
-        <div style="height: 10px"></div>
-        <div class="col-md-12">
-          <h5>금액</h5>
-            <input type="range" min="1" max="100" value="50" class="price" name="price">
-            <p>Value:<span id="value"></span></p>
-        </div> 
-        
-      </form> -->
     </div>
     
     <div class="col-sm-9 wrap1" id="contenthotels">
@@ -207,13 +173,13 @@ $(function(){
                             <p><h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
                             <p><img src="../img/point.png" style="width:24px; height:24px">&nbsp;${hvo.addr }</p>
                             <p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>                            
-                            <p> 가격 
-                            <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${like_total }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${jjim_total }</p>
+                            <p> 가격 ${hvo.min }원</p>
+                            <p> <img src="../img/like.png" style="width: 22px;height: 22px">좋아요${hvo.like_total }&nbsp;&nbsp;&nbsp;<img src="../img/jjim.png" style="width: 22px;height: 22px">찜하기&nbsp;${hvo.jjim_total }</p>
                           </td>
                           <td width="17%"> 
                             <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md" style="float: right;" id="detail">상세보기</button></a>
                           </td>
-                        </tr>
+                        </tr> 
                       </table>
                     </c:forEach>
                   </td>

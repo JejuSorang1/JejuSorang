@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="../shadow/css/shadowbox.css">
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=687df03c87e45f3b8453ea2079462cae&libraries=services"></script>
 	<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
+	
+
 
 </head>
 
@@ -56,7 +58,7 @@
     <!-- jquery plugins here-->
     <script src="../js/jquery-1.12.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
-	<script src="../js/datepicker-ko.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
     <!-- popper js -->
     <script src="../js/popper.min.js"></script>
     <!-- bootstrap js -->
@@ -79,6 +81,7 @@
     <!-- custom js -->
     <script src="../js/custom.js"></script>
     <script src="../js/login.js"></script>
+    
 
 </body>
 

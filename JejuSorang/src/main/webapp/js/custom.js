@@ -1,7 +1,8 @@
-$.datepicker.setDefaults($.datepicker.regional["ko"]);
+
 (function ($) {
   "use strict";
 
+  
   var review = $('.client_review_slider');
   if (review.length) {
     review.owlCarousel({
@@ -72,9 +73,9 @@ $.datepicker.setDefaults($.datepicker.regional["ko"]);
     nc_select.niceSelect();
   }
 
-  
-  $('#datepicker_1').datepicker();
-  $('#datepicker_2').datepicker();  
+  $.datepicker.setDefaults($.datepicker.regional['ko']); //datepicker 한국어로 사용하기 위한 언어설정
+  $('#datepicker_1').datepicker({dateFormat: 'yy년 mm월 dd일'});
+  $('#datepicker_2').datepicker({dateFormat: 'yy년 mm월 dd일'});  
   $('#datepicker_3').datepicker();
   $('#datepicker_4').datepicker();  
   $('#datepicker_5').datepicker();

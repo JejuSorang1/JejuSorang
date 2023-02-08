@@ -168,7 +168,7 @@ $(function(){
                         <td width="38%" class="text-left">
                           <img src="${rvo.room_image }" style="width:300px;height:250px">
                         </td>
-                        <td width="3%">
+                        <td width="3%"> 
                         </td>
                         <td width="42%" >
                           <h4>${rvo.room_name }</h4>
@@ -178,7 +178,7 @@ $(function(){
 				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
                         </td>
                         <td width="17%">
-                        <a href="#"><button type="button" class="btn btn-md" style="float: right;background-color: #F8B03A">예약하기</button></a>
+                        <a href="../reserve/hotel_reserve.jsp?room_no=${rvo.room_no }"><button type="button" class="btn btn-md" style="float: right;background-color: #F8B03A">예약하기</button></a>
                         </td>
                       </tr>
                     </table>

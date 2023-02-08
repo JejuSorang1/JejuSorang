@@ -107,10 +107,10 @@ $(function(){
 			$('#post').focus()
 			return
 		}
-		let addr1=$('#addr1').val()
-		if(addr1.trim()===""){
+		let address1=$('#address1').val()
+		if(address1.trim()===""){
 			alert("우편번호 검색을 하세요")
-			$('#addr1').focus()
+			$('#address1').focus()
 			return
 		}
 		let phone=$('#phone').val()

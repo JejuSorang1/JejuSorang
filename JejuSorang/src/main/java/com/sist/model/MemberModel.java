@@ -205,6 +205,7 @@ public class MemberModel {
 	      
 	      request.setAttribute("vo", vo);
 	      
+	      
 	      return "../member/join_update.jsp";
 	   }
 	   @RequestMapping("member/join_update_ok.do")
@@ -256,10 +257,10 @@ public class MemberModel {
 	   
 	   @RequestMapping("member/join_delete.do")
 	   public String member_delete(HttpServletRequest request,HttpServletResponse response) {
-		   request.setAttribute("mypage_jsp", "../member/join_delete.jsp");
-		   request.setAttribute("main_jsp", "../mypage/mypage_main");
+		   
+		   
 		   CommonsModel.footerData(request);
-		   return "../main/main.jsp";
+		   return "../member/join_delete.jsp";
 	   }
 	   
 	   @RequestMapping("member/join_delete_ok.do")
