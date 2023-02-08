@@ -44,4 +44,29 @@ public class HotelReserveDAO {
 		return list;
 		
 	}
+	 // 예약일 읽기
+	  public String reserveDayData(int hno)
+	  {
+		  String rdate="";
+		  try
+		  {
+			  conn=CreateConnection.getConnection();
+			  String sql="SELECT reserve_day FROM food_location "
+					    +"WHERE fno=?";
+			  ps=conn.prepareStatement(sql);
+			  ps.setInt(1, hno);
+			  ResultSet rs=ps.executeQuery();
+			  rs.next();
+			  rdate=rs.getString(1);
+			  rs.close();
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  CreateConnection.disConnection(conn, ps);
+		  }
+		  return rdate;
+	  }
 }
