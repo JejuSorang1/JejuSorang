@@ -114,75 +114,29 @@ $(function(){
         <h3>검색결과</h3><hr>
         <h5>목적지</h5>
         <div style="height: 5px"></div>
-          <input type="text" readonly="${ss }">
+          <input type="text" readonly value="${area }">
          </div>
           <div class="form-group">
           <h5>체크인 날짜</h5>
-            <input type="text" readonly>
-              <!-- <div class="input-group date" id="checkin">
-                <input type="date" class="form-control" name="startdate" id="startdate">
-                  <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div> -->  
+            <input type="text" value="${checkin }" readonly>  
           </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <h5>체크아웃 날짜</h5>
-            <input type="text" readonly>
-              <!-- <div class="input-group date" id="checkout">
-                <input type="date" class="form-control" name="enddate" id="enddate">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div> -->
+            <input type="text" value="${checkout }" readonly>
+              
           </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
             <h5>인원</h5>
-            <input type="text" readonly>
+            <input type="text" readonly value="${inwon }">
           </div>
         </div>
-       <!-- <div class="col-md-12">    
-        <input type="submit" name="submit" value="검색" class="btn btn-primary mb-2" id=search><hr>
-       </div> -->
+       
      </form>
      
-     <!-- <form name="form1" method="post" action="" enctype="multipart/form-data"> 
-       <div class="col-md-12">
-          <h5>호텔 종류</h5>
-            <div class="checkbox opinion" id="opinion">
-              <ul id="type">
-                <li><input type="checkbox" value="stars1" name="stars1" id="stars1">&nbsp;전체</li>
-                <li><input type="checkbox" value="stars2" id="stars2" name="stars2">&nbsp;비즈니스 호텔</li>
-                <li><input type="checkbox" value="stars2" id="stars2" name="stars2">&nbsp;가성비 호텔</li>
-              </ul>
-            </div>
-        </div>
-        <div style="height: 10px"></div>
-       <div class="col-md-12">
-          <h5>호텔 성급</h5>
-            <div class="checkbox opinion" id="opinion">
-              <ul id="stars">
-                <li><input type="checkbox" value="stars1" name="stars1" id="stars1">&nbsp;1성급</li>
-                <li><input type="checkbox" value="stars2" id="stars2" name="stars2">&nbsp;2성급</li>
-                <li><input type="checkbox" value="stars3" id="stars3" name="stars3">&nbsp;3성급</li>
-                <li><input type="checkbox" value="stars4" id="stars4" name="stars4">&nbsp;4성급</li>
-                <li><input type="checkbox" value="stars4" id="stars4" name="stars5">&nbsp;5성급</li>
-                <li><input type="checkbox" value="stars4" id="stars4" name="stars0">&nbsp;해당 사항 없음</li>
-              </ul>
-            </div>
-        </div>
-        <div style="height: 10px"></div>
-        <div class="col-md-12">
-          <h5>금액</h5>
-            <input type="range" min="1" max="100" value="50" class="price" name="price">
-            <p>Value:<span id="value"></span></p>
-        </div> 
-        
-      </form> -->
     </div>
     
     <div class="col-sm-9 wrap1" id="contenthotels">
