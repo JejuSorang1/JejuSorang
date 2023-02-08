@@ -107,7 +107,12 @@ $(function(){
        <h4 style="font-size:17px;color:gray">시간이 경과될 경우 좌석이 매진되거나 요금이 변동될 수 있습니다.</h4>
                  <br>
       <div>
-       <a href="../reserve/rent_reserve.do?car_no=${vo.car_no  }"><button type="button" class="button" id="mybutton">예약하기</button></a>
+       <form method="post" action="../reserve/rent_reserve.do">
+         <input type=hidden name="start_reserve" value="${start }">
+         <input type=hidden name="end_reserve" value="${end }"> 
+         <input type=hidden name="car_no" value="${vo.car_no }">
+         <button type="submit" class="button" id="mybutton" style="float: right; margin-right: 5px;">예약하기</button>
+       </form>      
       </div>
       </div>
       </div>
@@ -118,12 +123,12 @@ $(function(){
         <div class="col-md-3">
         <div class="text-left">
          <div class="text-center">대여일시</div>
-         <div class="text-center">${rrvo.start_date }</div>
+         <div class="text-center">${start }</div>
         </div>
        </div>
        <div class="text-left">
          <div class="text-center">반납일시</div>
-         <div class="text-center">${rrvo.end_date }</div> 
+         <div class="text-center">${end }</div> 
         </div>
        </div>
       </div>

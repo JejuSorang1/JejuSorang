@@ -30,9 +30,11 @@ font-size: 15px;
 			        <div class="col-md-6" >
 			        <div class="text-left">
 			         <div class="text-center" style="font-size: 15px;">대여일시</div>
+			         <div class="text-center">${start }</div>
 			        </div>
 			       <div class="text-left">
 			         <div class="text-center">반납일시</div>
+			         <div class="text-center">${end }</div>
 			        </div>
 			       </div> 
 			       </div>

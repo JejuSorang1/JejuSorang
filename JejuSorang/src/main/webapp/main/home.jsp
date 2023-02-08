@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
@@ -11,7 +11,7 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
 <script src="../js/datepicker-ko.js"></script>
-
+ 
 <script type="text/javascript">
 
 $(function() {
@@ -53,36 +53,32 @@ $(function() {
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
                                 <div class="booking_form">
-                                    <form action="hotelfindlist.jsp" method="post">
+                                    <form action="../hotel/hotel_findlist.do" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select" name="area">
+                                                <select class="nc_select" name="area" autocomplete='off'>
                                                     <option selected>목적지 </option>
-                                                    <option value="1">제주시</option>
-                                                    <option value="2">서귀포시</option>
+                                                    <option >제주시</option>
+                                                    <option >서귀포시</option>
                                                 </select>
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_1" placeholder="체크인">
+                                                <input id="datepicker_1" placeholder="체크인" name="checkin" autocomplete='off'>
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_2" placeholder="체크아웃">
+                                                <input id="datepicker_2" placeholder="체크아웃" name="checkout" autocomplete='off'>
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select">
+                                                <select class="nc_select" name="inwon" autocomplete='off'>
                                                     <option selected>인원 </option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="3">4</option>
-                                                    <option value="3">5</option>
-                                                    <option value="3">6</option>
-                                                    <option value="3">7</option>
-                                                    <option value="3">8</option>
                                                 </select>
                                             </div>
                                             <div class="form_btn">
-                                                <a href="../hotel/hotel_findlist.do" class="btn_1">검색</a>
+                                                <button class="btn_1">검색</button>
                                             </div>
                                         </div>
                                     </form>
@@ -179,4 +175,4 @@ $(function() {
     </section>
     <!-- Rent end -->
 </body>
-</html>
+</html> 

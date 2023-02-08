@@ -63,6 +63,9 @@ public class RentModel {
 		   
 	     }
 	    
+	     //날짜 검색 후 
+	     String start=request.getParameter("start");
+	     String end=request.getParameter("end");
 	     //초기화
 	  	 String type = "";
 	  	 
@@ -109,6 +112,7 @@ public class RentModel {
 			
 			//footer
 			CommonsModel.footerData(request);
+			
 	  	   if(type.equals("cbx")) {
 	  		 request.setAttribute("rtnCbxList", searchText);
 	  	   }else {
@@ -119,6 +123,8 @@ public class RentModel {
 		   request.setAttribute("totalpage", totalpage);
 		   request.setAttribute("startPage", startPage);
 		   request.setAttribute("endPage", endPage);
+		   request.setAttribute("start", start);
+		   request.setAttribute("end", end);
 		   request.setAttribute("main_jsp", "../rent/rent_search.jsp");
 			   
 			   
@@ -130,7 +136,10 @@ public class RentModel {
 public String car_detail(HttpServletRequest request,HttpServletResponse response)
 {
    String cno=request.getParameter("car_no");
+   String start=request.getParameter("start_rent");
+   String end=request.getParameter("end_rent");
    
+   System.out.println(start+","+end);
    //데이터 베이스 연결
    RentDAO dao=new RentDAO();
    CarVO vo=dao.car_detail(Integer.parseInt(cno));
@@ -156,7 +165,8 @@ public String car_detail(HttpServletRequest request,HttpServletResponse response
    List<AllReviewVO> rList=adao.allReviewListData(Integer.parseInt(cno), 2);
    request.setAttribute("rList", rList);
    request.setAttribute("count", rList.size());
-   
+   request.setAttribute("start", start);
+   request.setAttribute("end", end);
    return "../main/main.jsp";
    
    }
