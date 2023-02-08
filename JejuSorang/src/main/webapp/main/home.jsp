@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
@@ -75,10 +75,6 @@ $(function() {
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="3">4</option>
-                                                    <option value="3">5</option>
-                                                    <option value="3">6</option>
-                                                    <option value="3">7</option>
-                                                    <option value="3">8</option>
                                                 </select>
                                             </div>
                                             <div class="form_btn">

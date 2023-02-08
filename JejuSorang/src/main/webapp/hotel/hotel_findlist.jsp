@@ -126,7 +126,7 @@ $(function(){
           <h5>체크아웃 날짜</h5>
             <input type="text" value="${checkout }" readonly>
               
-          </div>
+          </div> 
         </div>
         <div class="col-md-12">
           <div class="form-group">

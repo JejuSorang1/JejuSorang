@@ -110,7 +110,7 @@ public class HotelModel {
 		   request.setCharacterEncoding("UTF-8");
 	   }catch(Exception ex){}
       String ss=request.getParameter("ss");
-      if(ss==null)
+      if(ss==null) 
         ss="제주";
       String area=request.getParameter("area");
       String checkin=request.getParameter("checkin");
