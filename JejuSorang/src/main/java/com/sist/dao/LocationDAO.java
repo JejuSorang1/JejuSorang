@@ -1,5 +1,4 @@
 package com.sist.dao;
-
 import java.util.*;
 import java.sql.*;
 import com.sist.vo.*;
@@ -117,7 +116,7 @@ public class LocationDAO {
 			   conn=CreateConnection.getConnection();
 			   String sql="SELECT lno,sigun,dong,li,title,type,addr_doro,addr_ji,info,close,time,price,purpose,facil,manager,tel,jl_jjim,jl_like "
 					   +"FROM jj_location_1 "
-					   +"WHERE lno=?"; 
+					   +"WHERE lno=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, lno);
 			   ResultSet rs=ps.executeQuery();

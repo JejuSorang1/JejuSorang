@@ -96,7 +96,7 @@ public class JjimDAO {
 		return list;
 	} 
 	
-	public int hotelJjimCount(int hno)
+	public int hotelJjimCount(int hno) //호텔
 	{
 		int count=0;
 		try
@@ -144,7 +144,7 @@ public class JjimDAO {
 		}
 		return count;
 	}
-	public int locJjimCount(int lno)
+	public int locJjimCount(int lno) //관광지
 	{
 		int count=0;
 		try
@@ -191,6 +191,43 @@ public class JjimDAO {
 		            vo.setNo(rs.getInt(3));
 		            vo.setCar_name(rs.getString(4));
 		            vo.setCar_image(rs.getString(5));
+		            list.add(vo);
+
+			}
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+		return list;
+	}
+	public List<JjimVO> loc_jjimListData(String id) //관광지
+	{  
+		List<JjimVO> list=new ArrayList<JjimVO>();
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql = "select /*+ INDEX_DESC(jj_jjim_1 jj_jno_pk)*/all_cate_no,jno, no, " // 서브쿼리
+                    +"(select distinct title from jj_location_1 where lno = jj_jjim_1.no), "
+                    +"(select distinct type from jj_location_1 where lno = jj_jjim_1.no), "
+                    +"(select distinct addr_ji from jj_location_1 where lno = jj_jjim_1.no) "
+                    +"from jj_jjim_1 " 
+                    +"where id=?";
+		         ps=conn.prepareStatement(sql);
+		         ps.setString(1, id);
+		         ResultSet rs=ps.executeQuery();
+		         while(rs.next()) {
+		            JjimVO vo=new JjimVO();
+		            vo.setAll_cate_no(rs.getInt(1));
+		            vo.setJno(rs.getInt(2));
+		            vo.setNo(rs.getInt(3));
+		            vo.setTitle(rs.getString(4));
+		            vo.setType(rs.getString(5));
+		            vo.setAddr_ji(rs.getString(6));
+
 		            list.add(vo);
 
 			}

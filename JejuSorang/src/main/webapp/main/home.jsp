@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
@@ -53,36 +53,32 @@ $(function() {
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
                                 <div class="booking_form">
-                                    <form action="hotelfindlist.jsp" method="post">
+                                    <form action="../hotel/hotel_findlist.do" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
                                                 <select class="nc_select" name="area">
                                                     <option selected>목적지 </option>
-                                                    <option value="1">제주시</option>
-                                                    <option value="2">서귀포시</option>
+                                                    <option >제주시</option>
+                                                    <option >서귀포시</option>
                                                 </select>
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_1" placeholder="체크인">
+                                                <input id="datepicker_1" placeholder="체크인" name="checkin">
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_2" placeholder="체크아웃">
+                                                <input id="datepicker_2" placeholder="체크아웃" name="checkout">
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select">
+                                                <select class="nc_select" name="inwon">
                                                     <option selected>인원 </option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="3">4</option>
-                                                    <option value="3">5</option>
-                                                    <option value="3">6</option>
-                                                    <option value="3">7</option>
-                                                    <option value="3">8</option>
                                                 </select>
                                             </div>
                                             <div class="form_btn">
-                                                <a href="../hotel/hotel_findlist.do" class="btn_1">검색</a>
+                                                <button class="btn_1">검색</button>
                                             </div>
                                         </div>
                                     </form>
