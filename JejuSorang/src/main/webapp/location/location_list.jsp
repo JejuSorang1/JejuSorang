@@ -26,10 +26,10 @@ $(function () {
 	let num = 0;
 	$(".jjimBtn").click(function () {
 		if(num == 0) {
-			$(this).attr("src", "../img/like.png");
+			$(this).attr("src", "../img/heart_before.png");
 			num = 1;
 		}else {
-			$(this).attr("src", "../img/jjim.png");
+			$(this).attr("src", "../img/heart_after.png");
 			num = 0;
 		}
 	});
@@ -58,7 +58,7 @@ $(function () {
      </td>
      <td width="10%">
      <c:if test="${sessionScope.id!=null }">
-       <img src="../img/jjim.png" style="width: 20px;height: 20px" class="jjimBtn">
+       <img src="../img/heart_after.png" style="width: 40px;height: 40px" class="jjimBtn">
 	 </c:if>		  
      	
      </td>
