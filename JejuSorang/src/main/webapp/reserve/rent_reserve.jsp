@@ -81,20 +81,10 @@ font-size: 15px;
 	           <div class="row">
 			        <div class="col-md-6" >
 			        <div class="text-left">
-<<<<<<< HEAD
-			         <div class="text-center" style="font-size: 15px;">대여일시 : </div>
-=======
-			         <div class="text-center" style="font-size: 15px;">대여일시</div>
-			         <div class="text-center">${start }</div>
->>>>>>> refs/remotes/origin/master
+			         <div class="text-center" style="font-size: 15px;">대여일시 : ${start }</div>
 			        </div>
 			       <div class="text-left">
-<<<<<<< HEAD
-			         <div class="text-center">반납일시 : </div>
-=======
-			         <div class="text-center">반납일시</div>
-			         <div class="text-center">${end }</div>
->>>>>>> refs/remotes/origin/master
+			         <div class="text-center" style="font-size: 15px;">반납일시 : ${end }</div>
 			        </div>
 			       </div> 
 			       </div>
