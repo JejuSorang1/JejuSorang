@@ -85,6 +85,9 @@ $(function(){
 			      </span></p>
                 <%--  <span class="btn btn-xs btn-default">찜하기(${jjim_total })</span> --%>
               </c:if>
+              <td width="17%">
+                 <a href="../reserve/hotel_reserve.jsp?room_no=${rvo.room_no }"><button type="button" class="btn btn-md" style="float: right;background-color: #F8B03A">예약하기</button></a>
+              </td>
 			  </c:if>
 			  
 			  
@@ -177,9 +180,7 @@ $(function(){
 				          <p> <span style="color:orange">${rvo.account }</span>개의 객실이 남아있습니다. 얼른 예약하세요!</p>
 				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
                         </td>
-                        <td width="17%">
-                        <a href="../reserve/hotel_reserve.jsp?room_no=${rvo.room_no }"><button type="button" class="btn btn-md" style="float: right;background-color: #F8B03A">예약하기</button></a>
-                        </td>
+                        
                       </tr>
                     </table>
                 </td>

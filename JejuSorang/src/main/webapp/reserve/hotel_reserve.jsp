@@ -105,6 +105,7 @@ $(function(){
            </tr>
          </table>
        </td>
+       
      </tr>
    </table>
    <!-- <div id="dialog" title="Basic dialog">
