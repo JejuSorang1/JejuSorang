@@ -94,6 +94,7 @@ $(function(){
 			  
 			  
 			  <p> <a href="javascript:history.back()"><img src="../img/back.png" width="25px";height="25px" style="float: right;" title="뒤로가기"></a></p>
+			  
             </div>
           </div>  
        </div>
