@@ -6,27 +6,36 @@ package com.sist.vo;
 	ID                  VARCHAR2(20)                 VARCHAR2(20) 
  */
 public class JjimVO {
-	private int all_cate_no,jno,no;
-	private String id,hotel_image,name,addr,rname,rctel,rcaddr;
+	private int all_cate_no,jno,no,hno,car_no;
+	private String id,hotel_image,name,car_name,car_image;
 	
-	public String getRname() {
-		return rname;
+	
+
+	public int getHno() {
+		return hno;
 	}
-	public void setRname(String rname) {
-		this.rname = rname;
+	public void setHno(int hno) {
+		this.hno = hno;
 	}
-	public String getRctel() {
-		return rctel;
+	public int getCar_no() {
+		return car_no;
 	}
-	public void setRctel(String rctel) {
-		this.rctel = rctel;
+	public void setCar_no(int car_no) {
+		this.car_no = car_no;
 	}
-	public String getRcaddr() {
-		return rcaddr;
+	public String getCar_name() {
+		return car_name;
 	}
-	public void setRcaddr(String rcaddr) {
-		this.rcaddr = rcaddr;
+	public void setCar_name(String car_name) {
+		this.car_name = car_name;
 	}
+	public String getCar_image() {
+		return car_image;
+	}
+	public void setCar_image(String car_image) {
+		this.car_image = car_image;
+	}
+	
 	public int getAll_cate_no() {
 		return all_cate_no;
 	}
@@ -62,12 +71,6 @@ public class JjimVO {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
 	}
 	
 

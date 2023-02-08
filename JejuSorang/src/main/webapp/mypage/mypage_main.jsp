@@ -28,6 +28,24 @@ $(function(){
 			}
 		})
 	})
+	$('#jjim_hotel').click(function(){	
+		$.ajax({
+			type:'post',
+			url:'../mypage/jjim_hotel_list.do',
+			success:function(response){
+			$('#content').html(response)
+			}
+		})
+	})
+	$('#jjim_rent').click(function(){	
+		$.ajax({
+			type:'post',
+			url:'../mypage/jjim_rent_list.do',
+			success:function(response){
+			$('#content').html(response)
+			}
+		})
+	})
 })
 </script>
 <style type="text/css">
@@ -68,7 +86,7 @@ display: inline-block;
       <div class="row" style="display: flex; justify-content: center;">
       <div class="btn-group ">
 		  <div class="btn-group">
-		    <button type="button" class="btn btn-default " data-toggle="dropdown" >
+		    <button type="button" class="btn btn-default" data-toggle="dropdown" >
 		    개인정보 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
 		      <li><input type=button value="회원정보 수정" id="member_update" class="my_button"></li>
@@ -79,8 +97,8 @@ display: inline-block;
 		    <button type="button" class="btn btn-default" data-toggle="dropdown">
 		    내 후기 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
-		      <li><span>호텔</span></li>
-		      <li><span>렌트카</span></li>
+		      <li><input type=button value="호텔" id="reply_hotel" class="my_button"></li>
+		      <li><input type=button value="렌트카" id="reply_rent" class="my_button"></li>
 		    </ul>
 		  </div>
 		  <div class="btn-group">
@@ -95,8 +113,8 @@ display: inline-block;
 		    <button type="button" class="btn btn-default " data-toggle="dropdown">
 		    찜 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
-		      <li><span>호텔</span></li>
-		      <li><span>렌트카</span></li>
+		      <li><input type=button value="호텔" id="jjim_hotel" class="my_button"></li>
+		      <li><input type=button value="렌트카" id="jjim_rent" class="my_button"></li>
 		    </ul>
 		  </div>
 		  <button type="button" class="btn btn-default">좋아요</button>
