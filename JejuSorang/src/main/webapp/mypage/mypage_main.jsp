@@ -18,6 +18,16 @@ $(function(){
 			}
 		})
 	})
+	
+	$('#member_delete').click(function(){	
+		$.ajax({
+			type:'post',
+			url:'../member/join_delete.do',
+			success:function(response){
+			$('#content').html(response)
+			}
+		})
+	})
 })
 </script>
 <style type="text/css">
@@ -35,6 +45,13 @@ display: inline-block;
     border-right: 0.3em solid transparent;
     border-bottom: 0;
     border-left: 0.3em solid transparent;
+}
+.my_button{
+ -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border:0;
 }
 </style>
 </head>
@@ -54,8 +71,8 @@ display: inline-block;
 		    <button type="button" class="btn btn-default " data-toggle="dropdown" >
 		    개인정보 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
-		      <li><input type=button value="회원정보 수정" id="member_update"></li>
-		      <li><span>회원탈퇴</span></li>
+		      <li><input type=button value="회원정보 수정" id="member_update" class="my_button"></li>
+		      <li><input type=button value="회원탈퇴" id="member_delete" class="my_button"></li>
 		    </ul>
 		  </div>
 		  <div class="btn-group">
