@@ -82,7 +82,8 @@ public class HotelReserveModel {
 		
 		hvo.setHno(Integer.parseInt(hno));
 		hrvo.setRno(Integer.parseInt(rno));
-		
+		hrvo.setCkin(ckin);
+		hrvo.setCkout(ckout);
 		return "../main/main.jsp";
 	}
 	
