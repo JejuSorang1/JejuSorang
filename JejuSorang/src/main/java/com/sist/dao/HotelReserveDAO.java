@@ -14,7 +14,7 @@ public class HotelReserveDAO {
 	
 	public void hotelReserveOk(HotelReserveVO vo)
 	{
-		try
+		try  
 		{
 			conn=CreateConnection.getConnection();
 			String sql="INSERT INTO jj_hreserve_1 VALUES("
