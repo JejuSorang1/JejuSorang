@@ -46,6 +46,15 @@ $(function(){
 			}
 		})
 	})
+	$('#reserve_rent').click(function(){	
+		$.ajax({
+			type:'post',
+			url:'../mypage/rent_reserve_list.do',
+			success:function(response){
+			$('#content').html(response)
+			}
+		})
+	})
 })
 </script>
 <style type="text/css">
@@ -106,7 +115,7 @@ display: inline-block;
 		    예약 관리 <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu">
 		      <li><span>호텔</span></li>
-		      <li><span>렌트카</span></li>
+		      <li><input type=button value="렌트카" id="reserve_rent" class="my_button"></li>
 		    </ul>
 		  </div>
 		  <div class="btn-group">

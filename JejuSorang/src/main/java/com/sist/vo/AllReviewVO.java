@@ -13,6 +13,8 @@ public class AllReviewVO {
 	private int all_review_no,cate_no,detail_no,star;
 	private String id,msg,dbday;
 	private Date regdate;
+	private HotelVO hvo;
+	private CarVO cvo;
 	
 	
 	public String getDbday() {

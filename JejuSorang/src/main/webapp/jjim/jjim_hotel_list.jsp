@@ -16,6 +16,7 @@ $(function(){
 		$.ajax({
 			type:'post',
 			url:'../mypage/jjim_delete.do?no='+jno,
+			
 			success:function(response){
 				$('#content').html(response)
 			}
