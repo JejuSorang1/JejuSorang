@@ -15,6 +15,7 @@ RNO				NUMBER
 public class HotelReserveVO {
 	private int hrno,hprice,hno,rno;
 	private String id,hpycheck,ckin,ckout;
+
 	public int getHrno() {
 		return hrno;
 	}
