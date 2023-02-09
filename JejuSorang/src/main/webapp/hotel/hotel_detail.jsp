@@ -315,7 +315,7 @@ $(function(){
 	    </td>
 	    <td style="width:40%">
 	      <jsp:include page="../reserve/diary.jsp"></jsp:include>
-	    </td>
+	    </td>  
 	    <td style="width:30%">
 	      호텔명:<br> 
 	      객실명:<br>
