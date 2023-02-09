@@ -14,13 +14,8 @@ RNO				NUMBER
  */ 
 public class HotelReserveVO {
 	private int hrno,hprice,hno,rno;
-<<<<<<< HEAD
 	private String hreno,id,hpycheck;
-	private Date ckin,ckout;
-=======
-	private String id,hpycheck,ckin,ckout;
 
->>>>>>> refs/remotes/origin/master
 	public int getHrno() {
 		return hrno;
 	}
@@ -63,18 +58,7 @@ public class HotelReserveVO {
 	public void setHpycheck(String hpycheck) {
 		this.hpycheck = hpycheck;
 	}
-	public Date getCkin() {
-		return ckin;
-	}
-	public void setCkin(Date ckin) {
-		this.ckin = ckin;
-	}
-	public Date getCkout() {
-		return ckout;
-	}
-	public void setCkout(Date ckout) {
-		this.ckout = ckout;
-	}
+	
 	
 	
 	
