@@ -357,7 +357,7 @@ $(function(){
       </table>
       </div>
      </div>
-     <div id="dialog" title="예약하기" style="display:none;color:gray;font-size:15px">
+     <div class="text-center" id="dialog" title="예약하기" style="display:none;color:gray;font-size:15px">
      <div class="containerx">
      <div class="rowx" style="height:450px;width:1200px" >
      <table class="text-left" border=1 width=1130>
