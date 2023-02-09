@@ -14,7 +14,11 @@ $(function(){
 		//alert('fgfdg')
 		
 		$('#check').click(function(){
-			requestPay();
+			if($(this).attr('data-id')==null || $(this).attr('data-id')==""  ){
+				alert('로그인 하세요');
+			}else{
+			
+			     requestPay(); }
 		})
 		
 	
@@ -114,7 +118,7 @@ font-size: 15px;
          <hr>
           <p style="text-align: center;  font-size: 15px;">위 내용을 모두 확인하였으며, 결제에 동의합니다</p>
 
-           <input type="button" value="결제하기"  style="border: 0;background-color: #F8B03A; padding: 2%; color: white; width: 100%; height: 50px;" id="check">
+           <input type="button" value="결제하기"  data-id="${sessionScope.id }" style="border: 0;background-color: #F8B03A; padding: 2%; color: white; width: 100%; height: 50px;" id="check">
          </div> 
       </div>
    </div>
