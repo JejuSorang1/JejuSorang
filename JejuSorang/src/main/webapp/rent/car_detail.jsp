@@ -105,8 +105,8 @@ $(function(){
     background-color: white;
 }
 #mybutton{
-    width: 210px;
-    height:50px;
+    width: 200px;
+    height:40px;
     background-color:orange 
 }
 #td1{
@@ -116,6 +116,16 @@ $(function(){
    border: 10;
    border-color: orange;
 }
+.figure{
+   margin: 45px;
+}
+#dialog{
+   padding:0px 13px 24px;
+}
+#coupon{
+   padding:1px;
+   margin:2px;
+}
 </style>
 
 </head>
@@ -124,7 +134,7 @@ $(function(){
 <div class="wrapp">
   <main class="container">
     <div class="row">   
-       <figure>
+       <figure class="figure">
 		 <img src="${vo.car_image }" width="500px" height="450px">
 		  <p class="tip" style="font-size: 15px">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
            <h4 style="font-size:20px;color:gray"><b>${vo.car_name }</b></h4>
@@ -143,7 +153,7 @@ $(function(){
 				   </form>
 				  </c:if>
 			  <c:if test="${jjim_count!=0 }">
-                <span class="btn btn-xs btn-default"><img src="../img/jjimimg.jpg" style="width:30px;height:30px">(${jjim_total })</span>
+                <span class="btn btn-xs btn-default"><img src="../img/jjimimg.jpg" style="width:50px;height:50px">(${jjim_total })</span>
               </c:if>
 			  </c:if>
 
@@ -167,25 +177,7 @@ $(function(){
       </div>
       </div>
      </div>
-       <hr align="left" style="border: solid 1px gray; width: 50%;">
-      <div class="container">
-       <div class="row">
-        <div class="col-md-3">
-        <div class="text-left">
-         <div class="text-center">대여일시</div>
-         <div class="text-center">${start }</div>
-        </div>
-       </div>
-       <div class="text-left">
-         <div class="text-center">반납일시</div>
-         <div class="text-center">${end }</div> 
-        </div>
-       </div>
-      </div>
-      
-     <hr align="left" style="border: solid 1px gray; width: 50%;">     
-                  <br>  
-                       
+
      <div class="container">
             <div class="row">
     <div class="product-info-tabs">
@@ -332,7 +324,7 @@ $(function(){
 					         <input type=hidden name="all_review_no" value="${rvo.all_review_no }">
 					         <input type=hidden name="cate_no" value="2">
 					         <textarea rows="3" cols="90" name="msg" style="float: left">${rvo.msg}</textarea>&nbsp;
-					         <input type=submit value="수정" class="btn btn-sm btn-warning" style="height: 65px">
+					         &nbsp;&nbsp;&nbsp;<input type=submit value="수정" class="btn btn-sm btn-warning" style="height: 65px">
 					        </form>
 			             </td>
 			            </tr>
@@ -365,35 +357,33 @@ $(function(){
       </table>
       </div>
      </div>
-     <div id="dialog" title="예약하기" style="display:none;color:grey">
+     <div class="text-center" id="dialog" title="예약하기" style="display:none;color:gray;font-size:15px">
      <div class="containerx">
      <div class="rowx" style="height:450px;width:1200px" >
      <table class="text-left" border=1 width=1130>
       <tr>
       <td class="table1" id="td2" width=30% style="white-space: pre-wrap;">
        <img id="rimg" src="${vo.car_image }" style="width:280px;height: 250px; border: solid 1px gray;">
-       <br>
-	   차량정보:&nbsp;<span>${vo.car_option1 }</span>
+       
+	   <img src="../img/car_icon.png" style="width:20px;height:20px">&nbsp;<span>${vo.car_option1 }</span>
 	   <hr>
-	   차량옵션:&nbsp;<span>${vo.car_option2 }</span>
+	   <div class="text-left"><img src="../img/checkc.png" style="width:25px;height:25px">&nbsp;<span>${vo.car_option2 }</span></div>
       </td>
       <td width=40%>
         <jsp:include page="diary.jsp"></jsp:include>
       </td>
 
-      <td class="table1" id="td1" width=30% valign=top>
+      <td class="table1" id="td1" width=30% valign=top >
+      <img src="../img/reservere.png" style="width:600px;height:180px">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="coupon" src="../img/couponc.png" style="width:210px;height:65px">
+       <br>
+       <br>
+       <div class="text-center">
         <h3 style="font-size:15px"><b>차량명:</b>&nbsp;<b><span style="color:black">${vo.car_name }</span></b></h3><br> 
-        <h3 style="font-size:15px"><b>체크인:</b>&nbsp;<span id="cin"></span></h3><br>
-        <h3 style="font-size:15px"><b>체크아웃:</b>&nbsp;<span id="cout"></span></h3>
-      <div>
-
-      <td width=20% valign=top>
-        차량명:${vo.car_name }<br>
-        체크인:<span id="cin"></span><br>
-        체크아웃<span id="cout"></span>
-      </td>
-     </tr>
-     <div>
+        <h3 style="font-size:14px"><b>체크인:</b>&nbsp;<span id="cin"></span></h3><br>
+        <h3 style="font-size:14px"><b>체크아웃:</b>&nbsp;<span id="cout"></span></h3>
+       
+       
        <form method="post" action="../reserve/rent_before_reserve.do">
          <input type=hidden name="start" id="start">
          <input type=hidden name="end" id="end"> 
@@ -404,7 +394,10 @@ $(function(){
          <button type="submit" class="button" id="mybutton" style="float: center; margin-right: 5px;display:none">예약하기</button>
        </form>      
       </div>
-      </td>
+     </td>
+     </tr>
+    
+      
      </tr>
    </table>
    </div>

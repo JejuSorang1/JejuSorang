@@ -30,6 +30,14 @@ $(function() {
     border-color: orange;
 	border-radius: 10px;
 }
+.gj-textbox-md{
+border-bottom: 0px;
+}
+.booking_part .form-row .form_colum .gj-textbox-md{
+border-color: orange;
+	border-radius: 10px;
+}
+
 </style>
 </head>
 
@@ -52,9 +60,7 @@ $(function() {
                             <li class="nav-item">
                             <a class="nav-link active" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="true">호텔</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link" id="rentcar-tab" data-toggle="tab" href="#rentcar" role="tab" aria-controls="rentcar" aria-selected="false">렌트카</a>
-                            </li>
+                          
 
                         </ul>
                     </div>
@@ -89,32 +95,13 @@ $(function() {
                                                 </select>
                                             </div>
                                             <div class="form_btn">
-                                                <button class="btn_1">검색</button>
+                                                <button class="btn btn-lg btn-warning text-white">검색</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="rentcar" role="tabpanel" aria-labelledby="rentcar-tab">
-                                <div class="booking_form">
-                                    <form action="#">
-                                        <div class="form-row">
-                                            <div class="form_colum" style="width:300px">
-                                                <select class="nc_select">
-                                                    <option selected>제주국제공항</option>
-                                                </select>
-                                            </div>
-                                            <div class="form_colum" style="width:300px">
-                                                <input id="datepicker_3" placeholder="예약시작일">
-                                                <input id="datepicker_4" placeholder="예약종료일">
-                                            </div>
-                                            <div class="form_btn">
-                                                <a href="../rent/rent_search.do" class="btn_1">검색</a>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                         
                             
                         </div>
                     </div>

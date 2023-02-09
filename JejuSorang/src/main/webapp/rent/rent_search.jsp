@@ -51,7 +51,10 @@ $(function(){
 				$('#chk5').prop("checked", true);
 			}else if(chkList[i] == "고급"){
 				$('#chk6').prop("checked", true);
+			}else if(chkList[i] == "승합"){
+				$('#chk7').prop("checked", true);
 			}
+			
 		} 
 	})
 	
@@ -65,41 +68,9 @@ $(function(){
 <body>
   <div class="container">
   <div class="row">
-    <section class="booking_part" id="searchbar" >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 ser" >
-                    <div class="booking_content" id="searchbar1" >
-                                <div class="booking_form">
-                                    <form method="post" action="../rent/rent_search.do">
-                                        <div class="form-row">
-                                            <div class="form_colum" style="width:300px; margin-left: 5px; height: 5px; margin-top: 5px;">
-                                                <select class="nc_select" >
-                                                    <option selected>제주국제공항</option>
-                                                </select>
-                                            </div>
-                                            <div class="form_colum" style="width:300px;  margin-left: 5px;">
-                                                <input id="datepicker_3" placeholder="예약시작일" name="start" value="${start!=null?start:'' }">
-                                                
-                                            </div>
-                                            <div class="form_colum" style="width:300px;  margin-left: 5px;">
-                                                <input id="datepicker_4" placeholder="예약종료일" name="end" value="${end!=null?end:'' }">
-                                                
-                                            </div>
-                                            <div class="form_btn" style="margin-left: 5px;">
-                                              <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2" style="margin-top: 5px">
-                                            </div>
-                                        </div>
-                                    </form>
-                                    
-                                </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
        <div class="col-sm-3 ">
-       <div class="table" style="width: 80%">
+       <div class="table" id="">
 	  <form id = "formId1" name="form1" method="post" action="../rent/rent_search.do"> 
 	    <div class="col-md-12">
 	    <br>

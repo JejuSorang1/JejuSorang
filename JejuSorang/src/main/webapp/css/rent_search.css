@@ -12,6 +12,7 @@ div.sortbuttons  { padding: 15px 0;}
 }
 
 .table,.table2{
+	width: 100%;
 	  table-layout: fixed;
 	  border-radius: 20px;
 	  margin-bottom: 12px; 

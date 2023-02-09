@@ -42,7 +42,7 @@
                                 </ul>
                             </div>
                             <c:if test="${sessionScope.id==null }">
-                            <a href="../member/login.do" class="btn_1 d-none d-lg-block">로그인</a>
+                            <a href="../member/login.do" class="btn d-none d-lg-block " style="color:orange;">로그인</a>
                             </c:if>
                             <c:if test="${sessionScope.id!=null }">
                              <c:if test="${sessionScope.admin=='n' }">

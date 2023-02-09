@@ -11,11 +11,11 @@
         /*body { background-color : skyblue; }*/
 
         div#wrapperx {
-            background-color : white;
+            background-color : #dcdcdc;
             height: auto;
             width: 400px;
             margin: 0px;
-            padding: 20px;
+            padding:20px;
             margin: 0 auto;
             border-radius:5px;
             box-shadow:0px 40px 30px -20px rgba(0,0,0,0.3);
@@ -58,7 +58,7 @@
         }
 
         .today {
-            background-color: #F5D042;            
+            background-color: #FFF978;            
             color: #fff;
             font-weight: 600;
             cursor: pointer;
@@ -74,12 +74,13 @@
 
         .futureDay.choiceDay,
         .today.choiceDay {
-            background: #0A174E;
+            background: #FF9100;
             color: #fff;
             font-weight: 600;
             cursor: pointer;
         }
         #inBtn{
+            border-radius: 30px;
             background: orange;
             width:80px;
             height:30px;
@@ -87,11 +88,13 @@
             border-color:white;
         }
         #outBtn{
+            border-radius: 30px;
             background: orange;
             width:80px;
             height:30px;
             color:white;
             border-color:white;
+            box-shadow: none;
         }
     </style>
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
