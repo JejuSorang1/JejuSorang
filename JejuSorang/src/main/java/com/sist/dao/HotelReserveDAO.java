@@ -39,7 +39,7 @@ public class HotelReserveDAO {
 	}
 	
 	//마이페이지에서 읽기
-	public List<HotelReserveVO> hotelReserveMyPageData(String id)
+	/*public List<HotelReserveVO> hotelReserveMyPageData(String id)
 	{
 		List<HotelReserveVO> list=new ArrayList<HotelReserveVO>();
 		try
@@ -78,7 +78,7 @@ public class HotelReserveDAO {
 			CreateConnection.disConnection(conn, ps);
 		}
 		return list;
-	}
+	}*/
 
 	 
 	  

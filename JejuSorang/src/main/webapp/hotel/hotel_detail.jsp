@@ -54,7 +54,7 @@ $(function(){
 			}
 		})
 	})
-	$("#reserveBtn").click(function(){
+	$("#ReserveBtn").click(function(){
 		$("#dialog").dialog({
 	    	   autoOpen : false        
 	           , width : 1200            
@@ -62,13 +62,15 @@ $(function(){
 	           , modal : true            
 	           , resizeable : false    
 	    }).dialog("open");
+	})
 	$('.rooms').click(function(){
 		let price=$(this).attr("data-price");
 		let name=$(this).attr("data-name");
 		$('#room_name').text(name)
 		$('#room_price').text(price);
 	})
-})
+	
+	
 })
 
 </script>
@@ -147,17 +149,12 @@ $(function(){
               </tr>
               <tr>
               <td colspan="3" class="text-center">
-                 <span class="btn btn-lg btn-warning" id="reserveBtn">예약하기</span>
+                 <span class="btn btn-lg btn-warning" id="ReserveBtn">예약하기</span>
               </td>
               </tr>
 			  </c:if>
-			  
-			  
-			  
-			  
-			  
 			  </table>
-            </div>
+			 </div>
           </div>  
        </div>
       </div>
@@ -223,7 +220,6 @@ $(function(){
       <br>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-         
           <c:forEach var="rvo" items="${rList }">
           <div class="col-md-12">
             <table class="table1">
@@ -243,7 +239,6 @@ $(function(){
 				          <p> <span style="color:orange">${rvo.account }</span>개의 객실이 남아있습니다. 얼른 예약하세요!</p>
 				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
                         </td>
-                        
                       </tr>
                     </table>
                 </td>
@@ -322,26 +317,24 @@ $(function(){
         </c:if>
       </table>
       </div>
-     
-     </div>
+         </div>
         </div>
         </div>
         </div>
-      
       </div>
-     
      </div>
-      
-    <div id="dialog" title="예약하기" style="display:none">
+    <div id="dialog" title="예약하기" style="display:none;background-color:#FFDD7C">
      <div class="container100">
     <div class="row100" style="height: 450px;width:1200px">
-	<table border=1>
+	<table border="1" style="background-color:white">
 	  <tr>
-	    <td width=30%>
-	      <img src="${hvo.hotel_image }" style="width:300px;height: 300px;">
-	      <div class="tab-content" id="myTabContent">
+	    <td width=40% class="text-center">
+	      <img src="${hvo.hotel_image }" style="width:400px;height: 200px;">
+	      <jsp:include page="diary.jsp"></jsp:include>
+	    </td>
+	    <td width=40%>
+	      <div class="tab-content" id="myTabContent"style="height: 620px;overflow-y:scroll">
          <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-         
           <c:forEach var="rvo" items="${rList }">
           <div class="col-md-12">
             <table class="table1">
@@ -349,19 +342,14 @@ $(function(){
                 <td colspan="4" rowspan="3">
                     <table class="table2">
                       <tr>
-                        <td width="38%" class="text-left">
-                          <img src="${rvo.room_image }" style="width:300px;height:250px" data-price="${rvo.room_price }" data-name="${rvo.room_name }" class="rooms">
-                        </td>
-                        <td width="3%"> 
-                        </td>
-                        <td width="42%" >
-                          <h4>${rvo.room_name }</h4>
+                      <td>
+                          <img src="${rvo.room_image }" style="width:300px;height:250px;" data-price="${rvo.room_price }" data-name="${rvo.room_name }" class="rooms">
+                          <br><h4><b>${rvo.room_name }</b></h4>
 				          <p> <img src="../img/persons.png" style="width:20px;height:20px">&nbsp;${rvo.room_persons }</p>
 				          <p> <img src="../img/bed.png" style="width:20px;height:20px">&nbsp;${rvo.room_bed_info }</p>
 				          <p> <span style="color:orange">${rvo.account }</span>개의 객실이 남아있습니다. 얼른 예약하세요!</p>
 				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
                         </td>
-                        
                       </tr>
                     </table>
                 </td>
@@ -370,20 +358,16 @@ $(function(){
             <hr>
           </div>
           </c:forEach>
-          
          </div>
         </div>
-	    </td>
-	    <td width=40%>
-	      <jsp:include page="diary.jsp"></jsp:include>
 	    </td>
 	    <td width=30%>
 	      호텔명:<br>
 	      ${hvo.name }<br>
 	      객실명:<span id="room_name"></span><br>
 	      가격:<span id="room_price"></span><br>
-	      체크인:<span id="cin"></span><br>
-	      체크아웃<span id="cout"></span>
+	      체크인 :<span id="cin"></span><br>
+	      체크아웃 :<span id="cout"></span>
 	    </td>
 		<div>
 	       <form method="post" action="../reserve/room_before_reserve.do">
@@ -395,7 +379,7 @@ $(function(){
 	         <input type=hidden name="room_price" value="${rvo.room_price }">
 	         <input type=hidden name="hotel_name" value="${hvo.name }">
 	         
-	         <button type="submit" class="button" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>
+	         <button type="submit" class="button" data-id="${sessionScope.id }" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>
 	       </form>      
       </div>
 	</table>
