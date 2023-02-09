@@ -11,18 +11,19 @@
 <body>
   <div class="wrapper row3">
     <main class="container clear">
-     <h2 class="sectiontitle">찜한 리스트</h2>
+     <h2 class="sectiontitle">내 후기 (호텔)</h2>
      <div style="height: 5px"></div>
-     <table class="table text-center">
+     <table class="table">
        <tr>
-        <th>차량명</th>
-        <th>차량이미지</th>
+        <th>숙소명</th>
+        <th>숙소이미지</th>
         <th class="text-center"></th>
        </tr>
        <c:forEach var="vo" items="${list }">
          <tr>
-            <td><h4><a href="../rent/car_detail.do?car_no=${vo.no}">${vo.car_name }</a></h4></td>
-	        <td><img src="${vo.car_image }" style="width: 130px; height: 130px"></td>       
+	        <td class="text-center">${vo.no }</td>
+	        <td><a href="../hotel/hotel.detail.do?hno=${vo.no}">${vo.name }</a></td>
+	        <td><img src="${vo.hotel_image }" style="width:100px;height: 100px"></td>   
 	        <td class="text-center">
 	         <a href="../mypage/jjim_delete.do?no=${vo.jno }" class="btn btn-xs btn-warning">취소</a>
 	        </td>

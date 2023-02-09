@@ -13,18 +13,16 @@
     <main class="container clear">
      <h2 class="sectiontitle">찜한 리스트</h2>
      <div style="height: 5px"></div>
-     <table class="table">
+     <table class="table text-center">
        <tr>
-        <th>숙소번호</th>
         <th>숙소명</th>
         <th>숙소이미지</th>
         <th class="text-center"></th>
        </tr>
        <c:forEach var="vo" items="${list }">
          <tr>
-	        <td class="text-center">${vo.no }</td>
-	        <td><img src="${vo.hotel_image }" style="width:100px;height: 100px"></td>
-	        <td><a href="../hotel/hotel.detail.do?hno=${vo.no}">${vo.name }</a></td>
+         	<td><h4><a href="../hotel/hotel.detail.do?hno=${vo.no}">${vo.name }</a></h4></td>
+	        <td><img src="${vo.hotel_image }" style="width:130px;height: 130px"></td>
 	        <td class="text-center">
 	         <a href="../mypage/jjim_delete.do?no=${vo.jno }" class="btn btn-xs btn-warning">취소</a>
 	        </td>

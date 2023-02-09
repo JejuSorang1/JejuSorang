@@ -45,10 +45,13 @@ $(function(){
 
 <div class="pd-wrap">
   <div class="container">
-    
+    <div style="width: 10px;height: 50px"></div>
     <div class="row">
+    <p> <a href="javascript:history.back()"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;목록 보기
+    <div style="width: 100%;height: 2px; background-color:orange"></div>
+    <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">
-        <img src="${hvo.hotel_image }" style="width:500px;height:300px">
+        <img src="${hvo.hotel_image }" style="width:500px;height:400px">
        </div>
       <div class="col-md-4">
         <div class="product-dtl">
@@ -58,7 +61,10 @@ $(function(){
               <p> <img src="../img/star.png" style="width:30px; height:30px">&nbsp;&nbsp;${hvo.grade }</p>
               <p> <img src="../img/point.png" style="width:35px; height:35px">&nbsp;${hvo.addr}</p>
 			  <p> <img src="../img/clock.png" style="width:33px; height:33px">&nbsp;${hvo.time}</p>
+			  <table class="table">
 			  <c:if test="${sessionScope.id!=null }">
+			  <tr>
+			    <td>
 			  <c:if test="${like_count==0 }">
 			  <p><a href="../like/like_insert.do?hno=${hvo.hno }" class="btn btn-xs" style="float: center;background-color: #F8B03A">좋아요</a><span style="float: right"><img src="../img/like.png" style="width: 22px;height: 22px;">좋아요${like_total }</span></p>
 			  </c:if>
@@ -66,8 +72,10 @@ $(function(){
 			    <p><span class="btn btn-xs btn-default" style="float: left"><img src="../img/like.png" style="width: 22px;height: 22px">좋아요${like_total }</span></p>
               <%-- <span class="btn btn-xs btn-default">좋아요(${like_total })</span> --%>
 			  </c:if>
-			   
-			  
+			   </td>
+			   </tr>
+			  <tr>
+			    <td>
 			  <c:if test="${jjim_count==0 }">
 			   <form method="post" action="../jjim/jjim_insert.do?hno=${hvo.hno }">    
 			    <p>
@@ -85,16 +93,20 @@ $(function(){
 			      </span></p>
                 <%--  <span class="btn btn-xs btn-default">찜하기(${jjim_total })</span> --%>
               </c:if>
-              <td width="17%">
-                 <a href="../reserve/hotel_reserve.jsp?room_no=${rvo.room_no }"><button type="button" class="btn btn-md" style="float: right;background-color: #F8B03A">예약하기</button></a>
               </td>
+              </tr>
+              <tr>
+              <td colspan="3" class="text-center">
+                 <a href="../reserve/hotel_reserve.jsp?room_no=${rvo.room_no }"><button type="button" class="btn btn-md" style="background-color: #F8B03A">예약하기</button></a>
+              </td>
+              </tr>
 			  </c:if>
 			  
 			  
 			  
 			  
-			  <p> <a href="javascript:history.back()"><img src="../img/back.png" width="25px";height="25px" style="float: right;" title="뒤로가기"></a></p>
 			  
+			  </table>
             </div>
           </div>  
        </div>

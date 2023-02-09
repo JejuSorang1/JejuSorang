@@ -52,6 +52,6 @@ public class MyPageModel {
 		  String jno=request.getParameter("no");
 		  JjimDAO dao=new JjimDAO();
 		  dao.jjimDelete(Integer.parseInt(jno));
-		  return "redirect:mypage_main.do";
+		  return "redirect:jjim_hotel_list.do";
 	  }
 }
