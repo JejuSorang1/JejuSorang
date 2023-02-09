@@ -16,17 +16,29 @@ public class HotelReserveDAO {
 	{    
 		try    
 		{
+			/*
+			 * HRNO     NOT NULL NUMBER        
+				CKIN     NOT NULL VARCHAR2(100) 
+				CKOUT    NOT NULL VARCHAR2(100) 
+				HRENO      
+				HPRICE   NOT NULL NUMBER        
+				HPYCHECK          CHAR(1)       
+				ID                VARCHAR2(20)  
+				HNO               NUMBER        
+				RNO               NUMBER    
+			 */
 			conn=CreateConnection.getConnection();
 			String sql="INSERT INTO jj_hreserve_1 VALUES("
-				    +"(SELECT NVL(MAX(hrno)+1,1) FROM jj_hreserve_1),?,?,?,?,?,?,?)";
+				    +"(SELECT NVL(MAX(hrno)+1,1) FROM jj_hreserve_1),?,?,?,?,'N',?,?,?)";
+			ps.setString(1, vo.getCkin());
+			ps.setString(2, vo.getCkout());
+			ps.setString(3, vo.getHreno());
+			ps.setInt(4, vo.getHprice());
+			ps.setString(5, vo.getId());
+			ps.setInt(6, vo.getHno());
+			ps.setInt(7, vo.getRno());
 			ps=conn.prepareStatement(sql);
-			ps.setString(1,vo.getId());
-			ps.setInt(2, vo.getHprice());
-			ps.setString(3, vo.getHpycheck());
-			ps.setInt(4, vo.getHno());
-			ps.setInt(5, vo.getRno());
-			ps.setString(6, vo.getCkin());
-			ps.setString(7, vo.getCkout());
+			
 			ps.executeUpdate();
 		}catch(Exception ex)
 		{

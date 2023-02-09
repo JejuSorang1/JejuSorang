@@ -87,10 +87,10 @@ font-size: 15px;
 	           <div class="row">
 			        <div class="col-md-6" >
 			        <div class="text-left">
-			         <div class="text-center" style="font-size: 15px;">체크인 : ${sessionScope.hrvo.start_rent }</div>
+			         <div class="text-center" style="font-size: 15px;">체크인 : ${sessionScope.hrvo.ckin }</div>
 			        </div>
 			       <div class="text-left">
-			         <div class="text-center" style="font-size: 15px;">체크아웃 : ${sessionScope.hrvo.end_rent }</div>
+			         <div class="text-center" style="font-size: 15px;">체크아웃 : ${sessionScope.hrvo.ckout }</div>
 			        </div>
 			       </div> 
 			       </div>

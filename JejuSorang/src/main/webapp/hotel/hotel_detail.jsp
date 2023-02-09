@@ -66,8 +66,10 @@ $(function(){
 	$('.rooms').click(function(){
 		let price=$(this).attr("data-price");
 		let name=$(this).attr("data-name");
+		let room_no=$(this).attr("data-no");
 		$('#room_name').text(name)
 		$('#room_price').text(price);
+		$('#room_no').val(room_no);
 	})
 	
 	
@@ -413,7 +415,7 @@ function requestPay() {
 	         <input type=hidden name="end" id="end"> 
 	         <input type=hidden name="start_rent" id="start_rent">
 	         <input type=hidden name="end_rent" id="end_rent"> 
-	         <input type=hidden name="room_no" value="${rvo.room_no }">
+	         <input type=hidden name="room_no" id="room_no">
 	         <input type=hidden name="room_price" value="${rvo.room_price }">
 	         <input type=hidden name="hotel_no" value="${hvo.hno }">
 	         <button type="submit" class="button" data-id="${sessionScope.id }" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>

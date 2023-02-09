@@ -25,13 +25,33 @@ public class HotelReserveModel {
 		{
 			request.setCharacterEncoding("UTF-8");
 		}catch(Exception ex) {}
-		String hno=request.getParameter("hno");
-		String ckin=request.getParameter("ckin");
-		String ckout=request.getParameter("ckout");
+		/*
+		 * String id=(String)session.getAttribute("id");
+		  RentReserveVO cvo=(RentReserveVO)session.getAttribute("carVO");
+		  
+
+		  RentReserveVO vo=new RentReserveVO();
+		  vo.setId(id);
+		  vo.setCar_no(cvo.getCar_no());
+		  vo.setStart_rent(cvo.getStart_rent());
+		  vo.setEnd_rent(cvo.getEnd_rent());
+		  vo.setRprice(cvo.getRprice());
+		  
+		  //DAO연동 
+		  RentReserveDAO dao=new RentReserveDAO();
+		  dao.rentreserveOk(vo);
+		  return "redirect:../mypage/mypage_main.do";
+		 */
 		
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("id");
-		HotelReserveVO hrvo=(HotelReserveVO)session.getAttribute("roomVO");
+		int i=1;
+		HotelReserveVO hrvo=(HotelReserveVO)session.getAttribute("hrvo");
+		
+		Date date=new Date();
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd");
+		String reserve_no=sdf.format(date)+i;
+		System.out.println(reserve_no);
 		
 		HotelReserveVO vo=new HotelReserveVO();
 		vo.setId(id);
@@ -39,10 +59,12 @@ public class HotelReserveModel {
 		vo.setRno(hrvo.getRno());
 		vo.setCkin(hrvo.getCkin());
 		vo.setCkout(hrvo.getCkout());
-		
+		vo.setHprice(hrvo.getHprice());
+		vo.setHreno(reserve_no);
 		HotelReserveDAO dao=new HotelReserveDAO();
 		dao.hotelReserveOk(vo);
-		return "redirect:../mypage/reserve.do";
+		i++;
+		return "redirect:../mypage/mypage_main.do";
 	}
 	
 	@RequestMapping("reserve/hotel_reserve.do")
