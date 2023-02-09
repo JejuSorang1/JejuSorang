@@ -14,20 +14,8 @@ RNO				NUMBER
  */ 
 public class HotelReserveVO {
 	private int hrno,hprice,hno,rno;
-<<<<<<< HEAD
 	private String hreno,id,hpycheck;
 	private Date ckin,ckout;
-	
-	
-	public int getRno() {
-		return rno;
-	}
-	public void setRno(int rno) {
-		this.rno = rno;
-	}
-=======
-	private String id,hpycheck,ckin,ckout;
->>>>>>> branch 'master' of https://github.com/JejuSorang1/JejuSorang.git
 	public int getHrno() {
 		return hrno;
 	}
@@ -50,7 +38,13 @@ public class HotelReserveVO {
 		return rno;
 	}
 	public void setRno(int rno) {
-		this.rno = rno; 
+		this.rno = rno;
+	}
+	public String getHreno() {
+		return hreno;
+	}
+	public void setHreno(String hreno) {
+		this.hreno = hreno;
 	}
 	public String getId() {
 		return id;
@@ -64,16 +58,16 @@ public class HotelReserveVO {
 	public void setHpycheck(String hpycheck) {
 		this.hpycheck = hpycheck;
 	}
-	public String getCkin() {
+	public Date getCkin() {
 		return ckin;
 	}
-	public void setCkin(String ckin) {
+	public void setCkin(Date ckin) {
 		this.ckin = ckin;
 	}
-	public String getCkout() {
+	public Date getCkout() {
 		return ckout;
 	}
-	public void setCkout(String ckout) {
+	public void setCkout(Date ckout) {
 		this.ckout = ckout;
 	}
 	
