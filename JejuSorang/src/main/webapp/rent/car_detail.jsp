@@ -366,7 +366,7 @@ $(function(){
         <jsp:include page="diary.jsp"></jsp:include>
       </td>
       <td width=20% valign=top>
-        차량명:<br>
+        차량명:${vo.car_name }<br>
         체크인:<span id="cin"></span><br>
         체크아웃<span id="cout"></span>
       </td>
