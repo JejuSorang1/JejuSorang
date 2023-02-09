@@ -4,6 +4,7 @@
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,18 +35,6 @@ $(document).ready(function() {
   }).scroll();
 });
 
-$(function(){
-	$(document).ready(function(){
-		$('select[name=area]').change(function(){
-			if($(this).val()=="1"){
-				$('#area').val("전체");
-			}else {
-					$('#area').val($(this).val());
-					$('#area').attr("readonly",true)
-				}
-		})
-	})
-})
 
 
 </script>
@@ -67,7 +56,7 @@ $(function(){
 	border-color: orange;
 	border-radius: 10px;
 }
-  
+
 </style>
 </head>
 <body>
@@ -80,20 +69,20 @@ $(function(){
           <form method =post action="../hotel/hotel_findlist.do" class="hotelser">
             <div class="form-row" style="height: 5px;">
               <div class="form_colum" style="width:200px; margin-left: 5px;margin-Top: -2%">
-                <select class="nc_select">
-                  <option value="jeju" style="width: 200px;height: 200px" selected>전체</option>
-                  <option value="jeju">제주시</option>
-                  <option value="seogwipo">서귀포시</option>
-                </select>      
+                <select class="nc_select" name="area"  >
+                  <option style="width: 200px;height: 200px" selected>전체</option>
+                  <option ${area=='제주시'?'selected':"" }>제주시</option>
+                  <option ${area=='서귀포시'?'selected':""}>서귀포시</option>
+                </select>        
               </div>
               <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
-                <input id="datepicker_3" placeholder="예약시작일">
+                <input id="datepicker_3" placeholder="예약시작일" name="checkin" value="${checkin }" autocomplete='off'>
               </div>
               <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
-                <input id="datepicker_4" placeholder="예약종료일">
+                <input id="datepicker_4" placeholder="예약종료일" name="checkout" value="${checkout }" autocomplete='off'>
               </div>
               <div class="form_colum" style="width:200px; margin-left: 5px; margin-Top: -2%">
-                <input type="number"  min="1" max="8" style="width: 180px;height: 50px" id="inwon" placeholder="인원">
+                <input type="number"  min="1" max="8" style="width: 180px;height: 50px; border-bottom-color: orange;" name="inwon" value="${inwon }" placeholder="인원">
               </div>
               <div class="form_btn" style="margin-left: 5px; margin-Top: -1%">
                 <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2">
@@ -114,24 +103,24 @@ $(function(){
         <h3>검색결과</h3><hr>
         <h5>목적지</h5>
         <div style="height: 5px"></div>
-          <input type="text" readonly value="${area }">
+          <input type="text" readonly value="${area }" style="border: none;">
          </div>
           <div class="form-group">
           <h5>체크인 날짜</h5>
-            <input type="text" value="${checkin }" readonly>  
+            <input type="text" value="${checkin }" readonly style="border: none;">  
           </div>
         </div>
         <div class="col-md-12">
           <div class="form-group">
           <h5>체크아웃 날짜</h5>
-            <input type="text" value="${checkout }" readonly>
+            <input type="text" value="${checkout }" readonly style="border: none;">
               
           </div> 
         </div>
         <div class="col-md-12">
           <div class="form-group">
             <h5>인원</h5>
-            <input type="text" readonly value="${inwon }">
+            <input type="text" readonly value="${inwon }" style="border: none;">
           </div>
         </div>
        
@@ -140,11 +129,6 @@ $(function(){
     </div>
     
     <div class="col-sm-9 wrap1" id="contenthotels">
-      <div class="col-md-12 sortbuttons">
-        <button type="button" class="btn btn-sm" style="float: right;" id="starBtn">평점순</button>
-        <button type="button" class="btn btn-sm" style="float: right;" id="lowBtn">가격(낮은순)</button>
-        <button type="button" class="btn btn-sm" style="float: right;" id="highBtn">가격(높은순)</button>
-     </div>
      <div style="height: 30px"></div>
      <h3>&nbsp;&nbsp;&nbsp;&nbsp;검색 결과 <fmt:formatNumber value="${count }" type="number"/>개</h3>
       <div class="list-group list row">

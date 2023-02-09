@@ -177,5 +177,17 @@ public class HotelModel {
       CommonsModel.footerData(request);
       return "../main/main.jsp";
    }
+   @RequestMapping("hotel/room_detail.do")
+   public String hotel_room_detail(HttpServletRequest request, HttpServletResponse response)
+   {
+	   String rno=request.getParameter("rno");
+	   RoomDAO dao=new RoomDAO();
+	   List<RoomVO> list=dao.room_detail(Integer.parseInt(rno));
+	   
+	   request.setAttribute("rno", rno);
+	   request.setAttribute("list", list);
+	   request.setAttribute("main_jsp", "../hotel/room_detail.jsp");
+	   return "../hotel/room_detail.jsp";
+   }
    
 }

@@ -71,7 +71,7 @@ $(function(){
                 <div class="col-lg-12 ser" >
                     <div class="booking_content" id="searchbar1" >
                                 <div class="booking_form">
-                                    <form action="#">
+                                    <form method="post" action="../rent/rent_search.do">
                                         <div class="form-row">
                                             <div class="form_colum" style="width:300px; margin-left: 5px; height: 5px; margin-top: 5px;">
                                                 <select class="nc_select" >
@@ -79,16 +79,19 @@ $(function(){
                                                 </select>
                                             </div>
                                             <div class="form_colum" style="width:300px;  margin-left: 5px;">
-                                                <input id="datepicker_3" placeholder="예약시작일">
+                                                <input id="datepicker_3" placeholder="예약시작일" name="start" value="${start!=null?start:'' }">
+                                                
                                             </div>
                                             <div class="form_colum" style="width:300px;  margin-left: 5px;">
-                                                <input id="datepicker_4" placeholder="예약종료일">
+                                                <input id="datepicker_4" placeholder="예약종료일" name="end" value="${end!=null?end:'' }">
+                                                
                                             </div>
                                             <div class="form_btn" style="margin-left: 5px;">
                                               <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2" style="margin-top: 5px">
                                             </div>
                                         </div>
                                     </form>
+                                    
                                 </div>
                     </div>
                 </div>
@@ -148,7 +151,13 @@ $(function(){
                             <h3>${cvo.car_name }</h3><h3 id="price" style="color: #F8B03A;" ><span ><strong>${cvo.car_price }</strong></span>원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
                            <p class="short-text">업체:레인보우모빌리티</p>
                             <p>${cvo.car_option1}</p>
-                            <a href="../rent/car_detail.do?car_no=${cvo.car_no  }"><button type="button" class="btn btn-md btn-warning text-white" style="float: right; margin-right: 5px;">예약하기</button></a>
+                            <form method="post" action="../rent/car_detail.do">
+                            <input type=hidden name="start_rent" value="${start }">
+                            <input type=hidden name="end_rent" value="${end }"> 
+                            <input type=hidden name="car_no" value="${cvo.car_no }">
+                            <button type="submit" class="btn btn-md btn-warning text-white" style="float: right; margin-right: 5px;">예약하기</button>
+                            </form>
+                            
                           </td>
                         </tr>
                       </table>

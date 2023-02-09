@@ -1,6 +1,10 @@
 package com.sist.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,18 +23,6 @@ public class HotelReserveModel {
 		CommonsModel.footerData(request);
 		return "../main/main.jsp";
 	}
-	@RequestMapping("reserve/reserve_room.do")
-	public String reserve_room(HttpServletRequest request,HttpServletResponse response)
-	{
-		try
-		{
-			request.setCharacterEncoding("UTF-8");
-		}catch(Exception ex) {}
-		String hno=request.getParameter("hno");
-		HotelReserveDAO dao=new HotelReserveDAO();
-
-		
-		return "../reserve/reserve_room.jsp";
-	}
+	
 	
 }
