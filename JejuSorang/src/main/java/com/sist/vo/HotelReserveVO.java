@@ -14,20 +14,8 @@ RNO				NUMBER
  */ 
 public class HotelReserveVO {
 	private int hrno,hprice,hno,rno;
-<<<<<<< HEAD
-	private String hreno,id,hpycheck;
-	private Date ckin,ckout;
-	
-	
-	public int getRno() {
-		return rno;
-	}
-	public void setRno(int rno) {
-		this.rno = rno;
-	}
-=======
 	private String id,hpycheck,ckin,ckout;
->>>>>>> branch 'master' of https://github.com/JejuSorang1/JejuSorang.git
+
 	public int getHrno() {
 		return hrno;
 	}
