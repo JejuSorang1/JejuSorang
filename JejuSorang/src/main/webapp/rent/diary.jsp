@@ -159,6 +159,7 @@
             //alert(dd)
             $('#cin').text(dd);
             $('#start_rent').val(dd);
+            $('#start').val($('.choiceDay').text());
         }
 
         function choiceOutDate(newDIV) {
@@ -172,6 +173,7 @@
             //alert(dd)
             $('#cout').text(dd);
             $('#end_rent').val(dd);
+            $('#end').val($('.choiceDay').text());
         }
         // 이전달 버튼 클릭
         function prevCalendar() {

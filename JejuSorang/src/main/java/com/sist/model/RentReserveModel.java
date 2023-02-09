@@ -14,29 +14,29 @@ import com.sist.vo.*;
 import java.text.*;
 @Controller
 public class RentReserveModel {
-   @RequestMapping("reserve/rent_reserve.do")
-     public String reserve_user(HttpServletRequest request,HttpServletResponse response)
-     {
-        String cno=request.getParameter("car_no");
-        String start=request.getParameter("start_reserve");
-        String end=request.getParameter("end_reserve");
-        
-        RentDAO dao=new RentDAO();
-        CarVO vo=dao.car_detail(Integer.parseInt(cno));
-        
-        String s=vo.getCar_price();
-		s=s.replace(",", "");
-		request.setAttribute("s", s);
-		request.setAttribute("name", vo.getCar_name());
-        request.setAttribute("vo", vo);
-        //데이터 베이스 연결
-      
-        request.setAttribute("start", start);
-        request.setAttribute("end", end);
-        request.setAttribute("main_jsp", "../reserve/rent_reserve.jsp");
-        CommonsModel.footerData(request);
-        return "../main/main.jsp";
-     }
+//   @RequestMapping("reserve/rent_reserve.do")
+//     public String reserve_user(HttpServletRequest request,HttpServletResponse response)
+//     {
+//        String cno=request.getParameter("car_no");
+//        String start=request.getParameter("start_reserve");
+//        String end=request.getParameter("end_reserve");
+//        
+//        RentDAO dao=new RentDAO();
+//        CarVO vo=dao.car_detail(Integer.parseInt(cno));
+//        
+//        String s=vo.getCar_price();
+//		s=s.replace(",", "");
+//		request.setAttribute("s", s);
+//		request.setAttribute("name", vo.getCar_name());
+//        request.setAttribute("vo", vo);
+//        //데이터 베이스 연결
+//      
+//        request.setAttribute("start", start);
+//        request.setAttribute("end", end);
+//        request.setAttribute("main_jsp", "../reserve/rent_reserve.jsp");
+//        CommonsModel.footerData(request);
+//        return "../main/main.jsp";
+//     }
    @RequestMapping("reserve/rent_reserve_ok.do")
 	public String rent_reserve_ok (HttpServletRequest request,HttpServletResponse response)
 	{
@@ -107,17 +107,34 @@ private MemberVO mvo;
 	@RequestMapping("reserve/rent_before_reserve.do")
 	public String reserve_before_rent(HttpServletRequest request,HttpServletResponse response)
 	{
-		RentReserveVO vo=new RentReserveVO();
+		RentReserveVO rvo=new RentReserveVO();
 		String car_no=request.getParameter("car_no");
 		String start_rent=request.getParameter("start_rent");
 		String end_rent=request.getParameter("end_rent");
-		vo.setCar_no(Integer.parseInt(car_no));
-		vo.setStart_rent(start_rent);
-		vo.setEnd_rent(end_rent);
+		String start=request.getParameter("start");
+		String end=request.getParameter("end");
+		String car_price=request.getParameter("car_price");
+		RentDAO dao=new RentDAO();
+        CarVO cvo=dao.car_detail(Integer.parseInt(car_no));
+        int ss=Integer.parseInt(start);
+		int ee=Integer.parseInt(end);
+		
+        String s=cvo.getCar_price();
+		s=s.replace(",", "");
+		int total=(ee-ss)*Integer.parseInt(s);
+		request.setAttribute("s", total);
+		cvo.setCar_price(String.valueOf(total));
+		request.setAttribute("name", cvo.getCar_name());
+        request.setAttribute("cvo", cvo);
+        //데이터 베이스 연결
+		rvo.setCar_no(Integer.parseInt(car_no));
+		rvo.setStart_rent(start_rent);
+		rvo.setEnd_rent(end_rent);
 		HttpSession session=request.getSession();
 		System.out.println(car_no+" "+start_rent + " " + end_rent);
 		
-		session.setAttribute("carVO", vo);
+		
+		session.setAttribute("carVO", rvo);
 		request.setAttribute("main_jsp", "../reserve/rent_reserve.jsp");
 		return "../main/main.jsp";
 	}

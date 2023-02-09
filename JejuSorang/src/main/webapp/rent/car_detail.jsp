@@ -373,11 +373,13 @@ $(function(){
      </tr>
      <div>
        <form method="post" action="../reserve/rent_before_reserve.do">
-         <input type=hidden name="start" id="start" value="${start }">
-         <input type=hidden name="end" id="end" value="${end }"> 
+         <input type=hidden name="start" id="start">
+         <input type=hidden name="end" id="end"> 
          <input type=hidden name="start_rent" id="start_rent">
          <input type=hidden name="end_rent" id="end_rent"> 
          <input type=hidden name="car_no" value="${vo.car_no }">
+         <input type=hidden name="car_price" value="${vo.car_price }">
+         
          <button type="submit" class="button" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>
        </form>      
       </div>
