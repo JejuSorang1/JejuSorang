@@ -21,6 +21,7 @@
 
   <div class="container">
     <div class="row">
+    <div style="width: 100%;height: 2px; background-color:orange"></div>
     <div class="col-sm-3">
       <div style="width: 10px;height: 50px"></div>
 	 <h3 class="sectiontitle">최근 본 목록</h3> 
