@@ -4,14 +4,24 @@ package com.sist.vo;
 public class RentReserveVO {
 private int rrno,rprice,car_no;
 private String id,start_rent,end_rent,rpycheck;;
-private CarVO cv;
+private CarVO cvo;
+private MemberVO mvo;
 
-public CarVO getCv() {
-	return cv;
+
+
+public CarVO getCvo() {
+	return cvo;
 }
-public void setCv(CarVO cv) {
-	this.cv = cv;
+public void setCvo(CarVO cvo) {
+	this.cvo = cvo;
 }
+public MemberVO getMvo() {
+	return mvo;
+}
+public void setMvo(MemberVO mvo) {
+	this.mvo = mvo;
+}
+
 public String getStart_rent() {
 	return start_rent;
 }

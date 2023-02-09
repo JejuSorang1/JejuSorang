@@ -58,13 +58,13 @@ public class RentReserveDAO {
 			  {
 				RentReserveVO  vo= new RentReserveVO();
 				vo.setRrno(rs.getInt(1));
-				vo.getCv().setCar_no(rs.getInt(2));
+				vo.getCvo().setCar_no(rs.getInt(2));
 				vo.setStart_rent(rs.getString(3));
 				vo.setEnd_rent(rs.getString(4));
-				vo.getCv().setCar_name(rs.getString(5));
-				vo.getCv().setCar_image(rs.getString(6));
+				vo.getCvo().setCar_name(rs.getString(5));
+				vo.getCvo().setCar_image(rs.getString(6));
 				vo.setRprice(rs.getInt(7));
-				vo.getCv().setCar_option1(rs.getString(8));
+				vo.getCvo().setCar_option1(rs.getString(8));
 				vo.setRpycheck(rs.getString(9));
 				list.add(vo);
 			  }
@@ -97,13 +97,13 @@ public class RentReserveDAO {
 			  {
 				RentReserveVO  vo= new RentReserveVO();
 				vo.setRrno(rs.getInt(1));
-				vo.getCv().setCar_no(rs.getInt(2));
+				vo.getCvo().setCar_no(rs.getInt(2));
 				vo.setStart_rent(rs.getString(3));
 				vo.setEnd_rent(rs.getString(4));
-				vo.getCv().setCar_name(rs.getString(5));
-				vo.getCv().setCar_image(rs.getString(6));
+				vo.getCvo().setCar_name(rs.getString(5));
+				vo.getCvo().setCar_image(rs.getString(6));
 				vo.setRprice(rs.getInt(7));
-				vo.getCv().setCar_option1(rs.getString(8));
+				vo.getCvo().setCar_option1(rs.getString(8));
 				vo.setRpycheck(rs.getString(9));
 				vo.setId(rs.getString(10));
 				list.add(vo);
@@ -155,13 +155,13 @@ public class RentReserveDAO {
 			  ResultSet rs=ps.executeQuery();
 			  rs.next();
 				vo.setRrno(rs.getInt(1));
-				vo.getCv().setCar_no(rs.getInt(2));
+				vo.getCvo().setCar_no(rs.getInt(2));
 				vo.setStart_rent(rs.getString(3));
 				vo.setEnd_rent(rs.getString(4));
-				vo.getCv().setCar_name(rs.getString(5));
-				vo.getCv().setCar_image(rs.getString(6));
+				vo.getCvo().setCar_name(rs.getString(5));
+				vo.getCvo().setCar_image(rs.getString(6));
 				vo.setRprice(rs.getInt(7));
-				vo.getCv().setCar_option1(rs.getString(8));
+				vo.getCvo().setCar_option1(rs.getString(8));
 			  rs.close();
 		  }catch(Exception ex)
 		  {

@@ -316,7 +316,7 @@ $(function(){
                        <tr id="u${rvo.all_review_no }" class="rupdate" style="display:none">
 			             <td colspan="2">
 			               <form method="post" action="../all_review/all_review_update.do">
-
+							 
 			               	 <input type=hidden name="detail_no" id="detail_no" value="${vo.car_no }">
 					         <input type=hidden name="all_review_no" value="${rvo.all_review_no }">
 					         <input type=hidden name="cate_no" value="2">
@@ -354,22 +354,36 @@ $(function(){
       </table>
       </div>
      </div>
-     <div id="dialog" title="예약하기">
-  <div class="containerx">
-    <div class="rowx" style="height: 450px">
-      <div class="one_third first">
+     <div id="dialog" title="예약하기" style="display:none">
+     <div class="containerx">
+     <div class="rowx" style="height: 450px;width:1200px" >
+     <table border=1>
+      <tr>
+      <td width=40%>
        <img src="${vo.car_image }" style="width:300px;height: 300px;">
-      </div>
-      <div class="one_third">
+      </td>
+      <td width=40%>
         <jsp:include page="diary.jsp"></jsp:include>
-      </div>
-      <div class="one_third">
-        맛집명:<br>
+      </td>
+      <td width=20% valign=top>
+        차량명:<br>
         체크인:<span id="cin"></span><br>
         체크아웃<span id="cout"></span>
+      </td>
+     </tr>
+     <div>
+       <form method="post" action="../reserve/rent_before_reserve.do">
+         <input type=hidden name="start" id="start" value="${start }">
+         <input type=hidden name="end" id="end" value="${end }"> 
+         <input type=hidden name="start_rent" id="start_rent">
+         <input type=hidden name="end_rent" id="end_rent"> 
+         <input type=hidden name="car_no" value="${vo.car_no }">
+         <button type="submit" class="button" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>
+       </form>      
       </div>
-    </div>
-  </div>
+   </table>
+   </div>
+   </div>
     </div>
     <div class="clear"></div> 
    </main>

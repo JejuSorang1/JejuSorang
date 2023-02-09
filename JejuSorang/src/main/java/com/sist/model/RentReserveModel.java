@@ -98,7 +98,29 @@ public class RentReserveModel {
 //		  return "../main/main.jsp";
 //	  }
 //	
-	
+	/*
+	 * private int rrno,rprice,car_no;
+private String id,start_rent,end_rent,rpycheck;;
+private CarVO cvo;
+private MemberVO mvo;
+	 */
+	@RequestMapping("reserve/rent_before_reserve.do")
+	public String reserve_before_rent(HttpServletRequest request,HttpServletResponse response)
+	{
+		RentReserveVO vo=new RentReserveVO();
+		String car_no=request.getParameter("car_no");
+		String start_rent=request.getParameter("start_rent");
+		String end_rent=request.getParameter("end_rent");
+		vo.setCar_no(Integer.parseInt(car_no));
+		vo.setStart_rent(start_rent);
+		vo.setEnd_rent(end_rent);
+		HttpSession session=request.getSession();
+		System.out.println(car_no+" "+start_rent + " " + end_rent);
+		
+		session.setAttribute("carVO", vo);
+		request.setAttribute("main_jsp", "../reserve/rent_reserve.jsp");
+		return "../main/main.jsp";
+	}
 }
 
    

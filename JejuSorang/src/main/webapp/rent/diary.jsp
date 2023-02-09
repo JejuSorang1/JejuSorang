@@ -154,10 +154,11 @@
                 
             }
             newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
-            let dd=$('#calYear').text()+"년도 "+$('#calMonth').text()+"월 "+$('.choiceDay').text()+"일"
+            let dd=$('#calYear').text()+"-"+$('#calMonth').text()+"-"+$('.choiceDay').text()
             selDay=$('.choiceDay').text()
             //alert(dd)
             $('#cin').text(dd);
+            $('#start_rent').val(dd);
         }
 
         function choiceOutDate(newDIV) {
@@ -166,10 +167,11 @@
                 
             }
             newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
-            let dd=$('#calYear').text()+"년도 "+$('#calMonth').text()+"월 "+$('.choiceDay').text()+"일"
+            let dd=$('#calYear').text()+"-"+$('#calMonth').text()+"-"+$('.choiceDay').text()
             selDay=$('.choiceDay').text()
             //alert(dd)
             $('#cout').text(dd);
+            $('#end_rent').val(dd);
         }
         // 이전달 버튼 클릭
         function prevCalendar() {
