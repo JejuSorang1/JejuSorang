@@ -37,7 +37,6 @@ $(function(){
 			u=0;
 		}
 	})
-<<<<<<< HEAD
 	 	$("#reserveBtn").click(function(){
 		$("#dialog").dialog({
 	    	   autoOpen : false        
@@ -46,7 +45,6 @@ $(function(){
 	           , modal : true            
 	           , resizeable : false    
 	    }).dialog("open");
-=======
 	
 	$('#del_btn').click(function(){
 		let all_review_no=$(this).attr("data-no")
@@ -60,7 +58,6 @@ $(function(){
 			  location.href="../rent/car_detail.do?car_no="+detail_no;
 			}
 		})
->>>>>>> refs/remotes/origin/master
 	})
 })
 </script>
