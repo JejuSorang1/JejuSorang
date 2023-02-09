@@ -37,17 +37,7 @@ $(function(){
 			u=0;
 		}
 	})
-<<<<<<< HEAD
-	 	$("#reserveBtn").click(function(){
-		$("#dialog").dialog({
-	    	   autoOpen : false        
-	           , width : 1200            
-	           , height :600        
-	           , modal : true            
-	           , resizeable : false    
-	    }).dialog("open");
-=======
-	
+	 	
 	$('#del_btn').click(function(){
 		let all_review_no=$(this).attr("data-no")
 		let detail_no=$('#detail_no').val();
@@ -60,7 +50,16 @@ $(function(){
 			  location.href="../rent/car_detail.do?car_no="+detail_no;
 			}
 		})
->>>>>>> refs/remotes/origin/master
+
+	})
+		$("#reserveBtn").click(function(){
+		$("#dialog").dialog({
+	    	   autoOpen : false        
+	           , width : 1200            
+	           , height :600        
+	           , modal : true            
+	           , resizeable : false    
+	    }).dialog("open");
 	})
 })
 </script>
@@ -141,7 +140,7 @@ $(function(){
        <h4 style="font-size:17px;color:gray">시간이 경과될 경우 좌석이 매진되거나 요금이 변동될 수 있습니다.</h4>
                  <br>
       <div>
-         <button type="submit" class="button" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>      
+         <button class="button" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>      
       </div>
       </div>
       </div>
