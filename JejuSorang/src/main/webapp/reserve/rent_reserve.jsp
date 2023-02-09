@@ -55,7 +55,7 @@ function requestPay() {
 		    } else {
 		        var msg = '결제에 실패하였습니다.';
 		        msg += '에러내용 : ' + rsp.error_msg;
-		        location.href="mypage/###"
+		        location.href="../reserve/rent_reserve_ok.do"
 		    }
 		});
 	}
@@ -109,12 +109,9 @@ font-size: 15px;
     <div class="col-md-4 reserve2">
          <h5><b>결제정보</b></h5>
          <hr >
-         <p>대여요금</p> 
+         <p>총 결제금액</p> 
          <h4 style="color: #F8B03A;"><b id="bbb" value="${ s}" data-name="${name }">${cvo.car_price }</b></h4>
          <hr>
-         <p>총 결제금액<p>
-         <h4 style="color: #F8B03A;"><b>${totalprice }</b></h4>
-          <hr>
           <p style="text-align: center;  font-size: 15px;">위 내용을 모두 확인하였으며, 결제에 동의합니다</p>
 
            <input type="button" value="결제하기"  style="border: 0;background-color: #F8B03A; padding: 2%; color: white; width: 100%; height: 50px;" id="check">
