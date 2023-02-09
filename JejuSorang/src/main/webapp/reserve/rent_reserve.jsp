@@ -51,6 +51,7 @@ function requestPay() {
 		        msg += '상점 거래ID : ' + rsp.merchant_uid;
 		        msg += '결제 금액 : ' + rsp.paid_amount;
 		        msg += '카드 승인번호 : ' + rsp.apply_num;
+		        $('#reserve').submit();
 		    } else {
 		        var msg = '결제에 실패하였습니다.';
 		        msg += '에러내용 : ' + rsp.error_msg;
@@ -111,13 +112,14 @@ font-size: 15px;
          <h4 style="color: #F8B03A;"><b id="bbb" value="${ s}" data-name="${name }">${vo.car_price }</b></h4>
          <hr>
          <p>총 결제금액<p>
-         <h4 style="color: #F8B03A;"><b></b></h4>
+         <h4 style="color: #F8B03A;"><b>${totalprice }</b></h4>
           <hr>
           <p style="text-align: center;  font-size: 15px;">위 내용을 모두 확인하였으며, 결제에 동의합니다</p>
-          <form action="../reserve/rent_reserve.do" method="post" >
+          <form action="../reserve/rent_reserve_ok.do" method="post" id="reserve">
            <input type="hidden" name="car_name" value="${vo.car_name }" id="aaa"> 
-           <input type="hidden" name="car_option" value="${vo.car_option1 } ">
-           <input type="hidden" name="price" value="${vo.car_price }" >
+           <input type="hidden" name="car_no" value="${vo.car_no }"> 
+           <input type="hidden" name="start" value="${start }">
+           <input type="hidden" name="end" value=" ${end }" >
           </form>
            <input type="button" value="결제하기"  style="border: 0;background-color: #F8B03A; padding: 2%; color: white; width: 100%; height: 50px;" id="check">
          </div> 

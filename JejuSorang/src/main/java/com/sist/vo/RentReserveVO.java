@@ -1,12 +1,17 @@
 package com.sist.vo;
 
-import java.sql.Date;
 
 public class RentReserveVO {
 private int rrno,rprice,car_no;
-private String id,start_rent,end_rent;
-private char rpycheck;
+private String id,start_rent,end_rent,rpycheck;;
+private CarVO cv;
 
+public CarVO getCv() {
+	return cv;
+}
+public void setCv(CarVO cv) {
+	this.cv = cv;
+}
 public String getStart_rent() {
 	return start_rent;
 }
@@ -45,11 +50,12 @@ public int getCar_no() {
 public void setCar_no(int car_no) {
 	this.car_no = car_no;
 }
-public char getRpycheck() {
+public String getRpycheck() {
 	return rpycheck;
 }
-public void setRpycheck(char rpycheck) {
+public void setRpycheck(String rpycheck) {
 	this.rpycheck = rpycheck;
 }
+
 
 }
