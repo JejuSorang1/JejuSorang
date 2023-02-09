@@ -1,8 +1,15 @@
 package com.sist.vo;
 
 public class RoomVO {
-	private int room_no,hno,account;
+	private int room_no,hno,account,rvo;
 	private String room_name,room_price,room_image,room_persons,room_bed_info;
+	
+	public int getRvo() {
+		return rvo;
+	}
+	public void setRvo(int rvo) {
+		this.rvo = rvo;
+	}
 	public int getRoom_no() {
 		return room_no;
 	}
