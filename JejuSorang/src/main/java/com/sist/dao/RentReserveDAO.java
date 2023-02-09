@@ -21,13 +21,13 @@ public class RentReserveDAO {
 		  {
 			  conn=CreateConnection.getConnection();
 			  String sql="INSERT INTO jj_rent_reserve_1 VALUES("
-					    +"(SELECT NVL(MAX(rrno)+1,1) FROM jj_rent_reserve_1),?,?,?,?,?)";
+					    +"?,(SELECT NVL(MAX(rrno)+1,1) FROM jj_rent_reserve_1),?,'N',?,?,?)";
 			  ps=conn.prepareStatement(sql);
 			  ps.setString(1, vo.getId());
-			  ps.setInt(2, vo.getCar_no());
-			  ps.setString(3, vo.getStart_rent());
-			  ps.setString(4, vo.getEnd_rent());
-			  ps.setInt(4, vo.getRprice());
+			  ps.setInt(2, vo.getRprice());
+			  ps.setInt(3, vo.getCar_no());
+			  ps.setString(4, vo.getStart_rent());
+			  ps.setString(5, vo.getEnd_rent());
 			  ps.executeUpdate();
 		  }catch(Exception ex)
 		  {
