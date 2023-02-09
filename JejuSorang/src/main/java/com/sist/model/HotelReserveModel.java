@@ -61,6 +61,7 @@ public class HotelReserveModel {
 		String ckin=request.getParameter("ckin");
 		String ckout=request.getParameter("ckout");
 		String room_price=request.getParameter("room_price");
+		String hotel_name=request.getParameter("hotel_name");
 		HotelDAO hdao=new HotelDAO();
 		RoomDAO rdao=new RoomDAO();
 		HotelVO hvo=hdao.hotel_detail(Integer.parseInt(hno));

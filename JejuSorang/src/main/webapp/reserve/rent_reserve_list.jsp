@@ -21,7 +21,8 @@
         <th>차량명</th>
         <th>차량이미지</th>
         <th class="text-center"></th>
-       </tr>      
+       </tr>    
+        <c:forEach var="vo" items="${list }">  
          <tr>
          	<td><h4><a href="../rent/car_detail.do?car_no=${vo.no}">${vo.name }</a></h4></td>
 	        <td><img src="${vo.hotel_image }" style="width:130px;height: 130px"></td>
@@ -29,7 +30,7 @@
 	         <input type=button class="btn btn-xs btn-warning" id="jjim_success" value="예약대기" data-jno="${vo.jno }">
 	         <input type=button class="btn btn-xs btn-warning" id="jjim_delete" value="예약취소" data-jno="${vo.jno }">
 	       </tr>
-       
+         </c:forEach>
      </table>
     </main>
   </div>

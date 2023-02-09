@@ -40,14 +40,6 @@ $(function(){
 			u=0;
 		}
 	})
-	$("#reserveBtn").click(function(){
-		$("#dialog").dialog({
-	    	   autoOpen : false,
-			   width : 1200,        
-	           height :600,        
-	           modal : true,            
-	           resizeable : false,    
-	    }).dialog("open");
 	
 	$('#del_btn').click(function(){
 		let all_review_no=$(this).attr("data-no")
@@ -61,21 +53,53 @@ $(function(){
 			  location.href="../hotel/hotel_detail.do?hno="+detail_no;
 			}
 		})
+	})
+	$("#ReserveBtn").click(function(){
+		$("#dialog").dialog({
+	    	   autoOpen : false        
+	           , width : 1200            
+	           , height :800        
+	           , modal : true            
+	           , resizeable : false    
+	    }).dialog("open");
+	})
+	$('.rooms').click(function(){
+		let price=$(this).attr("data-price");
+		let name=$(this).attr("data-name");
+		$('#room_name').text(name)
+		$('#room_price').text(price);
+	})
+	
+	
 })
+
 </script>
 <style type="text/css">
 .row100{
   width: 1200px;
   height: 600px;
 }
+.inner-box{
+   width: 300px;
+   height: 100%; 
+}
+#filter{
+	position: relative;
+    width: 300px;
+    height: 300px;
+    left: 2px;
+    top: 10px;
+    background-color: white;
+}
 </style>
 </head>
 <body>
+
 <div class="pd-wrap">
   <div class="container">
     <div style="width: 10px;height: 50px"></div>
     <div class="row">
-    <p> <a href="../hotel/hotel_all.do"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
+    <p> <a href="../hote/hotel_all.do"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
     <div style="width: 100%;height: 2px; background-color:orange"></div>
     <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">
@@ -125,12 +149,12 @@ $(function(){
               </tr>
               <tr>
               <td colspan="3" class="text-center">
-                 <span class="btn btn-lg btn-warning" id="reserveBtn">예약하기</span>
+                 <span class="btn btn-lg btn-warning" id="ReserveBtn">예약하기</span>
               </td>
               </tr>
 			  </c:if>
 			  </table>
-            </div>
+			 </div>
           </div>  
        </div>
       </div>
@@ -196,7 +220,6 @@ $(function(){
       <br>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-         
           <c:forEach var="rvo" items="${rList }">
           <div class="col-md-12">
             <table class="table1">
@@ -216,7 +239,6 @@ $(function(){
 				          <p> <span style="color:orange">${rvo.account }</span>개의 객실이 남아있습니다. 얼른 예약하세요!</p>
 				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
                         </td>
-                        
                       </tr>
                     </table>
                 </td>
@@ -252,6 +274,7 @@ $(function(){
                             <c:if test="${sessionScope.id==revo.id }">
                               <span class="btn btn-xs btn-success ups" data-no="${revo.all_review_no }">수정</span>
                               <span class="btn btn-xs btn-danger" id="del_btn" data-no="${revo.all_review_no }">삭제</span>
+                              <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a>
                             </c:if>
                           </c:if>
                         </td>
@@ -294,35 +317,74 @@ $(function(){
         </c:if>
       </table>
       </div>
-     
-     </div>
+         </div>
         </div>
         </div>
         </div>
-      
       </div>
-     
      </div>
-      
-    <div id="dialog" title="맛집예약" style="display:none">
+    <div id="dialog" title="예약하기" style="display:none;background-color:#FFDD7C">
      <div class="container100">
-    <div class="row100" style="height: 450px">
-	<table class="table">
+    <div class="row100" style="height: 450px;width:1200px">
+	<table border="1" style="background-color:white">
 	  <tr>
-	    <td style="width:30%">
-	      <img src="#" style="width:300px;height: 300px;">
+	    <td width=40% class="text-center">
+	      <img src="${hvo.hotel_image }" style="width:400px;height: 200px;">
+	      <jsp:include page="diary.jsp"></jsp:include>
 	    </td>
-	    <td style="width:40%">
-	      <jsp:include page="../reserve/diary.jsp"></jsp:include>
-	    </td>  
-	    <td style="width:30%">
+	    <td width=40%>
+	      <div class="tab-content" id="myTabContent"style="height: 620px;overflow-y:scroll">
+         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+          <c:forEach var="rvo" items="${rList }">
+          <div class="col-md-12">
+            <table class="table1">
+              <tr >
+                <td colspan="4" rowspan="3">
+                    <table class="table2">
+                      <tr>
+                      <td>
+                          <img src="${rvo.room_image }" style="width:300px;height:250px;" data-price="${rvo.room_price }" data-name="${rvo.room_name }" class="rooms">
+                          <br><h4><b>${rvo.room_name }</b></h4>
+				          <p> <img src="../img/persons.png" style="width:20px;height:20px">&nbsp;${rvo.room_persons }</p>
+				          <p> <img src="../img/bed.png" style="width:20px;height:20px">&nbsp;${rvo.room_bed_info }</p>
+				          <p> <span style="color:orange">${rvo.account }</span>개의 객실이 남아있습니다. 얼른 예약하세요!</p>
+				          <h3><span style="color:orange"> ${rvo.room_price }원</span></h3>
+                        </td>
+                      </tr>
+                    </table>
+                </td>
+              </tr> 
+            </table>
+            <hr>
+          </div>
+          </c:forEach>
+         </div>
+        </div>
+	    </td>
+	    <td width=30%>
 	      호텔명:<br>
-	      객실명:<br>
-	      체크인:<span id="cin"></span><br>
-	      체크아웃<span id="cout"></span>
+	      ${hvo.name }<br>
+	      객실명:<span id="room_name"></span><br>
+	      가격:<span id="room_price"></span><br>
+	      체크인 :<span id="cin"></span><br>
+	      체크아웃 :<span id="cout"></span>
 	    </td>
+		<div>
+	       <form method="post" action="../reserve/room_before_reserve.do">
+	         <input type=hidden name="start" id="start">
+	         <input type=hidden name="end" id="end"> 
+	         <input type=hidden name="start_rent" id="start_rent">
+	         <input type=hidden name="end_rent" id="end_rent"> 
+	         <input type=hidden name="room_no" value="${rvo.room_no }">
+	         <input type=hidden name="room_price" value="${rvo.room_price }">
+	         <input type=hidden name="hotel_name" value="${hvo.name }">
+	         
+	         <button type="submit" class="button" data-id="${sessionScope.id }" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>
+	       </form>      
+      </div>
 	</table>
     </div>
+    <div class="clear"></div>
   </div>
     </div>
 </body>
