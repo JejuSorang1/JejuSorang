@@ -11,8 +11,10 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
   
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -38,8 +40,23 @@ $(function(){
 			u=0;
 		}
 	})
+	$("#reserveBtn").click(function(){
+		$("#dialog").dialog({
+	    	   autoOpen : false        
+	           , width : 1200            
+	           , height :600        
+	           , modal : true            
+	           , resizeable : false    
+	    }).dialog("open");
+	})
 })
 </script>
+<style type="text/css">
+.row100{
+  width: 1200px;
+  height: 600px;
+}
+</style>
 </head>
 <body>
 
@@ -47,7 +64,7 @@ $(function(){
   <div class="container">
     <div style="width: 10px;height: 50px"></div>
     <div class="row">
-    <p> <a href="javascript:history.back()"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
+    <p> <a href="../hote/hotel_all.do"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
     <div style="width: 100%;height: 2px; background-color:orange"></div>
     <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">
@@ -97,7 +114,7 @@ $(function(){
               </tr>
               <tr>
               <td colspan="3" class="text-center">
-                 <span class="btn btn-xs btn-warning" id="reserveBtn">예약하기</span>
+                 <span class="btn btn-lg btn-warning" id="reserveBtn">예약하기</span>
               </td>
               </tr>
 			  </c:if>
@@ -141,10 +158,9 @@ $(function(){
 		            map: map,
 		            position: coords
 		        });
-		
 		        // 인포윈도우로 장소에 대한 설명을 표시합니다
 		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.name}</div>'
+		            content: '<div style="width:150px;text-align:center;padding:6px 0;">${hvo.name}</div>'
 		        });
 		        infowindow.open(map, marker);
 		
@@ -157,6 +173,7 @@ $(function(){
       </div>
       </div>
      </div>
+     
      <hr>
      
     <div class="row">
@@ -202,6 +219,7 @@ $(function(){
             <hr>
           </div>
           </c:forEach>
+          
          </div>
         
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
@@ -261,11 +279,6 @@ $(function(){
              <form method="post" action="../all_review/all_review_insert.do">
                <input type="hidden" name="detail_no" value="${hvo.hno }">
                <input type="hidden" name="cate_no" value="1">
-               <%--
-                  1. seoul_locateion
-                  2. food
-                  3. goods
-                --%>
                <textarea rows="3" cols="90" name="msg" style="float: left"></textarea>&nbsp;
                <input type=submit value="작성" class="btn btn-sm btn-warning" style="height: 65px">
              </form>
@@ -275,12 +288,37 @@ $(function(){
         </c:if>
       </table>
       </div>
+     
      </div>
         </div>
         </div>
         </div>
+      
       </div>
+     
      </div>
+      
+    <div id="dialog" title="맛집예약" style="display:none">
+     <div class="container100">
+    <div class="row100" style="height: 450px">
+	<table class="table">
+	  <tr>
+	    <td style="width:30%">
+	      <img src="#" style="width:300px;height: 300px;">
+	    </td>
+	    <td style="width:40%">
+	      <jsp:include page="../reserve/diary.jsp"></jsp:include>
+	    </td>
+	    <td style="width:30%">
+	      호텔명:<br>
+	      객실명:<br>
+	      체크인:<span id="cin"></span><br>
+	      체크아웃<span id="cout"></span>
+	    </td>
 
+	</table>
+    </div>
+  </div>
+    </div>
 </body>
 </html>
