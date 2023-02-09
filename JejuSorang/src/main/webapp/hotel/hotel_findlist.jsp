@@ -36,7 +36,6 @@ $(document).ready(function() {
 });
 
 
-
 </script>
 
 <style>
@@ -46,7 +45,9 @@ $(document).ready(function() {
     height: 300px;
     left: 2px;
     top: 10px;
+    padding-Top: 15px;
     background-color: white;
+    line-height: 2px;
 }
 #datepicker_3,#datepicker_4,#inwon{
 	border-color: orange;
@@ -56,14 +57,23 @@ $(document).ready(function() {
 	border-color: orange;
 	border-radius: 10px;
 }  
-.result{
-	border: 1px;
+.table3{
+	border: 1px solid orange;
+	text-align: center;
+	border-radius: 10px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+.row{
+	justify-content: flex-end;
 }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="row">
+    <div class="row-lg-12">
     <div class="row-lg-12">
     <section class="booking_part" id="searchbar">
       <div class="booking_content" id="searchbar1" style="background:transparent;">
@@ -84,7 +94,7 @@ $(document).ready(function() {
                 <input id="datepicker_4" placeholder="예약종료일" name="checkout" value="${checkout }" autocomplete='off'>
               </div>
               <div class="form_colum" style="width:200px; margin-left: 5px; margin-Top: -2%">
-                <input type="number"  min="1" max="8" style="width: 180px;height: 50px; border-bottom-color: orange;" name="inwon" value="${inwon }" placeholder="인원">
+                <input type="number"  min="1" max="4" style="width: 180px;height: 50px; border-bottom-color: orange;" name="inwon" value="${inwon }" placeholder="인원">
               </div>
               <div class="form_btn" style="margin-left: 5px; margin-Top: -1%">
                 <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2">
@@ -95,36 +105,37 @@ $(document).ready(function() {
       </div>    
     </section>
     </div>
+    </div>
     
     
-    <div class="col-sm-3" id="filter">
+    <div class="col-sm-3" id="filter" style="display: inline">
      <form name="form1" method="get" action="../hotel/hotel_findlist.do" enctype="multipart/form-data">   
-       <table class="table result">
+       <table class="table3 col-lg-9">
          <tr>
-           <th colspan="3"><h4>검색 결과</h4></th>
+           <th colspan="2"><h4>검색 결과</h4></th>
          </tr>
          <tr>
-           <td colspan="3"><h5>목적지</h5>
+           <td colspan="2"><h5>목적지</h5>
            <br>
-           <input type="text" readonly value="${area }" style="border: none;size: 5">
+           <input type="text" readonly value="${area }" style="border: none;size: 5; text-align: center">
            </td>
          </tr>
          <tr>
-           <td colspan="3"><h5>체크인 날짜</h5>
+           <td colspan="2"><h5>체크인 날짜</h5>
            <br>
-           <input type="text" readonly value="${checkin }" style="border: none;size: 5">
+           <input type="text" readonly value="${checkin }" style="border: none;size: 5; text-align: center">
            </td>
          </tr>
          <tr>
-           <td colspan="3"><h5>체크아웃 날짜</h5>
+           <td colspan="2"><h5>체크아웃 날짜</h5>
            <br>
-           <input type="text" readonly value="${checkout }" style="border: none;size: 5">
+           <input type="text" readonly value="${checkout }" style="border: none;size: 5; text-align: center"">
            </td>
          </tr>
          <tr>
-           <td colspan="3"><h5>인원</h5>
+           <td colspan="2"><h5>인원</h5>
            <br>
-           <input type="text" readonly value="${inwon }" style="border: none;size: 5">
+           <input type="text" readonly value="${inwon }" style="border: none;size: 5; text-align: center"">
            </td>
          </tr>
        </table>
