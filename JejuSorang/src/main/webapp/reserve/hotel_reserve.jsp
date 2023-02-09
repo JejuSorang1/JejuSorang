@@ -105,19 +105,8 @@ $(function(){
            </tr>
          </table>
        </td>
-       </tr>
-       <tr>
-       <td class="warning" width="35%" height="200" colspan="2">
-         <table class="table">
-           <caption><h3>인원 정보</h3></caption>
-           <tr>
-             <td>
-               <div id="select_time"></div>
-             </td>
-           </tr>
-         </table>
-       </td>
-       </tr>
+       
+     </tr>
    </table>
    <!-- <div id="dialog" title="Basic dialog">
     <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>

@@ -56,7 +56,9 @@ $(document).ready(function() {
 	border-color: orange;
 	border-radius: 10px;
 }
-
+.result{
+	border: 1px;
+}
 </style>
 </head>
 <body>
@@ -97,32 +99,35 @@ $(document).ready(function() {
     
     <div class="col-sm-3" id="filter">
      <form name="form1" method="get" action="../hotel/hotel_findlist.do" enctype="multipart/form-data">   
-       <div class="col-md-12" >  
-         <div class="form-group">
-        <div style="width: 10px;height: 50px"></div>
-        <h3>검색결과</h3><hr>
-        <h5>목적지</h5>
-        <div style="height: 5px"></div>
-          <input type="text" readonly value="${area }" style="border: none;">
-         </div>
-          <div class="form-group">
-          <h5>체크인 날짜</h5>
-            <input type="text" value="${checkin }" readonly style="border: none;">  
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-          <h5>체크아웃 날짜</h5>
-            <input type="text" value="${checkout }" readonly style="border: none;">
-              
-          </div> 
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <h5>인원</h5>
-            <input type="text" readonly value="${inwon }" style="border: none;">
-          </div>
-        </div>
+       <table class="table result">
+         <tr>
+           <th colspan="3"><h4>검색 결과</h4></th>
+         </tr>
+         <tr>
+           <td colspan="3"><h5>목적지</h5>
+           <br>
+           <input type="text" readonly value="${area }" style="border: none;size: 5">
+           </td>
+         </tr>
+         <tr>
+           <td colspan="3"><h5>체크인 날짜</h5>
+           <br>
+           <input type="text" readonly value="${checkin }" style="border: none;size: 5">
+           </td>
+         </tr>
+         <tr>
+           <td colspan="3"><h5>체크아웃 날짜</h5>
+           <br>
+           <input type="text" readonly value="${checkout }" style="border: none;size: 5">
+           </td>
+         </tr>
+         <tr>
+           <td colspan="3"><h5>인원</h5>
+           <br>
+           <input type="text" readonly value="${inwon }" style="border: none;size: 5">
+           </td>
+         </tr>
+       </table>
        
      </form>
      
