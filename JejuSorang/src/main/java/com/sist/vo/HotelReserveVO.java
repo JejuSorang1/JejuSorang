@@ -14,8 +14,13 @@ RNO				NUMBER
  */ 
 public class HotelReserveVO {
 	private int hrno,hprice,hno,rno;
+<<<<<<< HEAD
 	private String hreno,id,hpycheck;
 	private Date ckin,ckout;
+=======
+	private String id,hpycheck,ckin,ckout;
+
+>>>>>>> refs/remotes/origin/master
 	public int getHrno() {
 		return hrno;
 	}
