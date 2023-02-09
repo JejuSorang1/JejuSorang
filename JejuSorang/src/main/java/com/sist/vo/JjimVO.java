@@ -9,39 +9,6 @@ public class JjimVO {
 
 	private int all_cate_no,jno,no,hno,car_no;
 	private String id,hotel_image,name,car_name,car_image;
-<<<<<<< HEAD
-
-
-	
-
-	public int getHno() {
-		return hno;
-	}
-	
-	public void setHno(int hno) {
-		this.hno = hno;
-	}
-	public int getCar_no() {
-		return car_no;
-	}
-	public void setCar_no(int car_no) {
-		this.car_no = car_no;
-	}
-	public String getCar_name() {
-		return car_name;
-	}
-	public void setCar_name(String car_name) {
-		this.car_name = car_name;
-	}
-	public String getCar_image() {
-		return car_image;
-	}
-	public void setCar_image(String car_image) {
-		this.car_image = car_image;
-	}
-	
-=======
->>>>>>> refs/remotes/origin/master
 	public int getAll_cate_no() {
 		return all_cate_no;
 	}
@@ -102,7 +69,7 @@ public class JjimVO {
 	public void setCar_image(String car_image) {
 		this.car_image = car_image;
 	}
-
 	
-
+	
 }
+	
