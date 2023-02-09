@@ -13,8 +13,8 @@ public class HotelReserveDAO {
 	private PreparedStatement ps;
 	
 	public void hotelReserveOk(HotelReserveVO vo)
-	{
-		try
+	{    
+		try    
 		{
 			conn=CreateConnection.getConnection();
 			String sql="INSERT INTO jj_hreserve_1 VALUES("
@@ -24,7 +24,7 @@ public class HotelReserveDAO {
 			ps.setInt(2, vo.getHprice());
 			ps.setString(3, vo.getHpycheck());
 			ps.setInt(4, vo.getHno());
-			ps.setInt(5, vo.getRno());
+			ps.setString(5, vo.getRno());
 			ps.setString(6, vo.getCkin());
 			ps.setString(7, vo.getCkout());
 			ps.executeUpdate();
@@ -39,15 +39,15 @@ public class HotelReserveDAO {
 	}
 	
 	//마이페이지에서 읽기
-	/*public List<HotelReserveVO> hotelReserveMyPageData(String id)
+	public List<HotelReserveVO> hotelReserveMyPageData(String id)
 	{
 		List<HotelReserveVO> list=new ArrayList<HotelReserveVO>();
 		try
 		{
 			
 			conn=CreateConnection.getConnection();
-			String sql="SELECT hrno,h.name,h.hotel_image,ckin,ckout,hprice,hno,hpycheck "
-					+"FROM jj_hotel_1 h,jj_room_1 r "
+			String sql="SELECT hrno,h.name,h.hotel_image,ckin,ckout,hprice,r.hno,hpycheck "
+					+"FROM jj_hotel_1 h,jj_hreserve_1 r "
 					+"WHERE h.hno=r.hno "
 					+"AND id=? "
 					+"ORDER BY hrno DESC";
@@ -63,7 +63,7 @@ public class HotelReserveDAO {
 				vo.getHvo().setHotel_image(rs.getString(3));
 				vo.setCkin(rs.getString(4));
 				vo.setCkout(rs.getString(5));
-				vo.setHprice(rs.getShort(6));
+				vo.setHprice(rs.getInt(6));
 				vo.setHno(rs.getInt(7));
 				vo.setHpycheck(rs.getString(8));
 				list.add(vo);
@@ -78,7 +78,85 @@ public class HotelReserveDAO {
 			CreateConnection.disConnection(conn, ps);
 		}
 		return list;
-	}*/
+	}
+	
+	public List<HotelReserveVO> hotelReserveAdminPageData()
+	{
+		List<HotelReserveVO> list=new ArrayList<HotelReserveVO>();
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql="SELECT hrno,r.hno,ckin,ckout,hotel_image,name,hpycheck "
+					+"FROM jj_hotel_1 h,jj_hreserve_1 r "
+					+"WHERE h.hno=r.hno "
+					+"AND id=? "
+					+"ORDER BY hrno DESC";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				HotelReserveVO vo=new HotelReserveVO();
+				vo.setHrno(rs.getInt(1));
+				vo.getHvo().setHno(rs.getInt(2));
+				vo.setCkin(rs.getString(3));
+				vo.setCkout(rs.getString(4));
+				vo.getHvo().setHotel_image(rs.getString(5));
+				vo.getHvo().setName(rs.getString(5));
+				vo.setHpycheck(rs.getString(7));
+				list.add(vo);
+			}
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+		return list;
+	}
+	
+	//예약 승인
+	public void hotelReserveAdminOk(int hrno)
+	{
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql="UPDATE jj_hreserve_1 SET "
+					+"hpycheck='y' "
+					+ "WHERE hrno=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, hrno);
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+	}
+	
+	public void hotelReserveDelete(int hrno)
+	{
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql="DELETE FROM jj_hreserve_1 "
+					+"WHERE hrno=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, hrno);
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+	}
 
 	 
 	  

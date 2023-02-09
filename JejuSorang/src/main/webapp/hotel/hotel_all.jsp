@@ -33,7 +33,6 @@ $(document).ready(function() {
  
   }).scroll();
 });
-
 </script>
 <style>
 #cookie{
@@ -44,6 +43,7 @@ $(document).ready(function() {
     top: 10px;
     background-color: white;
 }
+
 </style>
 </head>
 <body>  
@@ -57,8 +57,8 @@ $(document).ready(function() {
 	 <div class="inline">
 	  <table class="table" style="background-color:orange">
        <c:forEach var="hvo" items="${cList }" varStatus="s">
-        <c:if test="${s.index<9 }">
-         <a href="../hotel/hotel_before_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width: 100px;height: 100px"></a>
+        <c:if test="${s.index<6 }">
+         <a href="../hotel/hotel_before_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width: 150px;height: 150px">&nbsp;<br></a>
         </c:if>
        </c:forEach>
        </table>
