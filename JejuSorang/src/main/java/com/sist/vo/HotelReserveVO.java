@@ -12,9 +12,17 @@ ID               VARCHAR2(20)
 HNO              NUMBER 
  */ 
 public class HotelReserveVO {
-	private int hrno,hprice,hno;
+	private int hrno,hprice,hno,rno;
 	private String hreno,id,hpycheck;
 	private Date ckin,ckout;
+	
+	
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
 	public int getHrno() {
 		return hrno;
 	}
