@@ -32,13 +32,13 @@ $(function(){
      <div style="height: 5px"></div>
      <table class="table text-center">
        <tr>
-        <th>숙소명</th>
-        <th>숙소이미지</th>
+        <th class="text-center">숙소명</th>
+        <th class="text-center">숙소이미지</th>
         <th class="text-center"></th>
        </tr>
        <c:forEach var="vo" items="${list }">
          <tr>
-         	<td><h4><a href="../hotel/hotel.detail.do?hno=${vo.no}">${vo.name }</a></h4></td>
+         	<td><h4><a href="../hotel/hotel_detail.do?hno=${vo.no}">${vo.name }</a></h4></td>
 	        <td><img src="${vo.hotel_image }" style="width:130px;height: 130px"></td>
 	        <td class="text-center">
 	         <input type=button class="btn btn-xs btn-warning" id="jjim_delete" value="취소" data-jno="${vo.jno }">

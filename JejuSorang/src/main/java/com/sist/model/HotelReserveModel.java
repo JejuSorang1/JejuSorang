@@ -31,11 +31,14 @@ public class HotelReserveModel {
 		
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("id");
+		HotelReserveVO hrvo=(HotelReserveVO)session.getAttribute("roomVO");
 		
 		HotelReserveVO vo=new HotelReserveVO();
 		vo.setId(id);
-		vo.setHno(Integer.parseInt(hno));
-		vo.setRno(vo.getRno());
+		vo.setHno(hrvo.getHno());
+		vo.setRno(hrvo.getRno());
+		vo.setCkin(hrvo.getCkin());
+		vo.setCkout(hrvo.getCkout());
 		
 		HotelReserveDAO dao=new HotelReserveDAO();
 		dao.hotelReserveOk(vo);
@@ -48,7 +51,11 @@ public class HotelReserveModel {
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("id");
 		HotelReserveDAO dao=new HotelReserveDAO();
-		
+		List<HotelReserveVO> list=dao.hotelReserveMyPageData(id);
+		request.setAttribute("list", list);
+		request.setAttribute("mypage_jsp", "../mypage/mypage_hotle_reserve.jsp");
+		request.setAttribute("main_jsp", "../mypage/mypage_main.jsp");
+		CommonsModel.footerData(request);
 		return "../main/main.jsp";
 	}
 	@RequestMapping("reserve/hotel_before_reserve.do")
@@ -74,7 +81,7 @@ public class HotelReserveModel {
 		request.setAttribute("s", total);
 		rlist.get(4).setRoom_price(String.valueOf(total));
 		request.setAttribute("hname", hvo.getName());
-		request.setAttribute("rname", rlist.get(4).getRoom_price());
+		request.setAttribute("rname", rlist.get(4).getRoom_name());
 		request.setAttribute("hvo", hvo);
 		request.setAttribute("rlist", rlist);
 		
@@ -89,5 +96,31 @@ public class HotelReserveModel {
 		request.setAttribute("main_jsp", "../reserve/hotel_reserve.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("mypage/hotel_reserve.do")
+	public String mypage_hotel_reserve(HttpServletRequest request,HttpServletResponse response)
+	{
+		HttpSession session=request.getSession();
+		  String id=(String)session.getAttribute("id");
+		  HotelReserveDAO dao=new HotelReserveDAO();
+		  List<HotelReserveVO> list=dao.hotelReserveMyPageData(id);
+		  request.setAttribute("list", list);
+		  request.setAttribute("mypage_jsp", "../mypage/mypage_hotel_reserve.jsp");
+		  request.setAttribute("main_jsp", "../mypage/mypage_main.jsp");
+		  CommonsModel.footerData(request);
+		  return "../main/main.jsp";
+	    
+		
+	}
 	
+	 @RequestMapping("adminpage/admin_hotelReserve.do")
+	  public String hotel_admin_reserve(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  HotelReserveDAO dao=new HotelReserveDAO();
+		  List<HotelReserveVO> list=dao.hotelreserveAdminPageData();
+		  request.setAttribute("list", list);
+		  request.setAttribute("adminpage_jsp", "../adminpage/admin_hotel_reserve.jsp");
+		  request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
+		  CommonsModel.footerData(request);
+		  return "../main/main.jsp";
+	  }
 }

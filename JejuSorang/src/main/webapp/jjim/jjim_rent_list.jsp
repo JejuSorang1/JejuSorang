@@ -31,8 +31,8 @@ $(function(){
      <div style="height: 5px"></div>
      <table class="table text-center">
        <tr>
-        <th>차량명</th>
-        <th>차량이미지</th>
+        <th class="text-center">차량명</th>
+        <th class="text-center">차량이미지</th>
         <th class="text-center"></th>
        </tr>
        <c:forEach var="vo" items="${list }">
