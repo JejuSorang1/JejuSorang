@@ -37,6 +37,16 @@ $(function(){
 			u=0;
 		}
 	})
+	 	$("#reserveBtn").click(function(){
+		$("#dialog").dialog({
+	    	   autoOpen : false        
+	           , width : 1200            
+	           , height :600        
+	           , modal : true            
+	           , resizeable : false    
+	    }).dialog("open");
+	
+	})
 	 	
 	$('#del_btn').click(function(){
 		let all_review_no=$(this).attr("data-no")
