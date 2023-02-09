@@ -37,6 +37,20 @@ $(function(){
 			u=0;
 		}
 	})
+	
+	$('#del_btn').click(function(){
+		let all_review_no=$(this).attr("data-no")
+		let detail_no=$('#detail_no').val();
+		let cate_no=2;
+		$.ajax({
+			type:'post',
+			url:'../all_review/all_review_delete.do',
+			data:{"detail_no":detail_no,"all_review_no":all_review_no,"cate_no":cate_no},
+			success:function(response){
+			  location.href="../rent/car_detail.do?car_no="+detail_no;
+			}
+		})
+	})
 })
 
 </script>
@@ -267,7 +281,7 @@ $(function(){
                             <c:if test="${sessionScope.id==rvo.id }">
 
                               <span class="btn btn-xs btn-success ups" data-no="${rvo.all_review_no }">수정</span>
-                              <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${rvo.cate_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
+                              <span class="btn btn-xs btn-danger" id="del_btn" data-no="${rvo.all_review_no }">삭제</span>
                             </c:if>
                           </c:if>
                         </td>

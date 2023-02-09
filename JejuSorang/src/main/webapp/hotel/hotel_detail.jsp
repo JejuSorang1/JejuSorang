@@ -23,20 +23,34 @@
 let u=0;
 $(function(){
 	$('.ups').click(function(){
-		$('.rupdate').hide();
+		$('.rupdate').show();
 		let rno=$(this).attr("data-no");
 		if(u==0)
 		{
-			$(this).text("취소");
-			$('#u'+all_review_no).show();
+			$(this).text("수정");
+			$('#u'+rno).hide();
 			u=1;
 		}
 		else
 		{
-			$(this).text("수정");
-			$('#u'+all_review_no).hide();
+			$(this).text("취소");
+			$('#u'+rno).show();
 			u=0;
 		}
+	})
+	
+	$('#del_btn').click(function(){
+		let all_review_no=$(this).attr("data-no")
+		let detail_no=$('#detail_no').val();
+		let cate_no=1;
+		$.ajax({
+			type:'post',
+			url:'../all_review/all_review_delete.do',
+			data:{"detail_no":detail_no,"all_review_no":all_review_no,"cate_no":cate_no},
+			success:function(response){
+			  location.href="../hotel/hotel_detail.do?hno="+detail_no;
+			}
+		})
 	})
 })
 </script>
@@ -214,8 +228,8 @@ $(function(){
                         <td class="text-right" width=15%>
                           <c:if test="${sessionScope.id!=null }">
                             <c:if test="${sessionScope.id==revo.id }">
-                              <span class="btn btn-xs btn-danger ups" data-no="${revo.all_review_no }">수정</span>
-                              <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a>
+                              <span class="btn btn-xs btn-success ups" data-no="${revo.all_review_no }">수정</span>
+                              <span class="btn btn-xs btn-danger" id="del_btn" data-no="${revo.all_review_no }">삭제</span>
                             </c:if>
                           </c:if>
                         </td>

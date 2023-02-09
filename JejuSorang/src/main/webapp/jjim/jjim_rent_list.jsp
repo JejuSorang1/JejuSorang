@@ -7,6 +7,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#jjim_delete').click(function(){
+		let no=$(this).attr("data-no");
+		$.ajax({
+			type:'post',
+			url:'../mypage/jjim_delete.do?no='+no,
+			success:function(response){
+				$('#content').html(response)
+			}
+		})
+	})
+})
+</script>
 </head>
 <body>
   <div class="wrapper row3">
@@ -24,7 +40,7 @@
             <td><h4><a href="../rent/car_detail.do?car_no=${vo.no}">${vo.car_name }</a></h4></td>
 	        <td><img src="${vo.car_image }" style="width: 130px; height: 130px"></td>       
 	        <td class="text-center">
-	         <a href="../mypage/jjim_delete.do?no=${vo.jno }" class="btn btn-xs btn-warning">취소</a>
+	        <input type=button class="btn btn-xs btn-warning" id="jjim_delete" value="취소" data-no="${vo.no }">
 	        </td>
 	       </tr>
        </c:forEach>
