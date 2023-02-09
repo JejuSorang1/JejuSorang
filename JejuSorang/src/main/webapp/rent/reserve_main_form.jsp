@@ -13,7 +13,8 @@
 }
 </style>
 </head>
-<body>
-
+<input type="hidden" name="start" id="start">
+<input type="hidden" name="end" id="end">
+총금액:<span id="total"></span>
 </body>
 </html>

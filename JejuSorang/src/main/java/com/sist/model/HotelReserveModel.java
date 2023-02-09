@@ -66,24 +66,29 @@ public class HotelReserveModel {
 		HotelDAO hdao=new HotelDAO();
 		RoomDAO rdao=new RoomDAO();
 		HotelVO hvo=hdao.hotel_detail(Integer.parseInt(hno));
-		RoomVO rvo=rdao.room_detail();
+		List<RoomVO> rlist=rdao.room_detail(Integer.parseInt(hno));
 		int ss=Integer.parseInt(ckin);
 		int ee=Integer.parseInt(ckout);
 		
-		String s=rvo.getRoom_price();
+		String s=rlist.get(4).getRoom_price();
 		s=s.replace(",", "");
 		int total=(ee-ss)*Integer.parseInt(s);
 		request.setAttribute("s", total);
-		rvo.setRoom_price(String.valueOf(total));
+		rlist.get(4).setRoom_price(String.valueOf(total));
 		request.setAttribute("hname", hvo.getName());
-		request.setAttribute("rname", rvo.getRoom_name());
+		request.setAttribute("rname", rlist.get(4).getRoom_price());
 		request.setAttribute("hvo", hvo);
-		request.setAttribute("rvo", rvo);
+		request.setAttribute("rlist", rlist);
 		
 		hvo.setHno(Integer.parseInt(hno));
 		hrvo.setRno(Integer.parseInt(rno));
 		hrvo.setCkin(ckin);
 		hrvo.setCkout(ckout);
+		HttpSession session=request.getSession();
+		
+		session.setAttribute("HotelVO", hrvo);
+		session.setAttribute("RoomVO", hrvo);
+		request.setAttribute("main_jsp", "../reserve/hotel_reserve.jsp");
 		return "../main/main.jsp";
 	}
 	
