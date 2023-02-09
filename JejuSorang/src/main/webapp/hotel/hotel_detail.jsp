@@ -194,7 +194,7 @@ $(function(){
         
         <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
          <div style="height: 20px"></div>
-      <div class="content three_quarter first"> 
+      <div class="content one_quarter first"> 
         <h2 class="sectiontitle" style="font-size:20px;color:gray">리뷰</h2>
         <c:if test="${count==0 }">
                  <table class="table">
