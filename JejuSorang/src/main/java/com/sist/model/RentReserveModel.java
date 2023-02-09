@@ -100,7 +100,17 @@ public class RentReserveModel {
 		
 	}
 	
-
+	 @RequestMapping("adminpage/admin_reserve.do")
+	  public String rent_admin_reserve(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  RentReserveDAO dao=new RentReserveDAO();
+		  List<RentReserveVO> list=dao.rentreserveAdminPageData();
+		  request.setAttribute("list", list);
+		  request.setAttribute("adminpage_jsp", "../adminpage/admin_rent_reserve.jsp");
+		  request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
+		  CommonsModel.footerData(request);
+		  return "../main/main.jsp";
+	  }
 
 }
 

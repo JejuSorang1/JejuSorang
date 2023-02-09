@@ -13,9 +13,9 @@ HNO              NUMBER
 RNO				NUMBER
  */ 
 public class HotelReserveVO {
-
 	private int hrno,hprice,hno,rno;
-	private String hreno,id,hpycheck;
+	private String hreno,id,hpycheck,ckin,ckout;
+
 	public int getHrno() {
 		return hrno;
 	}
@@ -57,6 +57,18 @@ public class HotelReserveVO {
 	}
 	public void setHpycheck(String hpycheck) {
 		this.hpycheck = hpycheck;
+	}
+	public String getCkin() {
+		return ckin;
+	}
+	public void setCkin(String ckin) {
+		this.ckin = ckin;
+	}
+	public String getCkout() {
+		return ckout;
+	}
+	public void setCkout(String ckout) {
+		this.ckout = ckout;
 	}
 
 	
