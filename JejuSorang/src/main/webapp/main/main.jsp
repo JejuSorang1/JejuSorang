@@ -52,7 +52,7 @@
     <!-- footer part start-->
  	<jsp:include page="footer.jsp"></jsp:include>
     <!-- footer part end-->
-
+	
 
 
     <!-- jquery plugins here-->

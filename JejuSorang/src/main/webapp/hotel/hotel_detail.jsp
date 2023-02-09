@@ -61,7 +61,6 @@ $(function(){
 			  location.href="../hotel/hotel_detail.do?hno="+detail_no;
 			}
 		})
-	})
 })
 </script>
 <style type="text/css">
@@ -317,7 +316,7 @@ $(function(){
 	      <jsp:include page="../reserve/diary.jsp"></jsp:include>
 	    </td>  
 	    <td style="width:30%">
-	      호텔명:<br> 
+	      호텔명:<br>
 	      객실명:<br>
 	      체크인:<span id="cin"></span><br>
 	      체크아웃<span id="cout"></span>
