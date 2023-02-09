@@ -55,7 +55,7 @@ $(document).ready(function() {
 .booking_part .form-row .form_colum .nc_select{
 	border-color: orange;
 	border-radius: 10px;
-}
+}  
 .result{
 	border: 1px;
 }
