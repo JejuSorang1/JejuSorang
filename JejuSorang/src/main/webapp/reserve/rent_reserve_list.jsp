@@ -18,17 +18,19 @@
      <div style="height: 5px"></div>
      <table class="table text-center">
        <tr>
-        <th>차량명</th>
-        <th>차량이미지</th>
+        <th class="text-center">차량명</th>
+        <th class="text-center">차량이미지</th>
+        <th class="text-center">예약일</th>
         <th class="text-center"></th>
        </tr>    
         <c:forEach var="vo" items="${list }">  
          <tr>
-         	<td><h4><a href="../rent/car_detail.do?car_no=${vo.no}">${vo.name }</a></h4></td>
-	        <td><img src="${vo.hotel_image }" style="width:130px;height: 130px"></td>
+         	<td><h4><a href="../rent/car_detail.do?car_no=${vo.car_no}">${vo.cvo.car_name }</a></h4></td>
+	        <td><img src="${vo.cvo.car_image }" style="width:130px;height: 130px"></td>
+	        <td>${vo.start_rent } ~ ${vo.end_rent }</td>
 	        <td class="text-center">
-	         <input type=button class="btn btn-xs btn-warning" id="jjim_success" value="예약대기" data-jno="${vo.jno }">
-	         <input type=button class="btn btn-xs btn-warning" id="jjim_delete" value="예약취소" data-jno="${vo.jno }">
+	         <input type=button class="btn btn-xs btn-warning" id="jjim_success" value="예약대기">
+	         <input type=button class="btn btn-xs btn-warning" id="jjim_delete" value="예약취소" data-jno="${vo.car_no }">
 	       </tr>
          </c:forEach>
      </table>

@@ -58,7 +58,7 @@ public class RentReserveDAO {
 			  {
 				RentReserveVO  vo= new RentReserveVO();
 				vo.setRrno(rs.getInt(1));
-				vo.getCvo().setCar_no(rs.getInt(2));
+				vo.setCar_no(rs.getInt(2));
 				vo.setStart_rent(rs.getString(3));
 				vo.setEnd_rent(rs.getString(4));
 				vo.getCvo().setCar_name(rs.getString(5));
