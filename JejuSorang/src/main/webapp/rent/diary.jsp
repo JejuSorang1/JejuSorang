@@ -79,6 +79,20 @@
             font-weight: 600;
             cursor: pointer;
         }
+        #inBtn{
+            background: orange;
+            width:80px;
+            height:30px;
+            color:white;
+            border-color:white;
+        }
+        #outBtn{
+            background: orange;
+            width:80px;
+            height:30px;
+            color:white;
+            border-color:white;
+        }
     </style>
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
     <script>
@@ -174,6 +188,7 @@
             $('#cout').text(dd);
             $('#end_rent').val(dd);
             $('#end').val($('.choiceDay').text());
+            $("#mybutton").show()
         }
         // 이전달 버튼 클릭
         function prevCalendar() {
