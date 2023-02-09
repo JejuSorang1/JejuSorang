@@ -10,7 +10,9 @@ import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.AllReviewDAO;
 import com.sist.dao.JjimDAO;
+import com.sist.dao.RentReserveDAO;
 import com.sist.vo.JjimVO;
+import com.sist.vo.RentReserveVO;
 
 @Controller
 public class MyPageModel {
@@ -70,9 +72,10 @@ public class MyPageModel {
 	  public String mypage_rent_reserve(HttpServletRequest request,HttpServletResponse response) {
 		    HttpSession session=request.getSession();
 			String id=(String)session.getAttribute("id");
+			RentReserveDAO dao=new RentReserveDAO();
+			List<RentReserveVO> list=dao.rentreserveMyPageData(id);
 			
-			
-//			request.setAttribute("list", list);
+			request.setAttribute("list", list);
 			CommonsModel.footerData(request);
 		  return "../reserve/rent_reserve_list.jsp";
 	  }

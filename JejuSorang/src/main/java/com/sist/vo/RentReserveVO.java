@@ -4,8 +4,8 @@ package com.sist.vo;
 public class RentReserveVO {
 private int rrno,rprice,car_no;
 private String id,start_rent,end_rent,rpycheck;;
-private CarVO cvo;
-private MemberVO mvo;
+private CarVO cvo=new CarVO();
+private MemberVO mvo=new MemberVO();
 
 
 

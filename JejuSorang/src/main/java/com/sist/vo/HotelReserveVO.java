@@ -11,11 +11,31 @@ HPYCHECK          CHAR(1)
 ID               VARCHAR2(20) 
 HNO              NUMBER 
 RNO				NUMBER
- */ 
+ */   
 public class HotelReserveVO {
-	private int hrno,hprice,hno,rno;
-	private String hreno,id,hpycheck,ckin,ckout;
-
+	private int hrno,hprice,hno;
+	private String hreno,id,hpycheck,ckin,ckout,rno;
+	private HotelVO hvo;
+	private MemberVO mvo;
+	
+	public String getRno() {
+		return rno;
+	}
+	public void setRno(String rno) {
+		this.rno = rno;
+	}
+	public HotelVO getHvo() {
+		return hvo;
+	}
+	public void setHvo(HotelVO hvo) {
+		this.hvo = hvo;
+	}
+	public MemberVO getMvo() {
+		return mvo;
+	}
+	public void setMvo(MemberVO mvo) {
+		this.mvo = mvo;
+	}
 	public int getHrno() {
 		return hrno;
 	}
@@ -34,12 +54,7 @@ public class HotelReserveVO {
 	public void setHno(int hno) {
 		this.hno = hno;
 	}
-	public int getRno() {
-		return rno;
-	}
-	public void setRno(int rno) {
-		this.rno = rno;
-	}
+	
 	public String getHreno() {
 		return hreno;
 	}

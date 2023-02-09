@@ -64,9 +64,7 @@ public class HotelReserveModel {
 		HotelReserveVO hrvo=new HotelReserveVO();
 		String hno=request.getParameter("hno");
 		String rno=request.getParameter("rno");
-		String room_no=request.getParameter("room_no");
-		String ckin_rent=request.getParameter("ckin_rent");
-		String ckout_rent=request.getParameter("ckout_rent");
+		String rno=request.getParameter("rno");
 		String ckin=request.getParameter("ckin");
 		String ckout=request.getParameter("ckout");
 		String room_price=request.getParameter("room_price");
