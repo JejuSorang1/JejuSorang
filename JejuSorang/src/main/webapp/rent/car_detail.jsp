@@ -37,8 +37,41 @@ $(function(){
 			u=0;
 		}
 	})
-})
+	 	$("#reserveBtn").click(function(){
+		$("#dialog").dialog({
+	    	   autoOpen : false        
+	           , width : 1200            
+	           , height :600        
+	           , modal : true            
+	           , resizeable : false    
+	    }).dialog("open");
+	
+	})
+	 	
+	$('#del_btn').click(function(){
+		let all_review_no=$(this).attr("data-no")
+		let detail_no=$('#detail_no').val();
+		let cate_no=2;
+		$.ajax({
+			type:'post',
+			url:'../all_review/all_review_delete.do',
+			data:{"detail_no":detail_no,"all_review_no":all_review_no,"cate_no":cate_no},
+			success:function(response){
+			  location.href="../rent/car_detail.do?car_no="+detail_no;
+			}
+		})
 
+	})
+		$("#reserveBtn").click(function(){
+		$("#dialog").dialog({
+	    	   autoOpen : false        
+	           , width : 1200            
+	           , height :600        
+	           , modal : true            
+	           , resizeable : false    
+	    }).dialog("open");
+	})
+})
 </script>
 
 <style type="text/css">
@@ -53,7 +86,7 @@ $(function(){
    top: 50px;
    left: 250px;
 } 
-#mybutton{
+#reserveBtn{
    width:300px;
    height: 50px;
    background-color: #0000FF;
@@ -63,7 +96,14 @@ $(function(){
    width: 300px;
    height: 100%; 
 }
-
+#filter{
+	position: relative;
+    width: 300px;
+    height: 300px;
+    left: 2px;
+    top: 10px;
+    background-color: white;
+}
 
 </style>
 
@@ -75,6 +115,7 @@ $(function(){
     <div class="row">   
        <figure>
 		 <img src="${vo.car_image }" width="450" height="450">
+		 
 		  <p class="tip" style="font-size: 15px">차량 이미지는 이해를 돕기 위한 예시로, 배차 차량과 다를 수 있습니다.</p>
            <h4 style="font-size:20px;color:gray"><b>${vo.car_name }</b></h4>
               <br>
@@ -94,11 +135,13 @@ $(function(){
                 <span class="btn btn-xs btn-default">찜하기(${jjim_total })</span>
               </c:if>
 			  </c:if>
+
 		</figure>
-           
+
       <div class="box">
        <div class="inner-box">
        <h4 style="font-size:23px;color:gray"><b>결제정보</b></h4>
+       <div class="inline">
        <br>
        <h4 style="font-size:19px;color:gray">최종결제금액&nbsp;<h4 style="font-size:23px;color:blue"><b>${vo.car_price }원</b><h4></h4>
        <hr style="border: width:100px;">
@@ -107,17 +150,13 @@ $(function(){
        <h4 style="font-size:17px;color:gray">시간이 경과될 경우 좌석이 매진되거나 요금이 변동될 수 있습니다.</h4>
                  <br>
       <div>
-       <form method="post" action="../reserve/rent_reserve.do">
-         <input type=hidden name="start_reserve" value="${start }">
-         <input type=hidden name="end_reserve" value="${end }"> 
-         <input type=hidden name="car_no" value="${vo.car_no }">
-         <button type="submit" class="button" id="mybutton" style="float: right; margin-right: 5px;">예약하기</button>
-       </form>      
+         <button class="button" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>      
+      </div>
       </div>
       </div>
       </div>
      </div>
-      <hr align="left" style="border: solid 1px gray; width: 50%;">
+       <hr align="left" style="border: solid 1px gray; width: 50%;">
       <div class="container">
        <div class="row">
         <div class="col-md-3">
@@ -133,7 +172,7 @@ $(function(){
        </div>
       </div>
       
-     <hr align="left" style="border: solid 1px gray; width: 50%;">       
+     <hr align="left" style="border: solid 1px gray; width: 50%;">     
                     
                      
      <div class="container">
@@ -150,7 +189,6 @@ $(function(){
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
            <br>
-           
           <div class="col-md-8">
             <table class="table1">
             <h4 style="font-size:15px;color:gray"><b>차량정보</b></h4>
@@ -159,7 +197,6 @@ $(function(){
              </tr>
             </table> 
             <br>
-
             <table>
 	         <h4 style="font-size:15px;color:gray"><b>차량옵션</b></h4>
 	          <tr>
@@ -267,7 +304,7 @@ $(function(){
                             <c:if test="${sessionScope.id==rvo.id }">
 
                               <span class="btn btn-xs btn-success ups" data-no="${rvo.all_review_no }">수정</span>
-                              <a href="../all_review/all_review_delete.do?all_review_no=${rvo.all_review_no }&no=${rvo.cate_no}&cate_no=2" class="btn btn-xs btn-danger">삭제</a>
+                              <span class="btn btn-xs btn-danger" id="del_btn" data-no="${rvo.all_review_no }">삭제</span>
                             </c:if>
                           </c:if>
                         </td>
@@ -279,7 +316,7 @@ $(function(){
                        <tr id="u${rvo.all_review_no }" class="rupdate" style="display:none">
 			             <td colspan="2">
 			               <form method="post" action="../all_review/all_review_update.do">
-
+							 
 			               	 <input type=hidden name="detail_no" id="detail_no" value="${vo.car_no }">
 					         <input type=hidden name="all_review_no" value="${rvo.all_review_no }">
 					         <input type=hidden name="cate_no" value="2">
@@ -317,7 +354,40 @@ $(function(){
       </table>
       </div>
      </div>
-     
+     <div id="dialog" title="예약하기" style="display:none">
+     <div class="containerx">
+     <div class="rowx" style="height: 450px;width:1200px" >
+     <table border=1>
+      <tr>
+      <td width=40%>
+       <img src="${vo.car_image }" style="width:300px;height: 300px;">
+      </td>
+      <td width=40%>
+        <jsp:include page="diary.jsp"></jsp:include>
+      </td>
+      <td width=20% valign=top>
+        차량명:<br>
+        체크인:<span id="cin"></span><br>
+        체크아웃<span id="cout"></span>
+      </td>
+     </tr>
+     <div>
+       <form method="post" action="../reserve/rent_before_reserve.do">
+         <input type=hidden name="start" id="start">
+         <input type=hidden name="end" id="end"> 
+         <input type=hidden name="start_rent" id="start_rent">
+         <input type=hidden name="end_rent" id="end_rent"> 
+         <input type=hidden name="car_no" value="${vo.car_no }">
+         <input type=hidden name="car_price" value="${vo.car_price }">
+         
+         <button type="submit" class="button" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>
+       </form>      
+      </div>
+   </table>
+   </div>
+   </div>
+    </div>
+    <div class="clear"></div> 
    </main>
   </div>      
 </body>

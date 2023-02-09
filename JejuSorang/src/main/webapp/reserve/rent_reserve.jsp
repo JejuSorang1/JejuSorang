@@ -51,9 +51,11 @@ function requestPay() {
 		        msg += '상점 거래ID : ' + rsp.merchant_uid;
 		        msg += '결제 금액 : ' + rsp.paid_amount;
 		        msg += '카드 승인번호 : ' + rsp.apply_num;
+		        location.href="mypage/####"
 		    } else {
 		        var msg = '결제에 실패하였습니다.';
 		        msg += '에러내용 : ' + rsp.error_msg;
+		        location.href="mypage/###"
 		    }
 		});
 	}
@@ -75,21 +77,21 @@ font-size: 15px;
  <div class="container">
   <div class="row">
     <div class="col-md-7 reserve">
-	           <h3><b>${vo.car_name }</b></h3>
+	           <h3><b>${cvo.car_name }</b></h3>
 	             <p class="short-text">업체:레인보우모빌리티</p>
 	           <hr style="border: solid 1px gray; " >
 	           <div class="row">
 			        <div class="col-md-6" >
 			        <div class="text-left">
-			         <div class="text-center" style="font-size: 15px;">대여일시 : ${start }</div>
+			         <div class="text-center" style="font-size: 15px;">대여일시 : ${sessionScope.carVO.start_rent }</div>
 			        </div>
 			       <div class="text-left">
-			         <div class="text-center" style="font-size: 15px;">반납일시 : ${end }</div>
+			         <div class="text-center" style="font-size: 15px;">반납일시 : ${sessionScope.carVO.end_rent }</div>
 			        </div>
 			       </div> 
 			       </div>
 			       <hr style="border: solid 1px gray; " >
-			      <p>차량정보 : ${vo.car_option1 }</p> 
+			      <p>차량정보 : ${cvo.car_option1 }</p> 
 			      <br>
 			     <ul style="t">
 			      <li>운전자 정보 : ${sessionScope.name }  </li>
@@ -108,17 +110,13 @@ font-size: 15px;
          <h5><b>결제정보</b></h5>
          <hr >
          <p>대여요금</p> 
-         <h4 style="color: #F8B03A;"><b id="bbb" value="${ s}" data-name="${name }">${vo.car_price }</b></h4>
+         <h4 style="color: #F8B03A;"><b id="bbb" value="${ s}" data-name="${name }">${cvo.car_price }</b></h4>
          <hr>
          <p>총 결제금액<p>
-         <h4 style="color: #F8B03A;"><b></b></h4>
+         <h4 style="color: #F8B03A;"><b>${totalprice }</b></h4>
           <hr>
           <p style="text-align: center;  font-size: 15px;">위 내용을 모두 확인하였으며, 결제에 동의합니다</p>
-          <form action="../reserve/rent_reserve.do" method="post" >
-           <input type="hidden" name="car_name" value="${vo.car_name }" id="aaa"> 
-           <input type="hidden" name="car_option" value="${vo.car_option1 } ">
-           <input type="hidden" name="price" value="${vo.car_price }" >
-          </form>
+
            <input type="button" value="결제하기"  style="border: 0;background-color: #F8B03A; padding: 2%; color: white; width: 100%; height: 50px;" id="check">
          </div> 
       </div>
