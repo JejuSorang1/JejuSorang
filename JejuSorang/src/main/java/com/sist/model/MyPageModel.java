@@ -72,7 +72,7 @@ public class MyPageModel {
 			String id=(String)session.getAttribute("id");
 			
 			
-			request.setAttribute("list", list);
+//			request.setAttribute("list", list);
 			CommonsModel.footerData(request);
 		  return "../reserve/rent_reserve_list.jsp";
 	  }
