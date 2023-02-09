@@ -76,4 +76,11 @@ public class MyPageModel {
 			CommonsModel.footerData(request);
 		  return "../reserve/rent_reserve_list.jsp";
 	  }
+	  @RequestMapping("mypage/hotel_reserve_list.do")
+	  public String mypage_hotel_reserve(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  HttpSession session=request.getSession();
+		  String id=(String)session.getAttribute("id");
+		  return "../hotel/hotel_detail.jsp";
+	  }
 }
