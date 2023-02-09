@@ -11,7 +11,7 @@ HPYCHECK          CHAR(1)
 ID               VARCHAR2(20) 
 HNO              NUMBER 
 RNO				NUMBER
- */ 
+ */   
 public class HotelReserveVO {
 	private int hrno,hprice,hno;
 	private String hreno,id,hpycheck,ckin,ckout,rno;
