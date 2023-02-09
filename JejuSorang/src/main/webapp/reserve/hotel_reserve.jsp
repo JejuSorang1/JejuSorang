@@ -1,117 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script> -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.rooms').click(function(){
-		let fd=$(this).text();
-		$.ajax({
-			type:'POST',
-			url:'../reserve/reserve_room.do',
-			data:{"fd":fd},
-			success:function(response)
-			{
-				$('#room_list').html(response); // JSON (스프링)
-			}
+	//$('#check').click(function(){
+		//alert('fgfdg')
+		
+		$('#check').click(function(){
+			requestPay();
 		})
-	})
+		
+	
+	
 })
+	var IMP = window.IMP; // 생략 가능
+	IMP.init("imp68206770"); // 예: imp00000000
+function requestPay() {
+		console.log('clicked');
+	  // IMP.request_pay(param, callback) 결제창 호출
+		IMP.request_pay({
+		    pg : 'kakao', // version 1.1.0부터 지원.
+		        /*
+		            'kakao':카카오페이,
+		            'inicis':이니시스, 'html5_inicis':이니시스(웹표준결제),
+		            'nice':나이스,
+		            'jtnet':jtnet,
+		            'uplus':LG유플러스
+		        */
+		    pay_method : 'card', // 'card' : 신용카드 | 'trans' : 실시간계좌이체 | 'vbank' : 가상계좌 | 'phone' : 휴대폰소액결제
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '주문명:'+$('#bbb').attr('data-name'),
+		    amount : $('#bbb').attr('value'),
+		    buyer_email : 'iamport@siot.do',
+		    buyer_name : '구매자이름',
+		    buyer_tel : '010-1234-5678',
+		    buyer_addr : '서울특별시 강남구 삼성동',
+		    buyer_postcode : '123-456',
+		    app_scheme : 'iamporttest' //in app browser결제에서만 사용 
+		}, function(rsp) {
+		    if ( rsp.success ) {
+		        var msg = '결제가 완료되었습니다.';
+		        msg += '고유ID : ' + rsp.imp_uid;
+		        msg += '상점 거래ID : ' + rsp.merchant_uid;
+		        msg += '결제 금액 : ' + rsp.paid_amount;
+		        msg += '카드 승인번호 : ' + rsp.apply_num;
+		        location.href="mypage/####"
+		    } else {
+		        var msg = '결제에 실패하였습니다.';
+		        msg += '에러내용 : ' + rsp.error_msg;
+		        location.href="mypage/###"
+		    }
+		});
+	}
 </script>
 </head>
 <body>
-<div class="wrapper row3">
-  
-</div>
-<div class="wrapper row3">
-  <main class="container clear">
-   <h2 class="sectiontitle">호텔 예약</h2>
-   <div style="height: 5px"></div>
-   <table class="table" style="width: 100%;height: 700px">
-     <tr>
-       <td class="success" width=30% height="500">
-         <table class="table">
-           <caption><h3>호텔 정보</h3></caption>
-           <tr>
-            <td>
-              <span class="rooms">${hvo.hotel_image }</span>
-            </td>
-           </tr>
-           <tr>
-             <td>
-              <div id="room_list" style="height: 450px;overflow-y:scroll">
-                
-              </div>
-             </td>
-           </tr>
-         </table>
-       </td>
-       <td class="info" width=40% height="500">
-         <table class="table">
-           <caption><h3>예약일 정보</h3></caption>
-           <tr>
-             <td>
-              <div id="select_date"></div>
-             </td>
-           </tr>
-         </table>
-       </td>
-       <td class="danger" width=30% rowspan="2" height="700">
-         <table class="table">
-           <caption><h3>예약 정보</h3></caption>
-           <tr>
-             <td class="text-center" colspan="2">
-              <img src="#" style="width: 250px;height: 200px" id="room_img">
-             </td>
-           </tr>
-           <tr>
-             <td class="text-left" colspan="2"><span id="hotel_name" style="color:black">${hvo.name }</span></td>
-           </tr>
-           <tr>
-           <tr>
-             <td class="text-left" colspan="2"><span id="room_name" style="color:black">${rvo.room_name }</span></td>
-           </tr>
-           
-           <tr>
-             <th width="30%">체크인 날짜</th>
-             <td width=70%><span id="r_ckin"></span></td>
-           </tr>
-           <tr>
-             <th width="30%">체크아웃 날짜</th>
-             <td width=70%><span id="r_ckout"></span></td>
-           </tr>
-           <tr>
-             <th width="30%">${rvo.room_price }</th>
-             <td width=70%><span id="r_price"></span></td>
-           </tr>
-           <tr>
-             <td colspan="2" class="text-center ok_btn" style="display:none">
-               <form method="post" action="../reserve/reserve_ok.do">
-                 <input type=hidden name="hno" id="hno">
-                 <input type=hidden name="lno" id="lno">
-                 <input type=hidden name="ckin" id="ckin">
-                 <input type=hidden name="ckout" id="ckout">
-                 <input type=submit value="결제하기" class="btn btn-lg btn-primary">
-               </form>
-             </td>
-           </tr>
-         </table>
-       </td>
-       
-     </tr>
-   </table>
-   <!-- <div id="dialog" title="Basic dialog">
-    <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
-   </div> -->
-  </main>
-  </div>
+
 </body>
 </html>

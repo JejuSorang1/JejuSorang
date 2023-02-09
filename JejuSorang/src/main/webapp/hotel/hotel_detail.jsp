@@ -42,11 +42,11 @@ $(function(){
 	})
 	$("#reserveBtn").click(function(){
 		$("#dialog").dialog({
-	    	   autoOpen : false        
-	           , width : 1200            
-	           , height :600        
-	           , modal : true            
-	           , resizeable : false    
+	    	   autoOpen : false,
+			   width : 1200,        
+	           height :600,        
+	           modal : true,            
+	           resizeable : false,    
 	    }).dialog("open");
 	
 	$('#del_btn').click(function(){
@@ -75,7 +75,7 @@ $(function(){
   <div class="container">
     <div style="width: 10px;height: 50px"></div>
     <div class="row">
-    <p> <a href="../hote/hotel_all.do"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
+    <p> <a href="../hotel/hotel_all.do"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
     <div style="width: 100%;height: 2px; background-color:orange"></div>
     <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">

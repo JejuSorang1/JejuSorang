@@ -17,9 +17,15 @@ import com.sist.vo.*;
 
 @Controller
 public class HotelReserveModel {
-	@RequestMapping("reserve/hotel_reserve.do")
-	public String hotel_reserve(HttpServletRequest request,HttpServletResponse response)
+	@RequestMapping("reserve/hotel_reserve_ok.do")
+	public String hotel_reserve_ok(HttpServletRequest request,HttpServletResponse response)
 	{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
+		String hno=request.getParameter("hno");
+		String start=request.getParameter("start");
 		
 		request.setAttribute("main_jsp", "../reserve/hotel_reserve.jsp");
 		CommonsModel.footerData(request);
