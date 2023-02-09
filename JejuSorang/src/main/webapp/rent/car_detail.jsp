@@ -380,11 +380,21 @@ $(function(){
       <td width=40%>
         <jsp:include page="diary.jsp"></jsp:include>
       </td>
+<<<<<<< HEAD
       <td class="table1" id="td1" width=30% valign=top>
         <h3 style="font-size:15px"><b>차량명:</b>&nbsp;<b><span style="color:black">${vo.car_name }</span></b></h3><br> 
         <h3 style="font-size:15px"><b>체크인:</b>&nbsp;<span id="cin"></span></h3><br>
         <h3 style="font-size:15px"><b>체크아웃:</b>&nbsp;<span id="cout"></span></h3>
       <div>
+=======
+      <td width=20% valign=top>
+        차량명:${vo.car_name }<br>
+        체크인:<span id="cin"></span><br>
+        체크아웃<span id="cout"></span>
+      </td>
+     </tr>
+     <div>
+>>>>>>> refs/remotes/origin/master
        <form method="post" action="../reserve/rent_before_reserve.do">
          <input type=hidden name="start" id="start">
          <input type=hidden name="end" id="end"> 

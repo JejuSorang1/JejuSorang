@@ -57,12 +57,12 @@ public class AllReviewDAO {
 	        conn=CreateConnection.getConnection(); 
 	        String sql="SELECT all_review_no,id,cate_no,detail_no,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
 	                  +"FROM jj_all_review_1 " 
-	                  +"WHERE detail_no=? AND cate_no=? " 
+	                  +"WHERE detail_no=? AND cate_no=?" 
 	                  +"ORDER BY all_review_no DESC";
 	        ps=conn.prepareStatement(sql); 
 	        ps.setInt(1, detail_no);
 	        ps.setInt(2, cate_no);
-	  
+	        
 	        ResultSet rs=ps.executeQuery(); 
 	        while(rs.next()) 
 	        { 
