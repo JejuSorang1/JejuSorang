@@ -25,7 +25,7 @@
                                 id="navbarSupportedContent">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../main/main.do">메인화면</a>
+                                        <a class="nav-link" href="../main/main.do" style="color:orange"><b>HOME</b></a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../hotel/hotel_all.do">호텔</a>

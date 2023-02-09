@@ -4,6 +4,7 @@
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,28 +35,8 @@ $(document).ready(function() {
   }).scroll();
 });
 
-$(function(){
-	$(document).ready(function(){
-		$('select[name=area]').change(function(){
-			if($(this).val()=="1"){
-				$('#area').val("전체");
-			}else {
-					$('#area').val($(this).val());
-					$('#area').attr("readonly",true)
-				}
-		})
-	})
-});
 
-$(document).ready(function() {
-        $('#dept').change(deptChange);
-    })
- 
-    function deptChange() { // 학과
-        var deptcode = $('#dept option:selected').val();
-        $('input#dept_code').val(deptcode);
-    };
- 
+
 </script>
 
 <style>
@@ -74,8 +55,10 @@ $(document).ready(function() {
 .booking_part .form-row .form_colum .nc_select{
 	border-color: orange;
 	border-radius: 10px;
+}  
+.result{
+	border: 1px;
 }
-  
 </style>
 </head>
 <body>
@@ -95,13 +78,13 @@ $(document).ready(function() {
                 </select>        
               </div>
               <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
-                <input id="datepicker_3" placeholder="예약시작일" name="checkin" value="${checkin }">
+                <input id="datepicker_3" placeholder="예약시작일" name="checkin" value="${checkin }" autocomplete='off'>
               </div>
               <div class="form_colum" style="width:200px;  margin-left: 5px; margin-Top: -2%">
-                <input id="datepicker_4" placeholder="예약종료일" name="checkout" value="${checkout }">
+                <input id="datepicker_4" placeholder="예약종료일" name="checkout" value="${checkout }" autocomplete='off'>
               </div>
               <div class="form_colum" style="width:200px; margin-left: 5px; margin-Top: -2%">
-                <input type="number"  min="1" max="8" style="width: 180px;height: 50px" name="inwon" value="${inwon }" placeholder="인원">
+                <input type="number"  min="1" max="8" style="width: 180px;height: 50px; border-bottom-color: orange;" name="inwon" value="${inwon }" placeholder="인원">
               </div>
               <div class="form_btn" style="margin-left: 5px; margin-Top: -1%">
                 <input type="submit" name="submit" value="검색" class="btn btn-warning text-white mb-2">
@@ -116,43 +99,41 @@ $(document).ready(function() {
     
     <div class="col-sm-3" id="filter">
      <form name="form1" method="get" action="../hotel/hotel_findlist.do" enctype="multipart/form-data">   
-       <div class="col-md-12" >  
-         <div class="form-group">
-        <div style="width: 10px;height: 50px"></div>
-        <h3>검색결과</h3><hr>
-        <h5>목적지</h5>
-        <div style="height: 5px"></div>
-          <input type="text" readonly value="${area }">
-         </div>
-          <div class="form-group">
-          <h5>체크인 날짜</h5>
-            <input type="text" value="${checkin }" readonly>  
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-          <h5>체크아웃 날짜</h5>
-            <input type="text" value="${checkout }" readonly>
-              
-          </div> 
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <h5>인원</h5>
-            <input type="text" readonly value="${inwon }">
-          </div>
-        </div>
+       <table class="table result">
+         <tr>
+           <th colspan="3"><h4>검색 결과</h4></th>
+         </tr>
+         <tr>
+           <td colspan="3"><h5>목적지</h5>
+           <br>
+           <input type="text" readonly value="${area }" style="border: none;size: 5">
+           </td>
+         </tr>
+         <tr>
+           <td colspan="3"><h5>체크인 날짜</h5>
+           <br>
+           <input type="text" readonly value="${checkin }" style="border: none;size: 5">
+           </td>
+         </tr>
+         <tr>
+           <td colspan="3"><h5>체크아웃 날짜</h5>
+           <br>
+           <input type="text" readonly value="${checkout }" style="border: none;size: 5">
+           </td>
+         </tr>
+         <tr>
+           <td colspan="3"><h5>인원</h5>
+           <br>
+           <input type="text" readonly value="${inwon }" style="border: none;size: 5">
+           </td>
+         </tr>
+       </table>
        
      </form>
      
     </div>
     
     <div class="col-sm-9 wrap1" id="contenthotels">
-      <div class="col-md-12 sortbuttons">
-        <button type="button" class="btn btn-sm" style="float: right;" id="starBtn">평점순</button>
-        <button type="button" class="btn btn-sm" style="float: right;" id="lowBtn">가격(낮은순)</button>
-        <button type="button" class="btn btn-sm" style="float: right;" id="highBtn">가격(높은순)</button>
-     </div>
      <div style="height: 30px"></div>
      <h3>&nbsp;&nbsp;&nbsp;&nbsp;검색 결과 <fmt:formatNumber value="${count }" type="number"/>개</h3>
       <div class="list-group list row">

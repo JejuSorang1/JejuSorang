@@ -64,11 +64,12 @@ public class RentReserveModel {
 		  HttpSession session=request.getSession();
 		  String id=(String)session.getAttribute("id");
 		  
+
 		  RentReserveVO vo=new RentReserveVO();
 		  vo.setId(id);
 		  vo.setCar_no(Integer.parseInt(car_no));
-		  vo.setStart_rent(start_rent);
-		  vo.setEnd_rent(end_rent);
+//		  vo.setStart_rent(start_rent);
+//		  vo.setEnd_rent(end_rent);
 		 // vo.setRprice()
 		  
 		  //DAO연동 
@@ -85,6 +86,19 @@ public class RentReserveModel {
 	    
 		return "../main/main.jsp";
 	}
+
+//		  request.setAttribute("vo", vo);
+//		  //데이터 베이스 연결
+//
+//		
+//		  request.setAttribute("start", start);
+//		  request.setAttribute("end", end);
+//		  request.setAttribute("main_jsp", "../reserve/rent_reserve.jsp");
+//		  CommonsModel.footerData(request);
+//		  return "../main/main.jsp";
+//	  }
+//	
+	
 }
 
    

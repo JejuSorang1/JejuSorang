@@ -12,5 +12,5 @@
 	<bean class="com.sist.model.MyPageModel"/>
 	<bean class="com.sist.model.RentReserveModel"/>
 	<bean class="com.sist.model.AllReviewModel"/>
-
+	<bean class="com.sist.model.HotelReserveModel"/>
 </beans>
