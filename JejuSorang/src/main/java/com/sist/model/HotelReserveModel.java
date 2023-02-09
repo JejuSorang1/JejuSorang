@@ -20,6 +20,7 @@ import com.sist.vo.*;
 public class HotelReserveModel {
 	@RequestMapping("reserve/hotel_reserve_ok.do")
 	public String hotel_reserve_ok(HttpServletRequest request,HttpServletResponse response)
+<<<<<<< HEAD
 	{
 		try
 		{
@@ -41,11 +42,25 @@ public class HotelReserveModel {
 	
 	@RequestMapping("reserve/hotel_reserve.do")
 	public String hotel_reserve(HttpServletRequest request,HttpServletResponse response)
+=======
+>>>>>>> branch 'master' of https://github.com/JejuSorang1/JejuSorang.git
 	{
+<<<<<<< HEAD
 		HttpSession session=request.getSession();
 		String id=(String)session.getAttribute("id");
 		HotelReserveDAO dao=new HotelReserveDAO();
 
+=======
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
+		String hno=request.getParameter("hno");
+		String start=request.getParameter("start");
+		
+		request.setAttribute("main_jsp", "../reserve/hotel_reserve.jsp");
+		CommonsModel.footerData(request);
+>>>>>>> branch 'master' of https://github.com/JejuSorang1/JejuSorang.git
 		return "../main/main.jsp";
 	}
 	@RequestMapping("reserve/hotel_before_reserve.do")
