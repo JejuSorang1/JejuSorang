@@ -38,7 +38,7 @@ public class HotelReserveDAO {
 		}
 	}
 	
-	//마이페이지에서 읽기
+	//예약정보 마이페이지에서 읽기
 	public List<HotelReserveVO> hotelReserveMyPageData(String id)
 	{
 		List<HotelReserveVO> list=new ArrayList<HotelReserveVO>();
@@ -138,6 +138,37 @@ public class HotelReserveDAO {
 		}
 	}
 	
+	public HotelReserveVO hotelMyPageReserveInfo(int hrno)
+	{
+		HotelReserveVO vo=new HotelReserveVO();
+		try
+		{
+			conn=CreateConnection.getConnection();
+			String sql="SELECT hrno,r.hno,ckin,ckout,hotel_image,name "
+					+"FROM jj_hotel_1 h,jj_hreserve_1 "
+					+"WHERE h.hno=r.hno "
+					+"AND hrno=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, hrno);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setHrno(rs.getInt(1));
+			vo.getHvo().setHno(rs.getInt(2));
+			vo.setCkin(rs.getString(3));
+			vo.setCkout(rs.getString(4));
+			vo.getHvo().setHotel_image(rs.getString(5));
+			vo.getHvo().setName(rs.getString(6));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			CreateConnection.disConnection(conn, ps);
+		}
+		return vo;
+	}
 	public void hotelReserveDelete(int hrno)
 	{
 		try
