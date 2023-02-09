@@ -69,7 +69,7 @@ public class JjimVO {
 	public void setCar_image(String car_image) {
 		this.car_image = car_image;
 	}
-
 	
-
+	
 }
+	
