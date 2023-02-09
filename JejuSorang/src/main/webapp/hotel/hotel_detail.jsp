@@ -39,6 +39,7 @@ $(function(){
 		}
 	})
 })
+
 </script>
 </head>
 <body>
@@ -80,7 +81,7 @@ $(function(){
 			   <form method="post" action="../jjim/jjim_insert.do?hno=${hvo.hno }">    
 			    <p>
 			     <input type=hidden name="cate_no" id="cate_no" value="${hvo.all_cate_no }">
-			     <input type="submit" value="찜하기" class="btn btn-xs" style="float: center;background-color: #F8B03A">
+			     <input type="submit" value="찜하기" class="btn btn-xs jjim" style="float: center;background-color: #F8B03A">
 			      <span style="float: right"><img src="../img/jjim.png" style="width: 22px;height: 22px">
 			      찜하기${jjim_total }
 			      </span>
@@ -88,7 +89,7 @@ $(function(){
 			   </form>
 			  </c:if>
 			  <c:if test="${jjim_count!=0 }">
-			     <p><span class="btn btn-xs btn-default" style="float: left"><img src="../img/jjim.png" style="width: 22px;height: 22px">
+			     <p><span class="btn btn-xs btn-default jjimde" style="float: left"><img src="../img/jjim.png" style="width: 22px;height: 22px">
 			      찜하기${jjim_total }
 			      </span></p>
                 <%--  <span class="btn btn-xs btn-default">찜하기(${jjim_total })</span> --%>

@@ -19,6 +19,7 @@ public class HotelReserveModel {
 	@RequestMapping("reserve/hotel_reserve.do")
 	public String hotel_reserve(HttpServletRequest request,HttpServletResponse response)
 	{
+		
 		request.setAttribute("main_jsp", "../reserve/hotel_reserve.jsp");
 		CommonsModel.footerData(request);
 		return "../main/main.jsp";
