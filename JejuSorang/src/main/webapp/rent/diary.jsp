@@ -10,7 +10,7 @@
 
         /*body { background-color : skyblue; }*/
 
-        div#wrapper {
+        div#wrapperx {
             background-color : white;
             height: auto;
             width: 400px;
@@ -241,7 +241,7 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <div id="wrapperx">
         <table>
           <tr>
             <td class="inline">
