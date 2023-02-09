@@ -20,6 +20,17 @@ $(function() {
 });
 
 </script>
+<style type="text/css">
+.booking_part .form-row .form_colum .nc_select{
+	border-color: orange;
+	border-radius: 10px;
+}
+.booking_part .form-row .form_colum {
+    width: 20%;
+    border-color: orange;
+	border-radius: 10px;
+}
+</style>
 </head>
 
 <body>
@@ -69,7 +80,7 @@ $(function() {
                                                 <input id="datepicker_2" placeholder="체크아웃" name="checkout" autocomplete='off'>
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select" name="inwon" autocomplete='off'>
+                                                <select class="nc_select" name="inwon">
                                                     <option selected>인원 </option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
