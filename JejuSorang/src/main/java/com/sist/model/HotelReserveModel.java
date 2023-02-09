@@ -86,7 +86,7 @@ public class HotelReserveModel {
 		request.setAttribute("rlist", rlist);
 		
 		hvo.setHno(Integer.parseInt(hno));
-		hrvo.setRno(Integer.parseInt(rno));
+		hrvo.getRvo().setRoom_no(Integer.parseInt(rno));
 		hrvo.setCkin(ckin);
 		hrvo.setCkout(ckout);
 		HttpSession session=request.getSession();
@@ -116,7 +116,7 @@ public class HotelReserveModel {
 	  public String hotel_admin_reserve(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  HotelReserveDAO dao=new HotelReserveDAO();
-		  List<HotelReserveVO> list=dao.hotelreserveAdminPageData();
+		  List<HotelReserveVO> list=dao.hotelReserveAdminPageData();
 		  request.setAttribute("list", list);
 		  request.setAttribute("adminpage_jsp", "../adminpage/admin_hotel_reserve.jsp");
 		  request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
