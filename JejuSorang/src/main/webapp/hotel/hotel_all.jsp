@@ -13,23 +13,52 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c3826884834130aaf949e9af16f4be36&libraries=services"></script>
 <script type="text/javascript">
+//화면 크기가 변경 되었 때
+$(window).resize(function( event ) { 
+  $(this).trigger('scroll'); 
+});
+// 페이지 읽힌 다음 위치 설정
+$(document).ready(function() {
+
+  // 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+  var floatPosition = parseInt($("#cookie").css('top'));
+  var divBoxHeight  = parseInt($('#cookie').outerHeight(true));
+
+  $(window).scroll(function() {
+    // 현재 스크롤 위치를 가져온다.
+    var scrollTop = $(window).scrollTop();
+    var newPosition = scrollTop + floatPosition + "px";
+
+    $("#cookie").stop().animate({ "top" : newPosition }, 500);
+ 
+  }).scroll();
+});
 
 </script>
-
+<style>
+#cookie{
+	position: relative;
+    width: 300px;
+    height: 300px;
+    left: 2px;
+    top: 10px;
+    background-color: white;
+}
+</style>
 </head>
 <body>  
 
   <div class="container">
     <div class="row">
     <div style="width: 100%;height: 2px; background-color:orange"></div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" id="cookie">
       <div style="width: 10px;height: 50px"></div>
 	 <h3 class="sectiontitle">최근 본 목록</h3> 
 	 <div class="inline">
 	  <table class="table" style="background-color:orange">
-       <c:forEach var="hvo" items="${cList }" varStatus="s">
-        <c:if test="${s.index<9 }">
-         <a href="../hotel/hotel_detail.do?hno=${s.hno }"><img src="${s.poster }" style="width: 100px;height: 100px"></a>
+       <c:forEach var="hvo" items="${cooList }" varStatus="s">
+        <c:if test="${cooList.index<9 }">
+         <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width: 100px;height: 100px"></a>
         </c:if>
        </c:forEach>
        </table>

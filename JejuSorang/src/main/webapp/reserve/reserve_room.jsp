@@ -43,7 +43,7 @@ $(function(){
 	   <c:forEach var="rvo" items="${list }">
 	     <tr class="trs" data-img="${rvo.room_image }" data-name="${rvo.room_name }" data-rno="${rvo.room_no }">
 	      <td class="text-center">
-	        <img src="${rvo.room_img }" style="width: 30px;height: 30px">
+	        <img src="${rvo.room_image }" style="width: 30px;height: 30px">
 	      </td>
 	      <td>${rvo.room_name }</td>
 	     </tr>

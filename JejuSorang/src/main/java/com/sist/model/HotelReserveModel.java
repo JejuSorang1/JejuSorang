@@ -1,6 +1,7 @@
 package com.sist.model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +20,7 @@ public class HotelReserveModel {
 	@RequestMapping("reserve/hotel_reserve.do")
 	public String hotel_reserve(HttpServletRequest request,HttpServletResponse response)
 	{
+		
 		request.setAttribute("main_jsp", "../reserve/hotel_reserve.jsp");
 		CommonsModel.footerData(request);
 		return "../main/main.jsp";

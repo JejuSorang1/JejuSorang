@@ -23,22 +23,37 @@
 let u=0;
 $(function(){
 	$('.ups').click(function(){
-		$('.rupdate').hide();
+		$('.rupdate').show();
 		let rno=$(this).attr("data-no");
 		if(u==0)
 		{
-			$(this).text("취소");
-			$('#u'+all_review_no).show();
+			$(this).text("수정");
+			$('#u'+rno).hide();
 			u=1;
 		}
 		else
 		{
-			$(this).text("수정");
-			$('#u'+all_review_no).hide();
+			$(this).text("취소");
+			$('#u'+rno).show();
 			u=0;
 		}
 	})
+	
+	$('#del_btn').click(function(){
+		let all_review_no=$(this).attr("data-no")
+		let detail_no=$('#detail_no').val();
+		let cate_no=1;
+		$.ajax({
+			type:'post',
+			url:'../all_review/all_review_delete.do',
+			data:{"detail_no":detail_no,"all_review_no":all_review_no,"cate_no":cate_no},
+			success:function(response){
+			  location.href="../hotel/hotel_detail.do?hno="+detail_no;
+			}
+		})
+	})
 })
+
 </script>
 </head>
 <body>
@@ -80,7 +95,7 @@ $(function(){
 			   <form method="post" action="../jjim/jjim_insert.do?hno=${hvo.hno }">    
 			    <p>
 			     <input type=hidden name="cate_no" id="cate_no" value="${hvo.all_cate_no }">
-			     <input type="submit" value="찜하기" class="btn btn-xs" style="float: center;background-color: #F8B03A">
+			     <input type="submit" value="찜하기" class="btn btn-xs jjim" style="float: center;background-color: #F8B03A">
 			      <span style="float: right"><img src="../img/jjim.png" style="width: 22px;height: 22px">
 			      찜하기${jjim_total }
 			      </span>
@@ -88,7 +103,7 @@ $(function(){
 			   </form>
 			  </c:if>
 			  <c:if test="${jjim_count!=0 }">
-			     <p><span class="btn btn-xs btn-default" style="float: left"><img src="../img/jjim.png" style="width: 22px;height: 22px">
+			     <p><span class="btn btn-xs btn-default jjimde" style="float: left"><img src="../img/jjim.png" style="width: 22px;height: 22px">
 			      찜하기${jjim_total }
 			      </span></p>
                 <%--  <span class="btn btn-xs btn-default">찜하기(${jjim_total })</span> --%>
@@ -97,7 +112,7 @@ $(function(){
               </tr>
               <tr>
               <td colspan="3" class="text-center">
-                 <a href="../reserve/hotel_reserve.jsp?room_no=${rvo.room_no }"><button type="button" class="btn btn-md" style="background-color: #F8B03A">예약하기</button></a>
+                 <span class="btn btn-xs btn-warning" id="reserveBtn">예약하기</span>
               </td>
               </tr>
 			  </c:if>
@@ -222,12 +237,16 @@ $(function(){
                      <c:forEach var="revo" items="${reList }">
                       <table class="table">
                        <tr>
-                        <td class="text-left" width=85%>${revo.id }&nbsp;(${revo.dbday })</td>
-                        <td class="text-right" width=15%>
+                        <td class="text-left" width=70%>${revo.id }&nbsp;(${revo.dbday })</td>
+                        <td class="text-right" width=30%>
                           <c:if test="${sessionScope.id!=null }">
                             <c:if test="${sessionScope.id==revo.id }">
                               <span class="btn btn-xs btn-success ups" data-no="${revo.all_review_no }">수정</span>
+<<<<<<< HEAD
+                              <span class="btn btn-xs btn-danger" id="del_btn" data-no="${revo.all_review_no }">삭제</span>
+=======
                               <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a>
+>>>>>>> refs/remotes/origin/master
                             </c:if>
                           </c:if>
                         </td>

@@ -42,7 +42,7 @@ $(function(){
            <caption><h3>호텔 정보</h3></caption>
            <tr>
             <td>
-              <span class="rooms">호텔이미지</span>
+              <span class="rooms">${hvo.hotel_image }</span>
             </td>
            </tr>
            <tr>
@@ -73,11 +73,11 @@ $(function(){
              </td>
            </tr>
            <tr>
-             <td class="text-left" colspan="2"><span id="hotel_name" style="color:black"></span></td>
+             <td class="text-left" colspan="2"><span id="hotel_name" style="color:black">${hvo.name }</span></td>
            </tr>
            <tr>
            <tr>
-             <td class="text-left" colspan="2"><span id="room_name" style="color:black"></span></td>
+             <td class="text-left" colspan="2"><span id="room_name" style="color:black">${rvo.room_name }</span></td>
            </tr>
            
            <tr>
@@ -89,7 +89,7 @@ $(function(){
              <td width=70%><span id="r_ckout"></span></td>
            </tr>
            <tr>
-             <th width="30%">가격</th>
+             <th width="30%">${rvo.room_price }</th>
              <td width=70%><span id="r_price"></span></td>
            </tr>
            <tr>
@@ -105,19 +105,8 @@ $(function(){
            </tr>
          </table>
        </td>
-       </tr>
-       <tr>
-       <td class="warning" width="35%" height="200" colspan="2">
-         <table class="table">
-           <caption><h3>인원 정보</h3></caption>
-           <tr>
-             <td>
-               <div id="select_time"></div>
-             </td>
-           </tr>
-         </table>
-       </td>
-       </tr>
+       
+     </tr>
    </table>
    <!-- <div id="dialog" title="Basic dialog">
     <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
