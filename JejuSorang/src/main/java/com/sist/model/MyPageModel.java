@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
+import com.sist.dao.AllReviewDAO;
 import com.sist.dao.JjimDAO;
 import com.sist.vo.JjimVO;
 
@@ -53,5 +54,26 @@ public class MyPageModel {
 		  JjimDAO dao=new JjimDAO();
 		  dao.jjimDelete(Integer.parseInt(jno));
 		  return "redirect:jjim_hotel_list.do";
+	  }
+	  
+	  @RequestMapping("mypage/hotel_review_list.do")
+	  public String mypage_hotel_review(HttpServletRequest request,HttpServletResponse response) {
+		  HttpSession session=request.getSession();
+		  String id=(String)session.getAttribute("id");
+		  
+		  AllReviewDAO dao=new AllReviewDAO();
+		  
+		  return "../reply/hotel_reply_list.jsp";
+	  }
+	  
+	  @RequestMapping("mypage/rent_reserve_list.do")
+	  public String mypage_rent_reserve(HttpServletRequest request,HttpServletResponse response) {
+		    HttpSession session=request.getSession();
+			String id=(String)session.getAttribute("id");
+			
+			
+//			request.setAttribute("list", list);
+			CommonsModel.footerData(request);
+		  return "../reserve/rent_reserve_list.jsp";
 	  }
 }
