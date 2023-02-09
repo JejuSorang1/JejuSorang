@@ -13,7 +13,7 @@ public class HotelReserveDAO {
 	private PreparedStatement ps;
 	
 	public void hotelReserveOk(HotelReserveVO vo)
-	{
+	{  
 		try  
 		{
 			conn=CreateConnection.getConnection();
