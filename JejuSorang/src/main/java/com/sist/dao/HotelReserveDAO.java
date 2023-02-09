@@ -56,7 +56,7 @@ public class HotelReserveDAO {
 			ps.setString(1, id);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
-			{
+			{ 
 				HotelReserveVO vo=new HotelReserveVO();
 				vo.setHrno(rs.getInt(1));
 				vo.getHvo().setName(rs.getString(2));
