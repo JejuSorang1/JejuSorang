@@ -1,5 +1,6 @@
 package com.sist.model;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,7 +24,7 @@ public class HotelModel {
       int curpage=Integer.parseInt(page);
       
       HotelDAO dao=new HotelDAO();
-  
+      
       List<HotelVO> list=dao.HotelListData(curpage);
       HotelVO vo=dao.hotel_detail(Integer.parseInt(page));
       String address=vo.getAddr();
@@ -50,17 +51,76 @@ public class HotelModel {
       request.setAttribute("endPage", endPage);
       request.setAttribute("list", list);
       request.setAttribute("count", count);
-
-      /*HttpSession session=request.getSession();
-      String id=(String)session.getAttribute("id");
-      JjimDAO jdao=new JjimDAO();*/
-     
+      
+      // cookie 전송 
+   	  Cookie[] cookies=request.getCookies();
+   	   List<HotelVO> cList=new ArrayList<HotelVO>();
+   	   HttpSession session=request.getSession();
+   	   String id=(String)session.getAttribute("id");
+   	   if(cookies!=null)
+   	   {
+   		   if(id==null)
+   		   {
+   			   for(int i=cookies.length-1;i>=0;i--)
+   			   {
+   				   if(cookies[i].getName().startsWith("guest_hotel"))
+   				   {
+   					   String hno=cookies[i].getValue();
+   					   HotelVO hlvo=dao.hotel_detail(Integer.parseInt(hno));
+   					   cList.add(hlvo);
+   				   }
+   			   }
+   		   }
+   		   else
+   		   {
+   			   for(int i=cookies.length-1;i>=0;i--)
+   			   {
+   				   if(cookies[i].getName().startsWith(id+"_hotel"))
+   				   {
+   					   String hno=cookies[i].getValue();
+   					   HotelVO hlvo=dao.hotel_detail(Integer.parseInt(hno));
+   					   cList.add(hlvo);
+   				   }
+   			   }
+   		   }
+   	   }
+   	   request.setAttribute("cList", cList);
+	   
       //footer
       CommonsModel.footerData(request);
       
       request.setAttribute("main_jsp", "../hotel/hotel_all.jsp");
       return "../main/main.jsp";
    }
+   
+	
+   @RequestMapping("hotel/hotel_before_detail.do") 
+   public String hotel_before_detail(HttpServletRequest request,HttpServletResponse response) {
+	   HttpSession session=request.getSession(); String
+	   id=(String)session.getAttribute("id");
+	  
+	   String user="";
+	  
+	   if(id==null) 
+		   user="guest"; 
+	   else 
+		   user=id;
+	  
+	  String hno=request.getParameter("hno"); 
+	  try 
+	  { 
+		  Cookie cookie=new Cookie(user+"_hotel"+hno, hno); 
+		  cookie.setPath("/");
+		  cookie.setMaxAge(60*60*24); 
+		  response.addCookie(cookie);
+	  }catch(Exception ex)
+	  {
+		  
+	  }
+	  
+	  return "redirect:../hotel/hotel_detail.do?hno="+hno; }
+	 
+   
    @RequestMapping("hotel/hotel_detail.do") //호텔 상세보기
    public String hotel_detail(HttpServletRequest request,HttpServletResponse response)
    {
