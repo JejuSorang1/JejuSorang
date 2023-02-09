@@ -381,7 +381,7 @@ function requestPay() {
                     <table class="table2">
                       <tr>
                       <td>
-                          <img src="${rvo.room_image }" style="width:300px;height:250px;" data-price="${rvo.room_price }" data-name="${rvo.room_name }" class="rooms">
+                          <img src="${rvo.room_image }" style="width:300px;height:250px;" data-price="${rvo.room_price }" data-name="${rvo.room_name }" data-no="${rvo.room_no }" class="rooms">
                           <br><h4><b>${rvo.room_name }</b></h4>
 				          <p> <img src="../img/persons.png" style="width:20px;height:20px">&nbsp;${rvo.room_persons }</p>
 				          <p> <img src="../img/bed.png" style="width:20px;height:20px">&nbsp;${rvo.room_bed_info }</p>
@@ -415,8 +415,7 @@ function requestPay() {
 	         <input type=hidden name="end_rent" id="end_rent"> 
 	         <input type=hidden name="room_no" value="${rvo.room_no }">
 	         <input type=hidden name="room_price" value="${rvo.room_price }">
-	         <input type=hidden name="hotel_name" value="${hvo.name }">
-	         
+	         <input type=hidden name="hotel_no" value="${hvo.hno }">
 	         <button type="submit" class="button" data-id="${sessionScope.id }" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>
 	       </form>      
       </div>

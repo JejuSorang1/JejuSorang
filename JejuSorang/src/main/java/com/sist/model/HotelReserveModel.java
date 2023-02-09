@@ -62,37 +62,46 @@ public class HotelReserveModel {
 	public String hotel_before_reserve(HttpServletRequest request,HttpServletResponse response)
 	{
 		HotelReserveVO hrvo=new HotelReserveVO();
-		String hno=request.getParameter("hno");
-		String rno=request.getParameter("rno");
-		String ckin=request.getParameter("ckin");
-		String ckout=request.getParameter("ckout");
+		String hotel_no=request.getParameter("hotel_no");
+		String room_no=request.getParameter("room_no");
 		String room_price=request.getParameter("room_price");
-		String hotel_name=request.getParameter("hotel_name");
-		HotelDAO hdao=new HotelDAO();
+		String start_rent=request.getParameter("start_rent");
+		String end_rent=request.getParameter("end_rent");
+		String start=request.getParameter("start");
+		String end=request.getParameter("end");
+		System.out.println("hotel_no"+hotel_no+" "+"room_no"+room_no);
 		RoomDAO rdao=new RoomDAO();
-		HotelVO hvo=hdao.hotel_detail(Integer.parseInt(hno));
-		List<RoomVO> rlist=rdao.room_detail(Integer.parseInt(hno));
-		int ss=Integer.parseInt(ckin);
-		int ee=Integer.parseInt(ckout);
+		RoomVO rvo=rdao.room_detail2(Integer.parseInt(hotel_no), Integer.parseInt(room_no));
+		int ss=Integer.parseInt(start);
+		int ee=Integer.parseInt(end);
 		
-		String s=rlist.get(4).getRoom_price();
+		String s=rvo.getRoom_price();
 		s=s.replace(",", "");
 		int total=(ee-ss)*Integer.parseInt(s);
 		request.setAttribute("s", total);
-		rlist.get(4).setRoom_price(String.valueOf(total));
-		request.setAttribute("hname", hvo.getName());
-		request.setAttribute("rname", rlist.get(4).getRoom_name());
-		request.setAttribute("hvo", hvo);
-		request.setAttribute("rlist", rlist);
+		rvo.setRoom_price(String.valueOf(total));
+		request.setAttribute("hotel_name", rvo.getHotel_name());
+		request.setAttribute("rvo", rvo);
 		
-		hvo.setHno(Integer.parseInt(hno));
-		hrvo.getRvo().setRoom_no(Integer.parseInt(rno));
-		hrvo.setCkin(ckin);
-		hrvo.setCkout(ckout);
+		/*
+		 * rvo.setCar_no(Integer.parseInt(car_no));
+		rvo.setStart_rent(start_rent);
+		rvo.setEnd_rent(end_rent);
+		HttpSession session=request.getSession();
+		System.out.println(car_no+" "+start_rent + " " + end_rent);
+		
+		
+		session.setAttribute("carVO", rvo);
+		request.setAttribute("main_jsp", "../reserve/rent_reserve.jsp");
+		return "../main/main.jsp";
+		 */
+		hrvo.setHno(Integer.parseInt(hotel_no));
+		hrvo.setRno(Integer.parseInt(room_no));
+		hrvo.setCkin(start_rent);
+		hrvo.setCkout(end_rent);
 		HttpSession session=request.getSession();
 		
-		session.setAttribute("HotelVO", hrvo);
-		session.setAttribute("RoomVO", hrvo);
+		session.setAttribute("hrvo", hrvo);
 		request.setAttribute("main_jsp", "../reserve/hotel_reserve.jsp");
 		return "../main/main.jsp";
 	}

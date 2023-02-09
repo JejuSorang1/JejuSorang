@@ -24,7 +24,7 @@ public class HotelReserveDAO {
 			ps.setInt(2, vo.getHprice());
 			ps.setString(3, vo.getHpycheck());
 			ps.setInt(4, vo.getHno());
-			ps.setString(5, vo.getRno());
+			ps.setInt(5, vo.getRno());
 			ps.setString(6, vo.getCkin());
 			ps.setString(7, vo.getCkout());
 			ps.executeUpdate();

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,11 @@ $(function(){
 		//alert('fgfdg')
 		
 		$('#check').click(function(){
-			requestPay();
+			if($(this).attr('data-id')==null || $(this).attr('data-id')==""  ){
+				alert('로그인 하세요');
+			}else{
+			
+			     requestPay(); }
 		})
 		
 	
@@ -51,11 +55,11 @@ function requestPay() {
 		        msg += '상점 거래ID : ' + rsp.merchant_uid;
 		        msg += '결제 금액 : ' + rsp.paid_amount;
 		        msg += '카드 승인번호 : ' + rsp.apply_num;
-		        location.href="mypage/####"
+		        location.href="../mypage/rent_reserve_list.do"
 		    } else {
 		        var msg = '결제에 실패하였습니다.';
 		        msg += '에러내용 : ' + rsp.error_msg;
-		        location.href="mypage/###"
+		        location.href="../reserve/hotel_reserve_ok.do"
 		    }
 		});
 	}
@@ -77,24 +81,25 @@ font-size: 15px;
  <div class="container">
   <div class="row">
     <div class="col-md-7 reserve">
-	           <h3><b>${cvo.car_name }</b></h3>
-	             <p class="short-text">업체:레인보우모빌리티</p>
+	           <h3><b>${rvo.hotel_name }</b></h3>
+	             <p class="short-text">${rvo.room_name }</p>
 	           <hr style="border: solid 1px gray; " >
 	           <div class="row">
 			        <div class="col-md-6" >
 			        <div class="text-left">
-			         <div class="text-center" style="font-size: 15px;">대여일시 : ${sessionScope.carVO.start_rent }</div>
+			         <div class="text-center" style="font-size: 15px;">체크인 : ${sessionScope.hrvo.start_rent }</div>
 			        </div>
 			       <div class="text-left">
-			         <div class="text-center" style="font-size: 15px;">반납일시 : ${sessionScope.carVO.end_rent }</div>
+			         <div class="text-center" style="font-size: 15px;">체크아웃 : ${sessionScope.hrvo.end_rent }</div>
 			        </div>
 			       </div> 
 			       </div>
 			       <hr style="border: solid 1px gray; " >
-			      <p>차량정보 : ${cvo.car_option1 }</p> 
+			      <p>침실정보 : ${rvo.room_bed_info }</p> 
+			      <p>최대인원 : ${rvo.room_persons }</p> 
 			      <br>
 			     <ul style="t">
-			      <li>운전자 정보 : ${sessionScope.name }  </li>
+			      <li>예약자 정보 : ${sessionScope.name }  </li>
 			      <li>생년월일 : ${sessionScope.birthday }</li>
 			      <li>휴대폰번호 : ${sessionScope.phone }</li>
 			      <li>이메일 주소 : ${sessionScope.email } </li>
@@ -109,17 +114,15 @@ font-size: 15px;
     <div class="col-md-4 reserve2">
          <h5><b>결제정보</b></h5>
          <hr >
-         <p>대여요금</p> 
-         <h4 style="color: #F8B03A;"><b id="bbb" value="${ s}" data-name="${name }">${cvo.car_price }</b></h4>
+         <p>총 결제금액</p> 
+         <h4 style="color: #F8B03A;"><b id="bbb" value="${ s}" data-name="${hotel_name }">${rvo.room_price }</b></h4>
          <hr>
-         <p>총 결제금액<p>
-         <h4 style="color: #F8B03A;"><b>${totalprice }</b></h4>
-          <hr>
           <p style="text-align: center;  font-size: 15px;">위 내용을 모두 확인하였으며, 결제에 동의합니다</p>
 
-           <input type="button" value="결제하기"  style="border: 0;background-color: #F8B03A; padding: 2%; color: white; width: 100%; height: 50px;" id="check">
+           <input type="button" value="결제하기"  data-id="${sessionScope.id }" style="border: 0;background-color: #F8B03A; padding: 2%; color: white; width: 100%; height: 50px;" id="check">
          </div> 
       </div>
    </div>
  </div> 
 </body>
+</html>
