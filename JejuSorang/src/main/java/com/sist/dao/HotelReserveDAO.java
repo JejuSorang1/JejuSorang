@@ -141,7 +141,7 @@ public class HotelReserveDAO {
 	public HotelReserveVO hotelMyPageReserveInfo(int hrno)
 	{
 		HotelReserveVO vo=new HotelReserveVO();
-		try
+		try 
 		{
 			conn=CreateConnection.getConnection();
 			String sql="SELECT hrno,r.hno,ckin,ckout,hotel_image,name "
