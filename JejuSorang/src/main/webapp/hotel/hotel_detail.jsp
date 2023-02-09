@@ -97,7 +97,7 @@ $(function(){
               </tr>
               <tr>
               <td colspan="3" class="text-center">
-                 <a href="../reserve/hotel_reserve.jsp?room_no=${rvo.room_no }"><button type="button" class="btn btn-md" style="background-color: #F8B03A">예약하기</button></a>
+                 <span class="btn btn-xs btn-warning" id="reserveBtn">예약하기</span>
               </td>
               </tr>
 			  </c:if>
@@ -222,8 +222,8 @@ $(function(){
                      <c:forEach var="revo" items="${reList }">
                       <table class="table">
                        <tr>
-                        <td class="text-left" width=85%>${revo.id }&nbsp;(${revo.dbday })</td>
-                        <td class="text-right" width=15%>
+                        <td class="text-left" width=70%>${revo.id }&nbsp;(${revo.dbday })</td>
+                        <td class="text-right" width=30%>
                           <c:if test="${sessionScope.id!=null }">
                             <c:if test="${sessionScope.id==revo.id }">
                               <span class="btn btn-xs btn-success ups" data-no="${revo.all_review_no }">수정</span>
