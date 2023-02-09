@@ -48,7 +48,7 @@ $(function(){
   <div class="container">
     <div style="width: 10px;height: 50px"></div>
     <div class="row">
-    <p> <a href="javascript:history.back()"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;목록 보기
+    <p> <a href="javascript:history.back()"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
     <div style="width: 100%;height: 2px; background-color:orange"></div>
     <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">
@@ -115,7 +115,7 @@ $(function(){
       <div class="col-md-3">
       <div class="sdb_holder">
         <%-- 지도 --%>
-        <div id="map" style="width:100%;height:350px;">
+        <div id="map" style="width:100%;height:400px;">
 		<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {
@@ -227,7 +227,7 @@ $(function(){
                         <td class="text-right" width=15%>
                           <c:if test="${sessionScope.id!=null }">
                             <c:if test="${sessionScope.id==revo.id }">
-                              <span class="btn btn-xs btn-danger ups" data-no="${revo.all_review_no }">수정</span>
+                              <span class="btn btn-xs btn-success ups" data-no="${revo.all_review_no }">수정</span>
                               <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a>
                             </c:if>
                           </c:if>
