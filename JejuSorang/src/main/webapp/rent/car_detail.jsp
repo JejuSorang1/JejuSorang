@@ -344,10 +344,24 @@ $(function(){
       </table>
       </div>
      </div>
-      <div id="dialog" title="예약하기">
-     <jsp:include page="../rent/reserve_main_form.jsp"></jsp:include>
+     <div id="dialog" title="예약하기">
+  <div class="containerx">
+    <div class="rowx" style="height: 450px">
+      <div class="one_third first">
+       <img src="${vo.car_image }" style="width:300px;height: 300px;">
+      </div>
+      <div class="one_third">
+        <jsp:include page="diary.jsp"></jsp:include>
+      </div>
+      <div class="one_third">
+        맛집명:<br>
+        체크인:<span id="cin"></span><br>
+        체크아웃<span id="cout"></span>
+      </div>
     </div>
-    <div class="clear"></div>
+  </div>
+    </div>
+    <div class="clear"></div> 
    </main>
   </div>      
 </body>
