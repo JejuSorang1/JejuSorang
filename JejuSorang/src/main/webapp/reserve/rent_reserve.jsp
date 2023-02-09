@@ -16,6 +16,7 @@ $(function(){
 		$('#check').click(function(){
 			if($(this).attr('data-id')==null || $(this).attr('data-id')==""  ){
 				alert('로그인 하세요');
+				location.href="../member/login.do"
 			}else{
 			
 			     requestPay(); }
