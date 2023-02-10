@@ -25,18 +25,18 @@
 let u=0;
 $(function(){
 	$('.ups').click(function(){
-		$('.rupdate').show();
+		$('.rupdate').hide();
 		let rno=$(this).attr("data-no");
 		if(u==0)
 		{
-			$(this).text("수정");
-			$('#u'+rno).hide();
+			$(this).text("취소");
+			$('#u'+rno).show();
 			u=1;
 		}
 		else
 		{
-			$(this).text("취소");
-			$('#u'+rno).show();
+			$(this).text("수정");
+			$('#u'+rno).hide();
 			u=0;
 		}
 	})
