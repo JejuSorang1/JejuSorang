@@ -144,7 +144,7 @@ function requestPay() {
     <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">
         <img src="${hvo.hotel_image }" style="width:500px;height:400px">
-       </div>
+       </div>  
       <div class="col-md-4">
         <div class="product-dtl">
           <div class="product-info">
