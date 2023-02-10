@@ -25,18 +25,18 @@
 let u=0;
 $(function(){
 	$('.ups').click(function(){
-		$('.rupdate').show();
+		$('.rupdate').hide();
 		let rno=$(this).attr("data-no");
 		if(u==0)
 		{
-			$(this).text("수정");
-			$('#u'+rno).hide();
+			$(this).text("취소");
+			$('#u'+rno).show();
 			u=1;
 		}
 		else
 		{
-			$(this).text("취소");
-			$('#u'+rno).show();
+			$(this).text("수정");
+			$('#u'+rno).hide();
 			u=0;
 		}
 	})
@@ -144,7 +144,7 @@ function requestPay() {
     <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">
         <img src="${hvo.hotel_image }" style="width:500px;height:400px">
-       </div>
+       </div>  
       <div class="col-md-4">
         <div class="product-dtl">
           <div class="product-info">
@@ -258,7 +258,7 @@ function requestPay() {
         </li>
       </ul>
       <br>
-      <div class="tab-content" id="myTabContent">
+      <div class="tab-content" id="myTabContent"style="height: 600px;overflow-y:scroll">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
           <c:forEach var="rvo" items="${rList }">
           <div class="col-md-12">
@@ -361,6 +361,7 @@ function requestPay() {
         </div>
         </div>
         </div>
+        <div style="width: 10px;height: 50px"></div>
       </div>
      </div>
     <div id="dialog" title="예약하기" style="display:none">

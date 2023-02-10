@@ -78,14 +78,14 @@ font-size: 15px;
 <div class="sangdan">
 <h4 style="line-height: 0px; margin-bottom: 20px; color: #DC6721;" ><strong>결제정보</strong></h4>
  </div>
- <div class="container">
+ <div class="container  text-center">
   <div class="row">
     <div class="col-md-7 reserve">
-	           <h3><b>${rvo.hotel_name }</b></h3>
-	             <p class="short-text">${rvo.room_name }</p>
+	           <h3 style="text-align:center;"><b>${rvo.hotel_name }</b></h3>
+	             <p class="short-text" style="text-align:center;">${rvo.room_name }</p>
 	           <hr style="border: solid 1px gray; " >
 	           <div class="row">
-			        <div class="col-md-6" >
+			        <div class="col-md-12" >
 			        <div class="text-left">
 			         <div class="text-center" style="font-size: 15px;">체크인 : ${sessionScope.hrvo.ckin }</div>
 			        </div>
@@ -95,27 +95,31 @@ font-size: 15px;
 			       </div> 
 			       </div>
 			       <hr style="border: solid 1px gray; " >
-			      <p>침실정보 : ${rvo.room_bed_info }</p> 
-			      <p>최대인원 : ${rvo.room_persons }</p> 
-			      <br>
-			     <ul style="t">
-			      <li>예약자 정보 : ${sessionScope.name }  </li>
-			      <li>생년월일 : ${sessionScope.birthday }</li>
-			      <li>휴대폰번호 : ${sessionScope.phone }</li>
-			      <li>이메일 주소 : ${sessionScope.email } </li>
-			    </ul>
+			      <div class="row">
+			      <div class="col-md-6">
+			        <img src="${rvo.room_image }" style="width:300px;height:250px">
+			      </div>
+			      <div class="col-md-6">
+			       <div class="text-center">
+			      <p>침실정보 : ${rvo.room_bed_info }</p><br> 
+			      <p>최대인원 : ${rvo.room_persons }</p> <br>
+			      <p>예약자 정보 : ${sessionScope.name }  </p><br>
+			      <p>생년월일 : ${sessionScope.birthday }</p><br>
+			      <p>휴대폰번호 : ${sessionScope.phone }</p><br>
+			      <p>이메일 주소 : ${sessionScope.email } </p>
+			      </div>
+			      </div>
+			    </div>
 			    <br>
-			    <img src="../img/license.png" style="margin-bottom: 5px;">
-			    <br>
-			    <b>대인/대물/자손 보상한도</b>
-			    <img src="../img/insurance.png" style="margin-top: 5px; margin-bottom:5px; border: solid 1px gray;">
-			     보험은 현장에서 작성하는 계약서를 기준으로 적용됩니다. 반드시 계약서를 확인해주시기 바랍니다.
+			    <img src="../img/checkbox.png" style="width:20px;height:20px"><b>아래의 주의사항을 확인하세요</b>
+			    <img src="../img/hotel_info.png" style="margin-top: 5px; margin-bottom:5px; border: solid 1px gray;">
+			     
           </div>
     <div class="col-md-4 reserve2">
-         <h5><b>결제정보</b></h5>
+         <h5 style="text-align:center;"><b>결제정보</b></h5>
          <hr >
-         <p>총 결제금액</p> 
-         <h4 style="color: #F8B03A;"><b id="bbb" value="${ s}" data-name="${hotel_name }">${rvo.room_price }</b></h4>
+         <p style="text-align:center;">총 결제금액</p> 
+         <h4 style="color: #F8B03A;text-align:center"><b id="bbb" value="${ s}" data-name="${hotel_name }">${rvo.room_price }</b></h4>
          <hr>
           <p style="text-align: center;  font-size: 15px;">위 내용을 모두 확인하였으며, 결제에 동의합니다</p>
 
