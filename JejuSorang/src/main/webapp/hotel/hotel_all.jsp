@@ -49,16 +49,10 @@ $(document).ready(function() {
     <div class="col-sm-3" id="cookie">
       <div style="width: 10px;height: 50px"></div>
 	 <h3 class="sectiontitle">최근 본 목록</h3> 
-	 <h3 class="sectiontitle">최근 본 목록</h3>
 	 <div class="inline">
 	  <table class="table" style="background-color:orange">
-       <c:forEach var="hvo" items="${cooList }" varStatus="s">
-        <c:if test="${cooList.index<9 }">
-         <a href="../hotel/hotel_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width: 100px;height: 100px"></a>
-         </c:if>
-         </c:forEach>
        <c:forEach var="hvo" items="${cList }" varStatus="s">
-        <c:if test="${s.index<9 }">
+        <c:if test="${s.index<7 }">
          <a href="../hotel/hotel_before_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width: 100px;height: 100px"></a>
         </c:if>
        </c:forEach>
