@@ -59,8 +59,9 @@ function requestPay() {
 		        location.href="../mypage/rent_reserve_list.do"
 		    } else {
 		        var msg = '결제에 실패하였습니다.';
+		        alert('결제에 실패했습니다!');
 		        msg += '에러내용 : ' + rsp.error_msg;
-		        location.href="../reserve/rent_reserve_ok.do"
+		        location.href="../main/main.do"
 		    }
 		});
 	}
