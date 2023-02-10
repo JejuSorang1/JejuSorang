@@ -58,7 +58,7 @@
         }
 
         .today {
-            background-color: #FFF978;            
+            background-color: #FACD87;            
             color: #fff;
             font-weight: 600;
             cursor: pointer;

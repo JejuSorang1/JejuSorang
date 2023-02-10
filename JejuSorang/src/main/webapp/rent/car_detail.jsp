@@ -357,7 +357,7 @@ $(function(){
       </table>
       </div>
      </div>
-     <div class="text-center" id="dialog" title="예약하기" style="display:none;color:gray;font-size:15px">
+     <div class="text-center" id="dialog" title="예약" style="display:none;color:gray;font-size:15px">
      <div class="containerx">
      <div class="rowx" style="height:450px;width:1200px" >
      <table class="text-left" border=1 width=1130>
@@ -374,10 +374,10 @@ $(function(){
       </td>
 
       <td class="table1" id="td1" width=30% valign=top >
-      <img src="../img/reservere.png" style="width:600px;height:180px">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img id="coupon" src="../img/couponc.png" style="width:210px;height:65px">
+      <img src="../img/jejucoupon.jpg" style="width:600px;height:220px">
+      <p class="text-center">쿠폰 먼저 다운받으러 가기</p>
        <br>
-       <br>
+       
        <div class="text-center">
         <h3 style="font-size:15px"><b>차량명:</b>&nbsp;<b><span style="color:black">${vo.car_name }</span></b></h3><br> 
         <h3 style="font-size:14px"><b>체크인:</b>&nbsp;<span id="cin"></span></h3><br>
