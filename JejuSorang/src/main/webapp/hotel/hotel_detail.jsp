@@ -25,18 +25,18 @@
 let u=0;
 $(function(){
 	$('.ups').click(function(){
-		$('.rupdate').show();
+		$('.rupdate').hide();
 		let rno=$(this).attr("data-no");
 		if(u==0)
 		{
-			$(this).text("수정");
-			$('#u'+rno).hide();
+			$(this).text("취소");
+			$('#u'+rno).show();
 			u=1;
 		}
 		else
 		{
-			$(this).text("취소");
-			$('#u'+rno).show();
+			$(this).text("수정");
+			$('#u'+rno).hide();
 			u=0;
 		}
 	})
@@ -144,7 +144,7 @@ function requestPay() {
     <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">
         <img src="${hvo.hotel_image }" style="width:500px;height:400px">
-       </div>
+       </div>  
       <div class="col-md-4">
         <div class="product-dtl">
           <div class="product-info">
@@ -258,7 +258,7 @@ function requestPay() {
         </li>
       </ul>
       <br>
-      <div class="tab-content" id="myTabContent">
+      <div class="tab-content" id="myTabContent"style="height: 600px;overflow-y:scroll">
         <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
           <c:forEach var="rvo" items="${rList }">
           <div class="col-md-12">
@@ -361,6 +361,7 @@ function requestPay() {
         </div>
         </div>
         </div>
+        <div style="width: 10px;height: 50px"></div>
       </div>
      </div>
     <div id="dialog" title="예약하기" style="display:none">
@@ -405,13 +406,13 @@ function requestPay() {
 	      <h3 style="font-size:15px"><b>호텔명 :</b><br>
 	      <b><span style="color:black">${hvo.name }</span></b></h3><br>
 	      <h3 style="font-size:14px"><b>객실명 :</b><br>
-	      <span id="room_name"></span></h3><br>
+	      <span id="room_name" style="color:black"></span></h3><br>
 	      <h3 style="font-size:14px"><b>1박 가격 :</b><br>
-	      <span id="room_price"></span></h3><br>
+	      <span id="room_price" style="color:black"></span></h3><br>
 	      <h3 style="font-size:14px"><b>체크인 :</b><br>
-	      <span id="cin"></span></h3><br>
+	      <span id="cin" style="color:black"></span></h3><br>
 	      <h3 style="font-size:14px"><b>체크아웃 :</b><br>
-	      <span id="cout"></span></h3>
+	      <span id="cout" style="color:black"></span></h3>
 	    </td>
 		<div>
 	       <form method="post" action="../reserve/hotel_before_reserve.do">
