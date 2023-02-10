@@ -314,7 +314,7 @@ function requestPay() {
                             <c:if test="${sessionScope.id==revo.id }">
                               <span class="btn btn-xs btn-success ups" data-no="${revo.all_review_no }">수정</span>
                               <span class="btn btn-xs btn-danger" id="del_btn" data-no="${revo.all_review_no }">삭제</span>
-                              <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a>
+                             <!--  <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a> -->
                             </c:if>
                           </c:if>
                         </td>
@@ -401,13 +401,17 @@ function requestPay() {
          </div>
         </div>
 	    </td>
-	    <td width=30%>
-	      호텔명 :<br>
-	      ${hvo.name }<br>
-	      객실명 :<span id="room_name"></span><br>
-	      가격 :<span id="room_price"></span><br>
-	      체크인 :<span id="cin"></span><br>
-	      체크아웃 :<span id="cout"></span>
+	    <td width=30% class="text-center">
+	      <h3 style="font-size:15px"><b>호텔명 :</b><br>
+	      <b><span style="color:black">${hvo.name }</span></b></h3><br>
+	      <h3 style="font-size:14px"><b>객실명 :</b><br>
+	      <span id="room_name" style="color:black"></span></h3><br>
+	      <h3 style="font-size:14px"><b>1박 가격 :</b><br>
+	      <span id="room_price" style="color:black"></span></h3><br>
+	      <h3 style="font-size:14px"><b>체크인 :</b><br>
+	      <span id="cin" style="color:black"></span></h3><br>
+	      <h3 style="font-size:14px"><b>체크아웃 :</b><br>
+	      <span id="cout" style="color:black"></span></h3>
 	    </td>
 		<div>
 	       <form method="post" action="../reserve/hotel_before_reserve.do">
