@@ -380,8 +380,8 @@ $(function(){
        
        <div class="text-center">
         <h3 style="font-size:15px"><b>차량명:</b>&nbsp;<b><span style="color:black">${vo.car_name }</span></b></h3><br> 
-        <h3 style="font-size:14px"><b>체크인:</b>&nbsp;<span id="cin"></span></h3><br>
-        <h3 style="font-size:14px"><b>체크아웃:</b>&nbsp;<span id="cout"></span></h3>
+        <h3 style="font-size:14px"><b>대여시작:</b>&nbsp;<span id="cin"></span></h3><br>
+        <h3 style="font-size:14px"><b>대여종료:</b>&nbsp;<span id="cout"></span></h3>
        
        
        <form method="post" action="../reserve/rent_before_reserve.do">

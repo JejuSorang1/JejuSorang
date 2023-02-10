@@ -267,8 +267,8 @@
         <table>
           <tr>
             <td class="inline">
-              <input type=button value="체크인" id="inBtn">
-              <input type=button value="체크아웃" id="outBtn">
+              <input type=button value="대여시작" id="inBtn">
+              <input type=button value="대여종료" id="outBtn">
             </td>
           </tr>
         </table>
