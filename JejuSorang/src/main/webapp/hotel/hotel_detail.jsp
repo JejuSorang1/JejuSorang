@@ -405,13 +405,13 @@ function requestPay() {
 	      <h3 style="font-size:15px"><b>호텔명 :</b><br>
 	      <b><span style="color:black">${hvo.name }</span></b></h3><br>
 	      <h3 style="font-size:14px"><b>객실명 :</b><br>
-	      <span id="room_name"></span></h3><br>
+	      <span id="room_name" style="color:black"></span></h3><br>
 	      <h3 style="font-size:14px"><b>1박 가격 :</b><br>
-	      <span id="room_price"></span></h3><br>
+	      <span id="room_price" style="color:black"></span></h3><br>
 	      <h3 style="font-size:14px"><b>체크인 :</b><br>
-	      <span id="cin"></span></h3><br>
+	      <span id="cin" style="color:black"></span></h3><br>
 	      <h3 style="font-size:14px"><b>체크아웃 :</b><br>
-	      <span id="cout"></span></h3>
+	      <span id="cout" style="color:black"></span></h3>
 	    </td>
 		<div>
 	       <form method="post" action="../reserve/hotel_before_reserve.do">
