@@ -10,6 +10,26 @@
 <link rel="stylesheet" href="../css/rent_search.css"> 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+$(window).resize(function( event ) { 
+	  $(this).trigger('scroll'); 
+	});
+	// 페이지 읽힌 다음 위치 설정
+	$(document).ready(function() {
+
+	  // 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+	  var floatPosition = parseInt($(".move").css('top'));
+	  var divBoxHeight  = parseInt($('.move').outerHeight(true));
+
+	  $(window).scroll(function() {
+	    // 현재 스크롤 위치를 가져온다.
+	    var scrollTop = $(window).scrollTop();
+	    var newPosition = scrollTop + floatPosition + "px";
+
+	    $(".move").stop().animate({ "top" : newPosition }, 500);
+	 
+	  }).scroll();
+	});
+
 $(function(){
 	//초기화
  	var chk_arr=[];
@@ -63,14 +83,20 @@ $(function(){
 	
 	
 }); 
+
 </script>
+<style type="text/css">
+.move{
+	position: relative;
+}
+</style>
 </head>
 <body>
   <div class="container">
   <div class="row">
     
-       <div class="col-sm-3 ">
-       <div class="table" id="">
+       <div class="col-sm-3 move">
+       <div class="table" >
 	  <form id = "formId1" name="form1" method="post" action="../rent/rent_search.do"> 
 	    <div class="col-md-12">
 	    <br>
