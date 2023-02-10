@@ -84,7 +84,7 @@ a {
     <label for="tab2">묻고 답하기 관리</label>
     <label for="tab3">회원 관리</label>
     <label for="tab4">호텔예약 관리</label>
-    <label for="tab5">렌트카예약 관리</label>
+    <label for="tab5"><a href="../adminpage/rent_reserve_list.do">렌트카예약 관리</a></label>
     <hr>
     <div style="height: 50px"></div>
     

@@ -87,7 +87,7 @@ display: inline-block;
 <div class="wrapper row3">
   <main class="container clear"> 
     <!-- main body --> 
-    
+ 
     
       <h3 class="text-center">${sessionScope.name } 님의 마이페이지</h3>
       <div style="height: 15px"></div>

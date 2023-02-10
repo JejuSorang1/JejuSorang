@@ -88,7 +88,6 @@ public class RentReserveDAO {
 			  String sql="SELECT rrno,r.car_no,start_rent,end_rent,car_name,car_image,rprice,car_option1,rpycheck,id "
 					    +"FROM jj_car_1 c,jj_rent_reserve_1 r "
 					    +"WHERE c.car_no=r.car_no "
-					    +"AND id=? "
 					    +"ORDER BY rrno DESC";
 			  
 			  ps=conn.prepareStatement(sql);
@@ -126,7 +125,7 @@ public class RentReserveDAO {
 		  {
 			  conn=CreateConnection.getConnection();
 			  String sql="UPDATE jj_rent_reserve_1 SET "
-					    +"rpycheck='y' "
+					    +"rpycheck='Y' "
 					    +"WHERE rrno=?";
 			  ps=conn.prepareStatement(sql);
 			  ps.setInt(1, rrno);

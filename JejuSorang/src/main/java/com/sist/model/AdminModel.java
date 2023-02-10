@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.NoticeDAO;
+import com.sist.dao.RentReserveDAO;
 import com.sist.vo.NoticeVO;
+import com.sist.vo.RentReserveVO;
 
 @Controller
 public class AdminModel {
@@ -124,5 +126,24 @@ public class AdminModel {
       NoticeDAO dao=new NoticeDAO();
       dao.noticeUpdate(vo);
   	return "redirect:notice_list.do";
+  }
+  
+  @RequestMapping("adminpage/rent_reserve_list.do")
+  public String admin_rent_list(HttpServletRequest request,HttpServletResponse response) {
+	  RentReserveDAO dao=new RentReserveDAO();
+	  List<RentReserveVO> list=dao.rentreserveAdminPageData();
+	  request.setAttribute("list", list);
+	  request.setAttribute("admin_jsp","../adminpage/reserve_rent_list.jsp");
+	  request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
+	  CommonsModel.footerData(request);
+	  return "../main/main.jsp";
+  }
+  
+  @RequestMapping("adminpage/admin_reserve_ok.do")
+  public String admin_reserve_ok(HttpServletRequest request, HttpServletResponse response) {
+  	String rrno=request.getParameter("rrno");
+  	RentReserveDAO dao=new RentReserveDAO();
+  	dao.rentreserveAdminOk(Integer.parseInt(rrno));
+  	return "redirect:rent_reserve_list.do";
   }
 }
