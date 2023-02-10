@@ -19,16 +19,13 @@ $(window).resize(function( event ) {
 });
 // 페이지 읽힌 다음 위치 설정
 $(document).ready(function() {
-
   // 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
   var floatPosition = parseInt($("#cookie").css('top'));
   var divBoxHeight  = parseInt($('#cookie').outerHeight(true));
-
   $(window).scroll(function() {
     // 현재 스크롤 위치를 가져온다.
     var scrollTop = $(window).scrollTop();
     var newPosition = scrollTop + floatPosition + "px";
-
     $("#cookie").stop().animate({ "top" : newPosition }, 500);
  
   }).scroll();
@@ -43,30 +40,26 @@ $(document).ready(function() {
     top: 10px;
     background-color: white;
 }
-
 </style>
 </head>
 <body>  
-
   <div class="container">
     <div class="row">
     <div style="width: 100%;height: 2px; background-color:orange"></div>
     <div class="col-sm-3" id="cookie">
       <div style="width: 10px;height: 50px"></div>
-	 <h3 class="sectiontitle">최근 본 목록</h3>
+	 <h3 class="sectiontitle">최근 본 목록</h3> 
 	 <div class="inline">
 	  <table class="table" style="background-color:orange">
        <c:forEach var="hvo" items="${cList }" varStatus="s">
-        <c:if test="${s.index<6 }">
-         <a href="../hotel/hotel_before_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width: 150px;height: 150px">&nbsp;<br></a>
+        <c:if test="${s.index<7 }">
+         <a href="../hotel/hotel_before_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width: 100px;height: 100px"></a>
         </c:if>
        </c:forEach>
        </table>
       </div>
     </div>
-
   
-
     <div class="col-sm-9">
 	<div class="wrapper row3">
 	<table class="table">
@@ -132,16 +125,19 @@ $(document).ready(function() {
       <table class="table4">
         <tr>
           <td width="38%" class="text-left" rowspan="4">
+           
             <a href="../hotel/hotel_before_detail.do?hno=${hvo.hno }"><img src="${hvo.hotel_image }" style="width:300px;height:250px"></a>
           </td>
           <td width="3%"></td>
           <td width="42%">
+            
             <a href="../hotel/hotel_before_detail.do?hno=${hvo.hno }"><h4>${hvo.name }<span  style="color:orange">(${hvo.star })</span></h4></a>
 			<p> <h6><img src="../img/star.png" style="width:22px; height:22px">&nbsp;${hvo.grade }</h6></p>
 			<p> <img src="../img/point.png" style="width:22px; height:22px">&nbsp;${hvo.addr }</p>
 			<p> <img src="../img/clock.png" style="width:20px; height:20px">&nbsp;${hvo.time }</p>
           </td>
           <td width="17%">
+            
             <a href="../hotel/hotel_before_detail.do?hno=${hvo.hno }"><button type="button" class="btn btn-md btn-warning" style="float: right;">상세보기</button></a>
           </td>
          </tr>
@@ -164,7 +160,6 @@ $(document).ready(function() {
 	      </nav>
 		  </div>
 		  
-
 	  </main>
 	</div>
 	

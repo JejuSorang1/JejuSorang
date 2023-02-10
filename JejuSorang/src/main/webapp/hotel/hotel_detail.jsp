@@ -66,8 +66,10 @@ $(function(){
 	$('.rooms').click(function(){
 		let price=$(this).attr("data-price");
 		let name=$(this).attr("data-name");
+		let room_no=$(this).attr("data-no");
 		$('#room_name').text(name)
 		$('#room_price').text(price);
+		$('#room_no').val(room_no);
 	})
 	
 	
@@ -137,7 +139,7 @@ function requestPay() {
   <div class="container">
     <div style="width: 10px;height: 50px"></div>
     <div class="row">
-    <p> <a href="../hote/hotel_all.do"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
+    <p> <a href="../hotel/hotel_all.do"><img src="../img/back.png" width="35px";height="35px" style="float: right;" title="뒤로가기"></a></p>&nbsp;<h5>목록 보기</h5>
     <div style="width: 100%;height: 2px; background-color:orange"></div>
     <div style="width: 100%;height: 20px"></div>
       <div class="col-md-5">
@@ -312,7 +314,7 @@ function requestPay() {
                             <c:if test="${sessionScope.id==revo.id }">
                               <span class="btn btn-xs btn-success ups" data-no="${revo.all_review_no }">수정</span>
                               <span class="btn btn-xs btn-danger" id="del_btn" data-no="${revo.all_review_no }">삭제</span>
-                              <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a>
+                             <!--  <a href="../all_review/all_review_delete.do?all_review_no=${revo.all_review_no }&no=${revo.cate_no}&cate_no=1" class="btn btn-xs btn-danger">삭제</a> -->
                             </c:if>
                           </c:if>
                         </td>
@@ -381,7 +383,7 @@ function requestPay() {
                     <table class="table2">
                       <tr>
                       <td>
-                          <img src="${rvo.room_image }" style="width:300px;height:250px;" data-price="${rvo.room_price }" data-name="${rvo.room_name }" class="rooms">
+                          <img src="${rvo.room_image }" style="width:300px;height:250px;" data-price="${rvo.room_price }" data-name="${rvo.room_name }" data-no="${rvo.room_no }" class="rooms">
                           <br><h4><b>${rvo.room_name }</b></h4>
 				          <p> <img src="../img/persons.png" style="width:20px;height:20px">&nbsp;${rvo.room_persons }</p>
 				          <p> <img src="../img/bed.png" style="width:20px;height:20px">&nbsp;${rvo.room_bed_info }</p>
@@ -399,13 +401,17 @@ function requestPay() {
          </div>
         </div>
 	    </td>
-	    <td width=30%>
-	      호텔명 :<br>
-	      ${hvo.name }<br>
-	      객실명 :<span id="room_name"></span><br>
-	      가격 :<span id="room_price"></span><br>
-	      체크인 :<span id="cin"></span><br>
-	      체크아웃 :<span id="cout"></span>
+	    <td width=30% class="text-center">
+	      <h3 style="font-size:15px"><b>호텔명 :</b><br>
+	      <b><span style="color:black">${hvo.name }</span></b></h3><br>
+	      <h3 style="font-size:14px"><b>객실명 :</b><br>
+	      <span id="room_name" style="color:black"></span></h3><br>
+	      <h3 style="font-size:14px"><b>1박 가격 :</b><br>
+	      <span id="room_price" style="color:black"></span></h3><br>
+	      <h3 style="font-size:14px"><b>체크인 :</b><br>
+	      <span id="cin" style="color:black"></span></h3><br>
+	      <h3 style="font-size:14px"><b>체크아웃 :</b><br>
+	      <span id="cout" style="color:black"></span></h3>
 	    </td>
 		<div>
 	       <form method="post" action="../reserve/hotel_before_reserve.do">
@@ -413,10 +419,9 @@ function requestPay() {
 	         <input type=hidden name="end" id="end"> 
 	         <input type=hidden name="start_rent" id="start_rent">
 	         <input type=hidden name="end_rent" id="end_rent"> 
-	         <input type=hidden name="room_no" value="${rvo.room_no }">
+	         <input type=hidden name="room_no" id="room_no">
 	         <input type=hidden name="room_price" value="${rvo.room_price }">
-	         <input type=hidden name="hotel_name" value="${hvo.name }">
-	         
+	         <input type=hidden name="hotel_no" value="${hvo.hno }">
 	         <button type="submit" class="button" data-id="${sessionScope.id }" id="reserveBtn" style="float: right; margin-right: 5px;">예약하기</button>
 	       </form>      
       </div>

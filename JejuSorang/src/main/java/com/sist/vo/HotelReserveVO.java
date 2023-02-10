@@ -13,24 +13,27 @@ HNO              NUMBER
 RNO				NUMBER
  */           
 public class HotelReserveVO {
-	private int hrno,hprice,hno;
-	private String hreno,id,hpycheck,ckin,ckout,rno;
-	private HotelVO hvo;
-	private RoomVO rvo;
-	private MemberVO mvo;
+	private int hrno,hprice,hno,rno;
+	private String hreno,id,hpycheck,ckin,ckout;
+	private HotelVO hvo = new HotelVO();
+	private RoomVO rvo = new RoomVO();
+	private MemberVO mvo=new MemberVO();
 	
+	
+	
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
 	public RoomVO getRvo() {
 		return rvo;
 	}
 	public void setRvo(RoomVO rvo) {
 		this.rvo = rvo;
 	}
-	public String getRno() {
-		return rno;
-	}
-	public void setRno(String rno) {
-		this.rno = rno;
-	}
+	
 	public HotelVO getHvo() {
 		return hvo;
 	}
