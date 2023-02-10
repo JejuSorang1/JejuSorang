@@ -98,11 +98,15 @@ font-size: 15px;
 			       <hr style="border: solid 1px gray; " >
 			      <p>차량정보 : ${cvo.car_option1 }</p> 
 			      <br>
-			     <ul style="t">
-			      <li>운전자 정보 : ${sessionScope.name }  </li>
-			      <li>생년월일 : ${sessionScope.birthday }</li>
-			      <li>휴대폰번호 : ${sessionScope.phone }</li>
-			      <li>이메일 주소 : ${sessionScope.email } </li>
+			     <ul>
+			   <li>이름 <br>
+			   <input type="text" value="${sessionScope.name }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px; size: "40" readonly></li>
+			   <li>생년월일 <br>
+			      <input type="text" value="${sessionScope.birthday }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px;" readonly></li>
+			   <li>휴대폰번호 <br>
+			   <input type="text" value="${sessionScope.phone }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px;" readonly></li>
+			   <li>이메일 주소<br>
+			      <input type="text" value="이메일 주소 : ${sessionScope.email }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px;" readonly></li>
 			    </ul>
 			    <br>
 			    <img src="../img/license.png" style="margin-bottom: 5px;">
