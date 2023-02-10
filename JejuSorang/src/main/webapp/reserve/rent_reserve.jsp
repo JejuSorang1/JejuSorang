@@ -100,13 +100,13 @@ font-size: 15px;
 			      <br>
 			     <ul>
 			   <li>이름 <br>
-			   <input type="text" value="${sessionScope.name }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px; size: "40" readonly></li>
+			   <input type="text" value="${sessionScope.name }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px;" readonly></li>
 			   <li>생년월일 <br>
 			      <input type="text" value="${sessionScope.birthday }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px;" readonly></li>
 			   <li>휴대폰번호 <br>
 			   <input type="text" value="${sessionScope.phone }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px;" readonly></li>
 			   <li>이메일 주소<br>
-			      <input type="text" value="이메일 주소 : ${sessionScope.email }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px;" readonly></li>
+			      <input type="text" value="${sessionScope.email }" style="width: 50%; border: solid 1px #CCCCCC; margin: 3px;" readonly></li>
 			    </ul>
 			    <br>
 			    <img src="../img/license.png" style="margin-bottom: 5px;">
